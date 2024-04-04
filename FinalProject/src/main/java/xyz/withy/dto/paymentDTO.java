@@ -10,7 +10,7 @@ PAYMENT_NO          NOT NULL NUMBER       결제 번호
 PAYMENT_USER_NO              NUMBER       회원 번호
 PAYMENT_TICKET_CODE          VARCHAR2(10) 결제 이용권 코드
 PAYMENT_DATE        NOT NULL DATE         결제 날짜
-PAYMENT_STATUS      NOT NULL NUMBER    	  결제 상태
+PAYMENT_STATUS      NOT NULL NUMBER    	  결제 상태 rkdkdkdk
 */
 @Data
 @Builder
