@@ -11,7 +11,7 @@
 <c:set var="CONTEXT_PATH" value="${pageContext.request.contextPath}" scope="application"/>
 <c:set var="RESOURCES_PATH" value="${CONTEXT_PATH}/resources" scope="application"/>
 <!DOCTYPE html>
-<html>
+<html> 
 <head>
 <meta charset="UTF-8">
 <title>SPRING</title>
