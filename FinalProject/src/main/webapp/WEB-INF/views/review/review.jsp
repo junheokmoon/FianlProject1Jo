@@ -7,75 +7,9 @@
 
 <head>
 <style>
-nav {
-	font-size: 12pt;
-	font-family: 'PT Sans', Arial, Sans-serif;
-	position: relative;
-}
 
-nav ul {
-	padding: 0;
-	margin: 0 auto;
-	width: auto;
-}
-
-nav li {
-	
-}
-
-nav a {
-	line-height: 50px;
-	height: 50px;
-}
-
-nav li a {
-	box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-}
-
-nav li:last-child a {
-	border-right: 0;
-}
-
-nav a:hover, nav a:active {
-	
-}
-
-nav a#pull {
-	display: none;
-}
-
-html {
-	-webkit-touch-callout: none;
-	-webkit-user-select: none;
-	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-}
-
-ul {
-	/*list-style-type: none;*/
-	margin: 0;
-	padding: 0;
-	background-color: #333;
-	text-align: center;
-}
-
-li {
-	/*position: relative;*/
-	display: inline-block;
-}
-
-li a {
-	color: #FFFFFF;
-	text-align: center;
-	padding: 14.5px 16px;
-	text-decoration: none;
-}
-
-li a:hover {
-	/*color: #597812;*/
-	color: #FFD400;
-	font-weight: normal;
+.row v-center {
+	background-color: gray;
 }
 
 .menu {
@@ -95,35 +29,6 @@ li a:hover {
 	font-size: 13px
 }
 
-.navbar-nav {
-    display: flex;
-    justify-content: center;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #f0f0f0;
-    width: 100%;
-    margin-top: 20px; /* 또는 필요한 만큼의 공간 */
-}
-
-.nav-item {
-    margin-right: 10px; /* 마지막 항목에 대해 오른쪽 여백을 제거하려면 :not(:last-child) 선택자 사용 고려 */
-}
-
-.nav-link {
-    color: black;
-    font-weight: bold;
-    font-size: 1.5em;
-    text-decoration: none;
-    display: block;
-}
-
-.nav-link:hover {
-    background-color: #ddd;
-}
-
-
 .header-content {
 	display: flex;
 	justify-content: center; /* 가로 방향 중앙 정렬 */
@@ -142,14 +47,7 @@ li a:hover {
 	width: 100%; /* 부모 요소의 100% 너비를 차지하도록 설정 */
 }
 
-.navbar-nav.ml-auto {
-	flex-direction: row !important; /* 항목들을 가로로 유지 */
-	background-color: transparent !important; /* 원하는 색상으로 설정 */
-	position: center;
-}
-.navbar-nav .nav-item {
-	display: inline-block; /* 항목들을 인라인으로 표시 */
-	}
+
 </style>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -173,6 +71,7 @@ li a:hover {
 
 </head>
 <body>
+	<%-- 
 	<div class="text-center" style="padding-top: 20px; margin: 0 auto;">
 		<ul class="navbar-nav ml-auto">
 			<li class="nav-item"><a class="nav-link" href="#landings">넷플릭스</a>
@@ -186,32 +85,30 @@ li a:hover {
 				href="components.html">디즈니 플러스</a></li>
 		</ul>
 	</div>
+	--%>
 
 
+	<header class="fh p-0 v-center bg-white" style="height: 75vh;">
+    <div class="container">
+        <div class="header-content">
+            <div class="row v-center justify-content-center" style="background-color: aliceblue; height: 70vh;">
+                <div class="col-lg-5 text-right">
+                    <!-- 이미지 콘텐츠 -->
+                    <img src="<c:url value='/images/tear.jpg'/>" alt="" class="img-fluid z-index-2 relative rellax tablet-lg-hidden" data-rellax-speed="2" data-rellax-percentage="0.5">
+                </div>
+                <div class="col-lg-6 z-index-1">
+                    <!-- 텍스트 콘텐츠 -->
+                    <div class="page-title mb-0">눈물의 여왕(제목)</div>
+                    <p class="lead w-80 m-y-30" data-aos="fade-in" data-aos-delay="100">이런이런 내용의 드라마 입니다.(내용)</p>
+                    <p>별점 평균 : ★★★★</p>
+                    <p>tv프로그램</p>
+                    <a href="#about-us" class="btn btn-outline-primary mr-5"><i class="fas fa-user mr-5"></i> <span>위티 참여하기</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
 
-	<header class="fh p-0 v-center bg-white" style="height: 70vh;">
-		<div class="container">
-			<div class="header-content">
-				<div class="row v-center">
-					<div class="col-lg-5 text-right">
-						<!-- .img-fluid 클래스 추가 -->
-						<img src="<c:url value="/images/tear.jpg"/>" alt=""
-							class="img-fluid z-index-2 relative rellax tablet-lg-hidden"
-							data-rellax-speed="2" data-rellax-percentage="0.5">
-					</div>
-					<div class="col-lg-6 z-index-1 tablet-lg-top-45">
-						<div class="page-title mb-0">눈물의 여왕(제목)</div>
-						<p class="lead w-80 m-y-30" data-aos="fade-in"
-							data-aos-delay="100">이런이런 내용의 드라마 입니다.(내용)</p>
-						<p>별점 평균 : ★★★★</p>
-						<p>tv프로그램	</p>
-						<a href="#about-us" class="btn btn-outline-primary mr-5"><i
-							class="fas fa-user mr-5"></i> <span>위티 참여하기</span></a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</header>
 
 
 	<div style="display: flex; justify-content: center;">
