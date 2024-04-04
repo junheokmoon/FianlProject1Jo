@@ -39,6 +39,11 @@ public class MainController {
 		return "/review/review";
 	}
 	
+	@RequestMapping("/program")
+	public String program() {
+		return "/review/program";
+	}
+	
 	@RequestMapping("/guide")
 	public String guide() {
 		return "/guide/guide";
