@@ -17,7 +17,7 @@
 <title>SPRING</title>
 <style type="text/css">
 #header {
-	height: 90px;
+	height: 120px;
 }
 
 #content {

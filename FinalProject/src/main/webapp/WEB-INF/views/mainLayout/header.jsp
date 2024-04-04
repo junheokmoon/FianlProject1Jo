@@ -28,8 +28,9 @@
     <link href="<c:url value="/css/glightbox.min.css"/>" type="text/css" rel="stylesheet">
     <link href="<c:url value="/css/swiper-bundle.min.css"/>" type="text/css" rel="stylesheet">
     <link href="<c:url value="/css/style.css"/>" type="text/css" rel="stylesheet">
-    <link href="<c:url value="/css/fontawesome-all.min.css"/>" type="text/css" rel="stylesheet">
     <!-- Fonts -->
+    <link href="<c:url value="/css/fontawesome-all.min.css"/>" type="text/css" rel="stylesheet">
+    
 </head>
 
 <body style="border: 1px solid pink;">

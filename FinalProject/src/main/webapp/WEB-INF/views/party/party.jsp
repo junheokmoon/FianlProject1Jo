@@ -22,6 +22,11 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 <link href="<c:url value="/css/partymain.css"/>" type="text/css" rel="stylesheet">
 
+<style type="text/css">
+#Area{
+	position: static;
+}
+</style>
 </head>
 <body>
 <div id="Area">
@@ -44,48 +49,68 @@
       <div class="choiceContents" style="margin-top: 10px;">공유계정을 받아 사용하고 싶어요</div>
   </button>
 </div>
-	<div id="display"></div>
+	<div class="mainbodyL">
+		<div class="contents">
+			<h5 color="var(--gray-800)" class="sc-iwjdpV dHofiW">50% 더 저렴하게 이용할 수 있어요</h5>
+			<div>
+				<div height="4" class="sc-hBUSln ciZnfs"></div>
+			</div>
+			<small color="var(--gray-700)" class="sc-ezbkAF dKNqlI">파티장 수수료 X</small>
+		</div>
+		
+		<div class="contents">
+			<h5 color="var(--gray-800)" class="sc-iwjdpV dHofiW">정산 보장제 적용 받아요</h5>
+			<div>
+				<div height="4" class="sc-hBUSln ciZnfs"></div>
+			</div>
+			<small color="var(--gray-700)" class="sc-ezbkAF dKNqlI">파티원이 구해지지 않아도 정산받는 금액 100% 보장</small>
+		</div>
+		
+		<div class="contents" >
+			<h5 color="var(--gray-800)" class="sc-iwjdpV dHofiW">지금 바로 볼 수 있어요</h5>
+			<div>
+				<div height="4" class="sc-hBUSln ciZnfs"></div>
+			</div>
+			<small color="var(--gray-700)" class="sc-ezbkAF dKNqlI">파티장은 기다리지 않고 바로 시청할 수 있어요.</small>
+		</div>
+			<div id="BtnArea"><button id="startBtn">파티장으로 시작</button></div>
+		
+	</div>
+	
+	
+	<div class="mainbodyM">
+	<div class="contents" >
+			<h5 color="var(--gray-800)" class="sc-iwjdpV dHofiW">자동으로
+				재매칭해드려요</h5>
+			<div>
+				<div height="4" class="sc-hBUSln ciZnfs"></div>
+			</div>
+			<small color="var(--gray-700)" class="sc-ezbkAF dKNqlI">파티가
+				해체되도 최우선순위로 재매칭해드려요.</small>
+		</div>
+		
+		<div class="contents" >
+			<h5 color="var(--gray-800)" class="sc-iwjdpV dHofiW">공유 계정으로 부담없이 이용해요</h5>
+			<div>
+				<div height="4" class="sc-hBUSln ciZnfs"></div>
+			</div>
+			<small color="var(--gray-700)" class="sc-ezbkAF dKNqlI">함께 쓰는 계정은 소중히 이용해주세요.</small>
+		</div>
+		
+		<div class="contents" >
+			<h5 color="var(--gray-800)" class="sc-iwjdpV dHofiW">중도해지는 불가능해요</h5>
+			<div>
+				<div height="4" class="sc-hBUSln ciZnfs"></div>
+			</div>
+			<small color="var(--gray-700)" class="sc-ezbkAF dKNqlI">파티가 시작되면 중도 해지는 불가능해요</small>
+		</div>
+			<div id="BtnArea"><button id="startBtn">파티원으로 시작</button></div>
+		
+</div>	
 	
 </div>
 
 <script type="text/javascript">
-
-
-document.querySelector(".button-a").addEventListener('click', function() {
-    var xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function() {
-      if (xhr.readyState == 4) {
-        if (xhr.status == 200) {
-          document.getElementById("display").innerHTML = xhr.responseText;
-        } else {
-          alert("에러코드 = " + xhr.status)
-        }
-      }
-    }
-
-    // GET 요청으로 partyReader.jsp의 내용을 가져옵니다.
-	xhr.open("GET", "<c:url value='/partyLeader'/>", true);
-    xhr.send();
-          document.getElementById("display").innerHTML = xhr.responseText;
-  });
-
-document.querySelector(".button-b").addEventListener('click', function() {
-    var xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function() {
-      if (xhr.readyState == 4) {
-        if (xhr.status == 200) {
-          document.getElementById("display").innerHTML = xhr.responseText;
-        } else {
-          alert("에러코드 = " + xhr.status)
-        }
-      }
-    }
-
-    // GET 요청으로 partyMember.jsp의 내용을 가져옵니다.
-	xhr.open("GET", "<c:url value='/partyMember'/>", true);
-    xhr.send();
-  });
-	
 
 document.addEventListener('DOMContentLoaded', function() {
 
