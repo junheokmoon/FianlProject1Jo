@@ -11,7 +11,7 @@ TICKET_PRICE  NOT NULL NUMBER        요금
 TICKET_IMAGE1          VARCHAR2(500) 이미지
 TICKET_IMAGE2          VARCHAR2(500) 이미지2
 TICKET_OTT_NO          NUMBER        종류
-TICKET_MONTH  NOT NULL NUMBER        개월수
+TICKET_MONTH  NOT NULL NUMBER        개월수 수정해봤습니다
 */ 
 
 @Data
