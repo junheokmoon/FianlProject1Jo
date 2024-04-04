@@ -56,7 +56,8 @@
 }
 
 @media ( max-width : 768px) { /* 필요에 따라 max-width 조정 */
-	.navbar-nav.ml-auto {
+	
+.navbar-nav.ml-auto {
 		flex-direction: row !important; /* 항목들을 가로로 유지 */
 		background-color: transparent !important; /* 원하는 색상으로 설정 */
 	}
@@ -165,34 +166,7 @@
 				</div>
 			</header>
 			</div>
-					<%-- 
-					<div class="header-content">
-						<div class="row v-center">
-							<div class="col-lg-4 z-index-1 tablet-lg-top-">
-								<h6 class="fs-18 text-primary" style="font-size: 20px;">어떤 걸
-									볼까?</h6>
-								<h1 class="page-title mb-20" style="font-style: bold;">둘러보기</h1>
-								<!-- <p class="header-text fw-regular fs-18">
-									무엇을 봐야할지 망설여지신다구요? <br>지금'위티'들의 리뷰를 확인하세요!!
-								</p> -->
-								<h4 style="color: gray;">무엇을봐야할지 망설여지신다구요? <br>지금 '위티'들의 리뷰를 확인하세요!</h4>
-								<a href="#" class="btn"><i
-									class="fas fa-cog mr-5"></i> <span>요금표 보기</span></a>
-							</div>
-							<!-- / column -->
-							<div class="col-lg-8 text-right">
-								<img src="assets/images/ott.jpg" alt=""
-									class="z-index-2 relative rellax w-80 tablet-lg-hidden"
-									data-rellax-speed="2" data-rellax-percentage="0.5">
-							</div>
-							<!-- / column -->
-						</div>
-						<!-- / row -->
-					</div>
-					<!-- / header-content -->
-				</div>--%>
-				<!-- / container -->
-			
+					
 
 		</div>
 		<a class="carousel-control-prev" href="#imageCarousel" role="button"
@@ -203,7 +177,6 @@
 			aria-hidden="true"></span> <span class="sr-only">Next</span>
 		</a>
 	</div>
-
 
 
 
@@ -236,19 +209,21 @@
 				<div class="container main-container p-0">
     <div class="row" id="itemContainer">
         <% for (int i = 0; i <= 14; i++) { %>
-        <div class="col-md-6 col-lg-4">
-            <a href="review.jsp" class="demo-item-link" target="_blank">
-                <div class="card">
-                    <img class="card-img-top" src="<c:url value="/images/tear.jpg"/>" alt="">
-                    <div class="card-body text-center">
-                        <h4 class="card-title fs-20 mb-5">눈물의 여왕</h4>
-                        <p class="fs-14 fw-medium text-secondary-dark mb-0">클릭하여 리뷰 확인하기!</p>
-                    </div>
-                </div>
-            </a>
+<div class="col-md-6 col-lg-4">
+    <a class="demo-item-link" target="_blank" href="<c:url value='/review' >
+        <c:param name='id' value='${i}' />
+    </c:url>">
+        <div class="card">
+            <img class="card-img-top" src="<c:url value='/images/tear.jpg'/>" alt="">
+            <div class="card-body text-center">
+                <h4 class="card-title fs-20 mb-5">눈물의 여왕</h4>
+                <p class="fs-14 fw-medium text-secondary-dark mb-0">클릭하여 리뷰 확인하기!</p>
+            </div>
         </div>
-        <% } %>
-    </div>
+    </a>
+</div>
+<% } %>
+</div>
     <!-- "더보기" 버튼 -->
     <div class="text-center mt-4">
         <button id="loadMore" class="btn btn-primary">더보기</button>
@@ -339,7 +314,9 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
-    <!-- / Rellax -->
+</script>
+
+
 	<!-- css 동적페이지를 위한 코드 -->
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>

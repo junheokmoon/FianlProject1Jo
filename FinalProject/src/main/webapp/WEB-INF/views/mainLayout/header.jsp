@@ -64,7 +64,7 @@
                         <a class="nav-link" href="#about-us">이벤트</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<c:url value="/review"/>">리뷰/평점</a>
+						<a class="nav-link" href="<c:url value="/program"/>">리뷰/평점</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="<c:url value="/guide"/>">가이드</a>
