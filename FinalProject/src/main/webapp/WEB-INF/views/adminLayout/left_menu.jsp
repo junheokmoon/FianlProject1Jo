@@ -7,10 +7,31 @@
 <!DOCTYPE html>
 <html>
 <style>
-	.effect mainnav-lg {
-	  vertical-align: top;
-	  display: table-cell;
-	}
+.effect mainnav-lg {
+	vertical-align: top;
+	display: table-cell;
+}
+	
+.navbar-brand22 {
+	float: left;
+	height: 100px;
+	padding: 15px 55px;
+	font-size: 18px;
+	line-height: 20px;
+}
+/* 
+#mainnav-menu-wrap {
+	margin-top: -50px;
+	padding-top: 130px;
+} */
+
+.nano2 {
+  position: relative;
+  top: 80px;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
 </style>
 <head>
     <meta charset="utf-8">
@@ -23,14 +44,15 @@
 
     <!--Open Sans Font [ OPTIONAL ] -->
      <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;subset=latin" rel="stylesheet">
-
-
+     
     <!--Bootstrap Stylesheet [ REQUIRED ]-->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
+    <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
+	<link href="<c:url value="/css/bootstrap.min.css"/>" type="text/css" rel="stylesheet">
 
     <!--Nifty Stylesheet [ REQUIRED ]-->
-    <link href="css/nifty.min.css" rel="stylesheet">
+    <!-- <link href="css/nifty.min.css" rel="stylesheet"> -->
+	<%-- <link href="<c:url value="/css/nifty.min.css"/>" type="text/css" rel="stylesheet"> --%>
+	<link href="<c:url value="/css/nifty.min.css"/>" type="text/css" rel="stylesheet">
 
     
     <!--Font Awesome [ OPTIONAL ]-->
@@ -67,18 +89,19 @@
 
 <body>
 	<div id="container" class="effect mainnav-lg">
-		
 		<header id="navbar">
 			<div id="navbar-container" class="boxed">
 			
 				<!--Brand logo & name-->
 				<!--================================-->
-				<div class="navbar-header">
-					<a href="index.jsp" class="navbar-brand">
-						<img src="img/logo.png" alt="Nifty Logo" class="brand-icon">
-						<div class="brand-title">
-							<span class="brand-text">사이트 로고</span>
-						</div>
+				<!-- <div class="navbar-header"> --><!-- 전체 네이비 배경색  -->
+				<div style="background-color: #46443e; "><!-- 전체 네이비 배경색  -->
+					<a href="<c:url value="/admin"/>" class="navbar-brand22">
+						<!-- <span class="brand-title brand-text">사이트 로고</span> -->
+						<!-- <span>사이트 로고</span> -->
+						<!-- <img src="img/logo.png" class="brand-icon"> -->
+						<!-- <img src="img/logo.png" style="width: 100px; height: 100px;"> -->
+						<img src="<c:url value="/images/wtylogo.png"/>" style="width: 100px; height: 100px;" alt="">
 					</a>
 				</div>
 				<!--================================-->
@@ -92,7 +115,7 @@
 			<nav id="mainnav-container">
 				<div id="mainnav">
 					<div id="mainnav-menu-wrap">
-						<div class="nano">
+						<div class="nano2">
 							<div class="nano-content">
 								<ul id="mainnav-menu" class="list-group">
 								
@@ -117,34 +140,18 @@
 										<a href="#">
 											<i class="fa fa-th"></i>
 											<span class="menu-title">
-												<strong>OTT 관리</strong>
+												<strong>OTT(이용권) 관리</strong>
 											</span>
 											<i class="arrow"></i>
 										</a>
 						
 										<!--Submenu-->
 										<ul class="collapse">
-											<li><a href="all_product.jsp">전체 상품 관리</a></li>
-											<li><a href="add_product.jsp">상품 신규 등록</a></li>
+											<li><a href="all_product.jsp">전체 상품(이용권) 관리</a></li>
+											<li><a href="add_product.jsp">상품(이용권) 신규 등록</a></li>
 											<li><a href="add_ott.jsp">OTT 신규 등록</a></li>
 										</ul>
 									</li>
-									
-									<!-- <li>
-										<a href="#">
-											<i class="fa fa-th"></i>
-											<span class="menu-title">
-												<strong>카테고리 관리</strong>
-											</span>
-											<i class="arrow"></i>
-										</a>
-						
-										Submenu
-										<ul class="collapse">
-											<li><a href="all_cate.jsp">카테고리 관리</a></li>
-											<li><a href="add_cate.jsp">신규 카테고리 등록</a></li>
-										</ul>
-									</li> -->
 									
 									<li>
 										<a href="#">
@@ -192,7 +199,11 @@
 											<li><a href="all_question.jsp">문의 답변하기</a></li>
 										</ul>
 									</li>
+
 								</ul>
+							</div>
+							<div style="text-align: center; padding-top: 420px;">
+								<button class="btn btn-rounded" type="button" onclick="location.href='#'"style="font-size: 15px; color: #fff; background-color: gray;">Withy 사이트 이동</button>
 							</div>
 						</div>
 					</div>

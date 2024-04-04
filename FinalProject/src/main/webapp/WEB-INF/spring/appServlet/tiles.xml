@@ -22,11 +22,11 @@
 		<!-- put-attribute : 템플릿 페이지를 구성하는 JSP 문서를 제공하기 위한 엘리먼트 -->
 		<!-- name 속성 : put-attribute 엘리먼트를 구분하기 위한 식별자를 속성값으로 설정 -->
 		<!-- value 속성 : put-attribute 엘리먼트로 제공할 JSP 문서의 경로를 속성값으로 설정 -->
+		<put-attribute name="menu" value="/WEB-INF/views/adminLayout/left_menu.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/views/adminLayout/main_content.jsp"/>
 	</definition>
-	
 
-	
-	
+
 	<definition name="party/*" extends="partymain">
 		<put-attribute name="content" value="/WEB-INF/views/party/{1}.jsp"/>
 	</definition>
