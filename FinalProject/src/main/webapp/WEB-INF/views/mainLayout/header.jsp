@@ -70,7 +70,7 @@
                         <a class="nav-link" href="<c:url value="/guide"/>">가이드</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<c:url value="/myinfo"/>">마이페이지</a>
+                        <a class="nav-link" href="<c:url value="/mypageInfo"/>">마이페이지</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="<c:url value="login"/>">로그인</a>

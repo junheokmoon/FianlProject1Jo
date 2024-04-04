@@ -55,11 +55,10 @@ public class MainController {
 		return "/login/login";
 	}
 	
-	@RequestMapping("/myinfo")
-	public String myinfo() {
-		return "/mypage/myinfo";
-	}
-	
+	@RequestMapping("/mypageInfo")
+	public String mypageInfo() {
+		return "/mypage/mypageInfo";
+	}	
 	
 	@RequestMapping("/admin")
 	public String admin() {

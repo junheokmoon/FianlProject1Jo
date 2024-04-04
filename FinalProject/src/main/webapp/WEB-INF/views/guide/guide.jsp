@@ -1,10 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"  %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 
 <head>
     <!-- Meta -->
@@ -138,7 +137,7 @@
                         <a class="nav-link" href="#navigations"><span>자주 묻는 질문</span></a>
                     </li>
                     <li class="nav-item tablet-xl-hidden">
-                        <a class="nav-link" href="../documentation/notice_display.html"><span>공지사항</span></a>
+                        <a class="nav-link" href="../mypage/noticeDisplay.jsp"><span>공지사항</span></a>
                     </li>
                 </ul><!-- / navbar-nav -->
             </div><!-- / navbar-collapse -->
