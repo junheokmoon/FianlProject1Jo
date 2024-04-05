@@ -1,5 +1,5 @@
 package xyz.withy.mapper;
 
-public interface ticketMapper {
+public interface ottkindMapper {
 
 }
