@@ -48,6 +48,10 @@
 		.updateProfile {
 			text-align: center;
 		}
+		
+		.side-nav {
+			margin-top: 150px;
+		}
     </style>
     <!-- Bootstrap 5 Core CSS -->
     <link rel="stylesheet" href="<c:url value="/css/bootstrap.min.css"/>">
@@ -61,20 +65,8 @@
     <link rel="stylesheet" href="<c:url value="/css/fontawesome-all.min.css"/>" type="text/css">
 </head>
 
-<body class="doc-body doc-style2" data-bs-spy="scroll" data-bs-target="#nav-scroll">
-    <div id="loader-wrapper">
-        <div id="loader"></div>
-        <div class="loader-section section-left"></div>
-        <div class="loader-section section-right"></div>
-    </div>
-
-    <nav class="side-nav left-nav navbar-expand-lg nav nav-style2 bg-body">
-
-        <div class="collapse navbar-collapse" id="navbar-toggle">
+    <nav class="side-nav left-nav">
             <ul class="pl-0" id="main-collapse">
-                <li class="sidenav-logo">
-                    <a href="<c:url value="/"/>"><img src="<c:url value="/images/wtylogo.png"/>"></a>
-                </li>
                    <li class="nav-item">
                        <a class="nav-link" href="mypageInfo">회원정보수정</a>
                    </li><!-- / nav-item -->
@@ -91,9 +83,9 @@
                        <a class="nav-link" href="withdrawal">회원탈퇴</a>
                    </li><!-- / nav-item -->           
             </ul><!-- / main-collapse -->
-        </div><!-- / collapse -->
     </nav><!-- / nav-scroll -->
     <!-- / side-nav -->
+
 
     <div class="page-container">
         <div class="doc-container container-fluid">
@@ -192,5 +184,4 @@
 
     <!-- copy-to-clipboard -->
     <script src="<c:url value="/js/clipboard.min.js"/>"></script>
-</body>
 </html>

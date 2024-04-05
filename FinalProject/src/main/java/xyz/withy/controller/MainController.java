@@ -60,6 +60,26 @@ public class MainController {
 		return "/mypage/mypageInfo";
 	}	
 	
+	@RequestMapping("/mypageParty")
+	public String mypageParty() {
+		return "/mypage/mypageParty";
+	}
+	
+	@RequestMapping("/mypageInquiry")
+	public String mypageInquiry() {
+		return "/mypage/mypageInquiry";
+	}
+	
+	@RequestMapping("/withdrawal")
+	public String withdrawal() {
+		return "/mypage/withdrawal";
+	}
+	
+	@RequestMapping("/noticeDisplay")
+	public String noticeDisplay() {
+		return "/mypage/noticeDisplay";
+	}
+	
 	@RequestMapping("/admin")
 	public String admin() {
 		return "admin";
