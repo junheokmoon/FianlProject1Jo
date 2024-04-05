@@ -67,7 +67,7 @@
 						<a class="nav-link" href="<c:url value="/program"/>">리뷰/평점</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<c:url value="/guide"/>">가이드</a>
+                        <a class="nav-link" href="<c:url value="/"/>">가이드</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="<c:url value="/mypageInfo"/>">마이페이지</a>
