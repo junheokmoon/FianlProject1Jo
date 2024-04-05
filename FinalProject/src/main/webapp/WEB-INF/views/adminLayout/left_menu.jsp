@@ -1,90 +1,86 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"  %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>      
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
+<%-- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> --%>
     
 <!DOCTYPE html>
 <html>
-<style>
-.effect mainnav-lg {
-	vertical-align: top;
-	display: table-cell;
-}
-	
-.navbar-brand22 {
-	float: left;
-	height: 100px;
-	padding: 15px 55px;
-	font-size: 18px;
-	line-height: 20px;
-}
-/* 
-#mainnav-menu-wrap {
-	margin-top: -50px;
-	padding-top: 130px;
-} */
-
-.nano2 {
-  position: relative;
-  top: 80px;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-</style>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard | Nifty - Responsive admin template.</title>
-
-
+	<style>
+	.effect mainnav-lg {
+		vertical-align: top;
+		display: table-cell;
+	}
+		
+	.navbar-brand22 {
+		float: left;
+		height: 100px;
+		padding: 15px 55px;
+		font-size: 18px;
+		line-height: 20px;
+	}
+ 
+	#mainnav-menu-wrap {
+		margin-top: -50px;
+		padding-top: 130px;
+	}
+	
+	.nano2 {
+	  position: relative;
+	  top: 80px;
+	  width: 100%;
+	  height: 100%;
+	  overflow: hidden;
+	}
+	</style>
     <!--STYLESHEET-->
     <!--=================================================-->
 
     <!--Open Sans Font [ OPTIONAL ] -->
-     <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;subset=latin" rel="stylesheet">
-     
+	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;subset=latin" rel="stylesheet">
+
     <!--Bootstrap Stylesheet [ REQUIRED ]-->
-    <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
 	<link href="<c:url value="/css/bootstrap.min.css"/>" type="text/css" rel="stylesheet">
 
+
     <!--Nifty Stylesheet [ REQUIRED ]-->
-    <!-- <link href="css/nifty.min.css" rel="stylesheet"> -->
-	<%-- <link href="<c:url value="/css/nifty.min.css"/>" type="text/css" rel="stylesheet"> --%>
 	<link href="<c:url value="/css/nifty.min.css"/>" type="text/css" rel="stylesheet">
 
     
     <!--Font Awesome [ OPTIONAL ]-->
-    <link href="plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+	<link href="<c:url value="/plugins/font-awesome/css/font-awesome.min.css"/>" type="text/css" rel="stylesheet">
 
 
     <!--Animate.css [ OPTIONAL ]-->
-    <link href="plugins/animate-css/animate.min.css" rel="stylesheet">
+	<link href="<c:url value="/plugins/animate-css/animate.min.css"/>" type="text/css" rel="stylesheet">
 
 
     <!--Morris.js [ OPTIONAL ]-->
-    <link href="plugins/morris-js/morris.min.css" rel="stylesheet">
+	<link href="<c:url value="/plugins/morris-js/morris.min.css"/>" type="text/css" rel="stylesheet">
 
 
     <!--Switchery [ OPTIONAL ]-->
-    <link href="plugins/switchery/switchery.min.css" rel="stylesheet">
+	<link href="<c:url value="/plugins/switchery/switchery.min.css"/>" type="text/css" rel="stylesheet">
 
 
-    <!--Bootstrap Select [ OPTIONAL ]-->
-    <link href="plugins/bootstrap-select/bootstrap-select.min.css" rel="stylesheet">
+	<!--Bootstrap Select [ OPTIONAL ]-->
+	<link href="<c:url value="/plugins/bootstrap-select/bootstrap-select.min.css"/>" type="text/css" rel="stylesheet">
+
 
 
     <!--Demo script [ DEMONSTRATION ]-->
-    <link href="css/demo/nifty-demo.min.css" rel="stylesheet">
+	<link href="<c:url value="/css/demo/nifty-demo.min.css"/>" type="text/css" rel="stylesheet">
 
     <!--SCRIPT-->
     <!--=================================================-->
 
     <!--Page Load Progress Bar [ OPTIONAL ]-->
-    <link href="plugins/pace/pace.min.css" rel="stylesheet">
-    <script src="plugins/pace/pace.min.js"></script>
-
+	<link href="<c:url value="/plugins/pace/pace.min.css"/>" type="text/css" rel="stylesheet">
+	<script src="<c:url value="/plugins/pace/pace.min.js"/>"></script>
 </head>
 
 <body>
@@ -219,50 +215,46 @@
 	
 	<!--JAVASCRIPT-->
 	<!--=================================================-->
-
 	<!--jQuery [ REQUIRED ]-->
-	<script src="js/jquery-2.1.1.min.js"></script>
-
+	<script src="<c:url value="/js/jquery-2.1.1.min.js"/>"></script>
 
 	<!--BootstrapJS [ RECOMMENDED ]-->
-	<script src="js/bootstrap.min.js"></script>
-
+	<script src="<c:url value="/js/bootstrap.min.js"/>"></script>
 
 	<!--Fast Click [ OPTIONAL ]-->
-	<script src="plugins/fast-click/fastclick.min.js"></script>
-
+	<script src="<c:url value="/plugins/fast-click/fastclick.min.js"/>"></script>
 	
+ 
 	<!--Nifty Admin [ RECOMMENDED ]-->
-	<script src="js/nifty.min.js"></script>
-
+	<script src="<c:url value="/js/nifty.min.js"/>"></script>
 
 	<!--Morris.js [ OPTIONAL ]-->
-	<script src="plugins/morris-js/morris.min.js"></script>
-	<script src="plugins/morris-js/raphael-js/raphael.min.js"></script>
+	<script src="<c:url value="/plugins/morris-js/morris.min.js"/>"></script>
+	<script src="<c:url value="/plugins/morris-js/raphael-js/raphael.min.js"/>"></script>
 
 
 	<!--Sparkline [ OPTIONAL ]-->
-	<script src="plugins/sparkline/jquery.sparkline.min.js"></script>
+	<script src="<c:url value="/plugins/sparkline/jquery.sparkline.min.js"/>"></script>
 
 
 	<!--Skycons [ OPTIONAL ]-->
-	<script src="plugins/skycons/skycons.min.js"></script>
+	<script src="<c:url value="/plugins/skycons/skycons.min.js"/>"></script>
 
 
 	<!--Switchery [ OPTIONAL ]-->
-	<script src="plugins/switchery/switchery.min.js"></script>
+	<script src="<c:url value="/plugins/switchery/switchery.min.js"/>"></script>
 
 
 	<!--Bootstrap Select [ OPTIONAL ]-->
-	<script src="plugins/bootstrap-select/bootstrap-select.min.js"></script>
+	<script src="<c:url value="/plugins/bootstrap-select/bootstrap-select.min.js"/>"></script>
 
 
 	<!--Demo script [ DEMONSTRATION ]-->
-	<script src="js/demo/nifty-demo.min.js"></script>
+	<script src="<c:url value="/js/demo/nifty-demo.min.js"/>"></script>
 
 
 	<!--Specify page [ SAMPLE ]-->
-	<script src="js/demo/dashboard.js"></script>
+	<script src="<c:url value="/js/demo/dashboard.js"/>"></script>
 
 	<script type="text/javascript">
 		// 현재 url(경로) 파악하기
