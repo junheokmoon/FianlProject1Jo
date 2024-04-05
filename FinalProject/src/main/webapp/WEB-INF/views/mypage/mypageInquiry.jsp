@@ -13,59 +13,76 @@
     <meta name="description" content="Documentation">
     <meta name="author" content="kingstudio.ro">
     <!-- Favicon -->
-    <link rel="icon" href="assets/images/favicon.png">
+    <link rel="icon" href="<c:url value="/images/wtylogo.png"/>">
     <!-- Site Title -->
     <title>마이페이지</title>
-    <style>
-    	
+    <style>  
+    	.dYsQAv {
+		    margin-top: 29.3px;
+		    width: 100%;
+		    display: flex;
+		    -webkit-box-pack: justify;
+		    justify-content: space-between;
+		    -webkit-box-align: center;
+		    align-items: center;
+		    border-bottom: 1px solid rgb(227, 227, 227);
+		    padding: 8px 0px;
+		}
+		
+		.fsashJ {
+		    width: 24px;
+		    height: 24px;
+		}
+		
+		.aOeXW {
+		    font-size: 21px;
+		    font-weight: bold;
+		    line-height: 25px;
+		    text-align: right;
+		}
+		
+		.btn-primary {
+			float: right;
+		}
+		
+		.updateProfile {
+			text-align: center;
+		}
+		
+		.side-nav {
+			margin-top: 150px;
+		}
     </style>
     <!-- Bootstrap 5 Core CSS -->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="<c:url value="/css/bootstrap.min.css"/>">
     <!-- Custom Styles -->
-    <link rel="stylesheet" href="assets/css/animate.min.css">
-    <link rel="stylesheet" href="assets/css/aos.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/prism.css">
-    <link rel="stylesheet" href="assets/css/doc.css">
+    <link rel="stylesheet" href="<c:url value="/css/animate.min.css"/>">
+    <link rel="stylesheet" href="<c:url value="/css/aos.css"/>">
+    <link rel="stylesheet" href="<c:url value="/css/style.css"/>">
+    <link rel="stylesheet" href="<c:url value="/css/prism.css"/>">
+    <link rel="stylesheet" href="<c:url value="/css/doc.css"/>">
     <!-- Fonts -->
-    <link rel="stylesheet" href="assets/css/fontawesome-all.min.css" type="text/css">
+    <link rel="stylesheet" href="<c:url value="/css/fontawesome-all.min.css"/>" type="text/css">
 </head>
 
-<body class="doc-body doc-style2" data-bs-spy="scroll" data-bs-target="#nav-scroll">
-
-    <div id="loader-wrapper">
-        <div id="loader"></div>
-        <div class="loader-section section-left"></div>
-        <div class="loader-section section-right"></div>
-    </div>
-
-    <div id="#top"></div>
-
-    <nav class="side-nav left-nav navbar-expand-lg nav nav-style2 bg-body">
-
-
-        <div class="collapse navbar-collapse" id="navbar-toggle">
+    <nav class="side-nav left-nav">
             <ul class="pl-0" id="main-collapse">
-                <li class="sidenav-logo">
-                    <a href="index.html">이미지로고</a>
-                </li>
                    <li class="nav-item">
-                       <a class="nav-link" href="mypageInfo.jsp">회원정보수정</a>
+                       <a class="nav-link" href="mypageInfo">회원정보수정</a>
                    </li><!-- / nav-item -->
                    <li class="nav-item">
-                       <a class="nav-link" href="mypageParty.jsp">나의파티내역</a>
+                       <a class="nav-link" href="mypageParty">나의파티내역</a>
                    </li><!-- / nav-item -->
                    <li class="nav-item">
-                       <a class="nav-link" href="mypageInquery.jsp">나의 1:1 문의</a>
+                       <a class="nav-link" href="mypageInquiry">나의 1:1 문의</a>
                    </li><!-- / nav-item -->
                    <li class="nav-item">
-                       <a class="nav-link" href="mypageReply.jsp">나의 리뷰</a>
+                       <a class="nav-link" href="mypageReply">나의 리뷰</a>
                    </li><!-- / nav-item -->
                    <li class="nav-item">
-                       <a class="nav-link" href="withdrawal.jsp">회원탈퇴</a>
+                       <a class="nav-link" href="withdrawal">회원탈퇴</a>
                    </li><!-- / nav-item -->           
             </ul><!-- / main-collapse -->
-        </div><!-- / collapse -->
     </nav><!-- / nav-scroll -->
     <!-- / side-nav -->
 

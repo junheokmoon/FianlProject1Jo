@@ -74,7 +74,7 @@
                        <a class="nav-link" href="mypageParty">나의파티내역</a>
                    </li><!-- / nav-item -->
                    <li class="nav-item">
-                       <a class="nav-link" href="mypageInquery">나의 1:1 문의</a>
+                       <a class="nav-link" href="mypageInquiry">나의 1:1 문의</a>
                    </li><!-- / nav-item -->
                    <li class="nav-item">
                        <a class="nav-link" href="mypageReply">나의 리뷰</a>
@@ -89,7 +89,7 @@
     <div class="page-container">
         <div class="doc-container container-fluid">
                 <div class="col-lg-9">
-                    <h4 id="getting-started" class="doc-main-title">나의 1:1 문의</h4>
+                    <h4 id="getting-started" class="doc-main-title">회원탈퇴</h4>
                     <div id="introduction" class="doc-wrapper">
                                                                      
                 </div><!-- / column -->
@@ -116,12 +116,12 @@
 </div><!-- / page-container -->
 
 
-    <!-- Core JavaScript -->
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/theme.js"></script>
+     <!-- Core JavaScript -->
+    <script src="<c:url value="/js/bootstrap.bundle.min.js"/>"></script>
+    <script src="<c:url value="/js/theme.js"/>"></script>
 
     <!-- aos -->
-    <script src="assets/js/aos.js"></script>
+    <script src="<c:url value="/js/aos.js"/>"></script>
     <script>
         AOS.init({
           duration: 1200,
@@ -130,13 +130,28 @@
     <!-- / aos -->
 
     <!-- prism -->
-    <script src="assets/js/prism.js"></script>
+    <script src="<c:url value="/js/prism.js"/>"></script>
     <!-- / prism -->
 
     <!-- copy-to-clipboard -->
-    <script src="assets/js/clipboard.min.js"></script>
-  
-    <!-- / copy-to-clipboard -->
+    <script src="<c:url value="/js/clipboard.min.js"/>"></script>
+    <script>
+        var clipboard = new ClipboardJS('.btn');
 
-</body>
+        clipboard.on('success', function(e) {
+            console.log(e);
+            e.clearSelection();
+        });
+
+        clipboard.on('error', function(e) {
+            console.log(e);
+            e.clearSelection();
+        });
+    </script>
+    <!-- / copy-to-clipboard -->
+  	<script src="<c:url value="/js/prism.js"/>"></script>
+    <!-- / prism -->
+
+    <!-- copy-to-clipboard -->
+    <script src="<c:url value="/js/clipboard.min.js"/>"></script>
 </html>

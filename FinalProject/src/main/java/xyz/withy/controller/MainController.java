@@ -75,6 +75,11 @@ public class MainController {
 		return "/mypage/withdrawal";
 	}
 	
+	@RequestMapping("/mypageReply")
+	public String mypageReply() {
+		return "/mypage/mypageReply";
+	}	
+	
 	@RequestMapping("/noticeDisplay")
 	public String noticeDisplay() {
 		return "/mypage/noticeDisplay";

@@ -74,7 +74,7 @@
                        <a class="nav-link" href="mypageParty">나의파티내역</a>
                    </li><!-- / nav-item -->
                    <li class="nav-item">
-                       <a class="nav-link" href="mypageInquery">나의 1:1 문의</a>
+                       <a class="nav-link" href="mypageInquiry">나의 1:1 문의</a>
                    </li><!-- / nav-item -->
                    <li class="nav-item">
                        <a class="nav-link" href="mypageReply">나의 리뷰</a>
