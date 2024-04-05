@@ -767,7 +767,7 @@ tr.last-table-row td {
 }
 
 .table td, .table th {
-  padding: 1.25rem;
+  padding: 0.8rem;
   vertical-align: top;
   border-top: none;
   border-right: 1px solid #f1f4f7 !important;
@@ -1705,6 +1705,7 @@ a.btn, a.btn-social {
   color: #fff !important;
   background-color: #0978f5 !important;
   border-color: #0978f5 !important;
+  
 }
 
 .btn-primary-light, .btn-primary-light:focus, .btn-primary-light.active {

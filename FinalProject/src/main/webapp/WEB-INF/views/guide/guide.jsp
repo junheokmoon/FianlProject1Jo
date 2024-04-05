@@ -16,6 +16,7 @@
     <link rel="icon" href="<c:url value="/images/favicon.png"/>">
     <!-- Site Title -->
     <title>GUIDE</title>
+    <link href="<c:url value="/css/bootstrap.min.css"/>" rel="stylesheet">
 	<link rel="stylesheet" href="<c:url value="/css/animate.min.css"/>">
     <link rel="stylesheet" href="<c:url value="/css/aos.css"/>">
     <link rel="stylesheet" href="<c:url value="/css/style.css"/>">
@@ -89,36 +90,29 @@
 		white-space: pre-wrap;
 	}
 	
-	.navbar {
-		    position: fixed;
-		    top: 10;
-		    left: 0;
-		    width: 100%;
-		    z-index: 1000; /* 네비게이션 바가 다른 요소들 위에 오도록 설정 */
-		}
-		
-		body {
-		    padding-top: 70px; /* 네비게이션 바의 높이에 맞게 조절하세요 */
-		}
     </style>
     <!-- Bootstrap 5 Core CSS -->
     
-    <link href="<c:url value="/css/bootstrap.min.css"/>" rel="stylesheet">
-    <!-- Custom Styles -->
-    <link rel="stylesheet" href="<c:url value="/css/animate.min.css"/>">
-    <link rel="stylesheet" href="<c:url value="/css/aos.css"/>">
-    <link rel="stylesheet" href="<c:url value="/css/style.css"/>">
-    <!-- Fonts -->
-    <link rel="stylesheet" href="<c:url value="/css/fontawesome-all.min.css"/>" type="text/css">
 </head>
 
 <body data-bs-spy="scroll">
 
-        <div class="container">
-            <nav id="nav-scroll" class="navbar navbar-expand-lg secondary-nav snav-tab navbar-light bg-white-frosted-dark sticky-top" style="border: 5px solid red;">
-        
+        <div id="loader-wrapper">
+        <div id="loader"></div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+    </div> 
 
-            <div class="collapse navbar-collapse" id="navbar-toggle-sticky-secondary">
+    <nav id="nav-scroll" class="navbar navbar-expand-lg secondary-nav snav-tab navbar-light bg-white-frosted-dark sticky-top" style="border: 5px solid red;">
+        <div class="container">
+            <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-toggle-sticky-secondary" aria-controls="navbar-toggle-sticky-secondary" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="icon-bar top-bar"></span>
+                <span class="icon-bar middle-bar"></span>
+                <span class="icon-bar bottom-bar"></span>
+                <span class="sr-only">Toggle navigation</span>
+            </button><!-- / navbar-toggler -->
+
+            <div class="collapse navbar-collapse" id="navbar-toggle-sticky-secondary" style="border: 5px solid blue;">
                 <ul class="navbar-nav m-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="#base"><span>이용혜택</span></a>
@@ -140,8 +134,8 @@
                     </li>
                 </ul><!-- / navbar-nav -->
             </div><!-- / navbar-collapse -->
-            </nav><!-- / navbar -->
-        </div><!-- / container -->
+          </div>
+        </nav><!-- / navbar -->
     
 
   <div class="main-container">
@@ -575,7 +569,7 @@
 			 </div><!-- / container -->			
 		</section>
 	</div>
-       
+   
       	   
    
      <!-- Core JavaScript -->
