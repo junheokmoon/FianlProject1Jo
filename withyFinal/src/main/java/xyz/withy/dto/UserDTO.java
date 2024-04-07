@@ -23,7 +23,7 @@ USER_JOINDATE          DATE 		가입날짜
 
 @Data
 @Builder
-public class usertableDTO {
+public class UserDTO {
 	private int userNumber;
 	private String userId;
 	private String userPassword;
