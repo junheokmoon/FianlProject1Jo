@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 
 <head>
 
@@ -12,18 +13,18 @@
     <meta name="description" content="MiOne - Minimal Landing Page Theme">
     <meta name="author" content="kingstudio.ro">
     <!-- Favicon -->
-    <link rel="icon" href="/images/favicon.png">
+    <link rel="icon" href='<c:url value ="images/favicon.png"/>'>
     <!-- Site Title -->
     <title>MiOne - Minimal Landing Page Theme</title>
     <!-- Bootstrap 5 Core CSS -->
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom Styles -->
-    <link rel="stylesheet" href="/css/animate.min.css">
-    <link rel="stylesheet" href="/css/aos.css">
-    <link rel="stylesheet" href="/css/glightbox.min.css">
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href='<c:url value ="/css/animate.min.css"/>'>
+    <link rel="stylesheet" href='<c:url value ="/css/aos.css"/>'>
+    <link rel="stylesheet" href='<c:url value ="/css/glightbox.min.css"/>'>
+    <link rel="stylesheet" href='<c:url value ="/css/style.css"/>'>
     <!-- Fonts -->
-    <link rel="stylesheet" href="/css/fontawesome-all.min.css" type="text/css">
+    <link rel="stylesheet" href='<c:url value ="/css/fontawesome-all.min.css"/>' type="text/css">
 </head>
 
 <body>
@@ -38,7 +39,7 @@
 
     <nav id="nav-scroll" class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="../index.html"><img src="../assets/images/logo.png" alt=""></a>
+            <a class="navbar-brand" href="../index.html"><img src='<c:url value ="/images/logo.png"/>' alt=""></a>
 
             <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-toggle-nav-center" aria-controls="navbar-toggle-nav-center" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="icon-bar top-bar"></span>
@@ -47,31 +48,6 @@
                 <span class="sr-only">Toggle navigation</span>
             </button><!-- / navbar-toggler -->
 
-            <div class="collapse navbar-collapse" id="navbar-toggle-nav-center">
-               <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="../index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#x">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#x">Services</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#x">Portfolio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#x">Blog</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#x">Pricing</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link last-menu-item" href="#x">Contact</a>
-                    </li>
-                </ul><!-- / navbar-nav -->
-            </div><!-- / navbar-collapse -->
         </div><!-- / container -->
     </nav>
 
@@ -79,7 +55,7 @@
         <div class="container">
             <h1 class="page-title mb-10">매표소</h1>
             <nav class="breadcrumb p-y-0 p-x-0 mb-0">
-                <a class="breadcrumb-item" href="../index.html">Home</a>
+                <a class="breadcrumb-item" href="/withyFinal">Home</a>
                 <span class="breadcrumb-item active">매표소</span>
             </nav><!-- / breadcrumb -->
             <p class="lead w-50 mt-15" data-aos="fade-in" data-aos-delay="100">파티 매칭을 하기 위해 필요한 티켓을 판매하는 매표소입니다!</p>
@@ -114,7 +90,7 @@
                     <div class="col-md-6 col-lg-4 grid-item netfilx onem">
                         	<div class="card raised">
                             	<div class="card-body text-center p-y-30">
-                                    <img class="img-responsive" src="../assets/images/ph.jpg" alt="">
+                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
 	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">넷플릭스 1개월 티켓</a></p>
 	                                <p class="price-block fw-bold mb-20">$199.99</p>
 	                                <div class="product-card-footer">
@@ -127,7 +103,7 @@
                     <div class="col-md-6 col-lg-4 grid-item netfilx threem">
                         	<div class="card raised">
                             	<div class="card-body text-center p-y-30">
-                                    <img class="img-responsive" src="../assets/images/ph.jpg" alt="">
+                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
 	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">넷플릭스 3개월 티켓</a></p>
 	                                <p class="price-block fw-bold mb-20">$199.99</p>
 	                                <div class="product-card-footer">
@@ -140,7 +116,7 @@
                     <div class="col-md-6 col-lg-4 grid-item netfilx sixm">
                         	<div class="card raised">
                             	<div class="card-body text-center p-y-30">
-                                    <img class="img-responsive" src="../assets/images/ph.jpg" alt="">
+                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
 	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">넷플릭스 6개월 티켓</a></p>
 	                                <p class="price-block fw-bold mb-20">$199.99</p>
 	                                <div class="product-card-footer">
@@ -153,7 +129,7 @@
                     <div class="col-md-6 col-lg-4 grid-item netfilx ninem">
                         	<div class="card raised">
                             	<div class="card-body text-center p-y-30">
-                                    <img class="img-responsive" src="../assets/images/ph.jpg" alt="">
+                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
 	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">넷플릭스 9개월 티켓</a></p>
 	                                <p class="price-block fw-bold mb-20">$199.99</p>
 	                                <div class="product-card-footer">
@@ -166,7 +142,7 @@
                     <div class="col-md-6 col-lg-4 grid-item netfilx twelvem">
                         	<div class="card raised">
                             	<div class="card-body text-center p-y-30">
-                                    <img class="img-responsive" src="../assets/images/ph.jpg" alt="">
+                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
 	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">넷플릭스 12개월 티켓</a></p>
 	                                <p class="price-block fw-bold mb-20">$199.99</p>
 	                                <div class="product-card-footer">
@@ -179,7 +155,7 @@
                     <div class="col-md-6 col-lg-4 grid-item tving onem">
                         	<div class="card raised">
                             	<div class="card-body text-center p-y-30">
-                                    <img class="img-responsive" src="../assets/images/ph.jpg" alt="">
+                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
 	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">티빙 1개월 티켓</a></p>
 	                                <p class="price-block fw-bold mb-20">$199.99</p>
 	                                <div class="product-card-footer">
@@ -192,7 +168,7 @@
                     <div class="col-md-6 col-lg-4 grid-item tving threem">
                         	<div class="card raised">
                             	<div class="card-body text-center p-y-30">
-                                    <img class="img-responsive" src="../assets/images/ph.jpg" alt="">
+                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
 	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">티빙 3개월 티켓</a></p>
 	                                <p class="price-block fw-bold mb-20">$199.99</p>
 	                                <div class="product-card-footer">
@@ -205,7 +181,7 @@
                     <div class="col-md-6 col-lg-4 grid-item tving sixm">
                         	<div class="card raised">
                             	<div class="card-body text-center p-y-30">
-                                    <img class="img-responsive" src="../assets/images/ph.jpg" alt="">
+                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
 	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">티빙 6개월 티켓</a></p>
 	                                <p class="price-block fw-bold mb-20">$199.99</p>
 	                                <div class="product-card-footer">
@@ -218,7 +194,7 @@
                     <div class="col-md-6 col-lg-4 grid-item tving ninem">
                         	<div class="card raised">
                             	<div class="card-body text-center p-y-30">
-                                    <img class="img-responsive" src="../assets/images/ph.jpg" alt="">
+                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
 	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">티빙 9개월 티켓</a></p>
 	                                <p class="price-block fw-bold mb-20">$199.99</p>
 	                                <div class="product-card-footer">
@@ -231,7 +207,7 @@
                     <div class="col-md-6 col-lg-4 grid-item tving twelvem">
                         	<div class="card raised">
                             	<div class="card-body text-center p-y-30">
-                                    <img class="img-responsive" src="../assets/images/ph.jpg" alt="">
+                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
 	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">티빙 12개월 티켓</a></p>
 	                                <p class="price-block fw-bold mb-20">$199.99</p>
 	                                <div class="product-card-footer">
@@ -244,7 +220,7 @@
                     <div class="col-md-6 col-lg-4 grid-item disney onem">
                         	<div class="card raised">
                             	<div class="card-body text-center p-y-30">
-                                    <img class="img-responsive" src="../assets/images/ph.jpg" alt="">
+                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
 	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">디즈니 + 1개월 티켓</a></p>
 	                                <p class="price-block fw-bold mb-20">$199.99</p>
 	                                <div class="product-card-footer">
@@ -257,7 +233,7 @@
                     <div class="col-md-6 col-lg-4 grid-item disney threem">
                         	<div class="card raised">
                             	<div class="card-body text-center p-y-30">
-                                    <img class="img-responsive" src="../assets/images/ph.jpg" alt="">
+                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
 	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">디즈니 + 3개월 티켓</a></p>
 	                                <p class="price-block fw-bold mb-20">$199.99</p>
 	                                <div class="product-card-footer">
@@ -270,7 +246,7 @@
                     <div class="col-md-6 col-lg-4 grid-item disney sixm">
                         	<div class="card raised">
                             	<div class="card-body text-center p-y-30">
-                                    <img class="img-responsive" src="../assets/images/ph.jpg" alt="">
+                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
 	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">디즈니 + 6개월 티켓</a></p>
 	                                <p class="price-block fw-bold mb-20">$199.99</p>
 	                                <div class="product-card-footer">
@@ -283,7 +259,7 @@
                     <div class="col-md-6 col-lg-4 grid-item disney ninem">
                         	<div class="card raised">
                             	<div class="card-body text-center p-y-30">
-                                    <img class="img-responsive" src="../assets/images/ph.jpg" alt="">
+                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
 	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">디즈니 + 9개월 티켓</a></p>
 	                                <p class="price-block fw-bold mb-20">$199.99</p>
 	                                <div class="product-card-footer">
@@ -296,7 +272,7 @@
                     <div class="col-md-6 col-lg-4 grid-item disney twelvem">
                         	<div class="card raised">
                             	<div class="card-body text-center p-y-30">
-                                    <img class="img-responsive" src="../assets/images/ph.jpg" alt="">
+                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
 	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">디즈니 + 12개월 티켓</a></p>
 	                                <p class="price-block fw-bold mb-20">$199.99</p>
 	                                <div class="product-card-footer">
@@ -309,7 +285,7 @@
                     <div class="col-md-6 col-lg-4 grid-item watcha onem">
                         	<div class="card raised">
                             	<div class="card-body text-center p-y-30">
-                                    <img class="img-responsive" src="../assets/images/ph.jpg" alt="">
+                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
 	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">왓챠 1개월 티켓</a></p>
 	                                <p class="price-block fw-bold mb-20">$199.99</p>
 	                                <div class="product-card-footer">
@@ -322,7 +298,7 @@
                     <div class="col-md-6 col-lg-4 grid-item watcha threem">
                         	<div class="card raised">
                             	<div class="card-body text-center p-y-30">
-                                    <img class="img-responsive" src="../assets/images/ph.jpg" alt="">
+                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
 	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">왓챠 3개월 티켓</a></p>
 	                                <p class="price-block fw-bold mb-20">$199.99</p>
 	                                <div class="product-card-footer">
@@ -335,7 +311,7 @@
                     <div class="col-md-6 col-lg-4 grid-item watcha sixm">
                         	<div class="card raised">
                             	<div class="card-body text-center p-y-30">
-                                    <img class="img-responsive" src="../assets/images/ph.jpg" alt="">
+                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
 	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">왓챠 6개월 티켓</a></p>
 	                                <p class="price-block fw-bold mb-20">$199.99</p>
 	                                <div class="product-card-footer">
@@ -348,7 +324,7 @@
                     <div class="col-md-6 col-lg-4 grid-item watcha ninem">
                         	<div class="card raised">
                             	<div class="card-body text-center p-y-30">
-                                    <img class="img-responsive" src="../assets/images/ph.jpg" alt="">
+                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
 	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">왓챠 9개월 티켓</a></p>
 	                                <p class="price-block fw-bold mb-20">$199.99</p>
 	                                <div class="product-card-footer">
@@ -361,7 +337,7 @@
                     <div class="col-md-6 col-lg-4 grid-item watcha twelvem">
                         	<div class="card raised">
                             	<div class="card-body text-center p-y-30">
-                                    <img class="img-responsive" src="../assets/images/ph.jpg" alt="">
+                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
 	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">왓챠 12개월 티켓</a></p>
 	                                <p class="price-block fw-bold mb-20">$199.99</p>
 	                                <div class="product-card-footer">
@@ -374,7 +350,7 @@
                     <div class="col-md-6 col-lg-4 grid-item wavve onem">
                         	<div class="card raised">
                             	<div class="card-body text-center p-y-30">
-                                    <img class="img-responsive" src="../assets/images/ph.jpg" alt="">
+                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
 	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">웨이브 1개월 티켓</a></p>
 	                                <p class="price-block fw-bold mb-20">$199.99</p>
 	                                <div class="product-card-footer">
@@ -387,7 +363,7 @@
                     <div class="col-md-6 col-lg-4 grid-item wavve threem">
                         	<div class="card raised">
                             	<div class="card-body text-center p-y-30">
-                                    <img class="img-responsive" src="../assets/images/ph.jpg" alt="">
+                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
 	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">웨이브 3개월 티켓</a></p>
 	                                <p class="price-block fw-bold mb-20">$199.99</p>
 	                                <div class="product-card-footer">
@@ -400,7 +376,7 @@
                     <div class="col-md-6 col-lg-4 grid-item wavve sixm">
                         	<div class="card raised">
                             	<div class="card-body text-center p-y-30">
-                                    <img class="img-responsive" src="../assets/images/ph.jpg" alt="">
+                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
 	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">웨이브 6개월 티켓</a></p>
 	                                <p class="price-block fw-bold mb-20">$199.99</p>
 	                                <div class="product-card-footer">
@@ -413,7 +389,7 @@
                     <div class="col-md-6 col-lg-4 grid-item wavve ninem">
                         	<div class="card raised">
                             	<div class="card-body text-center p-y-30">
-                                    <img class="img-responsive" src="../assets/images/ph.jpg" alt="">
+                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
 	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">웨이브 9개월 티켓</a></p>
 	                                <p class="price-block fw-bold mb-20">$199.99</p>
 	                                <div class="product-card-footer">
@@ -426,7 +402,7 @@
                     <div class="col-md-6 col-lg-4 grid-item wavve twelvem">
                         	<div class="card raised">
                             	<div class="card-body text-center p-y-30">
-                                    <img class="img-responsive" src="../assets/images/ph.jpg" alt="">
+                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
 	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">웨이브 12개월 티켓</a></p>
 	                                <p class="price-block fw-bold mb-20">$199.99</p>
 	                                <div class="product-card-footer">
@@ -464,7 +440,7 @@
                 <div class="row">
                     <div class="col-md-6 col-xl-4">
                         <div class="widget">
-                            <img src="../assets/images/logo.png" class="footer-logo mb-20" alt="">
+                            <img src='<c:url value="/assets/images/logo.png"/>' class="footer-logo mb-20" alt="">
                             <p class="fs-16 title-color">© 2021 MiOne by <a href="https://kingstudio.ro" target="_blank">KingStudio</a></p>
                             <p>
                                 <a href="#x" class="text-link mr-20"><i class="fab fa-facebook-f"></i></a>
@@ -523,11 +499,11 @@
     </button>
 
     <!-- Core JavaScript -->
-    <script src="../assets/js/bootstrap.bundle.min.js"></script>
-    <script src="../assets/js/theme.js"></script>
+    <script src='<c:url value ="/js/bootstrap.bundle.min.js"/>'></script>
+    <script src='<c:url value ="/js/theme.js"/>'></script>
 
     <!-- aos -->
-    <script src="../assets/js/aos.js"></script>
+    <script src='<c:url value ="/js/aos.js"/>'></script>
     <script>
         AOS.init({
           duration: 1200,
@@ -536,17 +512,17 @@
     <!-- / aos -->
 
     <!-- Nav-Scroll -->
-    <script src="../assets/js/nav-fixed.js"></script>
-    <script src="../assets/js/scroll-top.js"></script>
+    <script src='<c:url value ="/js/nav-fixed.js"/>'></script>
+    <script src='<c:url value ="/js/scroll-top.js"/>'></script>
     <!-- / Nav-Scroll -->
 
     <!-- Isotope -->
-    <script src="../assets/js/isotope.min.js"></script>
-    <script src="../assets/js/isotope-filter.js"></script>
+    <script src='<c:url value ="/js/isotope.min.js"/>'></script>
+    <script src='<c:url value ="/js/isotope-filter.js"/>'></script>
     <!-- / Isotope -->
 
     <!-- GLightbox -->
-    <script src="../assets/js/glightbox.min.js"></script>
+    <script src='<c:url value ="/js/glightbox.min.js"/>'></script>
     <script>
         var lightboxDescription = GLightbox({
             selector: '.project-details'

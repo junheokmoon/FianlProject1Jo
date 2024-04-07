@@ -1,7 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <style>
 
 .doc-info {
@@ -26,24 +27,24 @@
 </style>
 <head>
     <!-- Meta -->
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="MiOne - Minimal Landing Page Theme">
     <meta name="author" content="kingstudio.ro">
     <!-- Favicon -->
-    <link rel="icon" href="/images/favicon.png">
+    <link rel="icon" href="<c:url value="/images/favicon.png"/>">
     <!-- Site Title -->
     <title>MiOne - Minimal Landing Page Theme</title>
     <!-- Bootstrap 5 Core CSS -->
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<c:url value="/css/bootstrap.min.css"/>" rel="stylesheet">
     <!-- Custom Styles -->
-    <link rel="stylesheet" href="/css/animate.min.css">
-    <link rel="stylesheet" href="/css/aos.css">
-    <link rel="stylesheet" href="/css/swiper-bundle.min.css">
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="<c:url value="/css/animate.min.css"/>">
+    <link rel="stylesheet" href="<c:url value="/css/aos.css"/>">
+    <link rel="stylesheet" href="<c:url value="/css/swiper-bundle.min.css"/>">
+    <link rel="stylesheet" href="<c:url value="/css/style.css"/>">
     <!-- Fonts -->
-    <link rel="stylesheet" href="/css/fontawesome-all.min.css" type="text/css">
+    <link rel="stylesheet" href="<c:url value="/css/fontawesome-all.min.css"/>" type="text/css">
 </head>
 
 <body>
@@ -58,7 +59,7 @@
 
     <nav id="nav-scroll" class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="/index.html"><img src="/images/logo.png" alt=""></a>
+            <a class="navbar-brand" href="/index.html"><img src="<c:url value="/images/logo.png"/>" alt=""></a>
 
             <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-toggle-nav-center" aria-controls="navbar-toggle-nav-center" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="icon-bar top-bar"></span>
@@ -66,32 +67,6 @@
                 <span class="icon-bar bottom-bar"></span>
                 <span class="sr-only">Toggle navigation</span>
             </button><!-- / navbar-toggler -->
-
-            <div class="collapse navbar-collapse" id="navbar-toggle-nav-center">
-               <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#x">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#x">Services</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#x">Portfolio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#x">Blog</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#x">Pricing</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link last-menu-item" href="#x">Contact</a>
-                    </li>
-                </ul><!-- / navbar-nav -->
-            </div><!-- / navbar-collapse -->
         </div><!-- / container -->
     </nav>
 
@@ -99,8 +74,8 @@
         <div class="container">
             <h1 class="page-title mb-10">결제</h1>
             <nav class="breadcrumb p-y-0 p-x-0 mb-0">
-                <a class="breadcrumb-item" href="/index.html">홈</a>
-                <a class="breadcrumb-item" href="/index.html">상품</a>
+                <a class="breadcrumb-item" href="/withyFinal/">홈</a>
+                <a class="breadcrumb-item" href="/withyFinal/product">상품</a>
                 <span class="breadcrumb-item active">결제</span>
             </nav><!-- / breadcrumb -->
             <p class="lead w-50 mt-15" data-aos="fade-in" data-aos-delay="100">[<strong>고객 닉네임</strong>]님! 저희 <strong>윗티</strong>를 이용해 주셔서 감사합니다!</p>
@@ -163,7 +138,7 @@
 					                                            <div class="input-group input-w-overlap-btn mb-0">
 					                                                <input type="text" class="form-control rounded-sm" placeholder="사용금액">
 					                                                <span class="input-group-btn">
-					                                                    <button class="btn btn-sm btn-primary lh-0 overlapping-btn big-btn rounded-sm" type="button"></i>사용</button>
+					                                                    <button class="btn btn-sm btn-primary lh-0 overlapping-btn big-btn rounded-sm" type="button">사용</button>
 					                                                </span><!-- / input-group-btn -->
 					                                            </div><!-- / input-group -->
 					                                         <p class="card-text">사용 포인트 : 200</p>
@@ -211,7 +186,7 @@
 												        </div><!-- / card-body -->
 												    </div><!-- / card -->
 												</div><!-- / column -->
-			                            </div><!-- / row -->
+			                             </div><!-- / row -->
 			                            </div><!-- / doc-info -->
 			
 			                            <div class="doc-result-footer text-center">
@@ -238,7 +213,7 @@
                 <div class="row">
                     <div class="col-md-6 col-xl-4">
                         <div class="widget">
-                            <img src="/images/logo.png" class="footer-logo mb-20" alt="">
+                            <img src="/resources/images/logo.png" class="footer-logo mb-20" alt="">
                             <p class="fs-16 title-color">© 2021 MiOne by <a href="https://kingstudio.ro" target="_blank">KingStudio</a></p>
                             <p>
                                 <a href="#x" class="text-link mr-20"><i class="fab fa-facebook-f"></i></a>
@@ -297,11 +272,11 @@
     </button>
 
     <!-- Core JavaScript -->
-    <script src="/js/bootstrap.bundle.min.js"></script>
-    <script src="/js/theme.js"></script>
+    <script src="<c:url value="/js/bootstrap.bundle.min.js"/>"></script>
+    <script src="<c:url value="/js/theme.js"/>"></script>
 
     <!-- aos -->
-    <script src="/js/aos.js"></script>
+    <script src="<c:url value="/js/aos.js"/>"></script>
     <script>
         AOS.init({
           duration: 1200,
@@ -310,19 +285,19 @@
     <!-- / aos -->
 
     <!-- Nav-Scroll -->
-    <script src="/js/nav-fixed.js"></script>
-    <script src="/js/scroll-top.js"></script>
+    <script src="<c:url value="/js/nav-fixed.js"/>"></script>
+    <script src="<c:url value="/js/scroll-top.js"/>"></script>
     <!-- / Nav-Scroll -->
 
     <!-- Rellax -->
-    <script src="/js/rellax.min.js"></script>
+    <script src="<c:url value="/js/rellax.min.js"/>"></script>
     <script>
         var rellax = new Rellax('.rellax');
     </script>
     <!-- / Rellax -->
 
     <!-- Swiper Slider -->
-    <script src="/js/swiper-bundle.min.js"></script>
+    <script src="<c:url value="/js/swiper-bundle.min.js"/>"></script>
     <!-- swiper-imit -->
     <script>
         var swiper = new Swiper('#testimonials-slider', {
