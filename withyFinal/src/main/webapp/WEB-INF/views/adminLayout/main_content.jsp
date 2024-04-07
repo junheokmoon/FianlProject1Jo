@@ -85,7 +85,8 @@
 				<div class="panel" style="padding-top: 20px;">
 					<h3 style="padding-left: 50px; padding-right: 50px;">
 						<strong>최근 회원가입</strong>
-						<button class="btn btn-info btn-rounded" type="button" onclick="location.href='all_user.jsp'"style="font-size: 13px; float: right;">회원관리 바로가기</button>
+						<button class="btn btn-info btn-rounded" style="font-size: 13px; float: right;" type="button" onclick="location.href='${pageContext.request.contextPath}/admin/allUser'">회원관리 바로가기</button>
+
 					</h3>
 					<div class="panel-body">
 						<div class="table-responsive">
@@ -152,7 +153,7 @@
 				<div class="panel" style="padding-top: 20px;">
 					<h3 style="padding-left: 50px; padding-right: 50px;">
 						<strong>최근 포인트 지급</strong>
-						<button class="btn btn-info btn-rounded" type="button" onclick="location.href='all_point.jsp'"style="font-size: 13px; float: right;">포인트 관리 바로가기</button>
+						<button class="btn btn-info btn-rounded" type="button" onclick="location.href='${pageContext.request.contextPath}/admin/allPoint'" style="font-size: 13px; float: right;">포인트 관리 바로가기</button>
 					</h3>
 					<div class="panel-body">
 						<div class="table-responsive">
@@ -219,7 +220,7 @@
 				<div class="panel" style="padding-top: 20px;">
 					<h3 style="padding-left: 50px; padding-right: 50px;">
 						<strong>최근 문의</strong>
-						<button class="btn btn-info btn-rounded" type="button" onclick="location.href='all_question.jsp'"style="font-size: 13px; float: right;">문의관리 바로가기</button>
+						<button class="btn btn-info btn-rounded" type="button" onclick="location.href='${pageContext.request.contextPath}/admin/allQuestion'" style="font-size: 13px; float: right;">문의관리 바로가기</button>
 					</h3>
 					<div class="panel-body">
 						<div class="table-responsive">

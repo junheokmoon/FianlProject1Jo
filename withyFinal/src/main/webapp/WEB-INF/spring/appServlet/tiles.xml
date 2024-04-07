@@ -18,6 +18,8 @@
 	</definition>
 	
 	
+	<!-- ============================================================================== -->
+	<!-- ============================= 관리자 페이지 start ============================ -->
 	<definition name="admin" template="/WEB-INF/views/adminLayout/main.jsp">
 		<!-- put-attribute : 템플릿 페이지를 구성하는 JSP 문서를 제공하기 위한 엘리먼트 -->
 		<!-- name 속성 : put-attribute 엘리먼트를 구분하기 위한 식별자를 속성값으로 설정 -->
@@ -29,6 +31,9 @@
 	<definition name="admin/*" extends="admin">
 		<put-attribute name="content" value="/WEB-INF/views/adminLayout/{1}.jsp"/>
 	</definition>
+	<!-- ============================== 관리자 페이지 end ============================= -->
+	<!-- ============================================================================== -->
+
 
 	<definition name="party/*" extends="partymain">
 		<put-attribute name="content" value="/WEB-INF/views/party/{1}.jsp"/>

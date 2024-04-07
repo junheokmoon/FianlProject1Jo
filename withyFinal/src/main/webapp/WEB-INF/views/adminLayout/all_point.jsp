@@ -16,12 +16,12 @@
     <!--Open Sans Font [ OPTIONAL ] -->
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;subset=latin" rel="stylesheet">
 
-    <!--Bootstrap Stylesheet [ REQUIRED ]-->
+    <!--Open Sans Font [ OPTIONAL ] -->
     <link href="<c:url value="/css/bootstrap.min.css"/>" rel="stylesheet">
 
     <!--Nifty Stylesheet [ REQUIRED ]-->
     <link href="<c:url value="/css/nifty.min.css"/>" rel="stylesheet">
-
+    
     <!--Font Awesome [ OPTIONAL ]-->
     <link href="<c:url value="/plugins/font-awesome/css/font-awesome.min.css"/>" rel="stylesheet">
 
@@ -39,38 +39,20 @@
     <script src="<c:url value="/plugins/pace/pace.min.js"/>"></script>
 
 </head>
-<style>
-.form-control2 {
-  display: block;
-  width: 50%;
-  height: 34px;
-  padding: 6px 12px;
-  font-size: 14px;
-  line-height: 1.42857143;
-  color: #555;
-  background-color: #fff;
-  background-image: none;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
-          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
-  -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
-       -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-          transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-}
-</style>
 <body>
 	<div class="boxed">
 		<div id="content-container">
 			<div id="page-title">
-				<h1 class="page-header text-overflow"><strong>회원 정보 관리</strong></h1>
+				<h1 class="page-header text-overflow"><strong>포인트 지급 내역</strong></h1>
 			</div>
 			
 			<div id="page-content">
 				<div class="row">
 					<div style="width: 95%;">
-						<div class="panel" style="padding-top: 50px;">
-				
+						<div class="panel" style="padding-top: 40px;">
+							<div class="text-right" style="padding-right:40px;">
+								<button class="btn btn-info btn-rounded" onclick="location.href='add_point.jsp'"style="font-size: 15px">포인트 지급</button>
+							</div>
 							<div class="panel-body">
 								<div class="table-responsive">
 									<table class="table table-striped table-hover" style="font-size: 15px; text-align: center;">
@@ -79,102 +61,103 @@
 												<th width="10%" style="text-align: center;">NO</th>
 												<th width="15%" style="text-align: center;">아이디</th>
 												<th width="15%" style="text-align: center;">이름</th>
-												<th width="15%" style="text-align: center;">권한</th>
-												<th width="15%" style="text-align: center;">포인트</th>
-												<th width="20%" style="text-align: center;">대표 보유 이용권</th>
-												<th width="10%" style="text-align: center;">가입일</th>
+												<th width="20%" style="text-align: center;">포인트 지급 사유</th>
+												<th width="15%" style="text-align: center;">지급된 포인트</th>
+												<th width="15%" style="text-align: center;">총 포인트</th>
+												<th width="10%" style="text-align: center;">지급일</th>
 											</tr>
 										</thead>
 										<tbody>
 											<tr>
 												<td>1</td>
-												<td><a href="detail_user.jsp" class="btn-link">abc123</a></td>
+												<td>abc123</td>
 												<td>홍길동</td>
-												<td>일반회원</td>
-												<td>1,000</td>
-												<td>3개월 넷플릭스 이용권</td>
-												<td>2024-03-25</td>
+												<td>파티장 이탈로 인한 환불</td>
+												<td>4,250</td>
+												<td>5,250</td>
+												<td>2024-03-26</td>
+											</tr>
+											
+											<tr>
+												<td>1</td>
+												<td>abc123</td>
+												<td>홍길동</td>
+												<td>파티장 이탈로 인한 환불</td>
+												<td>4,250</td>
+												<td>5,250</td>
+												<td>2024-03-26</td>
 											</tr>
 											<tr>
 												<td>1</td>
-												<td><a href="detail_user.jsp" class="btn-link">abc123</a></td>
+												<td>abc123</td>
 												<td>홍길동</td>
-												<td>일반회원</td>
-												<td>1,000</td>
-												<td>3개월 넷플릭스 이용권</td>
-												<td>2024-03-25</td>
+												<td>파티장 이탈로 인한 환불</td>
+												<td>4,250</td>
+												<td>5,250</td>
+												<td>2024-03-26</td>
 											</tr>
 											<tr>
 												<td>1</td>
-												<td><a href="detail_user.jsp" class="btn-link">abc123</a></td>
+												<td>abc123</td>
 												<td>홍길동</td>
-												<td>일반회원</td>
-												<td>1,000</td>
-												<td>3개월 넷플릭스 이용권</td>
-												<td>2024-03-25</td>
+												<td>파티장 이탈로 인한 환불</td>
+												<td>4,250</td>
+												<td>5,250</td>
+												<td>2024-03-26</td>
 											</tr>
 											<tr>
 												<td>1</td>
-												<td><a href="detail_user.jsp" class="btn-link">abc123</a></td>
+												<td>abc123</td>
 												<td>홍길동</td>
-												<td>일반회원</td>
-												<td>1,000</td>
-												<td>3개월 넷플릭스 이용권</td>
-												<td>2024-03-25</td>
+												<td>파티장 이탈로 인한 환불</td>
+												<td>4,250</td>
+												<td>5,250</td>
+												<td>2024-03-26</td>
 											</tr>
 											<tr>
 												<td>1</td>
-												<td><a href="detail_user.jsp" class="btn-link">abc123</a></td>
+												<td>abc123</td>
 												<td>홍길동</td>
-												<td>일반회원</td>
-												<td>1,000</td>
-												<td>3개월 넷플릭스 이용권</td>
-												<td>2024-03-25</td>
+												<td>파티장 이탈로 인한 환불</td>
+												<td>4,250</td>
+												<td>5,250</td>
+												<td>2024-03-26</td>
 											</tr>
 											<tr>
 												<td>1</td>
-												<td><a href="detail_user.jsp" class="btn-link">abc123</a></td>
+												<td>abc123</td>
 												<td>홍길동</td>
-												<td>일반회원</td>
-												<td>1,000</td>
-												<td>3개월 넷플릭스 이용권</td>
-												<td>2024-03-25</td>
+												<td>파티장 이탈로 인한 환불</td>
+												<td>4,250</td>
+												<td>5,250</td>
+												<td>2024-03-26</td>
 											</tr>
 											<tr>
 												<td>1</td>
-												<td><a href="detail_user.jsp" class="btn-link">abc123</a></td>
+												<td>abc123</td>
 												<td>홍길동</td>
-												<td>일반회원</td>
-												<td>1,000</td>
-												<td>3개월 넷플릭스 이용권</td>
-												<td>2024-03-25</td>
+												<td>파티장 이탈로 인한 환불</td>
+												<td>4,250</td>
+												<td>5,250</td>
+												<td>2024-03-26</td>
 											</tr>
 											<tr>
 												<td>1</td>
-												<td><a href="detail_user.jsp" class="btn-link">abc123</a></td>
+												<td>abc123</td>
 												<td>홍길동</td>
-												<td>일반회원</td>
-												<td>1,000</td>
-												<td>3개월 넷플릭스 이용권</td>
-												<td>2024-03-25</td>
+												<td>파티장 이탈로 인한 환불</td>
+												<td>4,250</td>
+												<td>5,250</td>
+												<td>2024-03-26</td>
 											</tr>
 											<tr>
 												<td>1</td>
-												<td><a href="detail_user.jsp" class="btn-link">abc123</a></td>
+												<td>abc123</td>
 												<td>홍길동</td>
-												<td>일반회원</td>
-												<td>1,000</td>
-												<td>3개월 넷플릭스 이용권</td>
-												<td>2024-03-25</td>
-											</tr>
-											<tr>
-												<td>1</td>
-												<td><a href="detail_user.jsp" class="btn-link">abc123</a></td>
-												<td>홍길동</td>
-												<td>일반회원</td>
-												<td>1,000</td>
-												<td>3개월 넷플릭스 이용권</td>
-												<td>2024-03-25</td>
+												<td>파티장 이탈로 인한 환불</td>
+												<td>4,250</td>
+												<td>5,250</td>
+												<td>2024-03-26</td>
 											</tr>
 										</tbody>
 									</table>
@@ -183,10 +166,9 @@
 									<div style="font-size: 14px;">
 										<form style="text-align: center; margin-top: 60px;">
 											<select style="width:130px; height:30px; border-color:lightgray; border-width: 1px; border-radius: 5px;">
-												<option value="">&nbsp;회원번호&nbsp;</option>
 												<option value="">&nbsp;아이디&nbsp;</option>
 												<option value="">&nbsp;이름&nbsp;</option>
-												<option value="">&nbsp;닉네임&nbsp;</option>
+												<option value="">&nbsp;지급일&nbsp;</option>
 											</select>
 											<input type="text" name="keyword" style="width:30%; height:30px; outline: none; box-shadow: none; border:1px solid lightgray; border-radius: 5px;">
 											<button type="submit" style="width:50px; height:30px; outline: none; border:none; background-color:#54abd9; color: #fff; border-radius: 5px;">검색</button>
@@ -194,7 +176,7 @@
 									</div>
 									<!-- 검색하기 end -->
 									
-									<div class="panel-body text-center">
+									<div class="text-center" style="padding-top:20px;">
 										<ul class="pagination" >
 											<li class="disabled"><a href="#" class="fa fa-angle-double-left"></a></li>
 											<li class="active"><a href="#">1</a></li>
@@ -211,6 +193,7 @@
 						</div>
 					</div>
 				</div>
+				
 			</div>
 		</div>
 	</div>

@@ -90,6 +90,47 @@ public class MainController {
 	public String allProduct() {
 		return "admin/all_product";
 	}
+	
+	@RequestMapping("/admin/allPoint")
+	public String allPoint() {
+		return "admin/all_point";
+	}
+	
+	@RequestMapping("/admin/addProduct")
+	public String addPoint() {
+		return "admin/add_product";
+	}
+	
+	@RequestMapping("/admin/addOtt")
+	public String addOtt() {
+		return "admin/add_ott";
+	}
+	
+	@RequestMapping("/admin/allProgram")
+	public String allProgram() {
+		return "admin/all_program";
+	}
+	
+	@RequestMapping("/admin/addProgram")
+	public String addProgram() {
+		return "admin/add_program";
+	}
+	
+	@RequestMapping("/admin/allNotice")
+	public String allNotice() {
+		return "admin/all_notice";
+	}
+	
+	@RequestMapping("/admin/addNotice")
+	public String addNotice() {
+		return "admin/add_notice";
+	}
+	
+	@RequestMapping("/admin/allQuestion")
+	public String allQuestion() {
+		return "admin/all_question";
+	}
+	
 }
 
 

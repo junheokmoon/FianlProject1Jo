@@ -36,41 +36,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard | Nifty - Responsive admin template.</title>
 
-
     <!--STYLESHEET-->
     <!--=================================================-->
 
     <!--Open Sans Font [ OPTIONAL ] -->
-     <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;subset=latin" rel="stylesheet">
-
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;subset=latin" rel="stylesheet">
 
     <!--Bootstrap Stylesheet [ REQUIRED ]-->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
-
     <!--Nifty Stylesheet [ REQUIRED ]-->
     <link href="css/nifty.min.css" rel="stylesheet">
 
-    
     <!--Font Awesome [ OPTIONAL ]-->
     <link href="plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-
 
     <!--Animate.css [ OPTIONAL ]-->
     <link href="plugins/animate-css/animate.min.css" rel="stylesheet">
 
-
     <!--Morris.js [ OPTIONAL ]-->
     <link href="plugins/morris-js/morris.min.css" rel="stylesheet">
-
 
     <!--Switchery [ OPTIONAL ]-->
     <link href="plugins/switchery/switchery.min.css" rel="stylesheet">
 
-
     <!--Bootstrap Select [ OPTIONAL ]-->
     <link href="plugins/bootstrap-select/bootstrap-select.min.css" rel="stylesheet">
-
 
     <!--Demo script [ DEMONSTRATION ]-->
     <link href="css/demo/nifty-demo.min.css" rel="stylesheet">
@@ -93,11 +84,12 @@
 				<!--================================-->
 				<!-- <div class="navbar-header"> --><!-- 전체 네이비 배경색  -->
 				<div style="background-color: #46443e; "><!-- 전체 네이비 배경색  -->
-					<a href="index.jsp" class="navbar-brand22">
+					<!-- <a href="index.jsp" class="navbar-brand22"> -->
+					<a href="<c:url value="/admin"/>" class="navbar-brand22">
 						<!-- <span class="brand-title brand-text">사이트 로고</span> -->
 						<!-- <span>사이트 로고</span> -->
 						<!-- <img src="img/logo.png" class="brand-icon"> -->
-						<img src="img/logo.png" style="width: 100px; height: 100px;">
+						<img src="<c:url value="/images/wtylogo.png"/>" style="width: 100px; height: 100px;">
 					</a>
 				</div>
 				<!--================================-->
@@ -128,7 +120,7 @@
 										<!--Submenu-->
 										<ul class="collapse">
 											<li><a href="<c:url value="/admin/allUser"/>">회원 정보 관리</a></li>
-											<li><a href="all_point.jsp">포인트 지급 내역</a></li>
+											<li><a href="<c:url value="/admin/allPoint"/>">포인트 지급 내역</a></li>
 										</ul>
 									</li>
 									
@@ -144,8 +136,8 @@
 										<!--Submenu-->
 										<ul class="collapse">
 											<li><a href="<c:url value="/admin/allProduct"/>">전체 상품(이용권) 관리</a></li>
-											<li><a href="add_product.jsp">상품(이용권) 신규 등록</a></li>
-											<li><a href="add_ott.jsp">OTT 신규 등록</a></li>
+											<li><a href="<c:url value="/admin/addProduct"/>">상품(이용권) 신규 등록</a></li>
+											<li><a href="<c:url value="/admin/addOtt"/>">OTT 신규 등록</a></li>
 										</ul>
 									</li>
 									
@@ -160,8 +152,8 @@
 						
 										<!--Submenu-->
 										<ul class="collapse">
-											<li><a href="all_program.jsp">프로그램 관리</a></li>
-											<li><a href="add_program.jsp">프로그램 신규 등록</a></li>
+											<li><a href="<c:url value="/admin/allProgram"/>">프로그램 관리</a></li>
+											<li><a href="<c:url value="/admin/addProgram"/>">프로그램 신규 등록</a></li>
 										</ul>
 									</li>
 									
@@ -176,8 +168,8 @@
 						
 										<!--Submenu-->
 										<ul class="collapse">
-											<li><a href="all_notice.jsp">공지사항 관리</a></li>
-											<li><a href="add_notice.jsp">공지사항 신규 등록</a></li>
+											<li><a href="<c:url value="/admin/allNotice"/>">공지사항 관리</a></li>
+											<li><a href="<c:url value="/admin/addNotice"/>">공지사항 신규 등록</a></li>
 										</ul>
 									</li>
 									
@@ -192,7 +184,7 @@
 						
 										<!--Submenu-->
 										<ul class="collapse">
-											<li><a href="all_question.jsp">문의 답변하기</a></li>
+											<li><a href="<c:url value="/admin/allQuestion"/>">문의 답변하기</a></li>
 										</ul>
 									</li>
 
@@ -219,43 +211,33 @@
 	<!--jQuery [ REQUIRED ]-->
 	<script src="js/jquery-2.1.1.min.js"></script>
 
-
 	<!--BootstrapJS [ RECOMMENDED ]-->
 	<script src="js/bootstrap.min.js"></script>
-
 
 	<!--Fast Click [ OPTIONAL ]-->
 	<script src="plugins/fast-click/fastclick.min.js"></script>
 
-	
 	<!--Nifty Admin [ RECOMMENDED ]-->
 	<script src="js/nifty.min.js"></script>
-
 
 	<!--Morris.js [ OPTIONAL ]-->
 	<script src="plugins/morris-js/morris.min.js"></script>
 	<script src="plugins/morris-js/raphael-js/raphael.min.js"></script>
 
-
 	<!--Sparkline [ OPTIONAL ]-->
 	<script src="plugins/sparkline/jquery.sparkline.min.js"></script>
-
 
 	<!--Skycons [ OPTIONAL ]-->
 	<script src="plugins/skycons/skycons.min.js"></script>
 
-
 	<!--Switchery [ OPTIONAL ]-->
 	<script src="plugins/switchery/switchery.min.js"></script>
-
 
 	<!--Bootstrap Select [ OPTIONAL ]-->
 	<script src="plugins/bootstrap-select/bootstrap-select.min.js"></script>
 
-
 	<!--Demo script [ DEMONSTRATION ]-->
 	<script src="js/demo/nifty-demo.min.js"></script>
-
 
 	<!--Specify page [ SAMPLE ]-->
 	<script src="js/demo/dashboard.js"></script>
