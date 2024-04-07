@@ -17,7 +17,7 @@ public class UserServiceImpl implements UserService {
 	public UserDTO getUserId(String userid) {
 		UserDTO userinfo=userDAO.selectUserId(userid);
 		if(userinfo == null) {
-			throw new RuntimeException("¾ÆÀÌµğÀÇ È¸¿øÁ¤º¸¸¦ Ã£À» ¼ö ¾ø½À´Ï´Ù.");
+			throw new RuntimeException("ì•„ì´ë””ì˜ íšŒì›ì •ë³´ë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
 		}
 		return userinfo;
 	}

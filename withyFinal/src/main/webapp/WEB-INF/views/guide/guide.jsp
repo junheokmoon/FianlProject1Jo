@@ -62,7 +62,26 @@
 	    width: 100%;
 	    z-index: 1000; /* 네비게이션 바가 다른 요소들 위에 오도록 설정 */
 		}
-			
+	
+	.eOoFNS {
+	    position: fixed;
+	    bottom: 0px;
+	    z-index: 10;
+	    width: 100%;
+	    max-width: 540px;
+	    cursor: pointer;
+	    box-sizing: border-box	  
+   		inherit;
+	}
+	
+	
+	.NzttP {
+	    position: absolute;
+	    top: calc(-0px + -153px - env(safe-area-inset-bottom));
+	    right: -1050px;
+	    width: 88px;
+	    height: 88px;
+	}
     </style>    
 </head>
 
@@ -534,6 +553,10 @@
 			 </div><!-- / container -->			
 		</section>
 	</div>
+   
+   		<div class="sc-imtoHe eOoFNS">
+		<a href="#"><img src="<c:url value="/images/inquiry.jpg"/>" alt="1:1문의" class="sc-gOMZtR NzttP"></a>
+		</div>
    
       	   
    
