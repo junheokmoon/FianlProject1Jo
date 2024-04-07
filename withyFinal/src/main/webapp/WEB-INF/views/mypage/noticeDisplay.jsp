@@ -9,174 +9,158 @@
 <meta charset="UTF-8">
 <title>공지사항</title>
 <style>
-	.body {
-    min-height: 300px;
-    padding: 140px 0 50px 0;
-}
-	
-	* {
-	box-sizing: border-box;
+	.searchCenter {
+    text-align: center;
 	}
 	
-	.title {
-    font-size: 13px;
-    margin-top: 20px;
-    margin-bottom: 12px;
-    line-height: 24px;
-	}
-	
-	.title-wrap {
+	.searchBox {
     position: relative;
-	}
-	
-	.title-wrap .title-right {
-    position: absolute;
-    top: 0;
-    right: 0;
-	}
-	
-	.search-bar {
-    margin-top: -5px;
-	}
-	
-	.search-bar {
-	    position: relative;
-	    font-size: 0;
-	}	
-		.search-bar .submit img {
-	    width: 16px;
-	    height: 16px;
-	}
-	
-	table {
-    border-spacing: 0;
-    border-collapse: collapse;
-    text-indent: initial;
-    background-color: transparent;
-    
-    
-}
-	
-	.table-list table {
-    width: 100%;
-}
-
-
-	.title-wrap.border {
-    border-bottom: 2px solid #7e69fe;
-	}
-	
-	.table-list th {
-    padding: 10px 0;
-    font-size: 11px;
-	}
-	
-	.table-list th {
-    font-weight: 500;
-    color: #333333;
     background-color: #f9f9f9;
+    margin-bottom: 10px;
+    padding: 10px;
+    line-height: 130%;
+    font-size: 12px;
 	}
 	
-	
-	
-	tbody {
-    display: table-row-group;
+	select {
+    border: 1px solid #e1e1e1;
+    margin: 1px 0px;
+    padding: 0 0 0 5px;
+    border-radius: 3px;
+    line-height: 35px;
+    height: 36px;
     vertical-align: middle;
-    unicode-bidi: isolate;
-    border-color: inherit;
-}
-	
-	.table-list th, .table-list td {
-	    position: relative;
-	    text-align: center;
-	    font-size: 22px;
-	    line-height: 24px;
-	    border-top: 1px solid #ececec;
-	  }
-	  
-    .table-list tr.active td {
-    background-color: #faf9ff;
+    font-size: 13px;
+    box-sizing: content-box;
+	}
+
+	option {
+	    font-weight: normal;
+	    display: block;
+	    min-height: 1.2em;
+	    padding: 0px 2px 1px;
+	    white-space: nowrap;
 	}
 	
+	input[type="text"], input[type="password"] {
+    border: 1px solid #e1e1e1;
+    border-radius: 3px;
+    margin: 2px 0px;
+    padding: 0px;
+    min-height: 36px;
+    line-height: 36px;
+    vertical-align: middle;
+    text-indent: 11px;
+	}
+	
+	.searchBox input {
+    max-width: 98%;
+	}
+	
+	.searchCenter .searchBu {
+    position: static;
+	}
+	
+	.searchBox .searchBu {
+    bottom: 13px;
+    right: 10px;
+    line-height: 36px;
+    font-size: 14px;
+    color: #fff;
+    background-color: #579ddb;
+    border: 1px solid #f04260;
+    border-radius: 4px;
+    padding: 0px 10px;
+    transition: 0.2s all;
+	}
 
-	.table-list th::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    right: 0;
-    display: block;
-    width: 1px;
-    height: 10px;
-    margin-top: -5px;
-    background-color: #ddd;
-}
-}
+	.table-normal {
+	    width: 100%;
+	    border-top: 2px solid #000;
+	    border-spacing: 0;
+	    border-collapse: collapse;
+	}
+	
+	.table-normal thead tr th {
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #cccccc;
+    color: #333;
+    font-weight: 500;
+    padding: 10px 0px;
+    text-align: center;
+	}
+	
+	.table-normal tbody tr td {
+    color: #666;
+    border-bottom: 1px solid #dadada;
+    padding: 8px 5px 8px 10px;
+    transition: 0.3s all;
+    line-height: 140%;
+    text-align: center;
+	}
+	
+	.line0 {
+    border-left: 0px !important;
+	}
+	
+	.ac {
+	text-align: center !important;
+	}
+	
+	.table_normal tbody tr span {
+    vertical-align: middle;
+	}
 </style>
 </head>
 <body>
 <div class="width-container">
-   <div class="title-wrap border">
 	<div class="title">
 		<h2>공지사항</h2>
 	</div>
-	<div class="title-right">
-		<div class="search-bar">
-			<form action="#" method="get" >
-				<select name="slf" id="sfl">
-					<option>제목</option>
-					<option>내용</option>
-				</select>
-				<input type="text" name="stx" value="stx" maxlength="20" placeholder="검색어를 입력해 주세요.">
-				<button type="submit" class="submit"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAATCAIAAAD9MqGbAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAZtJREFUeNqUk78vQ1Ecxc/tj4mIpqqlJiEhDZI+lfjRsEmsEouhu4U/xYJZwmAxCmMr7aA/EpHGQLr49Sgh6Nb2Orev+l6pas/wXt6953O/997veUJKiW8960gn5FUWb3n16fJgKABtRvT48FvCIEtFnBzKZBSWdb4dAloYi8vC6fxFEtvfkblL2B0IzWNME54+NZd/wEVaLUfD4AhW1wQNdeTRgTyLosul5rz+nzUf77C/Ld9fMbWApRVRG7fldaROVbWGGMVBTjkcSMVAs0lmErJcxmQYDbEazKPSRrNJ8iap8ZBAUxkGw1wlXysN8A00B+GtGAxzlURrKpfU0263kGw3pd/+Q7JDVLfbQg4H1It9a04ahsFRCxmcFjYbUlHVt7/0dK8MtDGJJsm4sCXFomp3Q5iDe1uSBm0ORrb+TN9ESLgrEX/RcZ6spo/q9SOyLjo620l8cBY3ObVnKyysfxnDlY7L66zqG+vzJnklPBs3WfjE7qa0wnVkc5lwPyIbotUkUKxDgBjhTBw8WHsqfMjYsXx/k18CDACJhvJ23Xt3WQAAAABJRU5ErkJggg==" alt=""></button>
-			</form>
+	<form id="FormSearch" name="FormSearch" method="post">
+		<input type="hidden" name="currentMenuNo" value="1031100">
+		<input type="hidden" name="pageIndex" id="pageIndex" value="1">
+		<input type="hidden" name="bbsId" value="BBSMSTR_000000000071">
+		<div class="searchBox searchCenter">
+			<select name="searchCondition" title="조회조건선택" class="val">
+				<option value="sj">제목</option><option value="cn">내용</option><option value="cnsj">제목+내용</option></select>
+			<input name="searchKeyword" type="text" size="50" value="" onkeyup="UT.callFunctionByEnter(event, doSearch);" placeholder="검색어를 입력해 주세요.">
+			<button type="button" class="searchBu" onclick="doSearch();">SEARCH</button>
 		</div>
-	</div>
-   </div>
+	</form>
    
    <div class="table-list list-wrap">
-   	   <table>
-   	   		<thead>
-   	   			<tr>
-   	   				<th class="pc-table">번호</th>
-   	   				<th>제목</th>
-   	   				<th>등록일</th>
-   	   				<th class="pc-table">조회</th>
-   	   			</tr>
-   	   		</thead>
-   	   		<tbody>
-   	   			<tr class="active">
-   	   				<td class="pc-table" style="width: 10%">10</td>
-   	   				<td>
-   	   				<div class="subject notice"><a href="#">TEST-1</a></div>
-   	   				</td>
-   	   				<td>2024.03.28</td>
-   	   				<td class="pc-table" style="width: 10%">1800</td>
-   	   			</tr>
-   	   			<tr class="active">
-   	   				<td class="pc-table" style="width: 10%">11</td>
-   	   				<td>
-   	   				<div class="subject notice"><a href="#">TEST-2</a></div>
-   	   				</td>
-   	   				<td>2024.03.28</td>
-   	   				<td class="pc-table" style="width: 10%">1800</td>
-   	   			</tr>
-   	   			<tr class="active">
-   	   				<td class="pc-table" style="width: 10%">12</td>
-   	   				<td>
-   	   				<div class="subject notice"><a href="#">TEST-3</a></div>
-   	   				</td>
-   	   				<td>2024.03.28</td>
-   	   				<td class="pc-table" style="width: 10%">1800</td>
-   	   			</tr>
-   	   			<tr class="active">
-   	   				<td class="pc-table" style="width: 10%">13</td>
-   	   				<td>
-   	   				<div class="subject notice"><a href="#">TEST-4</a></div>
-   	   				</td>
-   	   				<td>2024.03.28</td>
-   	   				<td class="pc-table" style="width: 10%">1800</td>
-   	   			</tr>
-   	   		</tbody>	
+   	   <table class="table-normal">
+   	   		<colgroup>
+			<col width="8%" class="mobileHide">
+			<col width="*">
+			<col width="16%" class="mobileHide">
+			<col width="8%" class="mobileHide">
+		</colgroup>
+		<thead>
+			<tr>
+				<th scope="col" class="line0 mobileHide">번호</th>
+				<th scope="col">제목</th>
+				<th scope="col" class="mobileHide">작성일</th>
+				<th scope="col" class="mobileHide">조회수</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class="bgcol01">
+					<td class="line0 ac mobileHide">
+						<span class="notice-no">111</span>
+					</td>
+					<td>
+						<a href="javascript:void(0);" onclick="doDetailCheck('9716', 'Y')">공지사항 제목입니다.</a>
+					</td>
+					<td class="ac mobileHide">
+						2024.03.14
+					</td>
+					<td class="ac mobileHide">
+						393
+					</td>
+				</tr>
+			</tbody>
    	   </table>
    </div>
   </div> 	

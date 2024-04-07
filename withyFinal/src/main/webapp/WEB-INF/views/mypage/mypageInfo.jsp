@@ -48,6 +48,10 @@
 		.updateProfile {
 			text-align: center;
 		}
+		
+		.side-nav {
+			margin-top: 150px;
+		}
     </style>
     <!-- Bootstrap 5 Core CSS -->
     <link rel="stylesheet" href="<c:url value="/css/bootstrap.min.css"/>">
@@ -58,44 +62,30 @@
     <link rel="stylesheet" href="<c:url value="/css/prism.css"/>">
     <link rel="stylesheet" href="<c:url value="/css/doc.css"/>">
     <!-- Fonts -->
-    <link rel="stylesheet" href="<c:url value="/css/fontawesome-all.min.css"/> type="text/css">
+    <link rel="stylesheet" href="<c:url value="/css/fontawesome-all.min.css"/>" type="text/css">
 </head>
 
-<body class="doc-body doc-style2" data-bs-spy="scroll" data-bs-target="#nav-scroll">
-
-    <div id="loader-wrapper">
-        <div id="loader"></div>
-        <div class="loader-section section-left"></div>
-        <div class="loader-section section-right"></div>
-    </div>
-
-    <nav class="side-nav left-nav navbar-expand-lg nav nav-style2 bg-body">
-
-
-        <div class="collapse navbar-collapse" id="navbar-toggle">
+    <nav class="side-nav left-nav">
             <ul class="pl-0" id="main-collapse">
-                <li class="sidenav-logo">
-                    <a href="index.jsp"><img src="<c:url value="/images/wtylogo.png"/>"></a>
-                </li>
                    <li class="nav-item">
-                       <a class="nav-link" href="mypageInfo.jsp">회원정보수정</a>
+                       <a class="nav-link" href="mypageInfo">회원정보수정</a>
                    </li><!-- / nav-item -->
                    <li class="nav-item">
-                       <a class="nav-link" href="mypageParty.jsp">나의파티내역</a>
+                       <a class="nav-link" href="mypageParty">나의파티내역</a>
                    </li><!-- / nav-item -->
                    <li class="nav-item">
-                       <a class="nav-link" href="mypageInquery.jsp">나의 1:1 문의</a>
+                       <a class="nav-link" href="mypageInquiry">나의 1:1 문의</a>
                    </li><!-- / nav-item -->
                    <li class="nav-item">
-                       <a class="nav-link" href="mypageReply.jsp">나의 리뷰</a>
+                       <a class="nav-link" href="mypageReply">나의 리뷰</a>
                    </li><!-- / nav-item -->
                    <li class="nav-item">
-                       <a class="nav-link" href="withdrawal.jsp">회원탈퇴</a>
+                       <a class="nav-link" href="withdrawal">회원탈퇴</a>
                    </li><!-- / nav-item -->           
             </ul><!-- / main-collapse -->
-        </div><!-- / collapse -->
     </nav><!-- / nav-scroll -->
     <!-- / side-nav -->
+
 
     <div class="page-container">
         <div class="doc-container container-fluid">
@@ -104,7 +94,7 @@
                     <h4 id="getting-started" class="doc-main-title">MY PROFILE</h4>
                     <div id="introduction" class="doc-wrapper">
                                                                      
-                </div><!-- / column -->
+                	</div><!-- / column -->
 				 	<div id="cards" class="doc-wrapper">
 
                         <div class="doc-holder">
@@ -127,7 +117,7 @@
                                             <div class="card-body">
                                                 <h6>나의 윗티 포인트</h6>
                                                 <div class="sc-ebawnn dYsQAv">
-												<img src="<c:url value="/images/point.png"/>"> class="sc-cgizqU fsashJ">												
+												<img src="<c:url value="/images/point.png"/>" class="sc-cgizqU fsashJ">												
 												<span class="sc-bgXbfl aOeXW">0P</span>         
 												</div>
                                             </div><!-- / card-body -->
@@ -194,5 +184,4 @@
 
     <!-- copy-to-clipboard -->
     <script src="<c:url value="/js/clipboard.min.js"/>"></script>
-</body>
 </html>

@@ -24,28 +24,7 @@
     <!-- Fonts -->
     <link rel="stylesheet" href="<c:url value="/css/fontawesome-all.min.css"/>" type="text/css">
         
-    <style>
-    	div {test
-		box-sizing: border-box;
-	}
-
-	#name {
-		display: block;
-	    font-size: 16px;
-	    line-height: 24px;
-	    margin: 0px;
-	    font-weight: bold;
-	    
-	}
-	
-	.icon {
-		width: 20px;
-	    height: 20px;
-	    font-size: 20px;
-	    line-height: 20px;
-	    text-align: center;
-	}
-	
+    <style>	
 	.width {
 	    width: 12px;
     	height: 100%;
@@ -61,20 +40,7 @@
 	    font-size: 13px;
 	    line-height: 20px;
 	    margin: 0px;
-	}
-	
-	.content {
-		overflow: hidden;
-	    max-height: 1000px;
-	    transition: max-height 0.3s ease 0s;
-	}
-	
-	.contentSection {
-		background-color: var(--gray-050);
-	    color: var(--gray-600);
-	    padding: 12px 20px;
-	}
-	
+	}	
 	.notion-list {
 	    font-size: 13px;
 	    line-height: 20px;
@@ -89,34 +55,26 @@
 		white-space: pre-wrap;
 	}
 	
-	
-    </style>
-    <!-- Bootstrap 5 Core CSS -->
-    
-    <link href="<c:url value="/css/bootstrap.min.css"/>" rel="stylesheet">
-    <!-- Custom Styles -->
-    <link rel="stylesheet" href="<c:url value="/css/animate.min.css"/>">
-    <link rel="stylesheet" href="<c:url value="/css/aos.css"/>">
-    <link rel="stylesheet" href="<c:url value="/css/style.css"/>">
-    <!-- Fonts -->
-    <link rel="stylesheet" href="<c:url value="/css/fontawesome-all.min.css"/>" type="text/css">
+	#nav-scroll2 {
+	    position: fixed;
+	    top: 110px;
+	    left: 0;
+	    width: 100%;
+	    z-index: 1000; /* 네비게이션 바가 다른 요소들 위에 오도록 설정 */
+		}
+			
+    </style>    
 </head>
 
-<body data-bs-spy="scroll" >
+<body class="maincontent" data-bs-spy="scroll" data-bs-target="#nav-scroll">
 
-    <div id="loader-wrapper">
-        <div id="loader"></div>
-        <div class="loader-section section-left"></div>
-        <div class="loader-section section-right"></div>
-    </div> 
-
-    <nav id="nav-scroll" class="navbar navbar-expand-lg secondary-nav snav-tab navbar-light bg-white-frosted-dark sticky-top">
+    <nav id="nav-scroll2" class="navbar navbar-expand-lg secondary-nav snav-tab navbar-light bg-white-frosted-dark sticky-top" >
         <div class="container">
             <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-toggle-sticky-secondary" aria-controls="navbar-toggle-sticky-secondary" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="icon-bar top-bar"></span>
+            	<span class="icon-bar top-bar"></span>
                 <span class="icon-bar middle-bar"></span>
                 <span class="icon-bar bottom-bar"></span>
-                <span class="sr-only">Toggle navigation</span>
+                <span class="sr-only">Toggle navigation</span>   
             </button><!-- / navbar-toggler -->
 
             <div class="collapse navbar-collapse" id="navbar-toggle-sticky-secondary">
@@ -141,10 +99,11 @@
                     </li>
                 </ul><!-- / navbar-nav -->
             </div><!-- / navbar-collapse -->
-        </div><!-- / container -->
-    </nav><!-- / navbar -->
+          </div>
+        </nav><!-- / navbar -->
+    
 
-  <div class="main-container">
+  <div class="main-container" >
       <section id="base">
             <div class="container">  
              <h3>이용 혜택</h3>    
@@ -210,12 +169,12 @@
              </div><!-- / accordion-item -->
              <div class="accordion-item">
                  <h2 class="accordion-header" id="headingFour">
-                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour"" aria-expanded="false" aria-controls="collapseFour"">
+                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
                      <div class="icon">🔐</div>
 					 <div class="subject"><span>&nbsp;&nbsp;파티장 정산금 100% 보장</span></div>		
 			 		<i class="fas fa-chevron-down"></i></button>
                  </h2><!-- / accordion-header -->
-                 <div id="collapseFour"" class="accordion-collapse collapse" aria-labelledby="headingFour"" data-bs-parent="#accordionExample">
+                 <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
                      <div class="accordion-body">
                      	<main class="notion">
 							<ul class="notion-list">
@@ -228,12 +187,12 @@
              </div><!-- / accordion-item -->
              <div class="accordion-item">
                  <h2 class="accordion-header" id="headingFive">
-                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive"" aria-expanded="false" aria-controls="collapseFive">
+                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
                      <div class="icon">🚀</div>
 					 <div class="subject"><span>&nbsp;&nbsp;가장 빠른 업계 1위 서비스</span></div>		
 			 		<i class="fas fa-chevron-down"></i></button>
                  </h2><!-- / accordion-header -->
-                 <div id="collapseFive"" class="accordion-collapse collapse" aria-labelledby="headingFive"" data-bs-parent="#accordionExample">
+                 <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
                      <div class="accordion-body">
                      	<main class="notion">
 							<ul class="notion-list">
@@ -245,12 +204,12 @@
              </div><!-- / accordion-item -->
              <div class="accordion-item">
                  <h2 class="accordion-header" id="headingSix">
-                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix"" aria-expanded="false" aria-controls="collapseSix"">
+                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
                     <div class="icon">🙆‍♀️</div>
 					<div class="subject"><span>&nbsp;&nbsp;필요한 만큼만 이용해도 OK</span></div>	
 			 		<i class="fas fa-chevron-down"></i></button>
                  </h2><!-- / accordion-header -->
-                 <div id="collapseSix"" class="accordion-collapse collapse" aria-labelledby="headingSix"" data-bs-parent="#accordionExample">
+                 <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
                      <div class="accordion-body">
                      	<main class="notion">
 							<ul class="notion-list">
@@ -265,7 +224,7 @@
 	  </div>
   </section>
 
-        <div class="spacer-2x">&nbsp;</div>
+        <div class="spacer-1x">&nbsp;</div>
 
         <section id="buttons">
             <div class="container">
@@ -341,12 +300,12 @@
              </div><!-- / accordion-item -->
              <div class="accordion-item">
                  <h2 class="accordion-header" id="headingFour">
-                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour"" aria-expanded="false" aria-controls="collapseFour"">
+                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
                      <div class="icon">🔐</div>
 					 <div class="subject"><span>&nbsp;&nbsp;파티장 정산금 100% 보장</span></div>		
 			 		<i class="fas fa-chevron-down"></i></button>
                  </h2><!-- / accordion-header -->
-                 <div id="collapseFour"" class="accordion-collapse collapse" aria-labelledby="headingFour"" data-bs-parent="#accordionExample">
+                 <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
                      <div class="accordion-body">
                      	<main class="notion">
 							<ul class="notion-list">
@@ -359,12 +318,12 @@
              </div><!-- / accordion-item -->
              <div class="accordion-item">
                  <h2 class="accordion-header" id="headingFive">
-                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive"" aria-expanded="false" aria-controls="collapseFive">
+                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
                      <div class="icon">🚀</div>
 					 <div class="subject"><span>&nbsp;&nbsp;가장 빠른 업계 1위 서비스</span></div>		
 			 		<i class="fas fa-chevron-down"></i></button>
                  </h2><!-- / accordion-header -->
-                 <div id="collapseFive"" class="accordion-collapse collapse" aria-labelledby="headingFive"" data-bs-parent="#accordionExample">
+                 <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
                      <div class="accordion-body">
                      	<main class="notion">
 							<ul class="notion-list">
@@ -378,7 +337,7 @@
 	  </div>
   </section>
 		
-        <div class="spacer-2x">&nbsp;</div>
+        <div class="spacer-1x">&nbsp;</div>
 
         <section id="features">
             <div class="container">
@@ -454,12 +413,12 @@
              </div><!-- / accordion-item -->
              <div class="accordion-item">
                  <h2 class="accordion-header" id="headingFour">
-                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour"" aria-expanded="false" aria-controls="collapseFour"">
+                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
                      <div class="icon">🔐</div>
 					 <div class="subject"><span>&nbsp;&nbsp;파티장 정산금 100% 보장</span></div>		
 			 		<i class="fas fa-chevron-down"></i></button>
                  </h2><!-- / accordion-header -->
-                 <div id="collapseFour"" class="accordion-collapse collapse" aria-labelledby="headingFour"" data-bs-parent="#accordionExample">
+                 <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
                      <div class="accordion-body">
                      	<main class="notion">
 							<ul class="notion-list">
@@ -474,7 +433,7 @@
            </div>
         </section>
   	
-   <div class="spacer-2x">&nbsp;</div>                
+   <div class="spacer-1x">&nbsp;</div>                
 
         <section id="checkbox">
             <div class="container">
@@ -498,7 +457,7 @@
 								<ul class="notion-list">
 									<li> 피클 수수료는 <b>파티장 490원·파티원 990원</b>으로 역할에 따라 달라요.</li>
 								</ul>
-							</main>			            <
+							</main>			            
 						</div><!-- / accordion-body -->
 			        </div><!-- / collapse -->
 			    </div><!-- / accordion-item -->
@@ -531,7 +490,7 @@
         </section>
         <!-- / checkbox -->
 
-        <div class="spacer-2x">&nbsp;</div>
+        <div class="spacer-1x">&nbsp;</div>
 
         <section id="navigations">
             <div class="container">
@@ -574,8 +533,8 @@
 				</div><!-- / promo-box -->	
 			 </div><!-- / container -->			
 		</section>
-
-       
+	</div>
+   
       	   
    
      <!-- Core JavaScript -->
@@ -611,7 +570,5 @@
         });
     </script>
     <!-- / copy-to-clipboard -->
-
-    
 </body>
 </html>
