@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class MainController {
+	//private final UserService userService;
+	
 	@RequestMapping("/")
 	public String tiles() {
 		return "main";
@@ -84,6 +86,12 @@ public class MainController {
 	public String allUser() {
 		return "admin/all_user";
 	}
+	
+//	@RequestMapping("/admin/allUser")
+//	public String allUser(Model model) {
+//		model.addAttribute("userList", userService.getUserNoList());
+//		return "admin/all_user";
+//	}
 	
 	@RequestMapping("/admin/allProduct")
 	public String allProduct() {

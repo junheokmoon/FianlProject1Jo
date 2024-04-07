@@ -1,43 +1,35 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>General Elements | Nifty - Responsive admin template.</title>
 
-
     <!--STYLESHEET-->
     <!--=================================================-->
 
     <!--Open Sans Font [ OPTIONAL ] -->
-     <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;subset=latin" rel="stylesheet">
-
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;subset=latin" rel="stylesheet">
 
     <!--Bootstrap Stylesheet [ REQUIRED ]-->
     <link href="css/bootstrap2.min.css" rel="stylesheet">
 
-
     <!--Nifty Stylesheet [ REQUIRED ]-->
     <link href="css/nifty.min.css" rel="stylesheet">
 
-    
     <!--Font Awesome [ OPTIONAL ]-->
     <link href="plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-
 
     <!--Switchery [ OPTIONAL ]-->
     <link href="plugins/switchery/switchery.min.css" rel="stylesheet">
 
-
     <!--Bootstrap Select [ OPTIONAL ]-->
     <link href="plugins/bootstrap-select/bootstrap-select.min.css" rel="stylesheet">
 
-
     <!--Demo [ DEMONSTRATION ]-->
     <link href="css/demo/nifty-demo.min.css" rel="stylesheet">
-
 
     <!--Page Load Progress Bar [ OPTIONAL ]-->
     <link href="plugins/pace/pace.min.css" rel="stylesheet">
@@ -74,8 +66,9 @@
 <body>
 	<!-- ###################### 최근 회원가입 start ###################### -->
 	<div class="boxed">
-		<div class="row" style="padding-top: 50px;">
+		<div class="row" style="padding-top: 30px;">
 			<div style="width: 95%;">
+				<h1 style="padding-bottom: 20px;">관리자 페이지</h1>
 				<div class="panel" style="padding-top: 20px;">
 					<h3 style="padding-left: 50px; padding-right: 50px;">
 						<strong>최근 회원가입</strong>
@@ -96,7 +89,7 @@
 								</thead>
 								<tbody>
 									<tr>
-										<td>abc123</td>
+										<td>${userDTO.user_id}</td>
 										<td>홍길동</td>
 										<td>HongHong</td>
 										<td>일반회원</td>

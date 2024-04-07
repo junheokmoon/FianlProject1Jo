@@ -66,8 +66,10 @@
     <!--Demo script [ DEMONSTRATION ]-->
     <link href="css/demo/nifty-demo.min.css" rel="stylesheet">
     
+    <!--
     <link rel="stylesheet" href="<c:url value="/css/doc.css"/>">
     <link rel="stylesheet" href="<c:url value="/css/prism.css"/>">
+	-->
 
     <!--SCRIPT-->
     <!--=================================================-->
@@ -87,11 +89,7 @@
 				<!--================================-->
 				<!-- <div class="navbar-header"> --><!-- 전체 네이비 배경색  -->
 				<div style="background-color: #46443e; "><!-- 전체 네이비 배경색  -->
-					<!-- <a href="index.jsp" class="navbar-brand22"> -->
 					<a href="<c:url value="/admin"/>" class="navbar-brand22">
-						<!-- <span class="brand-title brand-text">사이트 로고</span> -->
-						<!-- <span>사이트 로고</span> -->
-						<!-- <img src="img/logo.png" class="brand-icon"> -->
 						<img src="<c:url value="/images/wtylogo.png"/>" style="width: 100px; height: 100px;">
 					</a>
 				</div>
@@ -112,7 +110,7 @@
 								
 									<!--Menu list item-->
 									<li>
-										<a href="#">
+										<a href="#"><!-- 페이지 넘어가면 open 되지 않음 / url에 # 추가됨 -->
 											<i class="fa fa-th"></i>
 											<span class="menu-title">
 												<strong>회원관리</strong>
