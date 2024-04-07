@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"  %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
 <!DOCTYPE html>
 <html>
 
@@ -8,42 +10,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>General Elements | Nifty - Responsive admin template.</title>
 
-
     <!--STYLESHEET-->
     <!--=================================================-->
 
     <!--Open Sans Font [ OPTIONAL ] -->
-     <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;subset=latin" rel="stylesheet">
-
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;subset=latin" rel="stylesheet">
 
     <!--Bootstrap Stylesheet [ REQUIRED ]-->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
+    <link href="<c:url value="/css/bootstrap.min.css"/>" rel="stylesheet">
 
     <!--Nifty Stylesheet [ REQUIRED ]-->
-    <link href="css/nifty.min.css" rel="stylesheet">
-
+    <link href="<c:url value="/css/nifty.min.css"/>" rel="stylesheet">
     
     <!--Font Awesome [ OPTIONAL ]-->
-    <link href="plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-
+    <link href="<c:url value="/plugins/font-awesome/css/font-awesome.min.css"/>" rel="stylesheet">
 
     <!--Switchery [ OPTIONAL ]-->
-    <link href="plugins/switchery/switchery.min.css" rel="stylesheet">
-
+    <link href="<c:url value="/plugins/switchery/switchery.min.css"/>" rel="stylesheet">
 
     <!--Bootstrap Select [ OPTIONAL ]-->
-    <link href="plugins/bootstrap-select/bootstrap-select.min.css" rel="stylesheet">
-
+    <link href="<c:url value="/plugins/bootstrap-select/bootstrap-select.min.css"/>" rel="stylesheet">
 
     <!--Demo [ DEMONSTRATION ]-->
-    <link href="css/demo/nifty-demo.min.css" rel="stylesheet">
-
+    <link href="<c:url value="/css/demo/nifty-demo.min.css"/>" rel="stylesheet">
 
     <!--Page Load Progress Bar [ OPTIONAL ]-->
-    <link href="plugins/pace/pace.min.css" rel="stylesheet">
-    <script src="plugins/pace/pace.min.js"></script>
-
+    <link href="<c:url value="/plugins/pace/pace.min.css"/>" rel="stylesheet">
+    <script src="<c:url value="/plugins/pace/pace.min.js"/>"></script>
 
 </head>
 <body>
@@ -51,7 +44,7 @@
 		<div id="content-container">
 					
 			<div id="page-title">
-				<h1 class="page-header text-overflow"><strong>문의 상세 정보</strong></h1>
+				<h1 class="page-header text-overflow"><strong>문의 답변 작성</strong></h1>
 			</div>
 		
 			<div id="page-content">
@@ -106,18 +99,13 @@
 									<div class="form-group">
 										<label class="col-md-3" style="text-indent: 5em;">답변내용</label>
 										<div class="col-sm-6">
-											<textarea rows="5" class="form-control"
-												readonly placeholder="파티원이 모두 모였을 때 정산금이 한번에 지급됩니다."></textarea>
+											<textarea rows="5" class="form-control"></textarea>
 										</div>
 									</div>
 								</div>
 								<div class="text-right" style="padding: 10px;">									
-									<!-- if(답변내용 == null) { -->
-										<button class="btn btn-info btn-rounded" type="button" onclick="location.href='add_answer.jsp'"style="font-size: 15px">답변 작성</button>
-									<!-- } else if(답변내용 != null) { -->
-										<button class="btn btn-info btn-rounded" type="button" onclick="location.href='update_answer.jsp'"style="font-size: 15px">답변 수정</button>
-									<!-- } -->
-									<button class="btn btn-info btn-rounded" type="button" onclick="location.href='all_question.jsp'"style="font-size: 15px">목록</button>
+									<button class="btn btn-info btn-rounded" type="submit" style="font-size: 15px">완료</button>
+									<button class="btn btn-info btn-rounded" type="button" onclick="location.href='${pageContext.request.contextPath}/admin/allQuestion'" style="font-size: 15px">목록</button>
 								</div>
 							</form>
 						</div>

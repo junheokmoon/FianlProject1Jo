@@ -76,7 +76,7 @@
 												<td style="padding: 1px;"><img src="img/N3.png" width="30%"></td>
 												<td>넷플이미지</td>
 												<td>
-													<a class="btn btn-xs btn-default add-tooltip" data-toggle="tooltip" href="update_product.jsp" data-original-title="Edit" data-container="body"><i class="fa fa-pencil"></i></a>
+													<a class="btn btn-xs btn-default add-tooltip" data-toggle="tooltip" href="<c:url value="/admin/updateProduct"/>" data-original-title="Edit" data-container="body"><i class="fa fa-pencil"></i></a>
 												</td>
 											</tr>
 											<tr>

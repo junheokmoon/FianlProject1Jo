@@ -190,12 +190,15 @@
 											<li><a href="<c:url value="/admin/allQuestion"/>">문의 답변하기</a></li>
 										</ul>
 									</li>
-
+									
+									<li>
+										<button class="btn" type="button" onclick="location.href='${pageContext.request.contextPath}'" style="font-size: 15px; color: #fff; padding-top: 30px; padding-left: 40px;">Withy 웹사이트 이동</button>
+									</li>
 								</ul>
 							</div>
-							<div style="text-align: center; padding-top: 420px;">
+							<!-- <div style="text-align: center; padding-top: 420px;">
 								<button class="btn btn-rounded" type="button" onclick="location.href='#'"style="font-size: 15px; color: #fff; background-color: gray;">Withy 사이트 이동</button>
-							</div>
+							</div> -->
 						</div>
 					</div>
 				</div>

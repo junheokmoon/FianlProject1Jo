@@ -26,7 +26,7 @@
     <link href="<c:url value="/plugins/font-awesome/css/font-awesome.min.css"/>" rel="stylesheet">
 
     <!--Switchery [ OPTIONAL ]-->
-    <link href="<c:url value="/plugins/switchery/switchery.min.css"/>" rel="stylesheet">
+    <link href="<c:url value="/plugins/switchery/switchery.min.css"/>">
 
     <!--Bootstrap Select [ OPTIONAL ]-->
     <link href="<c:url value="/plugins/bootstrap-select/bootstrap-select.min.css"/>" rel="stylesheet">
@@ -88,7 +88,7 @@
 										<tbody>
 											<tr>
 												<td>1</td>
-												<td><a href="detail_user.jsp" class="btn-link">abc123</a></td>
+												<td><a href="<c:url value="detailUser"/>" class="btn-link">abc123</a></td>
 												<td>홍길동</td>
 												<td>일반회원</td>
 												<td>1,000</td>

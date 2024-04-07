@@ -115,7 +115,7 @@
 								</div>
 								<div class="text-right">
 									<button class="btn btn-info btn-rounded" type="submit" style="font-size: 15px">등록</button>
-									<button class="btn btn-info btn-rounded" type="button" onclick="location.href='all_product.jsp'"style="font-size: 15px">목록</button>
+									<button class="btn btn-info btn-rounded" type="button" onclick="location.href='${pageContext.request.contextPath}/admin/allProduct'" style="font-size: 15px">목록</button>
 								</div>
 							</form>
 						</div>

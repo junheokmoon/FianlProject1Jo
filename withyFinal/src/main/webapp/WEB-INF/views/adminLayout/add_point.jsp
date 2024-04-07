@@ -16,9 +16,6 @@
     <!--Open Sans Font [ OPTIONAL ] -->
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;subset=latin" rel="stylesheet">
 
-    <!--Open Sans Font [ OPTIONAL ] -->
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;subset=latin" rel="stylesheet">
-
     <!--Bootstrap Stylesheet [ REQUIRED ]-->
     <link href="<c:url value="/css/bootstrap.min.css"/>" rel="stylesheet">
 
@@ -47,34 +44,41 @@
 		<div id="content-container">
 					
 			<div id="page-title">
-				<h1 class="page-header text-overflow"><strong>공지사항 신규 등록</strong></h1>
+				<h1 class="page-header text-overflow"><strong>포인트 지급</strong></h1>
 			</div>
 		
 			<div id="page-content">
 				<div class="row">
 					<div style="width: 95%;">
-						<div class="panel" style="padding: 50px;">
+					<div class="panel" style="padding: 50px;">
 							<div class="panel-heading">
 								<h3 class="panel-title">NEW</h3>
 							</div>
+				
 							<form class="form-horizontal" style="font-size: 15px">
 								<div class="panel-body">
 									<div class="form-group">
-										<label class="col-sm-3" for="ccccc" style="text-indent: 5em;">공지 제목</label>
+										<label class="col-sm-3" for="ccccc" style="text-indent: 5em;">회원번호</label>
 										<div class="col-sm-6">
-											<input type="text" class="form-control input-lg" id="ccccc" value="">
+											<input type="text" class="form-control input-lg" id="ccccc">
 										</div>
 									</div>
 									<div class="form-group">
-										<label class="col-sm-3" for="ccccc" style="text-indent: 5em;">공지 내용</label>
+										<label class="col-sm-3" for="ccccc" style="text-indent: 5em;">지급 포인트</label>
 										<div class="col-sm-6">
-											<textarea rows="5" class="form-control"></textarea>
+											<input type="text" class="form-control input-lg" id="ccccc">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-3" for="ccccc" style="text-indent: 5em;">지급 사유</label>
+										<div class="col-sm-6">
+											<textarea rows="13" class="form-control"></textarea>
 										</div>
 									</div>
 								</div>
 								<div class="text-right">
-									<button class="btn btn-info btn-rounded" type="submit" style="font-size: 15px">완료</button>
-									<button class="btn btn-info btn-rounded" type="button" onclick="location.href='${pageContext.request.contextPath}/admin/allNotice'" style="font-size: 15px">목록</button>
+									<button class="btn btn-info btn-rounded" type="submit" style="font-size: 15px">지급하기</button>
+									<button class="btn btn-info btn-rounded" type="button" onclick="location.href='${pageContext.request.contextPath}/admin/allPoint'" style="font-size: 15px">목록</button>
 								</div>
 							</form>
 						</div>

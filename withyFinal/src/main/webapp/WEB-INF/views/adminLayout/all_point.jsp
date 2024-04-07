@@ -51,7 +51,7 @@
 					<div style="width: 95%;">
 						<div class="panel" style="padding-top: 40px;">
 							<div class="text-right" style="padding-right:40px;">
-								<button class="btn btn-info btn-rounded" onclick="location.href='add_point.jsp'"style="font-size: 15px">포인트 지급</button>
+								<button class="btn btn-info btn-rounded" onclick="location.href='${pageContext.request.contextPath}/admin/addPoint'" style="font-size: 15px">포인트 지급</button>
 							</div>
 							<div class="panel-body">
 								<div class="table-responsive">

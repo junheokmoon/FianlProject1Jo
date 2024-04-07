@@ -40,7 +40,6 @@ public class MainController {
 		return "/guide/guide";
 	}
 	
-	
 	@RequestMapping("/login")
 	public String login() {
 		return "/login/login";
@@ -97,8 +96,13 @@ public class MainController {
 	}
 	
 	@RequestMapping("/admin/addProduct")
-	public String addPoint() {
+	public String addProduct() {
 		return "admin/add_product";
+	}
+	
+	@RequestMapping("/admin/updateProduct")
+	public String updateProduct() {
+		return "admin/update_product";
 	}
 	
 	@RequestMapping("/admin/addOtt")
@@ -116,6 +120,16 @@ public class MainController {
 		return "admin/add_program";
 	}
 	
+	@RequestMapping("/admin/detailProgram")
+	public String detailProgram() {
+		return "admin/detail_program";
+	}
+	
+	@RequestMapping("/admin/updateProgram")
+	public String updateProgram() {
+		return "admin/update_program";
+	}
+	
 	@RequestMapping("/admin/allNotice")
 	public String allNotice() {
 		return "admin/all_notice";
@@ -126,10 +140,46 @@ public class MainController {
 		return "admin/add_notice";
 	}
 	
+	@RequestMapping("/admin/updateNotice")
+	public String updateNotice() {
+		return "admin/update_notice";
+	}
+	
+	@RequestMapping("/admin/detailNotice")
+	public String detailNotice() {
+		return "admin/detail_notice";
+	}
+	
 	@RequestMapping("/admin/allQuestion")
 	public String allQuestion() {
 		return "admin/all_question";
 	}
+	
+	@RequestMapping("/admin/detailQuestion")
+	public String detailQuestion() {
+		return "admin/detail_question";
+	}
+	
+	@RequestMapping("/admin/addQuestion")
+	public String addQuestion() {
+		return "admin/add_question";
+	}
+	
+	@RequestMapping("/admin/updateQuestion")
+	public String updateQuestion() {
+		return "admin/update_question";
+	}
+	
+	@RequestMapping("/admin/detailUser")
+	public String detailUser() {
+		return "admin/detail_user";
+	}
+	
+	@RequestMapping("/admin/addPoint")
+	public String addPoint() {
+		return "admin/add_point";
+	}
+	
 	
 }
 
