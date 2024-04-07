@@ -47,6 +47,15 @@ public class MainController {
 		return "/login/login";
 	}
 	
+	@RequestMapping("/payment")
+	public String payment() {
+		return "/payment/paymentMain";
+	}
+	@RequestMapping("/product")
+	public String product() {
+		return "/product/productMain";
+	}
+	
 	@RequestMapping("/mypageInfo")
 	public String mypageInfo() {
 		return "/mypage/mypageInfo";
