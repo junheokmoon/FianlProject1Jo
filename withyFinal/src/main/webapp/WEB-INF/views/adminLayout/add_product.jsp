@@ -19,7 +19,7 @@
 
 
     <!--Bootstrap Stylesheet [ REQUIRED ]-->
-    <link href="<c:url value="/css/bootstrap.min.css"/>" rel="stylesheet">
+    <link href="<c:url value="/css/bootstrap2.min.css"/>" rel="stylesheet">
 
 
     <!--Nifty Stylesheet [ REQUIRED ]-->

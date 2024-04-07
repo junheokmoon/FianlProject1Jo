@@ -16,7 +16,7 @@
 
 
     <!--Bootstrap Stylesheet [ REQUIRED ]-->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap2.min.css" rel="stylesheet">
 
 
     <!--Nifty Stylesheet [ REQUIRED ]-->
@@ -42,12 +42,6 @@
     <!--Page Load Progress Bar [ OPTIONAL ]-->
     <link href="plugins/pace/pace.min.css" rel="stylesheet">
     <script src="plugins/pace/pace.min.js"></script>
-	
-	<!-- 세미플젝 부트스랩 참고 start -->
-<%-- 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
-	<link href="<%=request.getContextPath()%>/style/style.css" type="text/css" rel="stylesheet">
-	<link href="<%=request.getContextPath()%>/style/cart.css" type="text/css" rel="stylesheet"> --%>
-	<!-- 세미플젝 부트스랩 참고 end -->
 
 </head>
 <style>

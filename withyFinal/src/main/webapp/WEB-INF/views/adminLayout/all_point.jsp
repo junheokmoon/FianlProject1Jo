@@ -17,7 +17,7 @@
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;subset=latin" rel="stylesheet">
 
     <!--Open Sans Font [ OPTIONAL ] -->
-    <link href="<c:url value="/css/bootstrap.min.css"/>" rel="stylesheet">
+    <link href="<c:url value="/css/bootstrap2.min.css"/>" rel="stylesheet">
 
     <!--Nifty Stylesheet [ REQUIRED ]-->
     <link href="<c:url value="/css/nifty.min.css"/>" rel="stylesheet">

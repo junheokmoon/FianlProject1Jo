@@ -17,7 +17,7 @@
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;subset=latin" rel="stylesheet">
 
     <!--Bootstrap Stylesheet [ REQUIRED ]-->
-    <link href="<c:url value="/css/bootstrap.min.css"/>" rel="stylesheet">
+    <link href="<c:url value="/css/bootstrap2.min.css"/>" rel="stylesheet">
 
     <!--Nifty Stylesheet [ REQUIRED ]-->
     <link href="<c:url value="/css/nifty.min.css"/>" rel="stylesheet">
@@ -106,9 +106,9 @@
 								</div>
 								<div class="text-right" style="padding: 10px;">									
 									<!-- if(답변내용 == null) { -->
-										<button class="btn btn-info btn-rounded" type="button" onclick="location.href='${pageContext.request.contextPath}/admin/addQuestion'" style="font-size: 15px">답변 작성</button>
+										<button class="btn btn-info btn-rounded" type="button" onclick="location.href='${pageContext.request.contextPath}/admin/addAnswer'" style="font-size: 15px">답변 작성</button>
 									<!-- } else if(답변내용 != null) { -->
-										<button class="btn btn-info btn-rounded" type="button" onclick="location.href='${pageContext.request.contextPath}/admin/updateQuestion'" style="font-size: 15px">답변 수정</button>
+										<button class="btn btn-info btn-rounded" type="button" onclick="location.href='${pageContext.request.contextPath}/admin/updateAnswer'" style="font-size: 15px">답변 수정</button>
 									<!-- } -->
 									<button class="btn btn-info btn-rounded" type="button" onclick="location.href='${pageContext.request.contextPath}/admin/allQuestion'" style="font-size: 15px">목록</button>
 								</div>

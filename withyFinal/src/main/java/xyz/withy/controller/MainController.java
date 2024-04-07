@@ -160,14 +160,14 @@ public class MainController {
 		return "admin/detail_question";
 	}
 	
-	@RequestMapping("/admin/addQuestion")
-	public String addQuestion() {
-		return "admin/add_question";
+	@RequestMapping("/admin/addAnswer")
+	public String addAnswer() {
+		return "admin/add_answer";
 	}
 	
-	@RequestMapping("/admin/updateQuestion")
-	public String updateQuestion() {
-		return "admin/update_question";
+	@RequestMapping("/admin/updateAnswer")
+	public String updateAnswer() {
+		return "admin/update_answer";
 	}
 	
 	@RequestMapping("/admin/detailUser")
@@ -179,8 +179,4 @@ public class MainController {
 	public String addPoint() {
 		return "admin/add_point";
 	}
-	
 }
-
-
-
