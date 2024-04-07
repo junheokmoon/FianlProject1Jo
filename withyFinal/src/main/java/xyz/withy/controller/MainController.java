@@ -196,4 +196,15 @@ public class MainController {
 	public String addPoint() {
 		return "admin/add_point";
 	}
+	
+	@RequestMapping("/login/forgotpasswd")
+	   public String forgotpasswd() {
+	      return "/login/forgotpasswd";
+   }
+	   
+    @RequestMapping("/login/register")
+	   public String register() {
+	      return "/login/register";
+	}
+	
 }

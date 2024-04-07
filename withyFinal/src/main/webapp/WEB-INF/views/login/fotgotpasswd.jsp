@@ -37,76 +37,48 @@
     <link href="<c:url value="/plugins/pace/pace.min.css"/>" rel="stylesheet">
     <script src="<c:url value="/plugins/pace/pace.min.js"/>"></script>
 
-</head>
+   </head>
 
-<body class="bg-gradient-primary">
-
-    <div class="container">
-
+      <body class="bg-gradient-primary">
+      <div class="container">
         <!-- Outer Row -->
         <div class="row justify-content-center">
-
-        <div class="col-lg-8 mt-4 mb-4">
-
-        <div class="card border-primary">
-        <div class="card-body">
-
-        <!-- 카드 본문 -->
+       <div class="col-xl-10 col-lg-12 col-md-9">
+        <div class="card o-hidden border-0 shadow-lg my-5">
+        <div class="card-body p-0">
+                    
+        <!-- Nested Row within Card Body -->
         <div class="row">
-        <div class="col-lg-10 mx-auto">
+        <div class="col-lg-6 m-auto"> <!-- 수정된 부분: m-auto 클래스 추가하여 수평 가운데 정렬 -->
         <div class="p-5">
-        
         <div class="text-center">
-
-        <h1 class="h4 text-gray-900 mb-4">환영합니다!</h1>
-
+        <h1 class="h4 text-gray-900 mb-2">비밀번호를 잊으셨나요?</h1>
         </div>
+        
         <form class="user">
         <div class="form-group">
-        <input type="email" class="form-control form-control-user"
-         id="exampleInputEmail" aria-describedby="emailHelp"
-        placeholder="아이디를 입력해 주세요">
+        <input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="이메일을 입력해 주세요">
         </div>
+        <a href="login.html" class="btn btn-primary btn-user btn-block">비밀번호 찾기</a>
+        </form>
         
-        <div class="form-group">
-        <input type="password" class="form-control form-control-user"
-        id="exampleInputPassword" placeholder="비밀번호를 입력해 주세요">
+        <hr>
+        <div class="text-center">
+        <a class="small" href="register.html">회원가입</a>
         </div>
-
-                    <div class="form-group">
-                    <div class="custom-control custom-checkbox small">
-                    <input type="checkbox" class="custom-control-input" id="customCheck">
-                    <label class="custom-control-label" for="customCheck">내 정보 기억하기</label>
-                    </div>
-                    </div>
-
-                   <a href="index.html" class="btn btn-primary btn-user btn-block" style="background-color: #3191f9;"> Login </a>
-                    <hr>
-                    <div class="text-center">
-                    <a class="btn-link" href="<c:url value="/login/forgotpasswd"/>">비밀번호 찾기</a>
-
-                    <span class="mx-2 text-gray-600">|</span>
-                    <a class="small" href="forgot-id.html">아이디 찾기</a>
-                    </div>
-                    <div class="text-center">
-                    < <a class="btn-link" href="<c:url value="/login/register"/>">회원가입하기</a>
-                    </div>
-                    </form>
-                    </div>
-                    </div>
-                    </div>
-                        <!-- 카드 END... -->
-
-                      </div>
-                   </div>
-
-                  </div>
-
-                   </div>
-
-                </div>
-
-    <!-- Bootstrap core JavaScript-->
+        <div class="text-center">
+        <a class="btn-link" href="<c:url value="/login"/>">로그인하기</a>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+       </div>
+       
+  <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
@@ -114,7 +86,7 @@
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
+ 
     <script src="<c:url value="/js/bootstrap.bundle.min.js"/>"></script>
     <script src="<c:url value="/js/theme.js"/>"></script>
 
