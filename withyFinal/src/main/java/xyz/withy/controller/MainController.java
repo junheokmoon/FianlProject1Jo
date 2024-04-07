@@ -180,7 +180,6 @@ public class MainController {
 		return "admin/add_point";
 	}
 	
-	
 }
 
 
