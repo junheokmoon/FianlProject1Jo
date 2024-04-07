@@ -65,6 +65,9 @@
 
     <!--Demo script [ DEMONSTRATION ]-->
     <link href="css/demo/nifty-demo.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="<c:url value="/css/doc.css"/>">
+    <link rel="stylesheet" href="<c:url value="/css/prism.css"/>">
 
     <!--SCRIPT-->
     <!--=================================================-->
