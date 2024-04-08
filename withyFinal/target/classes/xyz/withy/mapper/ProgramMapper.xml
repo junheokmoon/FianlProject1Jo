@@ -19,7 +19,7 @@
 		delete from program where programNo=#{program_no}
 	</delete>
 
-	<select id="selectProgram" resultType="Program">
+	<select id="selectProgram" resultType="ProgramDTO">
 		select programOttNo, programName ,programImage ,programDetail 
 			,programVideo ,programCategoryNo from program where programNo=#{program_no}
 	</select>
@@ -28,7 +28,7 @@
 		select count(*) from program
 	</select>
 
-	<select id="selectProgramList" resultType="Program">
+	<select id="selectProgramList" resultType="ProgramDTO">
 		select * from (select rownum rn, program.* from (select programOttNo
 			,programName ,programImage ,programDetail ,programVideo ,programCategoryNo
 			from program order by programNo desc) program) where rn between #{startRow} and #{endRow}

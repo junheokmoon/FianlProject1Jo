@@ -32,6 +32,8 @@ public class MainController {
 		return "/party/partyLeader";
 	}
 
+	/*
+	í´ë”ë¥¼ ë§Œë“¤ì–´ì„œ ì˜®ê²¼ìŠµë‹ˆë‹¤
 	@RequestMapping("/review")
 	public String review() {
 		return "/review/review";
@@ -41,6 +43,7 @@ public class MainController {
 	public String program() {
 		return "/review/program";
 	}
+	*/
 
 	@RequestMapping("/guide")
 	public String guide() {
@@ -91,7 +94,7 @@ public class MainController {
 		return "/mypage/noticeDisplay";
 	}
 
-	// ============================== °ü¸®ÀÚ ½ÃÀÛ ==============================
+	// ============================== ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ==============================
 	
 //	@RequestMapping("/admin")
 //	public String admin() {
