@@ -5,7 +5,7 @@ import java.util.Map;
 
 import xyz.withy.dto.ticketDTO;
 
-public interface ticketDAO {
+public interface TicketDAO {
 	
 	int insertTicket(ticketDTO ticket); // 추가
 	int updateTicket(ticketDTO ticket); // 업데이트

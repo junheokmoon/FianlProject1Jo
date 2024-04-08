@@ -12,7 +12,7 @@ import xyz.withy.mapper.ticketMapper;
 
 @Repository
 @RequiredArgsConstructor
-public class ticketDAOImpl implements ticketDAO{
+public class TicketDAOImpl implements TicketDAO{
 
 	private final SqlSession sqlSession;
 	
