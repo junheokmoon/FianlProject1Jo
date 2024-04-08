@@ -9,7 +9,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>General Elements | Nifty - Responsive admin template.</title>
-
     <!--STYLESHEET-->
     <!--=================================================-->
 
@@ -217,7 +216,6 @@
 	
 	<!--JAVASCRIPT-->
 	<!--=================================================-->
-	
 	<!--jQuery [ REQUIRED ]-->
 	<script src="<c:url value="/js/jquery-2.1.1.min.js"/>"></script>
 	
@@ -232,6 +230,9 @@
 	
 	<!--Switchery [ OPTIONAL ]-->
 	<script src="<c:url value="/plugins/switchery/switchery.min.js"/>"></script>
+	
+	<script src="<c:url value="/js/nifty.min.js"/>"></script>
+	
 	
 	<!--Bootstrap Select [ OPTIONAL ]-->
 	<script src="<c:url value="/plugins/bootstrap-select/bootstrap-select.min.js"/>"></script>
