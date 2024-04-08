@@ -15,41 +15,37 @@
 		<set>
 			<if test="inquiryImage != null and inquiryImage != ''">
 				inquiry_title=#{inquiryTitle}, inquiry_content=#{inquiryContent}, inquiry_image=#{inquiryImage}
-				,  
+				, inquiry_update=sysdate, inquiry_answer=#{inquiryAnswer}, inquiry_type=#{inquiryType}, inquiry_status=#{inquiryStatus}
 			</if>
 			<if test="noticeImage == null and noticeImage == ''">
-				notice_title=#{noticeTitle}, notice_content=#{noticeContent}, notice_update=sysdate  
+				inquiry_title=#{inquiryTitle}, inquiry_content=#{inquiryContent}, inquiry_update=sysdate
+				, inquiry_answer=#{inquiryAnswer}, inquiry_type=#{inquiryType}, inquiry_status=#{inquiryStatus} 
 			</if>
 		</set>
 		 where inquiry_no=#{inquiryNo}		
 	</update>
 	
-	<!-- 조회수 증가  -->	
-	<update id="updateNoticeCount">
-		update notice set notice_count=#{noticeCount+1} where notice_no=#{noticeNo}
-	</update>
-	
 	<!-- 글 삭제 -->
-	<delete id="deleteNotice">
-		delete from notice where notice_no=#{noticeNo} <!-- te -->
+	<delete id="deleteInquiry">
+		delete from inquiry where inquiry_no=#{inquiryNo} 
 	</delete>
 	
 	<!-- 글번호 전달받아 단일행 검색 -->
-	<select id="selectNotice" resultType="NoticeDTO">
-		select notice_no, notice_title, notice_content, notice_image, notice_date, notice_update, notice_count
-			from notice where notice_no=#{noticeNo}
+	<select id="selectInquiry" resultType="InquiryDTO">
+		select inquiry_no, inquiry_title, inquiry_content, inquiry_image, inquiry_date, inquiry_update, inquiry_answer 
+			, inquiry_type, inquiry_status, inquiry_user_no from inquiry where inquiry_no=#{inquiryNo}
 	</select>
 	
 	<!-- 전체 게시글 갯수 -->
-	<select id="selectNoticeCount" resultType="int">
-		select count(*) from notice
+	<select id="selectInquiryCount" resultType="int">
+		select count(*) from inquiry
 	</select>
 	
 	<!-- 페이징 처리 -->
-	<select id="selectNoticeList" resultType="NoticeDTO">
-		select * from (select rownum rn, notice.* from (select notice_no, notice_title
-			, notice_content, notice_image, notice_date, notice_update, notice_count, notice_user_no
-			from notice order by notice_no desc) notice) where rn between #{startRow} and #{endRow}
+	<select id="selectInquiryList" resultType="InquiryDTO">
+		select * from (select rownum rn, notice.* from (select inquiry_no, inquiry_title
+			, inquiry_content, inquiry_image, inquiry_date, inquiry_update, inquiry_answer, inquiry_type
+			, inquiry_status, inquiry_user_no from inquiry order by inquiry_no desc) inquiry) where rn between #{startRow} and #{endRow}
 	</select>
 	
 	<!-- 검색대상과 검색단어를 전달받아 공지사항 테이블에 저장된 게시글 중 
