@@ -12,6 +12,8 @@ TICKET_IMAGE1          VARCHAR2(500) 이미지
 TICKET_IMAGE2          VARCHAR2(500) 이미지2
 TICKET_OTT_NO          NUMBER        종류
 TICKET_MONTH  NOT NULL NUMBER        개월수
+TICKET_STATUS NOT NULL NUMBER        티켓 상태 (1 판매중, 2 판매중지)
+TICKET_NO     NOT NULL NUMBER		 티켓 생성 순서
 */
 
 @Data
@@ -24,5 +26,6 @@ public class ticketDTO {
 	private String ticketImage2;
 	private int ticketOttNo;
 	private int ticketMonth;
+	private int ticketStatus;
 
 }
