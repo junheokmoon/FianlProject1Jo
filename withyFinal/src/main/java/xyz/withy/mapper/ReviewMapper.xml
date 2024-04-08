@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="xyz.withy.mapper.ReviewMapper">
+<insert id="insertProgram">
+		<selectKey resultType="int" keyProperty="reviewNo" order="BEFORE">
+			select review_no_seq.nextval from review
+		</selectKey>
+		insert into review values(#{review_no}, #{review_star}, #{review_comment},
+			#{review_user_no}, sysdate,#{review_program_no}
+	</insert>
+	
+	<update id="updateReview">
+		update review set reviewStar=#{review_star}, reviewComment=#{review_comment}
+			,reviewUserNo=#{review_user_no},sysdate ,reviewProgramNo=#{review_program_no}
+				 where reviewNumber=#{review_no}
+	</update>
+	
+	<delete id="deleteReview">
+		delete from review where reviewNumber=#{review_no}
+	</delete>
+
+	<select id="selectReview" resultType="Review">
+		select reviewStar,reviewComment, reviewUserNo, reviewDate, reviewDate, reviewProgramNo
+		  	from review where reviewNumber=#{review_no}
+	</select>
+
+	<select id="selectReviewCount" resultType="int">
+		select count(*) from review
+	</select>
+	
+	<select id="selectReviewList" resultType="Review">
+		select * from (select rownum rn, review.* from (select previewStar,reviewComment, reviewUserNo
+			,reviewDate ,reviewDate ,reviewProgramNo from review order by reviewNo desc) review) 
+				where rn between #{startRow} and #{endRow}
+	</select>  
+	
+</mapper>
