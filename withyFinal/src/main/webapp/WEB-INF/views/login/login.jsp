@@ -89,7 +89,7 @@
                     <a class="btn-link" href="<c:url value="/login/forgotid"/>">아이디 찾기</a>
                     </div>
                     <div class="text-center">
-                     <a class="btn-link" href="<c:url value="/login/register"/>">회원가입하기</a>
+                     <a class="btn-link" href="<c:url value="/login/join"/>">회원가입하기</a>
                     </div>
                     </form>
                     </div>

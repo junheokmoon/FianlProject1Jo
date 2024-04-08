@@ -237,9 +237,9 @@ public class MainController {
 	      return "/login/forgotpasswd";
    }
 
-    @RequestMapping("/login/register")
-	   public String register() {
-	      return "/login/register";
+    @RequestMapping("/login/join")
+	   public String join() {
+	      return "/login/join";
 	}
     
     @RequestMapping("/login/forgotid")

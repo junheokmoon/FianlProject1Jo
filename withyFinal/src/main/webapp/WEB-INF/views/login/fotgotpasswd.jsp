@@ -64,7 +64,7 @@
         
         <hr>
         <div class="text-center">
-       < <a class="btn-link" href="<c:url value="/login/register"/>">회원가입</a>
+       < <a class="btn-link" href="<c:url value="/login/join"/>">회원가입</a>
         </div>
         <div class="text-center">
         <a class="btn-link" href="<c:url value="/login"/>">로그인하기</a>
