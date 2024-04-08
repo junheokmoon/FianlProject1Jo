@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
- <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
     <meta charset="utf-8">
@@ -89,41 +89,15 @@
 									</tr>
 								</thead>
 								<tbody>
-									<tr>
-										<td>${userDTO.user_id}</td>
-										<td>홍길동</td>
-										<td>HongHong</td>
-										<td>일반회원</td>
-										<td>2024-03-25</td>
-									</tr>
-									<tr>
-										<td>abc123</td>
-										<td>홍길동</td>
-										<td>HongHong</td>
-										<td>일반회원</td>
-										<td>2024-03-25</td>
-									</tr>
-									<tr>
-										<td>abc123</td>
-										<td>홍길동</td>
-										<td>HongHong</td>
-										<td>일반회원</td>
-										<td>2024-03-25</td>
-									</tr>
-									<tr>
-										<td>abc123</td>
-										<td>홍길동</td>
-										<td>HongHong</td>
-										<td>일반회원</td>
-										<td>2024-03-25</td>
-									</tr>
-									<tr>
-										<td>abc123</td>
-										<td>홍길동</td>
-										<td>HongHong</td>
-										<td>일반회원</td>
-										<td>2024-03-25</td>
-									</tr>
+									<c:forEach var="user" items="${userList }">
+										<tr>
+											<td>${user.userId}</td>
+											<td>${user.userName}</td>
+											<td>HongHong</td>
+											<td>일반회원</td>
+											<td>2024-03-25</td>
+										</tr>
+									</c:forEach>
 								</tbody>
 							</table>
 						</div>

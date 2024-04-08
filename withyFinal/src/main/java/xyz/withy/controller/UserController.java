@@ -14,13 +14,14 @@ public class UserController {
 	private final UserService userService;
 	
 	@RequestMapping("/")
-	public String admin() {
+	public String admin(Model model) {
+		model.addAttribute("userList", userService.getUserJoindateList());
+		System.out.println("userService.getUserJoindateList() = " + userService.getUserJoindateList());
 		return "admin";
 	}
 	
 	@RequestMapping("/allUser")
 	public String allUser(Model model) {
-		model.addAttribute("userList", userService.getUserJoindateList());
 		return "admin/all_user";
 	}
 	
