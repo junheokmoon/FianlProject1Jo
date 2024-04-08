@@ -19,7 +19,7 @@
 		delete from review where reviewNumber=#{review_no}
 	</delete>
 
-	<select id="selectReview" resultType="Review">
+	<select id="selectReview" resultType="ReviewDTO">
 		select reviewStar,reviewComment, reviewUserNo, reviewDate, reviewDate, reviewProgramNo
 		  	from review where reviewNumber=#{review_no}
 	</select>
@@ -28,7 +28,7 @@
 		select count(*) from review
 	</select>
 	
-	<select id="selectReviewList" resultType="Review">
+	<select id="selectReviewList" resultType="ReviewDTO">
 		select * from (select rownum rn, review.* from (select previewStar,reviewComment, reviewUserNo
 			,reviewDate ,reviewDate ,reviewProgramNo from review order by reviewNo desc) review) 
 				where rn between #{startRow} and #{endRow}
