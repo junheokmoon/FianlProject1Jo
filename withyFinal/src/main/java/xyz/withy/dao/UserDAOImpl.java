@@ -28,5 +28,5 @@ public class UserDAOImpl implements UserDAO {
 	public List<UserDTO> selectUserJoindateList() {
 		return sqlSession.getMapper(UserMapper.class).selectUserJoindateList();
 	}
-	
+
 }

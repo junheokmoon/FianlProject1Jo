@@ -561,7 +561,6 @@
       	   
    
      <!-- Core JavaScript -->
-    <script src="<c:url value="/js/bootstrap.bundle.min.js"/>"></script>
     <script src="<c:url value="/js/theme.js"/>"></script>
 
     <!-- aos -->
@@ -584,7 +583,7 @@
 
         clipboard.on('success', function(e) {
             console.log(e);
-            e.clearSelection();
+            e.clearSelection(); 
         });
 
         clipboard.on('error', function(e) {

@@ -18,6 +18,6 @@ public class ottkindDTO {
 	private int ottNo;
 	private String ottName;
 	private String ottImage;
-	
-	
+
+
 }

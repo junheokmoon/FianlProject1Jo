@@ -14,7 +14,7 @@ import xyz.withy.mapper.ProgramMapper;
 @RequiredArgsConstructor
 public class ProgramDAOImpl implements ProgramDAO{
 	private final SqlSession sqlSession;
-	
+
 	@Override
 	public int insertProgram(ProgramDTO programDTO) {
 		return sqlSession.getMapper(ProgramMapper.class).insertProgram(programDTO);

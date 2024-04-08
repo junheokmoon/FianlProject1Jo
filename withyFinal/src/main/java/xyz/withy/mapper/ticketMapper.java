@@ -5,7 +5,7 @@ import java.util.List;
 import xyz.withy.dto.ticketDTO;
 
 public interface ticketMapper {
-	
+
 	int insertTicket(ticketDTO ticket);
 	int updateTicket(ticketDTO ticket);
 	int deleteTicket(ticketDTO ticket);

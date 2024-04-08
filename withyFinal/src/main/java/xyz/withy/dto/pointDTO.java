@@ -22,5 +22,5 @@ public class pointDTO {
 	private int pointPaymenbt;
 	private int pointTotal;
 	private String pointDate;
-	
+
 }

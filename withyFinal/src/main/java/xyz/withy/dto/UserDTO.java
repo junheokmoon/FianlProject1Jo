@@ -5,8 +5,8 @@ import lombok.Data;
 
 
 /*
- 이름            널?       유형           
-------------- -------- ------------ 
+ 이름            널?       유형
+------------- -------- ------------
 USER_NO       NOT NULL NUMBER       회원번호
 USER_ID       NOT NULL VARCHAR2(50) 아이디
 USER_PASSWORD NOT NULL VARCHAR2(50) 패스워드
@@ -34,5 +34,5 @@ public class UserDTO {
 	private String userBirthday;
 	private String userNickname;
 	private String userJoindate;
-	
+
 }

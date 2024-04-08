@@ -4,8 +4,8 @@ import lombok.Builder;
 import lombok.Data;
 
 /*
-이름             널?       유형             
--------------- -------- -------------- 
+이름             널?       유형
+-------------- -------- --------------
 NOTICE_NO      NOT NULL NUMBER          글번호
 NOTICE_TITLE   NOT NULL VARCHAR2(100)   제목
 NOTICE_CONTENT NOT NULL VARCHAR2(1000)  내용

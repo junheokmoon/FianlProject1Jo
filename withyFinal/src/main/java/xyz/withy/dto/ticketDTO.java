@@ -22,7 +22,7 @@ public class ticketDTO {
 	private int ticketPrice;
 	private String ticketImage1;
 	private String ticketImage2;
-	private int ticketOttNo; 
+	private int ticketOttNo;
 	private int ticketMonth;
-	
+
 }
