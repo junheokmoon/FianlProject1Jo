@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"  %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
 <!DOCTYPE html>
 <html>
 <head>
@@ -88,20 +88,57 @@ h5{
 	border: 1px solid red;
 	height: 400px;
 }
+
+@charset "UTF-8";
+
+
+#Area{
+	margin: 0 auto;
+	width: 50%;
+	height: 100vh;
+	background: rgb(119,184,254);
+	background: linear-gradient(0deg, rgba(119,184,254,1) 5%, rgba(140,193,250,1) 14%,
+	rgba(163,206,251,1) 23%, rgba(205,230,253,1) 49%, rgba(249,254,255,1) 85%);
+}
+
+#goshop{
+	
+}
+
+
 </style>
 </head>
 <body>
-<div id="Area">
-<h2 style="text-align: center; margin-top: ">넷플릭스 파티의 티켓을 확인해 주세요!</h2>
+<div id="Area" style="width: 50%; margin: 0 auto; padding: 20px;">
 
-<!-- 내용삽입될 곳 -->
-	<div id= "contentArea">
+	<h2 style="text-align: center; margin-top: ">넷플릭스 파티의 티켓을 확인해 주세요!</h2>
+	<!-- 내용삽입될 곳 -->
+		<div id= "contentArea" style=" padding: 50px; height: 550px; border: 5px solid white; 
+		margin-top: 10%;">
+		
+			<div id="payArea" style=" background-color: white; margin-bottom: 40px; padding: 30px;">
+				<div style="text-align: center; "> 
+                <div style="text-align: center; background-color: white;
+                margin-top: 100px; height: 200px; font-size: 35px; font-weight: bold; ">
+                    사용 가능한 티켓이 없습니다.
+					</div>
+						<div style="margin-top: 20px; margin-bottom: 10px; ">
+							<button style="text-align: center; background-color: #3191f9; color: white; width: 300px;
+							padding: 10px; border-radius: 8px;"  id="goshop"> 티켓 구매하러 가기</button>
+						</div>
+				</div>
+			</div>
+		</div>
+<div style="text-align: center;">		
+	<button style=" background-color: #3191f9; color: white; width: 300px;
+		padding: 10px; border-radius: 8px; margin-top: 25px;"  id="goshop">
+			매칭 시작!
+	</button>
+</div>
+
+
+
 	
-		<h5 color="var(--gray-800)" class="sc-iwjdpV dHofiW" style="text-align: center;"> 사용 가능한 티켓이 없습니다.</h5>
-		<button style="margin: 0 auto;"> 티켓 구매하러 가기</button>
-	</div>
-</div>	
-
 <script type="text/javascript">
 	
 	function Llist() {

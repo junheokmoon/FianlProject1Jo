@@ -125,27 +125,27 @@
         <div class="container p-y-150">
             <div id="logo-swiper" class="swiper-container">
                 <div class="swiper-wrapper">
-                   <div class="swiper-slide" style="max-width: 100px; max-height: 100px;">
+                   <div class="swiper-slide" >
                         <img src="<c:url value="/images/net2.png"/>" alt="넷플릭스" class="swiper-slide">
                        <a href="http://www.naver.com" ><p class="main_image_text1" >파티장으로 </p></a>
                         <a href="http://www.naver.com" ><p class="main_image_text2" >파티원으로 </p></a>
                     </div>
-                    <div class="swiper-slide" style="max-width: 100px; max-height: 100px;">
+                    <div class="swiper-slide" >
                         <img src="<c:url value="/images/disney.png"/>" alt="디즈니플러스">
                         <a href="http://www.naver.com" ><p class="main_image_text1" >파티장으로 </p></a>
                         <a href="http://www.naver.com" ><p class="main_image_text2" >파티원으로 </p></a>
                     </div>
-                    <div class="swiper-slide" style="max-width: 100px; max-height: 100px;">
+                    <div class="swiper-slide" >
                         <img src="<c:url value="/images/tving.png"/>" alt="티빙" >
                         <a href="http://www.naver.com" ><p class="main_image_text1" >파티장으로 </p></a>
                         <a href="http://www.naver.com" ><p class="main_image_text2" >파티원으로 </p></a>
                     </div>
-                    <div class="swiper-slide" style="max-width: 100px; max-height: 100px;">
+                    <div class="swiper-slide" >
                         <img src="<c:url value="/images/wave.png"/>" alt="웨이브">
                         <a href="http://www.naver.com" ><p class="main_image_text1" >파티장으로 </p></a>
                         <a href="http://www.naver.com" ><p class="main_image_text2" >파티원으로 </p></a>
                     </div>
-                    <div class="swiper-slide" style="max-width: 100px; max-height: 100px;">
+                    <div class="swiper-slide" >
                         <img src="<c:url value="/images/watcha.png"/>" alt="왓챠">
                         <a href="http://www.naver.com" ><p class="main_image_text1" >파티장으로 </p></a>
                         <a href="http://www.naver.com" ><p class="main_image_text2" >파티원으로 </p></a>

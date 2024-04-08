@@ -21,6 +21,11 @@ public class MainController {
 	public String partyMember() {
 		return "/party/partyMember";
 	}
+	
+	@RequestMapping("/partyMember2")
+	public String partyMember2() {
+		return "/party/partyMemberpayment";
+	}
 
 	@RequestMapping("/partyLeader")
 	public String partyLeader() {
