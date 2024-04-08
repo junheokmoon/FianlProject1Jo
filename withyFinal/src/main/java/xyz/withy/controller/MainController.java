@@ -211,5 +211,9 @@ public class MainController {
 	   public String register() {
 	      return "/login/register";
 	}
-
+    
+    @RequestMapping("/login/forgotid")
+	   public String fotgotid() {
+	      return "/login/forgotid";
+	}
 }
