@@ -18,7 +18,7 @@ REVIEW_PROGRAM_NO          NUMBER   	 리뷰 프로그램 번호 (fk)
 
 @Data
 @Builder
-public class reviewDTO {
+public class ReviewDTO {
 		private int reviewNumber;
 		private int reviewStar;
 		private String reviewComment;

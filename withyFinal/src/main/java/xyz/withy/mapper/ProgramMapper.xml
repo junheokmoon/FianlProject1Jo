@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="xyz.withy.mapper.programMapper">
+<mapper namespace="xyz.withy.mapper.ProgramMapper">
 <insert id="insertProgram">
 		<selectKey resultType="int" keyProperty="programNo" order="BEFORE">
 			select program_no_seq.nextval from program

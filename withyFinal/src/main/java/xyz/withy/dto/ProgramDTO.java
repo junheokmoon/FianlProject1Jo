@@ -21,7 +21,7 @@ PROGRAM_CATEGORY_NO          NUMBER(5)     프로그램 세부 카테고리
 
 @Data
 @Builder
-public class programDTO {
+public class ProgramDTO {
 	private int programNo;
 	private int programOttNo;
 	private int programAge;
