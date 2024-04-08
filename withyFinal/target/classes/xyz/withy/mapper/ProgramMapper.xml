@@ -5,14 +5,14 @@
 		<selectKey resultType="int" keyProperty="programNo" order="BEFORE">
 			select program_no_seq.nextval from program
 		</selectKey>
-		insert into program values(#{program_no}, #{program_ott_no}, #{program_age},
-			#{program_name}, #{program_image},#{program_detail}, #{program_video}, #{program_category_no})
+		insert into program values(#{program_no}, #{program_ott_no},
+			,#{program_name}, #{program_image},#{program_detail}, #{program_video}, #{program_category_no})
 	</insert>
 	
 	<update id="updateProgram">
-		update program set programOttNo=#{program_ott_no}, programAge=#{program_age}
-			,programName=#{program_name},programImage=#{program_image},programDetail=#{program_detail}
-				,programVideo=#{program_video}, programCategoryNo=#{program_category_no} where programNo=#{program_no}
+		update program set programOttNo=#{program_ott_no} ,programName=#{program_name}
+			,programImage=#{program_image},programDetail=#{program_detail} ,programVideo=#{program_video}
+				, programCategoryNo=#{program_category_no} where programNo=#{program_no}
 	</update>
 	
 	<delete id="deleteProgram">
@@ -20,7 +20,7 @@
 	</delete>
 
 	<select id="selectProgram" resultType="Program">
-		select programOttNo, programAge, programName ,programImage ,programDetail 
+		select programOttNo, programName ,programImage ,programDetail 
 			,programVideo ,programCategoryNo from program where programNo=#{program_no}
 	</select>
 
@@ -29,7 +29,7 @@
 	</select>
 
 	<select id="selectProgramList" resultType="Program">
-		select * from (select rownum rn, program.* from (select programOttNo, programAge
+		select * from (select rownum rn, program.* from (select programOttNo
 			,programName ,programImage ,programDetail ,programVideo ,programCategoryNo
 			from program order by programNo desc) program) where rn between #{startRow} and #{endRow}
 	</select>
