@@ -4,14 +4,15 @@ import lombok.Builder;
 import lombok.Data;
 
 /*
-ì´ë¦„                  ë„?       ìœ í˜•      ì›ëž˜ ì´ë¦„
+ÀÌ¸§                  ³Î?       À¯Çü      ¿ø·¡ ÀÌ¸§
 ------------------- -------- ------------ -------------
-PAYMENT_NO          NOT NULL NUMBER       ê²°ì œ ë²ˆí˜¸
-PAYMENT_USER_NO              NUMBER       íšŒì› ë²ˆí˜¸
-PAYMENT_TICKET_CODE          VARCHAR2(10) ê²°ì œ ì´ìš©ê¶Œ ì½”ë“œ
-PAYMENT_DATE        NOT NULL DATE         ê²°ì œ ë‚ ì§œ
-PAYMENT_STATUS      NOT NULL NUMBER    	  ê²°ì œ ìƒíƒœ
+PAYMENT_NO          NOT NULL NUMBER       °áÁ¦ ¹øÈ£
+PAYMENT_USER_NO              NUMBER       È¸¿ø ¹øÈ£
+PAYMENT_TICKET_CODE          VARCHAR2(10) °áÁ¦ ÀÌ¿ë±Ç ÄÚµå
+PAYMENT_DATE        NOT NULL DATE         °áÁ¦ ³¯Â¥
+PAYMENT_STATUS      NOT NULL NUMBER    	  °áÁ¦ »óÅÂ
 */
+
 @Data
 @Builder
 public class paymentDTO {

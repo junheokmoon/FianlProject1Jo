@@ -7,23 +7,20 @@ import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
 import xyz.withy.dao.TicketDAO;
-import xyz.withy.dto.ticketDTO;
+import xyz.withy.dto.TicketDTO;
 
 @Service
 @RequiredArgsConstructor
-public class ticketServiceImpl implements ticketService{
-
+public class TicketServiceImpl implements TicketService{
 	private final TicketDAO ticketDAO;
 	
-	
 	@Override
-	public void addTicket(ticketDTO ticket) {
-
+	public void addTicket(TicketDTO ticket) {
 		ticketDAO.insertTicket(ticket);
 	}
 
 	@Override
-	public void modifyTicket(ticketDTO ticket) {
+	public void modifyTicket(TicketDTO ticket) {
 		ticketDAO.updateTicket(ticket);		
 	}
 
@@ -43,8 +40,7 @@ public class ticketServiceImpl implements ticketService{
 	}
 
 	@Override
-	public ticketDTO getTicket(String ticketCode) {
-		
+	public TicketDTO getTicket(String ticketCode) {
 		return ticketDAO.selectTicket(ticketCode);
 	}
 
@@ -54,13 +50,12 @@ public class ticketServiceImpl implements ticketService{
 	}
 
 	@Override
-	public List<ticketDTO> getTicketList() {
+	public List<TicketDTO> getTicketList() {
 		return ticketDAO.selectTicketList();
-				
 	}
 
 	@Override
-	public List<ticketDTO> getTicketPageList(Map<String, Object> map) {
+	public List<TicketDTO> getTicketPageList(Map<String, Object> map) {
 		return ticketDAO.selectTicketPageList(map);
 	}
 

@@ -4,13 +4,13 @@ import lombok.Builder;
 import lombok.Data;
 
 /*
-ì´ë¦„            ë„?       ìœ í˜•       ì›ëž˜ ì´ë¦„
+ÀÌ¸§            ³Î?       À¯Çü       ¿ø·¡ ÀÌ¸§
 ------------- -------- ------------- -----------
-POINT_USER_NO          NUMBER        íšŒì› ë²ˆí˜¸
-POINT_COMMENT NOT NULL VARCHAR2(100) ì§€ê¸‰ì‚¬ìœ 
-POINT_PAYMENT          NUMBER        ì§€ê¸‰í¬ì¸íŠ¸
-POINT_TOTAL            NUMBER        ì´í¬ì¸íŠ¸
-POINT_DATE    NOT NULL DATE       	 ì§€ê¸‰ì¼
+POINT_USER_NO          NUMBER        È¸¿ø ¹øÈ£
+POINT_COMMENT NOT NULL VARCHAR2(100) Áö±Þ»çÀ¯
+POINT_PAYMENT          NUMBER        Áö±ÞÆ÷ÀÎÆ®
+POINT_TOTAL            NUMBER        ÃÑÆ÷ÀÎÆ®
+POINT_DATE    NOT NULL DATE       	 Áö±ÞÀÏ
 */
 
 @Data

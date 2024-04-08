@@ -4,16 +4,16 @@ import lombok.Builder;
 import lombok.Data;
 
 /*
-ì´ë¦„             ë„?       ìœ í˜•
+ÀÌ¸§             ³Î?       À¯Çü
 -------------- -------- --------------
-NOTICE_NO      NOT NULL NUMBER          ê¸€ë²ˆí˜¸
-NOTICE_TITLE   NOT NULL VARCHAR2(100)   ì œëª©
-NOTICE_CONTENT NOT NULL VARCHAR2(1000)  ë‚´ìš©
-NOTICE_IMAGE            VARCHAR2(100)   ì´ë¯¸ì§€
-NOTICE_DATE             DATE            ìž‘ì„±ë‚ ì§œ
-NOTICE_UPDATE           DATE            ìˆ˜ì •ë‚ ì§œ
-NOTICE_COUNT            NUMBER          ì¡°íšŒìˆ˜
-NOTICE_USER_NO          NUMBER(5)       íšŒì›ë²ˆí˜¸
+NOTICE_NO      NOT NULL NUMBER          ±Û¹øÈ£
+NOTICE_TITLE   NOT NULL VARCHAR2(100)   Á¦¸ñ
+NOTICE_CONTENT NOT NULL VARCHAR2(1000)  ³»¿ë
+NOTICE_IMAGE            VARCHAR2(100)   ÀÌ¹ÌÁö
+NOTICE_DATE             DATE            ÀÛ¼º³¯Â¥
+NOTICE_UPDATE           DATE            ¼öÁ¤³¯Â¥
+NOTICE_COUNT            NUMBER          Á¶È¸¼ö
+NOTICE_USER_NO          NUMBER(5)       È¸¿ø¹øÈ£
 */
 
 @Data

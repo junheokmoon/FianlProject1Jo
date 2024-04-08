@@ -4,16 +4,14 @@ import lombok.Builder;
 import lombok.Data;
 
 /*
-
-ì´ë¦„                ë„?       ìœ í˜•
+ÀÌ¸§                ³Î?       À¯Çü
 ----------------- -------- -------------
-REVIEW_NO         NOT NULL NUMBER        ë¦¬ë·° ë²ˆí˜¸
-REVIEW_STAR                NUMBER(5)     ë¦¬ë·° ë³„ì 
-REVIEW_COMMENT    NOT NULL VARCHAR2(300) ë¦¬ë·° ëŒ“ê¸€
-REVIEW_USER_NO             NUMBER        ë¦¬ë·° ì‚¬ìš©ìž ë²ˆí˜¸(fk)
-REVIEW_DATE                DATE          ë¦¬ë·° ë‚ ì§œ
-REVIEW_PROGRAM_NO          NUMBER   	 ë¦¬ë·° í”„ë¡œê·¸ëž¨ ë²ˆí˜¸ (fk)
-
+REVIEW_NO         NOT NULL NUMBER        ¸®ºä ¹øÈ£
+REVIEW_STAR                NUMBER(5)     ¸®ºä º°Á¡
+REVIEW_COMMENT    NOT NULL VARCHAR2(300) ¸®ºä ´ñ±Û
+REVIEW_USER_NO             NUMBER        ¸®ºä »ç¿ëÀÚ ¹øÈ£(fk)
+REVIEW_DATE                DATE          ¸®ºä ³¯Â¥
+REVIEW_PROGRAM_NO          NUMBER   	 ¸®ºä ÇÁ·Î±×·¥ ¹øÈ£ (fk)
 */
 
 @Data

@@ -4,17 +4,15 @@ import lombok.Builder;
 import lombok.Data;
 
 /*
-
-Л²╢К╕└                  К└░?       Л°═М≤∙
+юл╦╖                  Ён?       ю╞гЭ
 ------------------- -------- -------------
-PROGRAM_NO          NOT NULL NUMBER        М■└К║°Й╥╦К·╗К╡┬М≤╦
-PROGRAM_OTT_NO      NOT NULL NUMBER(38)    М■└К║°Й╥╦К·╗OTT К╡┬М≤╦(FK)
-PROGRAM_NAME        NOT NULL VARCHAR2(30)  М■└К║°Й╥╦К·╗ Л²╢К╕└
-PROGRAM_IMAGE                VARCHAR2(500) М■└К║°Й╥╦К·╗ Л²╢К╞╦Л╖─
-PROGRAM_DETAIL      NOT NULL VARCHAR2(200) М■└К║°Й╥╦К·╗ Л└╓К╙┘
-PROGRAM_VIDEO                VARCHAR2(200) М■└К║°Й╥╦К·╗ К╧└К■■Л≤╓ К╖│М│╛
-PROGRAM_CATEGORY_NO          NUMBER(5)     М■└К║°Й╥╦К·╗ Л└╦К╤─ Л╧╢М┘▄ЙЁ═К╕╛
-
+PROGRAM_NO          NOT NULL NUMBER        га╥н╠в╥╔╧Ьхё
+PROGRAM_OTT_NO      NOT NULL NUMBER(38)    га╥н╠в╥╔OTT ╧Ьхё(FK)
+PROGRAM_NAME        NOT NULL VARCHAR2(30)  га╥н╠в╥╔ юл╦╖
+PROGRAM_IMAGE                VARCHAR2(500) га╥н╠в╥╔ юл╧лаЖ
+PROGRAM_DETAIL      NOT NULL VARCHAR2(200) га╥н╠в╥╔ ╪Ё╦М
+PROGRAM_VIDEO                VARCHAR2(200) га╥н╠в╥╔ ╨Я╣П©ю ╦╣е╘
+PROGRAM_CATEGORY_NO          NUMBER(5)     га╥н╠в╥╔ ╪╪╨н д╚ев╟М╦╝
 */
 
 

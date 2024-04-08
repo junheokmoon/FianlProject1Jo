@@ -1,5 +1,7 @@
 eclipse.preferences.version=1
 encoding//src/main/java/xyz/withy/dto/InquiryDTO.java=UTF-8
+encoding//src/main/java/xyz/withy/dto/TicketDTO.java=UTF-8
 encoding//src/main/java/xyz/withy/dto/UserDTO.java=UTF-8
 encoding//src/main/java/xyz/withy/dto/reviewDTO.java=UTF-8
-encoding//src/main/java/xyz/withy/dto/ticketDTO.java=UTF-8
+encoding//src/main/java/xyz/withy/mapper/TicketMapper.java=UTF-8
+encoding//src/main/java/xyz/withy/service/TicketService.java=UTF-8

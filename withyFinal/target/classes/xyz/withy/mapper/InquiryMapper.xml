@@ -35,7 +35,7 @@
 	</delete>
 	
 	<!-- 글번호 전달받아 단일행 검색 -->
-	<select id="selectNotice" resultType="Notice">
+	<select id="selectNotice" resultType="NoticeDTO">
 		select notice_no, notice_title, notice_content, notice_image, notice_date, notice_update, notice_count
 			from notice where notice_no=#{noticeNo}
 	</select>
@@ -46,7 +46,7 @@
 	</select>
 	
 	<!-- 페이징 처리 -->
-	<select id="selectNoticeList" resultType="Notice">
+	<select id="selectNoticeList" resultType="NoticeDTO">
 		select * from (select rownum rn, notice.* from (select notice_no, notice_title
 			, notice_content, notice_image, notice_date, notice_update, notice_count, notice_user_no
 			from notice order by notice_no desc) notice) where rn between #{startRow} and #{endRow}

@@ -17,7 +17,6 @@ USER_STATUS   NOT NULL NUMBER(10)   권한
 USER_BIRTHDAY          DATE         생년월일
 USER_NICKNAME          VARCHAR2(50) 닉네임
 USER_JOINDATE          DATE 		가입날짜
-
  */
 
 @Data

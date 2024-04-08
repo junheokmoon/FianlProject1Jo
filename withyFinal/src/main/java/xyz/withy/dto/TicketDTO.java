@@ -18,7 +18,7 @@ TICKET_NO     NOT NULL NUMBER		 티켓 생성 순서
 
 @Data
 @Builder
-public class ticketDTO {
+public class TicketDTO {
 
 	private String ticketCode;
 	private int ticketPrice;
