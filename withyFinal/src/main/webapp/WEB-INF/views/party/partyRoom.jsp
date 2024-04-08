@@ -8,14 +8,21 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
-.swiper-slide{
-    width: 80px; /* 이미지 너비 */
-    height: 80px; /* 이미지 높이 */
-    display: inline-block; /* 인라인 요소로 설정하여 수평으로 배치 */
-    vertical-align: top; /* 이미지를 상단에 정렬 */
-    margin-right: 10px; /* 이미지 사이 간격 조정 */
+
+.img-container {
+    white-space: nowrap; 
 }
 
+.imgcontent{
+	height: 80px;
+	width: 80px; 
+	display: inline-block;
+    margin-right: 100px; 
+}
+
+.user{
+	text-align: center;
+}
 </style>
 </head>
 <body>
@@ -25,11 +32,29 @@
 <div>파티 번호 : 32613512</div>
 <hr>
 <div>종료일 : 2024.05.01(남은기간 : 00일)</div>
-<hr>
-         <img src="<c:url value="/images/net2.png"/>" alt="넷플릭스" style="height: 80px; width: 80px;">
-         <img src="<c:url value="/images/net2.png"/>" alt="넷플릭스" >
-         <img src="<c:url value="/images/net2.png"/>" alt="넷플릭스" >
-         <img src="<c:url value="/images/net2.png"/>" alt="넷플릭스" >
+<hr>	
+		
+	<div class="img-container">
+		    <div class="imgcontent">
+		        <img src="<c:url value="/images/net2.png"/>" alt="넷플릭스">
+		        <div class="user">문**</div>
+		    </div>
+		    <div class="imgcontent">
+		        <img src="<c:url value="/images/net2.png"/>" alt="넷플릭스">
+		        <div class="user">문**</div>
+		    </div>
+		    <div class="imgcontent">
+		        <img src="<c:url value="/images/net2.png"/>" alt="넷플릭스">
+		        <div class="user">문**</div>
+		    </div>
+		    <div class="imgcontent">
+		        <img src="<c:url value="/images/net2.png"/>" alt="넷플릭스">
+		        <div class="user">문**</div>
+		    </div>
+	</div>
+        
+        
+        
 <div class="mainbody">
 		<div class="contents">
 			<h5 color="var(--gray-800)" class="sc-iwjdpV dHofiW">50% 더 저렴하게 이용할 수 있어요</h5>
