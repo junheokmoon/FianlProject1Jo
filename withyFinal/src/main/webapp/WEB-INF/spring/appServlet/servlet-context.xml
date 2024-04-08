@@ -61,6 +61,8 @@
 	
 		<context:component-scan base-package="xyz.itwill.withy" />
 		<context:component-scan base-package="xyz.withy.controller" />
+		<context:component-scan base-package="xyz.withy.dao" />
+		<context:component-scan base-package="xyz.withy.service" />
 	
 	
 	

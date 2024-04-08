@@ -20,7 +20,6 @@ USER_JOINDATE          DATE 		가입날짜
 
  */
 
-
 @Data
 @Builder
 public class UserDTO {

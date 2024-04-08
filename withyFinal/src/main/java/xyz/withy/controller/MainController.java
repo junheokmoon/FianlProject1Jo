@@ -91,15 +91,17 @@ public class MainController {
 		return "/mypage/noticeDisplay";
 	}
 
-	@RequestMapping("/admin")
-	public String admin() {
-		return "admin";
-	}
+	// ============================== 관리자 시작 ==============================
+	
+//	@RequestMapping("/admin")
+//	public String admin() {
+//		return "admin";
+//	}
 
-	@RequestMapping("/admin/allUser")
-	public String allUser() {
-		return "admin/all_user";
-	}
+//	@RequestMapping("/admin/allUser")
+//	public String allUser() {
+//		return "admin/all_user";
+//	}
 
 //	@RequestMapping("/admin/allUser")
 //	public String allUser(Model model) {
