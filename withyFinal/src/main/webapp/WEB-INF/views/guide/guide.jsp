@@ -78,7 +78,7 @@
 	.NzttP {
 	    position: absolute;
 	    top: calc(-0px + -153px - env(safe-area-inset-bottom));
-	    right: -1050px;
+	    right: -1200px;
 	    width: 88px;
 	    height: 88px;
 	}

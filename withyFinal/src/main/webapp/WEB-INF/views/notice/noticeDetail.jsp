@@ -11,7 +11,7 @@
     <title>WITTY</title>
 
 
-    <!--STYLESHEET-->
+     <!--STYLESHEET-->
     <!--=================================================-->
 
     <!--Open Sans Font [ OPTIONAL ] -->
@@ -19,27 +19,27 @@
 
 
     <!--Bootstrap Stylesheet [ REQUIRED ]-->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="<c:url value="/css/bootstrap.min.css"/>" rel="stylesheet">
 
 
     <!--Nifty Stylesheet [ REQUIRED ]-->
-    <link href="css/nifty.min.css" rel="stylesheet">
+    <link href="<c:url value="/css/nifty.min.css"/>" rel="stylesheet">
 
     
     <!--Font Awesome [ OPTIONAL ]-->
-    <link href="plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="<c:url value="/plugins/font-awesome/css/font-awesome.min.css"/>" rel="stylesheet">
 
 
     <!--Switchery [ OPTIONAL ]-->
-    <link href="plugins/switchery/switchery.min.css" rel="stylesheet">
+    <link href="<c:url value="/plugins/switchery/switchery.min.css"/>" rel="stylesheet">
 
 
     <!--Bootstrap Select [ OPTIONAL ]-->
-    <link href="plugins/bootstrap-select/bootstrap-select.min.css" rel="stylesheet">
+    <link href="<c:url value="/plugins/bootstrap-select/bootstrap-select.min.css"/>" rel="stylesheet">
 
 
     <!--Demo [ DEMONSTRATION ]-->
-    <link href="css/demo/nifty-demo.min.css" rel="stylesheet">
+    <link href="<c:url value="/css/demo/nifty-demo.min.css"/>" rel="stylesheet">
 
 
 
@@ -48,9 +48,9 @@
     <!--=================================================-->
 
     <!--Page Load Progress Bar [ OPTIONAL ]-->
-    <link href="plugins/pace/pace.min.css" rel="stylesheet">
-    <script src="plugins/pace/pace.min.js"></script>
-
+    <link href="<c:url value="/plugins/pace/pace.min.css"/>" rel="stylesheet">
+    <script src="<c:url value="/plugins/pace/pace.min.js"/>"></script>
+    
 </head>
 
 
@@ -91,35 +91,35 @@
 		</div>
 	</div>
 					
-	<!--JAVASCRIPT-->
+<!--JAVASCRIPT-->
 	<!--=================================================-->
 
 	<!--jQuery [ REQUIRED ]-->
-	<script src="js/jquery-2.1.1.min.js"></script>
+	<script src="<c:url value="/js/jquery-2.1.1.min.js"/>"></script>
 
 
 	<!--BootstrapJS [ RECOMMENDED ]-->
-	<script src="js/bootstrap.min.js"></script>
+	<script src="<c:url value="/js/bootstrap.min.js"/>"></script>
 
 
 	<!--Fast Click [ OPTIONAL ]-->
-	<script src="plugins/fast-click/fastclick.min.js"></script>
+	<script src="<c:url value="/plugins/fast-click/fastclick.min.js"/>"></script>
 
 	
 	<!--Nifty Admin [ RECOMMENDED ]-->
-	<script src="js/nifty.min.js"></script>
+	<script src="<c:url value="/js/nifty.min.js"/>"></script>
 
 
 	<!--Switchery [ OPTIONAL ]-->
-	<script src="plugins/switchery/switchery.min.js"></script>
+	<script src="<c:url value="/plugins/switchery/switchery.min.js"/>"></script>
 
 
 	<!--Bootstrap Select [ OPTIONAL ]-->
-	<script src="plugins/bootstrap-select/bootstrap-select.min.js"></script>
+	<script src="<c:url value="/plugins/bootstrap-select/bootstrap-select.min.js"/>"></script>
 
 
 	<!--Demo script [ DEMONSTRATION ]-->
-	<script src="js/demo/nifty-demo.min.js"></script>
+	<script src="<c:url value="/js/demo/nifty-demo.min.js"/>"></script>
 
 </body>
 </html>
