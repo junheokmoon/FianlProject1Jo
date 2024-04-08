@@ -178,7 +178,7 @@
             <div class="container">
                 <div class="row v-center">
                     <div class="col-lg-6 mb-50">
-                        <img src="assets/images/mainSub1.png" alt="" class="rounded rellax" data-rellax-speed="1" data-rellax-percentage="0.5">
+                        <img src="" alt="" class="rounded rellax" data-rellax-speed="1" data-rellax-percentage="0.5">
                     </div><!-- / column -->
                     <div class="col-lg-6 mb-50">
                         <h2 class="mb-30">왜 우리 [윗티]어야 하는가?</h2>
@@ -359,7 +359,7 @@
                         <div class="swiper-slide">
                             <div class="card card-w-raised-img-top mb-0">
                                 <div class="card-body text-center">
-                                    <img class="card-raised-img-top mb-20 circle raised-sm" src="assets/images/ph-mini.jpg" alt="" style="max-width: 150px;">
+                                    <img class="card-raised-img-top mb-20 circle raised-sm" src="" alt="" style="max-width: 150px;">
                                     <p class="ratings mb-0">
                                         <i class="fas fa-star fs-12 va-middle"></i>
                                         <i class="fas fa-star va-middle"></i>
@@ -375,7 +375,7 @@
                         <div class="swiper-slide">
                             <div class="card card-w-raised-img-top mb-0">
                                 <div class="card-body text-center">
-                                    <img class="card-raised-img-top mb-20 circle raised-sm" src="assets/images/ph-mini.jpg" alt="" style="max-width: 150px;">
+                                    <img class="card-raised-img-top mb-20 circle raised-sm" src="" alt="" style="max-width: 150px;">
                                     <p class="ratings mb-0">
                                         <i class="fas fa-star fs-12 va-middle"></i>
                                         <i class="fas fa-star va-middle"></i>
@@ -391,7 +391,7 @@
                         <div class="swiper-slide">
                            <div class="card card-w-raised-img-top mb-0">
                                 <div class="card-body text-center">
-                                    <img class="card-raised-img-top mb-20 circle raised-sm" src="assets/images/ph-mini.jpg" alt="" style="max-width: 150px;">
+                                    <img class="card-raised-img-top mb-20 circle raised-sm" src="" alt="" style="max-width: 150px;">
                                     <p class="ratings mb-0">
                                         <i class="fas fa-star fs-12 va-middle"></i>
                                         <i class="fas fa-star va-middle"></i>
@@ -407,7 +407,7 @@
                         <div class="swiper-slide">
                             <div class="card card-w-raised-img-top mb-0">
                                 <div class="card-body text-center">
-                                    <img class="card-raised-img-top mb-20 circle raised-sm" src="assets/images/ph-mini.jpg" alt="" style="max-width: 150px;">
+                                    <img class="card-raised-img-top mb-20 circle raised-sm" src="" alt="" style="max-width: 150px;">
                                     <p class="ratings mb-0">
                                         <i class="fas fa-star fs-12 va-middle"></i>
                                         <i class="fas fa-star va-middle"></i>
@@ -423,14 +423,14 @@
                         <div class="swiper-slide">
                             <div class="card card-w-raised-img-top mb-0">
                                 <div class="card-body text-center">
-                                    <img class="card-raised-img-top mb-20 circle raised-sm" src="assets/images/ph-mini.jpg" alt="" style="max-width: 150px;">
+                                    <img class="card-raised-img-top mb-20 circle raised-sm" src="" alt="" style="max-width: 150px;">
                                     <p class="ratings mb-0">
                                         <i class="fas fa-star fs-12 va-middle"></i>
                                         <i class="fas fa-star va-middle"></i>
                                         <i class="fas fa-star-half-alt fs-20 va-middle"></i>
                                         <i class="fas fa-star va-middle"></i>
                                         <i class="fas fa-star fs-12 va-middle"></i>
-                                    </p><!-- / ratings -->
+                                    </p><!-- / ratings --> 
                                     <p class="card-text mb-15">Quisque porttitor vulputate eros, in feugiat lectus condimentum vel.</p>
                                     <p class="mb-0 fs-12 fw-regular">- Dianna Smiley</p>
                                 </div><!-- / card-body -->
@@ -439,7 +439,7 @@
                         <div class="swiper-slide">
                             <div class="card card-w-raised-img-top mb-0">
                                 <div class="card-body text-center">
-                                    <img class="card-raised-img-top mb-20 circle raised-sm" src="assets/images/ph-mini.jpg" alt="" style="max-width: 150px;">
+                                    <img class="card-raised-img-top mb-20 circle raised-sm" src="" alt="" style="max-width: 150px;">
                                     <p class="ratings mb-0">
                                         <i class="fas fa-star fs-12 va-middle"></i>
                                         <i class="fas fa-star va-middle"></i>

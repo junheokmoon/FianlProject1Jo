@@ -8,67 +8,28 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
-.contents{
-	border-radius: 10px;
-	width: 50%;
-	text-align:center;
-	margin: 0 auto;
-	margin-bottom: 20px;
-	padding: 15px;
-	background-color: white;
-	  opacity: 0; /* 초기에는 투명도를 0으로 설정하여 숨김 */
-    animation: fadeInUp 0.7s ease forwards; /* fadeInUp 애니메이션 적용 */
-} 
-
-  .content + .content {
-    margin-top: 20px; /* 예시로 20px 간격을 설정함 */
-  }
-
-h5{
-	font-weight: bold;
-}
-@keyframes fadeInUp {
-    0% {
-      opacity: 0;
-      transform: translateY(-0px); /* 시작 위치 설정 */
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0); /* 끝 위치 설정 */
-    }
-}
-
-.mainbody {
-    position: relative;
-    animation: fadeInUp 1s;
-}
-
-
-#BtnArea{
-	padding: 20px;
-	margin-top: 248px;
-	text-align: center;
-	background: rgb(255,255,255);
-	background: linear-gradient(0deg, rgba(255,255,255,1) 81%, rgba(210,231,253,1) 92%, rgba(149,198,250,1) 100%);
-}
-
-#startBtn{
-	margin: 0 auto;
-	padding: 10px;
-	width: 300px;
-	font-size: 23px;
-	font-weight: bold;
-	background-color: #3191f9;
-	color: white;
-	border-radius: 10px;
-	border: none;
+.swiper-slide{
+    width: 80px; /* 이미지 너비 */
+    height: 80px; /* 이미지 높이 */
+    display: inline-block; /* 인라인 요소로 설정하여 수평으로 배치 */
+    vertical-align: top; /* 이미지를 상단에 정렬 */
+    margin-right: 10px; /* 이미지 사이 간격 조정 */
 }
 
 </style>
 </head>
 <body>
 
-
+<div>3개월/넷플릭스</div>
+<hr>
+<div>파티 번호 : 32613512</div>
+<hr>
+<div>종료일 : 2024.05.01(남은기간 : 00일)</div>
+<hr>
+         <img src="<c:url value="/images/net2.png"/>" alt="넷플릭스" style="height: 80px; width: 80px;">
+         <img src="<c:url value="/images/net2.png"/>" alt="넷플릭스" >
+         <img src="<c:url value="/images/net2.png"/>" alt="넷플릭스" >
+         <img src="<c:url value="/images/net2.png"/>" alt="넷플릭스" >
 <div class="mainbody">
 		<div class="contents">
 			<h5 color="var(--gray-800)" class="sc-iwjdpV dHofiW">50% 더 저렴하게 이용할 수 있어요</h5>

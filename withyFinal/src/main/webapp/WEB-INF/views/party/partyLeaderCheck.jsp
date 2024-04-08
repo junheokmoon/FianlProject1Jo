@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"  %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
 <!DOCTYPE html>
 <html>
 <head>
@@ -83,98 +83,63 @@ h5{
 	border: none;
 }
 
+
+#contentArea{
+	border: 1px solid red;
+	height: 400px;
+}
+
+@charset "UTF-8";
+
+
+#Area{
+	margin: 0 auto;
+	width: 50%;
+	height: 100vh;
+	background: rgb(119,184,254);
+	background: linear-gradient(0deg, rgba(119,184,254,1) 5%, rgba(140,193,250,1) 14%,
+	rgba(163,206,251,1) 23%, rgba(205,230,253,1) 49%, rgba(249,254,255,1) 85%);
+}
+
+#goshop{
+	
+}
+
+
 </style>
 </head>
 <body>
-<div id="Area">
-<h2 style="text-align: center; margin-top: ">이용하실 역할을 선택해주세요!</h2>
-<div class="button-container">
-	<!-- 파티장 버튼 -->
-   <button class="button button-a" onclick="Llist()">
-      <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="bi bi-person-check-fill" viewBox="0 0 16 16" style="margin-left: 18px; margin-top: 20px;">
-      <path fill-rule="evenodd" d="M15.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L12.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0"/>
-      <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
-      </svg>
-      <div class="choiceTitle" id="Reader">파티장</div>
-      <div class="choiceContents" style="margin-top: 10px;">내 계정으로 파티원 모으기</div>
-   </button>
-   
-	<!-- 파티원 버튼 -->
-  <button class="button button-b" id="BtnB" onclick="Mlist()">
-      <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16" style="margin-top: 20px;">
-      <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.24 2.24 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.3 6.3 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"/>
-      </svg>
-      <div class="choiceTitle" >파티원</div>
-      <div class="choiceContents" style="margin-top: 10px;">공유계정을 받아 사용하고 싶어요</div>
-  </button>
+<div id="Area" style="width: 50%; margin: 0 auto; padding: 20px;">
+
+	<h2 style="text-align: center; margin-top: ">넷플릭스의 아이디를 확인해 주세요!</h2>
+	<!-- 내용삽입될 곳 -->
+		<div id= "contentArea" style=" padding: 50px; height: 550px; border: 5px solid white; 
+		margin-top: 10%;">
+		
+			<div id="payArea" style="  height: 300px;">
+				<div style="margin-bottom: 60px; margin-top: 70px; text-align: center;">				
+					<label for="inputPassword5" class="form-label" style="font-weight: bold; ">로그인 ID</label><br>
+					<input class="form-control form-control-lg" type="text" placeholder="넷플릭스 아이디를 입력해주세요"  style="width: 400px;">
+				</div>
+				
+				<div style="text-align: center;"">
+					<label for="inputPassword5" class="form-label" style="font-weight: bold;">비밀번호</label><br>
+					<input type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock" style="width: 400px;">
+				</div>
+			</div>
+					<div style="text-align: center;">		
+						<button style=" background-color: #3191f9; color: white; width: 300px;
+							padding: 10px; border-radius: 8px; margin-top: 25px;"  id="goshop" onclick="location.href='<c:url value="partyLeader3"/>';">
+								다음
+						</button>
+					</div>
+		</div>
 </div>
-
-<!-- 내용삽입될 곳 -->
-<div id="display"></div>
-
-
-
-	<div id="mainbodyL">
-		<div class="contents">
-			<h5 color="var(--gray-800)" class="sc-iwjdpV dHofiW">50% 더 저렴하게 이용할 수 있어요</h5>
-			<div>
-				<div height="4" class="sc-hBUSln ciZnfs"></div>
-			</div>
-			<small color="var(--gray-700)" class="sc-ezbkAF dKNqlI">파티장 수수료 X</small>
-		</div>
 		
-		<div class="contents">
-			<h5 color="var(--gray-800)" class="sc-iwjdpV dHofiW">정산 보장제 적용 받아요</h5>
-			<div>
-				<div height="4" class="sc-hBUSln ciZnfs"></div>
-			</div>
-			<small color="var(--gray-700)" class="sc-ezbkAF dKNqlI">파티원이 구해지지 않아도 정산받는 금액 100% 보장</small>
-		</div>
-		
-		<div class="contents" >
-			<h5 color="var(--gray-800)" class="sc-iwjdpV dHofiW">지금 바로 볼 수 있어요</h5>
-			<div>
-				<div height="4" class="sc-hBUSln ciZnfs"></div>
-			</div>
-			<small color="var(--gray-700)" class="sc-ezbkAF dKNqlI">파티장은 기다리지 않고 바로 시청할 수 있어요.</small>
-		</div>
-			<div id="BtnArea"><button id="startBtn" onclick="location.href='<c:url value="partyLeader2"/>';">파티장으로 시작</button></div>
-		
-	</div>
+
+
+
 	
-	
-	<div id="mainbodyM">
-	<div class="contents" >
-			<h5 color="var(--gray-800)" class="sc-iwjdpV dHofiW">자동으로
-				재매칭해드려요</h5>
-			<div>
-				<div height="4" class="sc-hBUSln ciZnfs"></div>
-			</div>
-			<small color="var(--gray-700)" class="sc-ezbkAF dKNqlI">파티가
-				해체되도 최우선순위로 재매칭해드려요.</small>
-		</div>
-		
-		<div class="contents" >
-			<h5 color="var(--gray-800)" class="sc-iwjdpV dHofiW">공유 계정으로 부담없이 이용해요</h5>
-			<div>
-				<div height="4" class="sc-hBUSln ciZnfs"></div>
-			</div>
-			<small color="var(--gray-700)" class="sc-ezbkAF dKNqlI">함께 쓰는 계정은 소중히 이용해주세요.</small>
-		</div>
-		
-		<div class="contents" >
-			<h5 color="var(--gray-800)" class="sc-iwjdpV dHofiW">중도해지는 불가능해요</h5>
-			<div>
-				<div height="4" class="sc-hBUSln ciZnfs"></div>
-			</div>
-			<small color="var(--gray-700)" class="sc-ezbkAF dKNqlI">파티가 시작되면 중도 해지는 불가능해요</small>
-		</div>
-			<div id="BtnArea"><button id="startBtn" onclick="location.href='<c:url value="partyMember2"/>';">파티원으로 시작</button></div>
-		
-</div>	
-	
-</div>
-
 <script type="text/javascript">
 	
 	function Llist() {

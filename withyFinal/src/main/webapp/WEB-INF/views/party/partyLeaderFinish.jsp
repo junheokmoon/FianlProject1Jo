@@ -23,73 +23,10 @@
 <link href="<c:url value="/css/partymain.css"/>" type="text/css" rel="stylesheet">
 
 <style type="text/css">
-.contents{
-	border-radius: 10px;
-	width: 50%;
-	text-align:center;
-	margin: 0 auto;
-	margin-bottom: 20px;
-	padding: 15px;
-	background-color: white;
-	  opacity: 0; /* 초기에는 투명도를 0으로 설정하여 숨김 */
-    animation: fadeInUp 0.7s ease forwards; /* fadeInUp 애니메이션 적용 */
+
+.list{
+	margin: 10px;
 }
-
-  .content + .content {
-    margin-top: 20px; /* 예시로 20px 간격을 설정함 */
-  }
-
-h5{
-	font-weight: bold;
-}
-@keyframes fadeInUp {
-    0% {
-      opacity: 0;
-      transform: translateY(-0px); /* 시작 위치 설정 */
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0); /* 끝 위치 설정 */
-    }
-}
-
-#mainbodyL {
-    position: relative;
-    animation: fadeInUp 1s;
-}
-
-#mainbodyM {
-    position: relative;
-    animation: fadeInUp 1s;
-}
-
-#BtnArea{
-	padding: 20px;
-	margin-top: 248px;
-	text-align: center;
-	background: rgb(255,255,255);
-	background: linear-gradient(0deg, rgba(255,255,255,1) 81%, rgba(210,231,253,1) 92%, rgba(149,198,250,1) 100%);
-}
-
-#startBtn{
-	margin: 0 auto;
-	padding: 10px;
-	width: 300px;
-	font-size: 23px;
-	font-weight: bold;
-	background-color: #3191f9;
-	color: white;
-	border-radius: 10px;
-	border: none;
-}
-
-
-#contentArea{
-	border: 1px solid red;
-	height: 400px;
-}
-
-@charset "UTF-8";
 
 
 #Area{
@@ -101,41 +38,60 @@ h5{
 	rgba(163,206,251,1) 23%, rgba(205,230,253,1) 49%, rgba(249,254,255,1) 85%);
 }
 
-#goshop{
-	
-}
+
 
 
 </style>
 </head>
 <body>
-<div id="Area" style="width: 50%; margin: 0 auto; padding: 20px;">
-
-	<h2 style="text-align: center; margin-top: ">넷플릭스 파티의 티켓을 확인해 주세요!</h2>
-	<!-- 내용삽입될 곳 -->
-		<div id= "contentArea" style=" padding: 50px; height: 550px; border: 5px solid white; 
-		margin-top: 10%;">
+<div id="Area" style="width: 50%; margin: 0 auto; padding: 20px; margin-top: 140px;">
+	<div style="text-align: center; ">
+		<svg xmlns="http://www.w3.org/2000/svg" width="180" height="180" fill="currentColor" class="bi bi-house-heart" viewBox="0 0 16 16">
+	  		<path d="M8 6.982C9.664 5.309 13.825 8.236 8 12 2.175 8.236 6.336 5.309 8 6.982"/>
+	  		<path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.707L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.646a.5.5 0 0 0 .708-.707L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z"/>
+		</svg>
+	</div>		
+	<h2 style="text-align: center; margin-top: 50px;">파티방 생성 완료!</h2>
 		
-			<div id="payArea" style=" background-color: white; margin-bottom: 40px; padding: 30px;">
-				<div style="text-align: center; "> 
-                <div style="text-align: center; background-color: white;
-                margin-top: 100px; height: 200px; font-size: 35px; font-weight: bold; ">
-                    사용 가능한 티켓이 없습니다.
-					</div>
-						<div style="margin-top: 20px; margin-bottom: 10px; ">
-							<button style="text-align: center; background-color: #3191f9; color: white; width: 300px;
-							padding: 10px; border-radius: 8px;"  id="goshop"> 티켓 구매하러 가기</button>
-						</div>
-				</div>
-			</div>
-		</div>
-<div style="text-align: center;">		
-	<button style=" background-color: #3191f9; color: white; width: 300px;
-		padding: 10px; border-radius: 8px; margin-top: 25px;"  id="goshop" onclick="location.href='<c:url value="partyMember3"/>';">
-			매칭 시작!
-	</button>
+	<div style="text-align: ; margin-top: 50px;">
+	<div class="list">
+	<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" style="margin-right: 10px;" fill="currentColor" class="bi bi-send" viewBox="0 0 16 16">
+		<path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576zm6.787-8.201L1.591 6.602l4.339 2.76z" />
+	</svg>
+	자동으로 조건에 맞는 파티원들이 입장합니다.
+	</div>
+	
+	<div class="list">
+		<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" style="margin-right: 10px;" fill="currentColor" class="bi bi-send" viewBox="0 0 16 16">
+		<path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576zm6.787-8.201L1.591 6.602l4.339 2.76z" />
+		</svg>
+	설정한 인원이 모두 입장하면 파티는 자동으로 시작됩니다.
+	</div>
+	
+	<div class="list">
+		<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" style="margin-right: 10px;" fill="currentColor" class="bi bi-send" viewBox="0 0 16 16">
+			<path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576zm6.787-8.201L1.591 6.602l4.339 2.76z" />
+		</svg>
+	설정한 인원이 모두 입장하면 등록된 OTT 아이디와 비밀번호가 파티원들에게 공유됩니다.
+	</div>
+	 
+	<div class="list">
+		<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" style="margin-right: 10px;" fill="currentColor" class="bi bi-send" viewBox="0 0 16 16">
+			<path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576zm6.787-8.201L1.591 6.602l4.339 2.76z" />
+		</svg>
+	파티방 생성 후 
+	</div>
+	</div>
+	
+	
+	<div style="text-align: center;">		
+			<button style=" background-color: #3191f9; color: white; width: 300px;
+				padding: 10px; border-radius: 8px; margin-top: 75px;"  id="goshop">
+					홈으로
+			</button>
+	</div>
+	
 </div>
-
 
 
 	

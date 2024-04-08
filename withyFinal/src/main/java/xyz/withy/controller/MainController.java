@@ -26,12 +26,37 @@ public class MainController {
 	public String partyMember2() {
 		return "/party/partyMemberpayment";
 	}
+	
+	@RequestMapping("/partyMember3")
+	public String partyFinish() {
+		return "/party/partyMemberFinish";
+	}
+	
 
 	@RequestMapping("/partyLeader")
 	public String partyLeader() {
 		return "/party/partyLeader";
 	}
-
+	
+	@RequestMapping("/partyLeader1")
+	public String partyCheck() {
+		return "/party/partyCheck";
+	}
+	
+	@RequestMapping("/partyLeader2")
+	public String partyLeaderCreateRoom() {
+		return "/party/partyLeaderCreateRoom2";
+	}
+	
+	@RequestMapping("/partyLeader3")
+	public String partyLeaderFinish() {
+		return "/party/partyLeaderFinish";
+	}
+	
+	@RequestMapping("/partyLeader4")
+	public String partyLeaderRoom() {
+		return "/party/partyRoom";
+	}
 	/*
 	폴더를 만들어서 옮겼습니다
 	@RequestMapping("/review")
