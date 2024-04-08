@@ -5,23 +5,23 @@
 		<selectKey resultType="int" keyProperty="programNo" order="BEFORE">
 			select program_no_seq.nextval from program
 		</selectKey>
-		insert into program values(#{program_no}, #{program_ott_no},
-			,#{program_name}, #{program_image},#{program_detail}, #{program_video}, #{program_category_no})
+		insert into program values(#{programNo}, #{programOttNo},
+			,#{programName}, #{programImage},#{programDtail}, #{programVideo}, #{programCategoryNo})
 	</insert>
 	
 	<update id="updateProgram">
-		update program set programOttNo=#{program_ott_no} ,programName=#{program_name}
-			,programImage=#{program_image},programDetail=#{program_detail} ,programVideo=#{program_video}
-				, programCategoryNo=#{program_category_no} where programNo=#{program_no}
+		update program set program_ott_no=#{programOttNo} ,program_name=#{programName}
+			,program_image=#{programImage},program_detail=#{programDtail} ,program_video=#{programVideo}
+				, program_category_no=#{programCategoryNo} where program_no=#{programNo}
 	</update>
 	
 	<delete id="deleteProgram">
-		delete from program where programNo=#{program_no}
+		delete from program where program_no=#{programNo}
 	</delete>
 
 	<select id="selectProgram" resultType="ProgramDTO">
-		select programOttNo, programName ,programImage ,programDetail 
-			,programVideo ,programCategoryNo from program where programNo=#{program_no}
+		select program_ott_no, program_name ,program_image ,program_detail 
+			,program_video ,program_category_no from program where program_no=#{programNo}
 	</select>
 
 	<select id="selectProgramCount" resultType="int">
@@ -29,9 +29,9 @@
 	</select>
 
 	<select id="selectProgramList" resultType="ProgramDTO">
-		select * from (select rownum rn, program.* from (select programOttNo
-			,programName ,programImage ,programDetail ,programVideo ,programCategoryNo
-			from program order by programNo desc) program) where rn between #{startRow} and #{endRow}
+		select * from (select rownum rn, program.* from (select program_ott_no
+			,program_name ,program_image ,program_detail ,program_video ,program_category_no
+			from program order by program_no desc) program) where rn between #{startRow} and #{endRow}
 	</select>
 	
 </mapper>

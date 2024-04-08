@@ -1,26 +1,29 @@
 package xyz.withy.dto;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import lombok.Builder;
 import lombok.Data;
 
 /*
-ÀÌ¸§                ³Î?       À¯Çü
+ï¿½Ì¸ï¿½                ï¿½ï¿½?       ï¿½ï¿½ï¿½ï¿½
 ----------------- -------- -------------
-REVIEW_NO         NOT NULL NUMBER        ¸®ºä ¹øÈ£
-REVIEW_STAR                NUMBER(5)     ¸®ºä º°Á¡
-REVIEW_COMMENT    NOT NULL VARCHAR2(300) ¸®ºä ´ñ±Û
-REVIEW_USER_NO             NUMBER        ¸®ºä »ç¿ëÀÚ ¹øÈ£(fk)
-REVIEW_DATE                DATE          ¸®ºä ³¯Â¥
-REVIEW_PROGRAM_NO          NUMBER   	 ¸®ºä ÇÁ·Î±×·¥ ¹øÈ£ (fk)
+REVIEW_NO         NOT NULL NUMBER        ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£
+REVIEW_STAR                NUMBER(5)     ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+REVIEW_COMMENT    NOT NULL VARCHAR2(300) ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+REVIEW_USER_NO             NUMBER        ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£(fk)
+REVIEW_DATE                DATE          ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Â¥
+REVIEW_PROGRAM_NO          NUMBER   	 ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î±×·ï¿½ ï¿½ï¿½È£ (fk)
 */
 
 @Data
 @Builder
 public class ReviewDTO {
-		private int reviewNumber;
+		private int reviewNo;
 		private int reviewStar;
 		private String reviewComment;
 		private String reviewUserNo;
+		@DateTimeFormat(pattern = "yyyy/MM/dd")
 		private String reviewDate;
 		private String reviewProgramNo;
 

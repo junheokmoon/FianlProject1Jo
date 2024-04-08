@@ -14,7 +14,7 @@ public class ReviewController {
 
 	@RequestMapping("/review")
 	public String review(Model model) {
-		model.addAttribute("reviewList",reviewService.getReviewList(0));
+		//model.addAttribute("reviewList",reviewService.getReviewList();
 		return "/review/review";
 	}
 	

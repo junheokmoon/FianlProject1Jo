@@ -5,23 +5,23 @@
 		<selectKey resultType="int" keyProperty="reviewNo" order="BEFORE">
 			select review_no_seq.nextval from review
 		</selectKey>
-		insert into review values(#{review_no}, #{review_star}, #{review_comment},
-			#{review_user_no}, sysdate,#{review_program_no}
+		insert into review values(#{reviewNo}, #{reviewStar}, #{reviewComment},
+			#{reviewUserNo}, sysdate,#{reviewProgramNo}
 	</insert>
 	
 	<update id="updateReview">
-		update review set reviewStar=#{review_star}, reviewComment=#{review_comment}
-			,reviewUserNo=#{review_user_no},sysdate ,reviewProgramNo=#{review_program_no}
-				 where reviewNumber=#{review_no}
+		update review set review_star=#{reviewStar}, review_comment=#{reviewComment}
+			,review_user_no=#{reviewUserNo}, sysdate ,review_program_no=#{reviewProgramNo}
+				 where review_no=#{reviewNo}
 	</update>
 	
 	<delete id="deleteReview">
-		delete from review where reviewNumber=#{review_no}
+		delete from review where review_no=#{reviewNo}
 	</delete>
 
 	<select id="selectReview" resultType="ReviewDTO">
-		select reviewStar,reviewComment, reviewUserNo, reviewDate, reviewDate, reviewProgramNo
-		  	from review where reviewNumber=#{review_no}
+		select review_star,review_comment, review_user_no, review_date, review_program_no
+		  	from review where review_no=#{reviewNo}
 	</select>
 
 	<select id="selectReviewCount" resultType="int">
@@ -29,8 +29,8 @@
 	</select>
 	
 	<select id="selectReviewList" resultType="ReviewDTO">
-		select * from (select rownum rn, review.* from (select previewStar,reviewComment, reviewUserNo
-			,reviewDate ,reviewDate ,reviewProgramNo from review order by reviewNo desc) review) 
+		select * from (select rownum rn, review.* from (select review_star,review_comment, review_user_no
+			,review_date ,review_program_no from review order by review_no desc) review) 
 				where rn between #{startRow} and #{endRow}
 	</select>  
 	

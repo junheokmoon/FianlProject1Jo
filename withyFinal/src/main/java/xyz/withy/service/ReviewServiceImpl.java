@@ -18,6 +18,37 @@ public class ReviewServiceImpl implements ReviewService {
 
 	@Override
 	public void addReview(ReviewDTO reviewDTO) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void modifyReview(ReviewDTO reviewDTO) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void removeReview(int reviewNo) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public ReviewDTO getReview(int reviewNo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<ReviewDTO> getReviewList() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	/*
+	@Override
+	public void addReview(ReviewDTO reviewDTO) {
 		reviewDAO.insertProgram(reviewDTO);
 	}
 
@@ -63,6 +94,7 @@ public class ReviewServiceImpl implements ReviewService {
 
 		return resultMap;
 	}
+	*/
 
 }
 
