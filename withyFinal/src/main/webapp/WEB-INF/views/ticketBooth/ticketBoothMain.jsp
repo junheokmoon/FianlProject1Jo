@@ -548,6 +548,17 @@
     ticketListDiv();
     
     function ticketListDiv(){
+    	$ajax({
+    		type:"get",
+    		url:"<c:url value='/ticketBooth/ticket_list'/>",
+    		dataType:"json",
+    		success:
+    			
+    			,
+    		error:
+    			
+    		
+    	});
     	
     	
     }
