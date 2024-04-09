@@ -91,10 +91,10 @@
                    </div>
                 </div><!-- /  filters-button-group -->
 
+
+                <div id ="ticketListDiv"></div>
+                <%--
                 <div class="row grid" data-isotope='{ "layoutMode": "masonry" }'>
-                
-                
-                	<div id = "ticketListDiv"/>
                 
                 
                 
@@ -425,6 +425,7 @@
                     
                     
                 </div><!-- / row -->
+                 --%>
             </div><!-- / container -->
         </section><!-- / portfolio -->
 
@@ -543,19 +544,37 @@
     
     <script>
     
-    selectButtonList();
+    //selectButtonList();
 
-    ticketListDiv();
+    ticketList();
     
-    function ticketListDiv(){
+    function ticketList(){
     	$ajax({
     		type:"get",
-    		url:"<c:url value='/ticketBooth/ticket_list'/>",
+    		url:"<c:url value="/ticketBooth/ticket_list"/>",
     		dataType:"json",
-    		success:
-    			
-    			,
-    		error:
+    		success: function(result){
+    			//if(result.ticketList.length==0){
+    				
+    				var html ="<div class="col-xl-100">"
+					html+=    "<div class="card w-raised-icon lg-icon">"
+					html+=        "<div class="card-body text-center p-y-30">"
+					html+=            "<div class="row">"
+					html+=                "<div class="col-md-6">"
+					html+=                    "<h5 class="card-title ">이런! 저희가 준비한 티켓이 다 떨어졌군요!</h5>"
+					html+=                "</div>"<!-- / column -->
+					html+=            "</div>"<!-- / row -->
+					html+=        "</div>"<!-- / card-body -->
+					html+=   "</div>"<!-- / card -->
+					html+="</div>"<!-- / column -->
+					$("#ticketListDiv").html(html);
+					return;
+					
+    			//}
+    		},
+    		error:function(xhr) {
+				alert("에러코드(리스트 불러오기 오류) = "+xhr.status);
+			}
     			
     		
     	});

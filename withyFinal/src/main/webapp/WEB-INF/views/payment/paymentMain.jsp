@@ -100,7 +100,7 @@
 			                             <div class="row">
 			                              <div class="col-xl-4">
 			                        		  <div class="card w-raised-icon lg-icon">
-			                                     <div class="card-body text-center">
+			                                     <div class="card-body text-center p-y-30">
 			                                         <div class="raised-icon bg-white icon-lg pos-center circle raised">
 			                                             <i class="far fa-user promo-icon text-success"></i>
 			                                         </div><!-- / raised-icon -->
@@ -114,7 +114,7 @@
 			                                  </div><!-- / column -->
 			                              <div class="col-xl-4">
 			                        		  <div class="card w-raised-icon lg-icon">
-			                                     <div class="card-body text-center">
+			                                     <div class="card-body text-center p-y-30">
 			                                         <div class="raised-icon bg-white icon-lg pos-center circle raised">
 			                                             <i class="fas fa-briefcase text-primary"></i>
 			                                         </div><!-- / raised-icon -->
@@ -129,7 +129,7 @@
 			                              
 			                              <div class="col-xl-4">
 			                        		  <div class="card w-raised-icon lg-icon">
-			                                     <div class="card-body text-center">
+			                                     <div class="card-body text-center p-y-30">
 			                                         <div class="raised-icon bg-white icon-lg pos-center circle raised">
 			                                             <i class="fas fa-briefcase text-primary"></i>
 			                                         </div><!-- / raised-icon -->
@@ -169,9 +169,9 @@
 			                              
 			                              <hr style="border-top: 1px solid #333333; width: 100%; margin: 20px 0;">
 			                              
-												<div class="col-xl-100">
+												<div class="col-xl-100 ">
 												    <div class="card w-raised-icon lg-icon">
-												        <div class="card-body">
+												        <div class="card-body p-y-30">
 												            <div class="row">
 												                <div class="col-md-6">
 												                    <h5 class="card-title ">결제2금액</h5>
