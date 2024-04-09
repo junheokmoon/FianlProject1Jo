@@ -114,7 +114,7 @@
                         <a class="nav-link" href="#navigations"><span>자주 묻는 질문</span></a>
                     </li>
                     <li class="nav-item tablet-xl-hidden">
-                        <a class="nav-link" href="../mypage/noticeDisplay.jsp"><span>공지사항</span></a>
+                        <a class="nav-link" href="<c:url value="/noticeList/"/>"><span>공지사항</span></a>
                     </li>
                 </ul><!-- / navbar-nav -->
             </div><!-- / navbar-collapse -->

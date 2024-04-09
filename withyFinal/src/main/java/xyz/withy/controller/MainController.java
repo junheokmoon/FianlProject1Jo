@@ -114,11 +114,6 @@ public class MainController {
 		return "/mypage/mypageReply";
 	}
 
-	@RequestMapping("/noticeDisplay")
-	public String noticeDisplay() {
-		return "/mypage/noticeDisplay";
-	}
-
 	// ============================== ������ ���� ==============================
 	
 //	@RequestMapping("/admin")

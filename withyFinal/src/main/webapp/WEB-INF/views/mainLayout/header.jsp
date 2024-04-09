@@ -34,12 +34,6 @@
 </head>
 
 <body style="border: 1px solid pink;">
-	 <div id="loader-wrapper">
-        <div id="loader"></div>
-        <div class="loader-section section-left"></div>
-        <div class="loader-section section-right"></div>
-    </div>
-
     <div id="home"></div>
 
     <nav id="nav-scroll" class="navbar navbar-expand-lg fixed-top" style="background-color: white;">
