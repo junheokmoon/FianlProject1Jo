@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import lombok.RequiredArgsConstructor;
+import xyz.withy.dao.PointDAO;
 import xyz.withy.dto.UserDTO;
+import xyz.withy.service.PointService;
 import xyz.withy.service.UserService;
 
 @Controller
@@ -20,11 +22,14 @@ import xyz.withy.service.UserService;
 public class UserController {
 	@Autowired
 	private final UserService userService;
+	private final PointService pointService;
 	
 	@RequestMapping("/")
 	public String admin(Model model) {
 		model.addAttribute("userJoindateList", userService.getUserJoindateList());
-		//System.out.println("userService.getUserJoindateList() = " + userService.getUserJoindateList());
+		model.addAttribute("addPointList", pointService.getAddPointList());
+
+		System.out.println("pointService.getAddPointList() = " + pointService.getAddPointList());
 		return "admin";
 	}
 
@@ -65,7 +70,9 @@ public class UserController {
 	}
 	
 	@RequestMapping("/allPoint")
-	public String allPoint() {
+	public String allPoint(Model model) {
+		model.addAttribute("pointList", pointService.getPointList());
+
 		return "admin/all_point";
 	}
 

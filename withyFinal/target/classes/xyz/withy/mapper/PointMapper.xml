@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="xyz.withy.mapper.PointMapper">
+	<select id="selectAddPointList" resultType="PointDTO"><!-- 최근 포인트 지급 내역 상위 5개 -->
+		<![CDATA[
+		select * from (select point_user_no, user_id, point_comment, point_add, point_total, point_date 
+			 from point join usertable on point_user_no=user_no order by point_date desc) where rownum <= 5
+		]]>
+	</select>
+	
+	<select id="selectPointList" resultType="PointDTO"><!-- 회원T와 조인해서 회원 정보 포함된 전체 포인트 지급 내역 조회 -->
+		select point_user_no, user_id, user_name, point_comment, point_add, point_total, point_date from point 
+		     join usertable on point_user_no=user_no order by point_date desc
+	</select>
+	
+</mapper>

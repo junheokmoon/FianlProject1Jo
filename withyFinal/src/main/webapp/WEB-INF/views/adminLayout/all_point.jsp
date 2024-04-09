@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"  %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 
@@ -68,97 +69,17 @@
 											</tr>
 										</thead>
 										<tbody>
-											<tr>
-												<td>1</td>
-												<td>abc123</td>
-												<td>홍길동</td>
-												<td>파티장 이탈로 인한 환불</td>
-												<td>4,250</td>
-												<td>5,250</td>
-												<td>2024-03-26</td>
-											</tr>
-											
-											<tr>
-												<td>1</td>
-												<td>abc123</td>
-												<td>홍길동</td>
-												<td>파티장 이탈로 인한 환불</td>
-												<td>4,250</td>
-												<td>5,250</td>
-												<td>2024-03-26</td>
-											</tr>
-											<tr>
-												<td>1</td>
-												<td>abc123</td>
-												<td>홍길동</td>
-												<td>파티장 이탈로 인한 환불</td>
-												<td>4,250</td>
-												<td>5,250</td>
-												<td>2024-03-26</td>
-											</tr>
-											<tr>
-												<td>1</td>
-												<td>abc123</td>
-												<td>홍길동</td>
-												<td>파티장 이탈로 인한 환불</td>
-												<td>4,250</td>
-												<td>5,250</td>
-												<td>2024-03-26</td>
-											</tr>
-											<tr>
-												<td>1</td>
-												<td>abc123</td>
-												<td>홍길동</td>
-												<td>파티장 이탈로 인한 환불</td>
-												<td>4,250</td>
-												<td>5,250</td>
-												<td>2024-03-26</td>
-											</tr>
-											<tr>
-												<td>1</td>
-												<td>abc123</td>
-												<td>홍길동</td>
-												<td>파티장 이탈로 인한 환불</td>
-												<td>4,250</td>
-												<td>5,250</td>
-												<td>2024-03-26</td>
-											</tr>
-											<tr>
-												<td>1</td>
-												<td>abc123</td>
-												<td>홍길동</td>
-												<td>파티장 이탈로 인한 환불</td>
-												<td>4,250</td>
-												<td>5,250</td>
-												<td>2024-03-26</td>
-											</tr>
-											<tr>
-												<td>1</td>
-												<td>abc123</td>
-												<td>홍길동</td>
-												<td>파티장 이탈로 인한 환불</td>
-												<td>4,250</td>
-												<td>5,250</td>
-												<td>2024-03-26</td>
-											</tr>
-											<tr>
-												<td>1</td>
-												<td>abc123</td>
-												<td>홍길동</td>
-												<td>파티장 이탈로 인한 환불</td>
-												<td>4,250</td>
-												<td>5,250</td>
-												<td>2024-03-26</td>
-											</tr>
-											<tr>
-												<td>1</td>
-												<td>abc123</td>
-												<td>홍길동</td>
-												<td>파티장 이탈로 인한 환불</td>
-												<td>4,250</td>
-												<td>5,250</td>
-												<td>2024-03-26</td>
-											</tr>
+											<c:forEach var="pointList" items="${pointList }">
+												<tr>
+													<td>1</td>
+													<td>${pointList.userId}</td>
+													<td>${pointList.userName}</td>
+													<td id="reason">${pointList.pointComment}</td>
+													<td>${pointList.pointAdd} 포인트</td>
+													<td>${pointList.pointTotal} 포인트</td>
+													<td>${fn:substring(pointList.pointDate,0,10) }</td>
+												</tr>
+											</c:forEach>
 										</tbody>
 									</table>
 									

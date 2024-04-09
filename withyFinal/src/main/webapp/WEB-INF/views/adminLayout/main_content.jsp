@@ -136,41 +136,16 @@
 									</tr>
 								</thead>
 								<tbody>
-									<tr>
-										<td>abc123</td>
-										<td id="reason">파티장 이탈로 인한 환불입니다람쥐이이이ㅣ이이이ㅣ이이이이이이ㅣㅇㅇ</td>
-										<td>4,250</td>
-										<td>5,250</td>
-										<td>2024-03-26</td>
-									</tr>
-									<tr>
-										<td>abc123</td>
-										<td id="reason">파티장 이탈로 인한 환불입니다람쥐이이이ㅣ이이이ㅣ이이이이이이ㅣㅇㅇ</td>
-										<td>4,250</td>
-										<td>5,250</td>
-										<td>2024-03-26</td>
-									</tr>
-									<tr>
-										<td>abc123</td>
-										<td id="reason">파티장 이탈로 인한 환불입니다람쥐이이이ㅣ이이이ㅣ이이이이이이ㅣㅇㅇ</td>
-										<td>4,250</td>
-										<td>5,250</td>
-										<td>2024-03-26</td>
-									</tr>
-									<tr>
-										<td id="reason">abc123</td>
-										<td id="reason">파티장 이탈로 인한 환불입니다람쥐이이이ㅣ이이이ㅣ이이이이이이ㅣㅇㅇ</td>
-										<td>4,250</td>
-										<td>5,250</td>
-										<td>2024-03-26</td>
-									</tr>
-									<tr>
-										<td>abc123</td>
-										<td id="reason">파티장 이탈로 인한 환불입니다람쥐이이이ㅣ이이이ㅣ이이이이이이ㅣㅇㅇ</td>
-										<td>4,250</td>
-										<td>5,250</td>
-										<td>2024-03-26</td>
-									</tr>
+									<c:forEach var="addPointList" items="${addPointList }">
+										<tr>
+											<td>${addPointList.userId}</td>
+											<td id="reason">${addPointList.pointComment}</td>
+											<td>${addPointList.pointAdd} 포인트</td>
+											<td>${addPointList.pointTotal} 포인트</td>
+											<td>${fn:substring(addPointList.pointDate,0,10) }</td>
+										</tr>
+								</c:forEach>
+									
 								</tbody>
 							</table>
 						</div>
