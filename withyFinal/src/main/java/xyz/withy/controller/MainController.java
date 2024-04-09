@@ -89,31 +89,6 @@ public class MainController {
 		return "/product/productMain";
 	}
 
-	@RequestMapping("/mypageInfo")
-	public String mypageInfo() {
-		return "/mypage/mypageInfo";
-	}
-
-	@RequestMapping("/mypageParty")
-	public String mypageParty() {
-		return "/mypage/mypageParty";
-	}
-
-	@RequestMapping("/mypageInquiry")
-	public String mypageInquiry() {
-		return "/mypage/mypageInquiry";
-	}
-
-	@RequestMapping("/withdrawal")
-	public String withdrawal() {
-		return "/mypage/withdrawal";
-	}
-
-	@RequestMapping("/mypageReply")
-	public String mypageReply() {
-		return "/mypage/mypageReply";
-	}
-
 	@RequestMapping("/login/forgotpasswd")
 	   public String forgotpasswd() {
 	      return "/login/forgotpasswd";
