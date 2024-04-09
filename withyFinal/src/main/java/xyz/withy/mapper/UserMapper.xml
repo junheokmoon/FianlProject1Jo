@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="xyz.withy.mapper.UserMapper">
-	<select id="selectUserJoindateList" resultType="UserDTO">
+	<select id="selectUserJoindateList" resultType="UserDTO"><!-- 신규가입 상위 5개 -->
 		<![CDATA[
 		select * from (select user_no, user_id, user_password, user_name, user_email, user_phone
 			, user_status, user_birthday, user_nickname, user_joindate from usertable 
@@ -9,17 +9,17 @@
 		]]>
 	</select>
 	
-	<select id="selectUserList" resultType="UserDTO">
+	<select id="selectUserList" resultType="UserDTO"><!-- 전체 회원 조회 -->
 		select user_no, user_id, user_password, user_name, user_email, user_phone
 			, user_status, user_birthday, user_nickname, user_joindate from usertable order by user_no desc
 	</select>
 			
-	<select id="selectUserinfo" resultType="UserDTO">
+	<select id="selectUserinfo" resultType="UserDTO"><!-- 회원아이디 전달받아 회원정보 조회 -->
 		select user_no, user_id, user_password, user_name, user_email, user_phone
 			, user_status, user_birthday, user_nickname, user_joindate from usertable where user_id=#{user_id}
 	</select>
 			
-	<select id="selectUserPoint" resultType="UserDTO">
+	<select id="selectUserPoint" resultType="UserDTO"><!-- 회원아이디 전달받아 포인트 조회 -->
 		select user_no, user_id, user_password, user_name, user_email, user_phone
 		    , user_status, user_birthday, user_nickname, user_joindate, point_add, point_total from usertable 
 		    join point on user_no=point_user_no where user_id=#{user_id}

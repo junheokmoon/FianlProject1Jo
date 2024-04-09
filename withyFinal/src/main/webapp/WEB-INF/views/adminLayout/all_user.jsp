@@ -80,7 +80,7 @@
 												<th width="15%" style="text-align: center;">아이디</th>
 												<th width="15%" style="text-align: center;">이름</th>
 												<th width="15%" style="text-align: center;">권한</th>
-												<th width="15%" style="text-align: center;">포인트</th>
+												<th width="15%" style="text-align: center;">보유 포인트</th>
 												<th width="20%" style="text-align: center;">대표 보유 이용권</th>
 												<th width="14%" style="text-align: center;">가입일</th>
 											</tr>
@@ -94,7 +94,6 @@
 															${userList.userId}
 														</a>
 													</td>
-													<%-- <td><a href="<c:url value="detailUser"/>" class="btn-link">${userList.userId}</a></td> --%>
 													<td>${userList.userName}</td>
 													<c:if test="${userList.userStatus == 1 }">
 														<td>일반회원</td>
@@ -102,9 +101,8 @@
 													<c:if test="${userList.userStatus == 9 }">
 														<td>관리자</td>
 													</c:if>
-													<td>1,000</td>
+													<td>${userList.pointTotal} 포인트</td>
 													<td>3개월 넷플릭스 이용권</td>
-													<%-- <td>${userList.userJoindate}</td> --%>
 													<td>${fn:substring(userList.userJoindate,0,10) }</td>
 												</tr>
 											</c:forEach>

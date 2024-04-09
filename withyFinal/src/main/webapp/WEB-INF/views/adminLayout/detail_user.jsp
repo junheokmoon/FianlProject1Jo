@@ -109,12 +109,10 @@
 										<label class="col-sm-3" for="ccccc" style="text-indent: 5em;">참여 방번호</label>
 										<div class="col-sm-6" style="text-align:left;">${userinfo.userId }</div>
 									</div>
-									
 									<div class="form-group">
 										<label class="col-sm-3" for="ccccc" style="text-indent: 5em;">보유 포인트</label>
-										<div class="col-sm-6" style="text-align:left;">${userPoint.pointTotal }</div>
+										<div class="col-sm-6" style="text-align:left;">${userDTO.pointTotal } 포인트</div>
 									</div>
-									
 								</div>
 								<div class="text-right">
 									<button class="btn btn-info btn-rounded" type="button" onclick="location.href='${pageContext.request.contextPath}/admin/allUser'" style="font-size: 15px">목록</button>

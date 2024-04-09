@@ -1,5 +1,7 @@
 package xyz.withy.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import lombok.RequiredArgsConstructor;
+import xyz.withy.dto.UserDTO;
 import xyz.withy.service.UserService;
 
 @Controller
@@ -28,16 +31,37 @@ public class UserController {
 	/*********************** 회원관리 start ***********************/
 	@RequestMapping("/allUser")
 	public String allUser(Model model) {
-		model.addAttribute("userList", userService.getUserList());
-		return "admin/all_user";
+	    List<UserDTO> userList = userService.getUserList();
+        //System.out.println("userList = " + userList);
+
+	    for (UserDTO userDTOList : userList) {
+	        String userId = userDTOList.getUserId();
+	        //System.out.println("userService.getUserPoint(userId) = " + userService.getUserPoint(userId));
+	        UserDTO userDTO = userService.getUserPoint(userId);
+	        if (userDTO == null) {
+	        	userDTO = new UserDTO();
+	        	userDTO.setPointTotal(0);
+	        }
+	        userDTOList.setPointTotal(userDTO.getPointTotal());
+	        //System.out.println("userDTO = " + userDTO);
+	    }
+	    
+	    model.addAttribute("userList", userList);
+	    return "admin/all_user";
 	}
 
 	@RequestMapping("/detailUser")
 	public String detailUser(@RequestParam String userId, Model model, HttpSession session) {
-		System.out.println("userService.getUserPoint(userId) = " + userService.getUserPoint(userId));
 		model.addAttribute("userinfo", userService.getUserinfo(userId));
-		model.addAttribute("userPoint", userService.getUserPoint(userId));
-		return "admin/detail_user";
+
+        UserDTO userDTO = userService.getUserPoint(userId);
+        if (userDTO == null) {
+        	userDTO = new UserDTO();
+        	userDTO.setPointTotal(0);
+        }
+        model.addAttribute("userDTO", userDTO);
+        
+        return "admin/detail_user";
 	}
 	
 	@RequestMapping("/allPoint")
