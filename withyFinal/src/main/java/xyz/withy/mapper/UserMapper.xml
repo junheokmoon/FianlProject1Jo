@@ -18,4 +18,10 @@
 		select user_no, user_id, user_password, user_name, user_email, user_phone
 			, user_status, user_birthday, user_nickname, user_joindate from usertable where user_id=#{user_id}
 	</select>
+			
+	<select id="selectUserPoint" resultType="UserDTO">
+		select user_no, user_id, user_password, user_name, user_email, user_phone
+		    , user_status, user_birthday, user_nickname, user_joindate, point_add, point_total from usertable 
+		    join point on user_no=point_user_no where user_id=#{user_id}
+	</select>
 </mapper>

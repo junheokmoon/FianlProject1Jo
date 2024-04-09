@@ -57,7 +57,7 @@
 								<div class="panel-body">
 									<div class="form-group">
 										<label class="col-sm-3" for="ccccc" style="text-indent: 5em;">회원번호</label>
-										<div class="col-sm-6" style="text-align:left;">1</div>
+										<div class="col-sm-6" style="text-align:left;">${userinfo.userNo }</div>
 									</div>
 									
 									<div class="form-group">
@@ -112,7 +112,7 @@
 									
 									<div class="form-group">
 										<label class="col-sm-3" for="ccccc" style="text-indent: 5em;">보유 포인트</label>
-										<div class="col-sm-6" style="text-align:left;">${userinfo.userId }</div>
+										<div class="col-sm-6" style="text-align:left;">${userPoint.pointTotal }</div>
 									</div>
 									
 								</div>

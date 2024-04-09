@@ -8,4 +8,5 @@ public interface UserMapper {
 	List<UserDTO> selectUserJoindateList();
 	List<UserDTO> selectUserList();
 	UserDTO selectUserinfo(String userId);
+	UserDTO selectUserPoint(String userId);
 }

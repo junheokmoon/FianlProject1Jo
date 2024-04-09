@@ -29,4 +29,9 @@ public class UserDAOImpl implements UserDAO {
 		return sqlSession.getMapper(UserMapper.class).selectUserinfo(userId);
 	}
 
+	@Override
+	public UserDTO selectUserPoint(String userId) {
+		return sqlSession.getMapper(UserMapper.class).selectUserPoint(userId);
+	}
+
 }

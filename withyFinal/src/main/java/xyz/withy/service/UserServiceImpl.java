@@ -28,4 +28,9 @@ public class UserServiceImpl implements UserService {
 		return userDAO.selectUserinfo(userId);
 	}
 
+	@Override
+	public UserDTO getUserPoint(String userId) {
+		return userDAO.selectUserPoint(userId);
+	}
+
 }

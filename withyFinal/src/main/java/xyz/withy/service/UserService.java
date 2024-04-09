@@ -8,4 +8,5 @@ public interface UserService {
 	List<UserDTO> getUserJoindateList();
 	List<UserDTO> getUserList();
 	UserDTO getUserinfo(String userId);
+	UserDTO getUserPoint(String userId);
 }

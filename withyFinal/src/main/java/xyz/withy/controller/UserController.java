@@ -34,7 +34,9 @@ public class UserController {
 
 	@RequestMapping("/detailUser")
 	public String detailUser(@RequestParam String userId, Model model, HttpSession session) {
+		System.out.println("userService.getUserPoint(userId) = " + userService.getUserPoint(userId));
 		model.addAttribute("userinfo", userService.getUserinfo(userId));
+		model.addAttribute("userPoint", userService.getUserPoint(userId));
 		return "admin/detail_user";
 	}
 	

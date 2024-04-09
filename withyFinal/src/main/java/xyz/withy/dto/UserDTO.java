@@ -1,7 +1,9 @@
 package xyz.withy.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 
 /*
@@ -21,8 +23,10 @@ USER_JOINDATE          DATE 		가입날짜
 
 @Data
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class UserDTO {
-	private int userNumber;
+	private int userNo;
 	private String userId;
 	private String userPassword;
 	private String userName;
@@ -32,5 +36,10 @@ public class UserDTO {
 	private String userBirthday;
 	private String userNickname;
 	private String userJoindate;
+	
+	// POINT 테이블과 조인
+	private int pointAdd;
+	private int pointTotal;
+	
 
 }
