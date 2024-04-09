@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -89,13 +90,18 @@
 									</tr>
 								</thead>
 								<tbody>
-									<c:forEach var="user" items="${userList }">
+									<c:forEach var="userJoindate" items="${userJoindateList }">
 										<tr>
-											<td>${user.userId}</td>
-											<td>${user.userName}</td>
-											<td>HongHong</td>
-											<td>일반회원</td>
-											<td>2024-03-25</td>
+											<td>${userJoindate.userId}</td>
+											<td>${userJoindate.userName}</td>
+											<td>${userJoindate.userNickname}</td>
+											<c:if test="${userJoindate.userStatus == 1 }">
+												<td>일반회원</td>
+											</c:if>
+											<c:if test="${userJoindate.userStatus == 9 }">
+												<td>관리자</td>
+											</c:if>
+											<td>${fn:substring(userJoindate.userJoindate,0,10) }</td>
 										</tr>
 									</c:forEach>
 								</tbody>
@@ -176,7 +182,7 @@
 	<!-- ###################### 최근 포인트 지급 end ###################### -->
 	
 	<!-- ###################### 최근 문의 start ###################### -->
-	<div class="boxed" style="width: 50%; float:right; padding-right:5%;">
+	<div class="boxed" style="width: 50%; float:right; padding-right:5%; padding-bottom: 70px;">
 		<div class="row" style="padding-top: 20px;">
 			<div>
 				<div class="panel" style="padding-top: 20px;">

@@ -2,7 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"  %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
-<!DOCTYPE html>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 
 <head>
@@ -75,106 +76,33 @@
 									<table class="table table-striped table-hover" style="font-size: 15px; text-align: center;">
 										<thead>
 											<tr>
-												<th width="10%" style="text-align: center;">NO</th>
+												<th width="6%" style="text-align: center;">NO</th>
 												<th width="15%" style="text-align: center;">아이디</th>
 												<th width="15%" style="text-align: center;">이름</th>
 												<th width="15%" style="text-align: center;">권한</th>
 												<th width="15%" style="text-align: center;">포인트</th>
 												<th width="20%" style="text-align: center;">대표 보유 이용권</th>
-												<th width="10%" style="text-align: center;">가입일</th>
+												<th width="14%" style="text-align: center;">가입일</th>
 											</tr>
 										</thead>
 										<tbody>
-											<tr>
-												<td>1</td>
-												<td><a href="<c:url value="detailUser"/>" class="btn-link">abc123</a></td>
-												<td>홍길동</td>
-												<td>일반회원</td>
-												<td>1,000</td>
-												<td>3개월 넷플릭스 이용권</td>
-												<td>2024-03-25</td>
-											</tr>
-											<tr>
-												<td>1</td>
-												<td><a href="detail_user.jsp" class="btn-link">abc123</a></td>
-												<td>홍길동</td>
-												<td>일반회원</td>
-												<td>1,000</td>
-												<td>3개월 넷플릭스 이용권</td>
-												<td>2024-03-25</td>
-											</tr>
-											<tr>
-												<td>1</td>
-												<td><a href="detail_user.jsp" class="btn-link">abc123</a></td>
-												<td>홍길동</td>
-												<td>일반회원</td>
-												<td>1,000</td>
-												<td>3개월 넷플릭스 이용권</td>
-												<td>2024-03-25</td>
-											</tr>
-											<tr>
-												<td>1</td>
-												<td><a href="detail_user.jsp" class="btn-link">abc123</a></td>
-												<td>홍길동</td>
-												<td>일반회원</td>
-												<td>1,000</td>
-												<td>3개월 넷플릭스 이용권</td>
-												<td>2024-03-25</td>
-											</tr>
-											<tr>
-												<td>1</td>
-												<td><a href="detail_user.jsp" class="btn-link">abc123</a></td>
-												<td>홍길동</td>
-												<td>일반회원</td>
-												<td>1,000</td>
-												<td>3개월 넷플릭스 이용권</td>
-												<td>2024-03-25</td>
-											</tr>
-											<tr>
-												<td>1</td>
-												<td><a href="detail_user.jsp" class="btn-link">abc123</a></td>
-												<td>홍길동</td>
-												<td>일반회원</td>
-												<td>1,000</td>
-												<td>3개월 넷플릭스 이용권</td>
-												<td>2024-03-25</td>
-											</tr>
-											<tr>
-												<td>1</td>
-												<td><a href="detail_user.jsp" class="btn-link">abc123</a></td>
-												<td>홍길동</td>
-												<td>일반회원</td>
-												<td>1,000</td>
-												<td>3개월 넷플릭스 이용권</td>
-												<td>2024-03-25</td>
-											</tr>
-											<tr>
-												<td>1</td>
-												<td><a href="detail_user.jsp" class="btn-link">abc123</a></td>
-												<td>홍길동</td>
-												<td>일반회원</td>
-												<td>1,000</td>
-												<td>3개월 넷플릭스 이용권</td>
-												<td>2024-03-25</td>
-											</tr>
-											<tr>
-												<td>1</td>
-												<td><a href="detail_user.jsp" class="btn-link">abc123</a></td>
-												<td>홍길동</td>
-												<td>일반회원</td>
-												<td>1,000</td>
-												<td>3개월 넷플릭스 이용권</td>
-												<td>2024-03-25</td>
-											</tr>
-											<tr>
-												<td>1</td>
-												<td><a href="detail_user.jsp" class="btn-link">abc123</a></td>
-												<td>홍길동</td>
-												<td>일반회원</td>
-												<td>1,000</td>
-												<td>3개월 넷플릭스 이용권</td>
-												<td>2024-03-25</td>
-											</tr>
+											<c:forEach var="userinfoList" items="${userinfoList }">
+												<tr>
+													<td>1</td>
+													<td>${userinfoList.userId}</td>
+													<td>${userinfoList.userName}</td>
+													<c:if test="${userinfoList.userStatus == 1 }">
+														<td>일반회원</td>
+													</c:if>
+													<c:if test="${userinfoList.userStatus == 9 }">
+														<td>관리자</td>
+													</c:if>
+													<td>1,000</td>
+													<td>3개월 넷플릭스 이용권</td>
+													<%-- <td>${userinfoList.userJoindate}</td> --%>
+													<td>${fn:substring(userinfoList.userJoindate,0,10) }</td>
+												</tr>
+											</c:forEach>
 										</tbody>
 									</table>
 									

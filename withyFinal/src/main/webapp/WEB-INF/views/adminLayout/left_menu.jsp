@@ -82,7 +82,7 @@
 				<!--================================-->
 				<!-- <div class="navbar-header"> --><!-- 전체 네이비 배경색  -->
 				<div style="background-color: #46443e; "><!-- 전체 네이비 배경색  -->
-					<a href="<c:url value="/admin"/>" class="navbar-brand22">
+					<a href="<c:url value="/admin/"/>" class="navbar-brand22">
 						<img src="<c:url value="/images/wtylogo.png"/>" style="width: 100px; height: 100px;">
 					</a>
 				</div>

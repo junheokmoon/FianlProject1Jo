@@ -15,13 +15,15 @@ public class UserController {
 	
 	@RequestMapping("/")
 	public String admin(Model model) {
-		model.addAttribute("userList", userService.getUserJoindateList());
-		System.out.println("userService.getUserJoindateList() = " + userService.getUserJoindateList());
+		model.addAttribute("userJoindateList", userService.getUserJoindateList());
+		//System.out.println("userService.getUserJoindateList() = " + userService.getUserJoindateList());
 		return "admin";
 	}
 	
 	@RequestMapping("/allUser")
 	public String allUser(Model model) {
+		model.addAttribute("userinfoList", userService.getUserinfoList());
+		//System.out.println("userService.getUserinfoList() = " + userService.getUserinfoList());
 		return "admin/all_user";
 	}
 	

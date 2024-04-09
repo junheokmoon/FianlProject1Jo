@@ -18,4 +18,9 @@ public class UserServiceImpl implements UserService {
 		return userDAO.selectUserJoindateList();
 	}
 
+	@Override
+	public List<UserDTO> getUserinfoList() {
+		return userDAO.selectUserinfoList();
+	}
+
 }

@@ -19,4 +19,9 @@ public class UserDAOImpl implements UserDAO {
 		return sqlSession.getMapper(UserMapper.class).selectUserJoindateList();
 	}
 
+	@Override
+	public List<UserDTO> selectUserinfoList() {
+		return sqlSession.getMapper(UserMapper.class).selectUserinfoList();
+	}
+
 }

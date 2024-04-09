@@ -6,4 +6,5 @@ import xyz.withy.dto.UserDTO;
 
 public interface UserMapper {
 	List<UserDTO> selectUserJoindateList();
+	List<UserDTO> selectUserinfoList();
 }
