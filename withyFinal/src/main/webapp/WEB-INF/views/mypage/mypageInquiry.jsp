@@ -71,6 +71,9 @@
                        <a class="nav-link" href="mypageInfo">회원정보수정</a>
                    </li><!-- / nav-item -->
                    <li class="nav-item">
+                       <a class="nav-link" href="#">참여중인파티</a>
+                   </li><!-- / nav-item -->
+                   <li class="nav-item">
                        <a class="nav-link" href="mypageParty">나의파티내역</a>
                    </li><!-- / nav-item -->
                    <li class="nav-item">
