@@ -1,5 +1,6 @@
 package xyz.withy.service;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Service;
 import lombok.RequiredArgsConstructor;
 import xyz.withy.dao.TicketDAO;
 import xyz.withy.dto.TicketDTO;
+import xyz.withy.util.Pager;
 
 @Service
 @RequiredArgsConstructor
@@ -51,12 +53,33 @@ public class TicketServiceImpl implements TicketService{
 
 	@Override
 	public List<TicketDTO> getTicketList() {
+		
+		
+		
 		return ticketDAO.selectTicketList();
 	}
 
 	@Override
-	public List<TicketDTO> getTicketPageList(Map<String, Object> map) {
-		return ticketDAO.selectTicketPageList(map);
+	public Map<String, Object> getTicketPageList(int pageNum) {
+		
+		// 티켓의 숫자 가져오기
+		int totalSize = ticketDAO.selectTicketCount(); 
+
+		Pager pager = new Pager(pageNum, totalSize, 10, 10);
+		
+		Map<String, Object> pageMap= new HashMap<String, Object>();
+		pageMap.put("startRow", pager.getStartRow());
+		pageMap.put("endRow", pager.getEndRow());
+		
+		List<TicketDTO> ticketPageList=ticketDAO.selectTicketPageList(pageMap);
+
+		Map<String, Object> resultMap=new HashMap<String, Object>();
+		resultMap.put("pager", pager);
+		resultMap.put("ticektPageList", ticketPageList);
+		
+		return resultMap;
+		
+		
 	}
 
 }

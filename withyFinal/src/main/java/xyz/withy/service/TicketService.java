@@ -14,5 +14,5 @@ public interface TicketService {
 	TicketDTO getTicket(String ticketCode); 	// 그냥 검색
 	int getTicketCount(); 						// 티켓의 전체 갯수
 	List<TicketDTO> getTicketList(); 			// 전체 목록 보기
-	List<TicketDTO> getTicketPageList(Map<String, Object> map); // 페이징 처리된 리스트
+	Map<String, Object> getTicketPageList(int pageNum); // 페이징 처리된 리스트
 }

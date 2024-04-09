@@ -6,13 +6,13 @@ import java.util.Map;
 import xyz.withy.dto.TicketDTO;
 
 public interface TicketDAO {
-	int insertTicket(TicketDTO ticket); 			// Ãß°¡
-	int updateTicket(TicketDTO ticket); 			// ¾÷µ¥ÀÌÆ®
-	int deleteTicket(String ticketCode); 			// »ç½Ç»ó status 2¹øÀ¸·Î º¯°æ
-	int realDeleteTicket(String ticketCode); 		// ÁøÂ¥ ¼øµµ 100% delete
-	int recoverTicket(String ticketCode); 			// »ç½Ç»ó status 1¹øÀ¸·Î º¯°æ
-	TicketDTO selectTicket(String ticketCode); 		// ±×³É °Ë»ö
-	int selectTicketCount(); 						// Æ¼ÄÏÀÇ ÀüÃ¼ °¹¼ö
-	List<TicketDTO> selectTicketList(); 			// ÀüÃ¼ ¸ñ·Ï º¸±â
-	List<TicketDTO> selectTicketPageList(Map<String, Object> map); 	// ÆäÀÌÂ¡ Ã³¸®µÈ ¸®½ºÆ®
+	int insertTicket(TicketDTO ticket); 			// ì¶”ê°€
+	int updateTicket(TicketDTO ticket); 			// ì—…ë°ì´íŠ¸
+	int deleteTicket(String ticketCode); 			// ì‚¬ì‹¤ìƒ status 2ë²ˆìœ¼ë¡œ ë³€ê²½
+	int realDeleteTicket(String ticketCode); 		// ì§„ì§œ ìˆœë„ 100% delete
+	int recoverTicket(String ticketCode); 			// ì‚¬ì‹¤ìƒ status 1ë²ˆìœ¼ë¡œ ë³€ê²½
+	TicketDTO selectTicket(String ticketCode); 		// ê·¸ëƒ¥ ê²€ìƒ‰
+	int selectTicketCount(); 						// í‹°ì¼“ì˜ ì „ì²´ ê°¯ìˆ˜
+	List<TicketDTO> selectTicketList(); 			// ì „ì²´ ëª©ë¡ ë³´ê¸°
+	List<TicketDTO> selectTicketPageList(Map<String, Object> map); 	// í˜ì´ì§• ì²˜ë¦¬ëœ ë¦¬ìŠ¤íŠ¸ Ã³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
 }
