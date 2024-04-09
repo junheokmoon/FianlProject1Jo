@@ -52,4 +52,9 @@ public class PartyController {
 	public String partyLeaderRoom() {
 		return "party/partyRoom";
 	}
+	
+	@RequestMapping("/partyMatchList")
+	public String partyMatchList() {
+		return "party/partyMatchList";
+	}
 }
