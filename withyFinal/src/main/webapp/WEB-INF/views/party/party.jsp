@@ -31,7 +31,7 @@
 	margin-bottom: 20px;
 	padding: 15px;
 	background-color: white;
-	  opacity: 0; /* 초기에는 투명도를 0으로 설정하여 숨김 */
+	opacity: 0; /* 초기에는 투명도를 0으로 설정하여 숨김 */
     animation: fadeInUp 0.7s ease forwards; /* fadeInUp 애니메이션 적용 */
 }
 
@@ -83,11 +83,39 @@ h5{
 	border: none;
 }
 
+    .swiper-slide {
+        width: 100px; /* 원하는 크기로 지정하세요 */
+        height: auto; /* 너비에 따라 높이 자동 조정 */
+        display: inline-block;
+    }
+
+#selectIcon{
+	width: 600px;
+	height: 100px;
+	background-color: #f3f3f3;
+	margin-left: 20%;
+	border: 1px solid black;
+	text-align: center;
+	padding: 10px;
+	border-radius: 8px;
+}
+
+#Area{
+	height: 1070px;
+}
 </style>
 </head>
 <body>
 <div id="Area">
-<h2 style="text-align: center; margin-top: ">이용하실 역할을 선택해주세요!</h2>
+<h2 style="text-align: center; margin-bottom: 30px;">이용하실 역할을 선택해주세요!</h2>
+<div id="selectIcon">
+        <img src="<c:url value="/images/net2.png"/>" alt="넷플릭스" style="display: inline-block; width: 80px; margin-right: 30px;">
+        <img src="<c:url value="/images/disney.png"/>" alt="디즈니플러스" style="display: inline-block; width: 80px; margin-right: 30px;">
+		<img src="<c:url value="/images/tving.png"/>" alt="티빙" style="display: inline-block; width: 80px; margin-right: 30px;">
+		<img src="<c:url value="/images/wave.png"/>" alt="웨이브" style="display: inline-block; width: 80px; margin-right: 30px;">
+		<img src="<c:url value="/images/watcha.png"/>" alt="왓챠" style="display: inline-block; width: 80px; ">
+</div>
+
 <div class="button-container">
 	<!-- 파티장 버튼 -->
    <button class="button button-a" onclick="Llist()">
