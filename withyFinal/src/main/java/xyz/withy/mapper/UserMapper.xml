@@ -9,9 +9,13 @@
 		]]>
 	</select>
 	
-	<select id="selectUserinfoList" resultType="UserDTO">
+	<select id="selectUserList" resultType="UserDTO">
 		select user_no, user_id, user_password, user_name, user_email, user_phone
 			, user_status, user_birthday, user_nickname, user_joindate from usertable order by user_no desc
 	</select>
 			
+	<select id="selectUserinfo" resultType="UserDTO">
+		select user_no, user_id, user_password, user_name, user_email, user_phone
+			, user_status, user_birthday, user_nickname, user_joindate from usertable where user_id=#{user_id}
+	</select>
 </mapper>

@@ -6,5 +6,6 @@ import xyz.withy.dto.UserDTO;
 
 public interface UserDAO {
 	List<UserDTO> selectUserJoindateList();
-	List<UserDTO> selectUserinfoList();
+	List<UserDTO> selectUserList();
+	UserDTO selectUserinfo(String userId);
 }

@@ -1,8 +1,12 @@
 package xyz.withy.controller;
 
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import lombok.RequiredArgsConstructor;
 import xyz.withy.service.UserService;
@@ -11,6 +15,7 @@ import xyz.withy.service.UserService;
 @RequestMapping("/admin")
 @RequiredArgsConstructor
 public class UserController {
+	@Autowired
 	private final UserService userService;
 	
 	@RequestMapping("/")
@@ -23,12 +28,13 @@ public class UserController {
 	/*********************** 회원관리 start ***********************/
 	@RequestMapping("/allUser")
 	public String allUser(Model model) {
-		model.addAttribute("userinfoList", userService.getUserinfoList());
+		model.addAttribute("userList", userService.getUserList());
 		return "admin/all_user";
 	}
 
 	@RequestMapping("/detailUser")
-	public String detailUser() {
+	public String detailUser(@RequestParam String userId, Model model, HttpSession session) {
+		model.addAttribute("userinfo", userService.getUserinfo(userId));
 		return "admin/detail_user";
 	}
 	

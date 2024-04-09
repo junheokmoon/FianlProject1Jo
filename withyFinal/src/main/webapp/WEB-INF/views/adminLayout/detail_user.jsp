@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"  %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 
@@ -56,73 +57,67 @@
 								<div class="panel-body">
 									<div class="form-group">
 										<label class="col-sm-3" for="ccccc" style="text-indent: 5em;">회원번호</label>
-										<%-- <div class="col-sm-6" style="text-align:left;"><%=product.getProductCom()%></div> --%>
 										<div class="col-sm-6" style="text-align:left;">1</div>
 									</div>
 									
 									<div class="form-group">
 										<label class="col-sm-3" for="ccccc" style="text-indent: 5em;">아이디</label>
-										<div class="col-sm-6" style="text-align:left;">abc123</div>
+										<div class="col-sm-6" style="text-align:left;">${userinfo.userId }</div>
 									</div>
 									
 									<div class="form-group">
 										<label class="col-sm-3" for="ccccc" style="text-indent: 5em;">이름</label>
-										<div class="col-sm-6" style="text-align:left;">홍길동</div>
+										<div class="col-sm-6" style="text-align:left;">${userinfo.userName }</div>
 									</div>
 									
 									<div class="form-group">
 										<label class="col-sm-3" for="ccccc" style="text-indent: 5em;">닉네임</label>
-										<div class="col-sm-6" style="text-align:left;">HongHong</div>
+										<div class="col-sm-6" style="text-align:left;">${userinfo.userNickname }</div>
 									</div>
 									
 									<div class="form-group">
 										<label class="col-sm-3" for="ccccc" style="text-indent: 5em;">권한</label>
-										<div class="col-sm-6" style="text-align:left;">일반회원</div>
+										<c:if test="${userinfo.userStatus == 1 }">
+											<div class="col-sm-6" style="text-align:left;">일반회원</div>
+										</c:if>
+										<c:if test="${userinfo.userStatus == 9 }">
+											<div class="col-sm-6" style="text-align:left;">관리자</div>
+										</c:if>
 									</div>	
 									
 									<div class="form-group">
 										<label class="col-sm-3" for="ccccc" style="text-indent: 5em;">이메일</label>
-										<div class="col-sm-6" style="text-align:left;">abc123@itwill.xyz</div>
+										<div class="col-sm-6" style="text-align:left;">${userinfo.userEmail }</div>
 									</div>
 									
 									<div class="form-group">
 										<label class="col-sm-3" for="ccccc" style="text-indent: 5em;">전화번호</label>
-										<div class="col-sm-6" style="text-align:left;">010-1234-5678</div>
+										<div class="col-sm-6" style="text-align:left;">${userinfo.userPhone }</div>
 									</div>
 									
 									<div class="form-group">
 										<label class="col-sm-3" for="ccccc" style="text-indent: 5em;">생년월일</label>
-										<div class="col-sm-6" style="text-align:left;">1998-01-01</div>
+										<div class="col-sm-6" style="text-align:left;">${fn:substring(userinfo.userBirthday,0,10) }</div>
 									</div>
 									
 									<div class="form-group">
 										<label class="col-sm-3" for="ccccc" style="text-indent: 5em;">가입일</label>
-										<div class="col-sm-6" style="text-align:left;">2024-03-24</div>
+										<div class="col-sm-6" style="text-align:left;">${fn:substring(userinfo.userJoindate,0,10) }</div>
 									</div>
 									
 									<div class="form-group">
 										<label class="col-sm-3" for="ccccc" style="text-indent: 5em;">참여 방번호</label>
-										<div class="col-sm-6" style="text-align:left;">300</div>
+										<div class="col-sm-6" style="text-align:left;">${userinfo.userId }</div>
 									</div>
 									
 									<div class="form-group">
 										<label class="col-sm-3" for="ccccc" style="text-indent: 5em;">보유 포인트</label>
-										<div class="col-sm-6" style="text-align:left;">5,250원</div>
+										<div class="col-sm-6" style="text-align:left;">${userinfo.userId }</div>
 									</div>
 									
-									<div class="form-group">
-										<label class="col-sm-3" for="ccccc" style="text-indent: 5em;">총 보유 이용권</label>
-										<div class="col-sm-6" style="text-align:left;">3개월 넷플릭스 이용권, 6개월 디즈니 이용권</div>
-									</div>
-									
-									<div class="form-group">
-										<label class="col-sm-3" for="ccccc" style="text-indent: 5em;">사용중인 이용권</label>
-										<div class="col-sm-6" style="text-align:left;">3개월 넷플릭스 이용권</div>
-									</div>
 								</div>
 								<div class="text-right">
 									<button class="btn btn-info btn-rounded" type="button" onclick="location.href='${pageContext.request.contextPath}/admin/allUser'" style="font-size: 15px">목록</button>
-																						  
 								</div>
 							</form>
 						</div>

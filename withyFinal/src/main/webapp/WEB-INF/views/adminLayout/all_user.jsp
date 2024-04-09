@@ -86,21 +86,26 @@
 											</tr>
 										</thead>
 										<tbody>
-											<c:forEach var="userinfoList" items="${userinfoList }">
-												<tr onclick="location.href='${pageContext.request.contextPath}/admin/detailUser'">
+											<c:forEach var="userList" items="${userList }">
+												<tr>
 													<td>1</td>
-													<td>${userinfoList.userId}</td>
-													<td>${userinfoList.userName}</td>
-													<c:if test="${userinfoList.userStatus == 1 }">
+													<td>
+														<a href="<c:url value="detailUser"><c:param name="userId" value="${userList.userId}" /></c:url>" class="btn-link">
+															${userList.userId}
+														</a>
+													</td>
+													<%-- <td><a href="<c:url value="detailUser"/>" class="btn-link">${userList.userId}</a></td> --%>
+													<td>${userList.userName}</td>
+													<c:if test="${userList.userStatus == 1 }">
 														<td>일반회원</td>
 													</c:if>
-													<c:if test="${userinfoList.userStatus == 9 }">
+													<c:if test="${userList.userStatus == 9 }">
 														<td>관리자</td>
 													</c:if>
 													<td>1,000</td>
 													<td>3개월 넷플릭스 이용권</td>
-													<%-- <td>${userinfoList.userJoindate}</td> --%>
-													<td>${fn:substring(userinfoList.userJoindate,0,10) }</td>
+													<%-- <td>${userList.userJoindate}</td> --%>
+													<td>${fn:substring(userList.userJoindate,0,10) }</td>
 												</tr>
 											</c:forEach>
 										</tbody>

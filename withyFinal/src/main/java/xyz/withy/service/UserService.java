@@ -6,5 +6,6 @@ import xyz.withy.dto.UserDTO;
 
 public interface UserService {
 	List<UserDTO> getUserJoindateList();
-	List<UserDTO> getUserinfoList();
+	List<UserDTO> getUserList();
+	UserDTO getUserinfo(String userId);
 }
