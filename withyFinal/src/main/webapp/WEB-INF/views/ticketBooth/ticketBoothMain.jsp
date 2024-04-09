@@ -67,6 +67,12 @@
         <section id="portfolio" class="lg">
             <div class="container">
                  <div class="button-group filters-button-group">
+                   <!-- 
+                   <div id = "inputOttKind"/>
+                   <div id = "inputMonthList"/>
+                   	
+                    -->
+                   
                    <div>
                     <button class="btn filter-btn is-checked" data-filter="*">All</button>
                     <button class="btn filter-btn" data-filter=".netfilx">넷플릭스</button>
@@ -86,6 +92,11 @@
                 </div><!-- /  filters-button-group -->
 
                 <div class="row grid" data-isotope='{ "layoutMode": "masonry" }'>
+                
+                
+                	<div id = "ticketListDiv"/>
+                
+                
                 
                     <div class="col-md-6 col-lg-4 grid-item netfilx onem">
                         	<div class="card raised">
@@ -529,6 +540,22 @@
         });
     </script>
     <!-- / GLightbox -->
+    
+    <script>
+    
+    selectButtonList();
+
+    ticketListDiv();
+    
+    function ticketListDiv(){
+    	
+    	
+    }
+    
+    	
+    
+    
+    </script>
 
 </body>
 </html>

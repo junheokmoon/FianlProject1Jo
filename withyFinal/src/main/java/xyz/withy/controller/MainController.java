@@ -82,7 +82,7 @@ public class MainController {
 	public String login() {
 		return "/login/login";
 	}
-
+/*
 	@RequestMapping("/payment")
 	public String payment() {
 		return "/payment/paymentMain";
@@ -91,7 +91,7 @@ public class MainController {
 	public String product() {
 		return "/product/productMain";
 	}
-
+*/
 	@RequestMapping("/login/forgotpasswd")
 	   public String forgotpasswd() {
 	      return "/login/forgotpasswd";
