@@ -555,7 +555,7 @@
 	</div>
    
    		<div class="sc-imtoHe eOoFNS">
-		<a href="#"><img src="<c:url value="/images/inquiry.jpg"/>" alt="1:1문의" class="sc-gOMZtR NzttP"></a>
+		<a href="<c:url value="/inquiry/inquiryWrite"/>"><img src="<c:url value="/images/inquiry.jpg"/>" alt="1:1문의" class="sc-gOMZtR NzttP"></a>
 		</div>
    
       	   

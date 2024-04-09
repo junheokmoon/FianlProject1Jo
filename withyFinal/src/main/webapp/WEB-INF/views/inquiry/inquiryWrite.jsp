@@ -58,9 +58,7 @@
 	<body>
 		<div class="panel panel-default panel-left">
 			<h3>1:1 문의하기</h3>
-			<div class="panel-body">
-			
-		
+			<div class="panel-body">				
 				<!--Input form-->
 				<form role="form" class="form-horizontal">
 					<div class="form-group">
@@ -118,14 +116,6 @@
 				<!--===================================================-->
 				<!--End page content-->
 
-
-	
-	<!-- SETTINGS - DEMO PURPOSE ONLY -->
-	<!--===================================================-->
-	
-	<!--===================================================-->
-	<!-- END SETTINGS -->
-
 	
 	<!--JAVASCRIPT-->
 	<!--=================================================-->
@@ -164,7 +154,6 @@
 
 	<!--Mail [ SAMPLE ]-->
 	<script src="<c:url value="/js/demo/mail.js"/>"></script>
-
 	
 </body>
 </html>
