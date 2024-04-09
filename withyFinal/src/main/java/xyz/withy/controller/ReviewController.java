@@ -14,7 +14,8 @@ public class ReviewController {
 
 	@RequestMapping("/review")
 	public String review(Model model) {
-		//model.addAttribute("reviewList",reviewService.getReviewList();
+		model.addAttribute("reviewList",reviewService.getReviewJoinList());
+		System.out.println("reviewService.getReviewJoinList()" +reviewService.getReviewJoinList());
 		return "/review/review";
 	}
 	

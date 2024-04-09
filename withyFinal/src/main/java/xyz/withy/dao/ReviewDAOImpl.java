@@ -44,6 +44,11 @@ public class ReviewDAOImpl implements ReviewDAO{
 	public List<ReviewDTO> selectReviewList(Map<String, Object> map) {
 		return sqlSession.getMapper(ReviewMapper.class).selectReviewList(map);
 	}
+
+	@Override
+	public List<ReviewDTO> selectReveiwJoinList() {
+		return sqlSession.getMapper(ReviewMapper.class).selectReveiwJoinList();
+	}
 	
 }
 

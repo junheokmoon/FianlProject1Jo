@@ -26,5 +26,6 @@ public class ReviewDTO {
 		@DateTimeFormat(pattern = "yyyy/MM/dd")
 		private String reviewDate;
 		private String reviewProgramNo;
+		
 
 }

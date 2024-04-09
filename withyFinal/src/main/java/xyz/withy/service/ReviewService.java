@@ -9,7 +9,6 @@ public interface ReviewService {
 	void addReview(ReviewDTO reviewDTO);
 	void modifyReview(ReviewDTO reviewDTO);
 	void removeReview(int reviewNo);
-	ReviewDTO getReview(int reviewNo);
-	List<ReviewDTO> getReviewList();
+	List<ReviewDTO> getReviewJoinList();
 
 }

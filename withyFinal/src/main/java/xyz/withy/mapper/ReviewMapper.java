@@ -13,4 +13,5 @@ public interface ReviewMapper {
 	 int selectReviewCount();
 	 List<ReviewDTO> selectReviewList(Map<String, Object> map);
 	//List<programDTO> selectProgramList();
+	 List<ReviewDTO> selectReveiwJoinList();
 }

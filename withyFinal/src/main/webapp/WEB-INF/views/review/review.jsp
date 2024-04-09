@@ -162,10 +162,14 @@
 		</div>
 	</section>
 
+	<tbody>
+							
 
-	<%
+
+	<%--
 	for (int i = 0; i <= 10; i++) {
-	%>
+	--%>
+	<c:forEach var="review" items="${reviewList}">
 	<section class="reviewWriteBox"
 		style="display: flex; justify-content: center;">
 		<div class="col-lg-6 tablet-lg-top-45"
@@ -177,10 +181,10 @@
 
 						<div style="display: flex; align-items: center;">
 							<p>
-								아이디<br>
+								${review.reviewUserNo}<br>
 							</p>
-							<h5 style="color: orange; margin-right: 10px;">★★★★★</h5>
-							<h7>2024-04-15</h7>
+							<h5 style="color: orange; margin-right: 10px;">${review.reviewStar}</h5>
+							<h7>${review.reviewDate}</h7>
 						</div>
 					</div>
 					<div class="col-md-6">
@@ -199,9 +203,13 @@
 			</form>
 		</div>
 	</section>
-	<%
+	</c:forEach>
+	
+	
+	
+	<%--
 	}
-	%>
+	--%>
 	<button id="loadMore" style="display: block; margin: 20px auto;">더보기</button>
 
 	

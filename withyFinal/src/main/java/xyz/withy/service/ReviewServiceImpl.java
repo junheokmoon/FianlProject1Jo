@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import lombok.RequiredArgsConstructor;
 import xyz.withy.dao.ReviewDAO;
 import xyz.withy.dto.ReviewDTO;
-import xyz.withy.util.Pager;
 
 @Service
 @RequiredArgsConstructor
@@ -18,33 +17,28 @@ public class ReviewServiceImpl implements ReviewService {
 
 	@Override
 	public void addReview(ReviewDTO reviewDTO) {
-		// TODO Auto-generated method stub
-		
+		reviewDAO.insertProgram(reviewDTO);		
 	}
 
 	@Override
 	public void modifyReview(ReviewDTO reviewDTO) {
-		// TODO Auto-generated method stub
-		
+		reviewDAO.updateReview(reviewDTO);		
 	}
 
 	@Override
 	public void removeReview(int reviewNo) {
-		// TODO Auto-generated method stub
+		reviewDAO.deleteReview(reviewNo);
 		
 	}
 
 	@Override
-	public ReviewDTO getReview(int reviewNo) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<ReviewDTO> getReviewJoinList() {
+		return reviewDAO.selectReveiwJoinList();
 	}
 
-	@Override
-	public List<ReviewDTO> getReviewList() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
+}
+	
 
 	/*
 	@Override
@@ -95,6 +89,8 @@ public class ReviewServiceImpl implements ReviewService {
 		return resultMap;
 	}
 	*/
+	
+	
 
-}
+
 
