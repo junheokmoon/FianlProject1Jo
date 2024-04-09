@@ -87,7 +87,7 @@
 										</thead>
 										<tbody>
 											<c:forEach var="userinfoList" items="${userinfoList }">
-												<tr>
+												<tr onclick="location.href='${pageContext.request.contextPath}/admin/detailUser'">
 													<td>1</td>
 													<td>${userinfoList.userId}</td>
 													<td>${userinfoList.userName}</td>
