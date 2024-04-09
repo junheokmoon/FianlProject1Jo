@@ -11,7 +11,8 @@ public class MainController {
 	public String tiles() {
 		return "main";
 	}
-
+	
+	/*
 	@RequestMapping("/party")
 	public String party() {
 		return "/party/party";
@@ -57,6 +58,8 @@ public class MainController {
 	public String partyLeaderRoom() {
 		return "/party/partyRoom";
 	}
+	*/
+	
 	/*
 	폴더를 만들어서 옮겼습니다
 	@RequestMapping("/review")
