@@ -24,15 +24,16 @@ public class TicketRestController {
 		
 		return ticketService.getTicketList();
 	}
-	@GetMapping("/ott_list")
+	@GetMapping("/ticket_ott_list")
 	public List<TicketDTO> ottList() {
 		System.out.println("플랫폼리스토!!");
 		
 		return ticketService.getTicketList();
+		//return ottkindService.getOttkindNameList();
 	}
 	@GetMapping("/ticket_month")
 	public List<TicketDTO> monthList() {
-		System.out.println("플랫폼리스토!!");
+		System.out.println("개월 수 리스토!!");
 		
 		return ticketService.getTicketMonthList();
 	}

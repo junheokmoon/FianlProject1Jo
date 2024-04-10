@@ -80,7 +80,7 @@ public class TicketServiceImpl implements TicketService{
 	}
 
 	@Override
-	public int getTicketMonthList() {
+	public List<TicketDTO> getTicketMonthList() {
 		return ticketDAO.selectTicketMonthList();
 	}
 
