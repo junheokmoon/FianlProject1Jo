@@ -9,9 +9,53 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WITTY</title>
+    <title>문의하기</title>
 
-
+	<style type="text/css">
+		.container1 {
+		    max-width: 600px;
+		    margin: 0 auto;
+		    padding: 20px;
+		}
+		
+		.form-group {
+		    margin-bottom: 20px;
+		}
+		
+		label {
+		    display: block;
+		}
+		
+		input, select, textarea {
+		    width: 100%;
+		    padding: 8px;
+		    border: 1px solid #ccc;
+		    border-radius: 4px;
+		    box-sizing: border-box;
+		}
+		
+		button {
+		    background-color: #4CAF50;
+		    color: white;
+		    padding: 10px 20px;
+		    border: none;
+		    border-radius: 4px;
+		    cursor: pointer;
+		    float: right;
+		}
+		
+		button:hover {
+		    background-color: #45a049;
+		}
+		
+		button[type="submit"] {
+		    background-color: #008CBA;
+		}
+		
+		button[type="submit"]:hover {
+		    background-color: #0077A3;
+		}
+	</style>
     <!--STYLESHEET-->
     <!--=================================================-->
 
@@ -24,7 +68,7 @@
 
 
     <!--Nifty Stylesheet [ REQUIRED ]-->
-    <link href="<c:url value="/css/nifty.min.css"/>" rel="stylesheet">
+      <link href="<c:url value="/css/nifty.min.css"/>" rel="stylesheet">      
 
     
     <!--Font Awesome [ OPTIONAL ]-->
@@ -39,87 +83,47 @@
     <link href="<c:url value="/plugins/bootstrap-select/bootstrap-select.min.css"/>" rel="stylesheet">
 
 
-    <!--Summernote [ OPTIONAL ]-->
-    <link href="<c:url value="/plugins/summernote/summernote.min.css"/>" rel="stylesheet">
-
-
     <!--Demo [ DEMONSTRATION ]-->
     <link href="<c:url value="/css/demo/nifty-demo.min.css"/>" rel="stylesheet">
+
+
+
 
     <!--SCRIPT-->
     <!--=================================================-->
 
-    <!--Page Load Progress Bar [ OPTIONAL ]-->
-    <link href="<c:url value="/plugins/pace/pace.min.css"/>" rel="stylesheet">
-    <script src="<c:url value="/plugins/pace/pace.min.js"/>"></script>
-  
-		
 </head>
-	<body>
-		<div class="panel panel-default panel-left">
-			<h3>1:1 문의하기</h3>
-			<div class="panel-body">				
-				<!--Input form-->
-				<form role="form" class="form-horizontal">
-					<div class="form-group">
-						<label class="col-lg-1 control-label text-left" for="inputSubject">문의유형</label>
-						<div class="col-lg-11">
-							<div class="btn-group">
-								<select class="selectpicker">
-									<option>신고문의</option>
-									<option>결제문의</option>
-									<option>환불문의</option>
-									<option>탈퇴문의</option>
-								</select>
-							</div>
-						</div>
-					</div>			
-					<div class="form-group">
-						<label class="col-lg-1 control-label text-left" for="inputSubject">제목</label>
-						<div class="col-lg-11">
-							<input type="text" id="inputSubject" class="form-control">
-						</div>
-					</div>
-				</form>
 
-				<!--Attact file button-->
-				<div class="media pad-btm">
-					<div class="media-left">
-						<span class="btn btn-default btn-file">
-							파일 첨부<input type="file">
-						</span>
-					</div>
-					<div id="demo-attach-file" class="media-body"></div> <!-- test -->
-				</div>
+<body>
+    <div class="container1">
+        <h6>1:1 문의하기</h6>
+        <br>
+        <form id="inquiry-form">
+            <div class="form-group">
+                <label for="inquiry-type">문의 유형:</label>
+                <select id="inquiry-type" name="inquiry-type">
+                    <option value="신고문의">신고문의</option>
+                    <option value="환불문의">환불문의</option>
+                    <option value="결제문의">결제문의</option>
+                    <option value="이용문의">이용문의</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="title">제목:</label>
+                <input type="text" id="title" name="title">
+            </div>
+            <div class="form-group">
+                <label for="message">내용:</label>
+                <textarea id="message" name="message" rows="5"></textarea>
+            </div>
+            <button class="btn btn-info btn-rounded">취소</button>
+            <button type="submit" class="btn btn-info btn-rounded">등록</button>
+        </form>
+    </div>
 
-
-				<!--Wysiwyg editor : Summernote placeholder-->
-				<div id="demo-mail-compose"></div>
-
-				<div class="pad-ver">
-
-					<!--Send button-->
-					<button id="mail-send-btn" type="button" class="btn btn-success btn-labeled"  onclick="location.href='.jsp'">
-						<span class="btn-label"><i class="fa fa-paper-plane"></i></span>작성하기
-					</button>
-
-					<!--Save draft button-->
-					<button id="mail-save-btn" type="button" class="btn btn-primary btn-labeled">
-						<span class="btn-label"><i class="fa fa-paper-plane"></i></span> 취소
-					</button>
-
-				</div>
-			</div>
-		</div>
-								<!--===================================================-->
-								<!-- END COMPOSE EMAIL -->
-				<!--===================================================-->
-				<!--End page content-->
-
-	
-	<!--JAVASCRIPT-->
+<!--JAVASCRIPT-->
 	<!--=================================================-->
-
+	 
 	<!--jQuery [ REQUIRED ]-->
 	<script src="<c:url value="/js/jquery-2.1.1.min.js"/>"></script>
 
@@ -144,16 +148,8 @@
 	<script src="<c:url value="/plugins/bootstrap-select/bootstrap-select.min.js"/>"></script>
 
 
-	<!--Summernote [ OPTIONAL ]-->
-	<script src="<c:url value="/plugins/summernote/summernote.min.js"/>"></script>
-
-
 	<!--Demo script [ DEMONSTRATION ]-->
-	<script src="<c:url value="/js/demo/nifty-demo.min.js"/>"></script>
+		<script src="<c:url value="/js/demo/nifty-demo.min.js"/>"></script>
 
-
-	<!--Mail [ SAMPLE ]-->
-	<script src="<c:url value="/js/demo/mail.js"/>"></script>
-	
 </body>
 </html>
