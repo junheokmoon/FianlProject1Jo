@@ -1,18 +1,16 @@
 package xyz.withy.controller;
 
-import java.util.List;
-
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import lombok.RequiredArgsConstructor;
-import xyz.withy.dao.PointDAO;
-import xyz.withy.dto.UserDTO;
+import xyz.withy.dto.PointDTO;
 import xyz.withy.service.PointService;
 import xyz.withy.service.UserService;
 
@@ -36,35 +34,37 @@ public class UserController {
 	/*********************** 회원관리 start ***********************/
 	@RequestMapping("/allUser")
 	public String allUser(Model model) {
-	    List<UserDTO> userList = userService.getUserList();
-        //System.out.println("userList = " + userList);
-
-	    for (UserDTO userDTOList : userList) {
-	        String userId = userDTOList.getUserId();
-	        //System.out.println("userService.getUserPoint(userId) = " + userService.getUserPoint(userId));
-	        UserDTO userDTO = userService.getUserPoint(userId);
-	        if (userDTO == null) {
-	        	userDTO = new UserDTO();
-	        	userDTO.setPointTotal(0);
-	        }
-	        userDTOList.setPointTotal(userDTO.getPointTotal());
-	        //System.out.println("userDTO = " + userDTO);
-	    }
-	    
-	    model.addAttribute("userList", userList);
-	    return "admin/all_user";
+//	    List<UserDTO> userList = userService.getUserList();
+//        //System.out.println("userList = " + userList);
+//
+//	    for (UserDTO userDTOList : userList) {
+//	        String userId = userDTOList.getUserId();
+//	        //System.out.println("userService.getUserPoint(userId) = " + userService.getUserPoint(userId));
+//	        UserDTO userDTO = userService.getUserPoint(userId);
+//	        if (userDTO == null) {
+//	        	userDTO = new UserDTO();
+//	        	userDTO.setPointTotal(0);
+//	        }
+//	        userDTOList.setPointTotal(userDTO.getPointTotal());
+//	        //System.out.println("userDTO = " + userDTO);
+//	    }
+//	    
+//	    model.addAttribute("userList", userList);
+//	    return "admin/all_user";
+		model.addAttribute("userList", userService.getUserList());
+		return "admin/all_user";
 	}
 
 	@RequestMapping("/detailUser")
 	public String detailUser(@RequestParam String userId, Model model, HttpSession session) {
 		model.addAttribute("userinfo", userService.getUserinfo(userId));
 
-        UserDTO userDTO = userService.getUserPoint(userId);
-        if (userDTO == null) {
-        	userDTO = new UserDTO();
-        	userDTO.setPointTotal(0);
-        }
-        model.addAttribute("userDTO", userDTO);
+//        UserDTO userDTO = userService.getUserPoint(userId);
+//        if (userDTO == null) {
+//        	userDTO = new UserDTO();
+//        	userDTO.setPointTotal(0);
+//        }
+//        model.addAttribute("userDTO", userDTO);
         
         return "admin/detail_user";
 	}
@@ -80,6 +80,20 @@ public class UserController {
 	public String addPoint() {
 		return "admin/add_point";
 	}
+	
+    // 포인트 지급을 처리하는 메서드
+    @PostMapping("/grantPoint")
+    public String grantPoint(int pointUserNo,int pointAdd,String pointComment) {
+        // 포인트 지급을 위한 작업 수행
+        PointDTO pointDTO = new PointDTO();
+        pointDTO.setPointUserNo(pointUserNo);
+        pointDTO.setPointAdd(pointAdd);
+        pointDTO.setPointComment(pointComment);
+        pointService.addPoint(pointDTO);
+        
+        // 포인트 지급 후 리다이렉트할 경로 설정
+        return "redirect:/admin/allPoint"; // 예시로 allPoint로 리다이렉트하는 것으로 가정합니다.
+    }
 	/**************************** 회원관리 end ****************************/
 	
 	/*********************** OTT(이용권) 관리 start ***********************/

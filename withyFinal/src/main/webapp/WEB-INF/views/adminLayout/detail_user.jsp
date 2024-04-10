@@ -111,7 +111,7 @@
 									</div>
 									<div class="form-group">
 										<label class="col-sm-3" for="ccccc" style="text-indent: 5em;">보유 포인트</label>
-										<div class="col-sm-6" style="text-align:left;">${userDTO.pointTotal } 포인트</div>
+										<div class="col-sm-6" style="text-align:left;">${userinfo.userPoint } 포인트</div>
 									</div>
 								</div>
 								<div class="text-right">

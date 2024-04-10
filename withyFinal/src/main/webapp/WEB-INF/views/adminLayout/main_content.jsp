@@ -131,7 +131,6 @@
 										<th width="12%" style="text-align: center;">아이디</th>
 										<th width="12%" style="text-align: center;">지급사유</th>
 										<th width="12%" style="text-align: center;">지급 포인트</th>
-										<th width="10%" style="text-align: center;">총 포인트</th>
 										<th width="10%" style="text-align: center;">지급일</th>
 									</tr>
 								</thead>
@@ -141,11 +140,9 @@
 											<td>${addPointList.userId}</td>
 											<td id="reason">${addPointList.pointComment}</td>
 											<td>${addPointList.pointAdd} 포인트</td>
-											<td>${addPointList.pointTotal} 포인트</td>
 											<td>${fn:substring(addPointList.pointDate,0,10) }</td>
 										</tr>
-								</c:forEach>
-									
+									</c:forEach>
 								</tbody>
 							</table>
 						</div>

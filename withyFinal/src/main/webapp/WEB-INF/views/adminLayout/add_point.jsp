@@ -51,36 +51,36 @@
 				<div class="row">
 					<div style="width: 95%;">
 					<div class="panel" style="padding: 50px;">
-							<div class="panel-heading">
-								<h3 class="panel-title">NEW</h3>
-							</div>
-				
-							<form class="form-horizontal" style="font-size: 15px">
-								<div class="panel-body">
-									<div class="form-group">
-										<label class="col-sm-3" for="ccccc" style="text-indent: 5em;">회원번호</label>
-										<div class="col-sm-6">
-											<input type="text" class="form-control input-lg" id="ccccc">
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="col-sm-3" for="ccccc" style="text-indent: 5em;">지급 포인트</label>
-										<div class="col-sm-6">
-											<input type="text" class="form-control input-lg" id="ccccc">
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="col-sm-3" for="ccccc" style="text-indent: 5em;">지급 사유</label>
-										<div class="col-sm-6">
-											<textarea rows="13" class="form-control"></textarea>
-										</div>
-									</div>
-								</div>
-								<div class="text-right">
-									<button class="btn btn-info btn-rounded" type="submit" style="font-size: 15px">지급하기</button>
-									<button class="btn btn-info btn-rounded" type="button" onclick="location.href='${pageContext.request.contextPath}/admin/allPoint'" style="font-size: 15px">목록</button>
-								</div>
-							</form>
+						<div class="panel-heading">
+							<h3 class="panel-title">NEW</h3>
+						</div>
+			
+						<form class="form-horizontal" action="${pageContext.request.contextPath}/admin/grantPoint" method="post" style="font-size: 15px">
+						    <div class="panel-body">
+						        <div class="form-group">
+						            <label class="col-sm-3" for="pointUserNo" style="text-indent: 5em;">회원번호</label>
+						            <div class="col-sm-6">
+						                <input type="text" class="form-control input-lg" id="pointUserNo" name="pointUserNo">
+						            </div>
+						        </div>
+						        <div class="form-group">
+						            <label class="col-sm-3" for="pointAdd" style="text-indent: 5em;">지급 포인트</label>
+						            <div class="col-sm-6">
+						                <input type="text" class="form-control input-lg" id="pointAdd" name="pointAdd">
+						            </div>
+						        </div>
+						        <div class="form-group">
+						            <label class="col-sm-3" for="pointComment" style="text-indent: 5em;">지급 사유</label>
+						            <div class="col-sm-6">
+						                <textarea rows="5" class="form-control" id="pointComment" name="pointComment"></textarea>
+						            </div>
+						        </div>
+						    </div>
+						    <div class="text-right">
+						        <button class="btn btn-info btn-rounded" type="submit" style="font-size: 15px">지급하기</button>
+						        <button class="btn btn-info btn-rounded" type="button" onclick="location.href='${pageContext.request.contextPath}/admin/allPoint'" style="font-size: 15px">목록</button>
+						    </div>
+						</form>
 						</div>
 					</div>
 				</div>
@@ -89,3 +89,12 @@
 	</div>
 </body>
 </html>
+
+
+
+
+
+
+
+
+

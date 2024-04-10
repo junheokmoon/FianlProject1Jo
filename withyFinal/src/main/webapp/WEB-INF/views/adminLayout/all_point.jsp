@@ -64,7 +64,6 @@
 												<th width="15%" style="text-align: center;">이름</th>
 												<th width="20%" style="text-align: center;">포인트 지급 사유</th>
 												<th width="15%" style="text-align: center;">지급된 포인트</th>
-												<th width="15%" style="text-align: center;">총 포인트</th>
 												<th width="10%" style="text-align: center;">지급일</th>
 											</tr>
 										</thead>
@@ -76,10 +75,9 @@
 													<td>${pointList.userName}</td>
 													<td id="reason">${pointList.pointComment}</td>
 													<td>${pointList.pointAdd} 포인트</td>
-													<td>${pointList.pointTotal} 포인트</td>
 													<td>${fn:substring(pointList.pointDate,0,10) }</td>
-												</tr>
 											</c:forEach>
+												</tr>
 										</tbody>
 									</table>
 									

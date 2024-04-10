@@ -4,24 +4,38 @@
 	<select id="selectUserJoindateList" resultType="UserDTO"><!-- 신규가입 상위 5개 -->
 		<![CDATA[
 		select * from (select user_no, user_id, user_password, user_name, user_email, user_phone
-			, user_status, user_birthday, user_nickname, user_joindate from usertable 
+			, user_status, user_birthday, user_nickname, user_joindate, user_point from usertable 
 			order by user_joindate desc) where rownum <= 5
 		]]>
 	</select>
 	
 	<select id="selectUserList" resultType="UserDTO"><!-- 전체 회원 조회 -->
 		select user_no, user_id, user_password, user_name, user_email, user_phone
-			, user_status, user_birthday, user_nickname, user_joindate from usertable order by user_no desc
+			, user_status, user_birthday, user_nickname, user_joindate, user_point from usertable order by user_no desc
 	</select>
 			
 	<select id="selectUserinfo" resultType="UserDTO"><!-- 회원아이디 전달받아 회원정보 조회 -->
-		select user_no, user_id, user_password, user_name, user_email, user_phone
-			, user_status, user_birthday, user_nickname, user_joindate from usertable where user_id=#{user_id}
+		select user_no, user_id, user_password, user_name, user_email, user_phone, user_status, user_birthday
+			, user_nickname, user_joindate, user_point from usertable where user_id=#{user_id}
 	</select>
-			
-	<select id="selectUserPoint" resultType="UserDTO"><!-- 회원아이디 전달받아 포인트 조회 -->
+	
+<!-- 	<select id="selectUserPoint" resultType="UserDTO">회원아이디 전달받아 포인트 조회
 		select user_no, user_id, user_password, user_name, user_email, user_phone
-		    , user_status, user_birthday, user_nickname, user_joindate, point_add, point_total from usertable 
+		    , user_status, user_birthday, user_nickname, user_joindate, user_point, point_add, point_total from usertable 
 		    join point on user_no=point_user_no where user_id=#{user_id}
+	</select> -->
+	
+	
+	
+	
+	
+	<select id="selectUserByNo" resultType="UserDTO"><!-- 회원번호 전달받아 회원정보 조회 -->
+		select user_no, user_id, user_password, user_name, user_email, user_phone, user_status, user_birthday
+			, user_nickname, user_joindate, user_point from usertable where user_no = #{userNo}
 	</select>
+	
+	<update id="updateUserPoint"><!-- 회원번호 전달받아 회원포인트 업데이트 -->
+		update usertable set user_point = #{userPoint} where user_no = #{userNo}
+	</update>
+			
 </mapper>

@@ -101,7 +101,7 @@
 													<c:if test="${userList.userStatus == 9 }">
 														<td>관리자</td>
 													</c:if>
-													<td>${userList.pointTotal} 포인트</td>
+													<td>${userList.userPoint} 포인트</td>
 													<td>3개월 넷플릭스 이용권</td>
 													<td>${fn:substring(userList.userJoindate,0,10) }</td>
 												</tr>

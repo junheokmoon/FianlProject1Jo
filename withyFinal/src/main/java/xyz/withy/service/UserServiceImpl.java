@@ -28,9 +28,20 @@ public class UserServiceImpl implements UserService {
 		return userDAO.selectUserinfo(userId);
 	}
 
+//	@Override
+//	public UserDTO getUserPoint(String userId) {
+//		return userDAO.selectUserPoint(userId);
+//	}
+	
 	@Override
-	public UserDTO getUserPoint(String userId) {
-		return userDAO.selectUserPoint(userId);
+	public UserDTO getUserByNo(int userNo) {
+		return userDAO.selectUserByNo(userNo);
 	}
+
+	@Override
+	public void updateUserPoint(int userNo, int userPoint) {
+		userDAO.updateUserPoint(userNo, userPoint);
+	}
+	
 
 }
