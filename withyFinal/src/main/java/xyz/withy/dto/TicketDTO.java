@@ -1,6 +1,6 @@
 package xyz.withy.dto;
 
-import lombok.Builder;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 /*
@@ -17,9 +17,8 @@ TICKET_NO     NOT NULL NUMBER		 티켓 생성 순서
 */
 
 @Data
-@Builder
-public class TicketDTO {
-
+public class TicketDTO { 
+	
 	private String ticketCode;
 	private int ticketPrice;
 	private String ticketImage1;
@@ -27,5 +26,7 @@ public class TicketDTO {
 	private int ticketOttNo;
 	private int ticketMonth;
 	private int ticketStatus;
+	private int ticketNo;
 
+	private OttkindDTO ottkindDTO;
 }

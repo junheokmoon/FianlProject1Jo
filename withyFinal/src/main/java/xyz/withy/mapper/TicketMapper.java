@@ -16,4 +16,5 @@ public interface TicketMapper {
 	int selectTicketCount(); //티켓의 전체 갯수
 	List<TicketDTO> selectTicketList(); //전체 목록 보기
 	List<TicketDTO> selectTicketPageList(Map<String, Object> map); // 페이징 처리된 리스트
+	List<TicketDTO> selectTicketMonthList();
 }

@@ -4,22 +4,21 @@ import lombok.Builder;
 import lombok.Data;
 
 /*
-ÀÌ¸§        ³Î?       À¯Çü      ¿ø·¡ ÀÌ¸§
+ì´ë¦„        ë„?       ìœ í˜•      ì›ë˜ ì´ë¦„
 --------- -------- ------------ ----------
-OTT_NO    NOT NULL NUMBER       OTT ¹øÈ£
-OTT_NAME  NOT NULL VARCHAR2(500) OTT ÀÌ¸§
-OTT_IMAGE NOT NULL VARCHAR2(1000) OTT ÀÌ¹ÌÁö
-OTT_CD             VARCHAR2(100) OTT ÄÚµå
+OTT_NO    NOT NULL NUMBER       OTT ë²ˆí˜¸
+OTT_NAME  NOT NULL VARCHAR2(500) OTT ì´ë¦„
+OTT_IMAGE NOT NULL VARCHAR2(1000) OTT ì´ë¯¸ì§€
+OTT_CD             VARCHAR2(100) OTT ì½”ë“œ
 */
 
 @Data
-@Builder
 public class OttkindDTO {
 
 	private int ottNo;
 	private String ottName;
 	private String ottImage;
-	private String ottcd;
-
+	private String ottCd;
+	
 
 }

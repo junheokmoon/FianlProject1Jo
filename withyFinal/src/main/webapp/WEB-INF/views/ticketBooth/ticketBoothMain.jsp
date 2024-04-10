@@ -13,6 +13,8 @@
     <meta name="description" content="MiOne - Minimal Landing Page Theme">
     <meta name="author" content="kingstudio.ro">
     <!-- Favicon -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
     <link rel="icon" href='<c:url value ="images/favicon.png"/>'>
     <!-- Site Title -->
     <title>MiOne - Minimal Landing Page Theme</title>
@@ -53,7 +55,7 @@
 
     <header class="page-header w-absolute-nav bg-white text-left">
         <div class="container">
-            <h1 class="page-title mb-10">매표소</h1>
+            <h1 class="page-title mb-10">매표12312312312소</h1>
             <nav class="breadcrumb p-y-0 p-x-0 mb-0">
                 <a class="breadcrumb-item" href="/withyFinal">Home</a>
                 <span class="breadcrumb-item active">매표소</span>
@@ -68,20 +70,20 @@
             <div class="container">
                  <div class="button-group filters-button-group">
                    <!-- 
-                   <div id = "inputOttKind"/>
-                   <div id = "inputMonthList"/>
-                   	
+                   <div id = "ottListDiv"></div>
                     -->
                    
                    <div>
                     <button class="btn filter-btn is-checked" data-filter="*">All</button>
-                    <button class="btn filter-btn" data-filter=".netfilx">넷플릭스</button>
+                    <button class="btn filter-btn" data-filter=".25">넷플릭스</button>
                     <button class="btn filter-btn" data-filter=".tving">티빙</button>
                     <button class="btn filter-btn" data-filter=".disney">디즈니+</button>
                     <button class="btn filter-btn" data-filter=".watcha">왓챠</button>
-                    <button class="btn filter-btn" data-filter=".wavve">웨이브</button>
+                    <button class="btn filter-btn" data-filter=".21">웨이브</button>
                    </div>
                    
+                   <div id = "monthListDiv"></div>
+                   <!-- 
                    <div>
                     <button class="btn filter-btn" data-filter=".onem">1개월</button>
                     <button class="btn filter-btn" data-filter=".threem">3개월</button>
@@ -89,12 +91,27 @@
                     <button class="btn filter-btn" data-filter=".ninem">9개월</button>
                     <button class="btn filter-btn" data-filter=".twelvem">12개월</button>
                    </div>
+                    -->
                 </div><!-- /  filters-button-group -->
 
 
                 <div id ="ticketListDiv"></div>
                 <%--
-                <div class="row grid" data-isotope='{ "layoutMode": "masonry" }'>
+
+					<div class="col-xl-100">
+						<div class="card w-raised-icon lg-icon">
+							<div class="card-body text-center p-y-30">
+								<div class="row">
+									<div class="col-md-12">
+										<h5 class="card-title text-center">이런! 저희가 준비한 티켓이 다 떨어졌군요!</h5>
+									</div><!-- / column -->
+								</div><!-- / row -->
+							</div><!-- / card-body -->
+						</div><!-- / card -->
+					</div><!-- / column -->
+                 --%> 
+                <%--
+                <div class="row grid" data-isotope='{ "layoutMode": "masonry" }'	>
                 
                 
                 
@@ -510,6 +527,159 @@
         <i class="fas fa-chevron-up"></i>
     </button>
 
+    <script type="text/javascript">
+    
+
+    ticketList();
+    
+    //ottList();
+    
+    monthList();
+    
+    function ticketList(){
+    	$.ajax({
+    		type:"get",
+    		url:"<c:url value="/ticketBooth/ticket_list"/>",
+    		dataType:"json",
+    		success: function(result){
+    			
+    			if(result.length === 0){
+    				var html="<div class='col-xl-100'>";
+					html+=    "<div class='card w-raised-icon lg-icon'>";
+					html+=        "<div class='card-body text-center p-y-30'>";
+					html+=            "<div class='row'>";
+					html+=                "<div class='col-md-12'>";
+					html+=                    "<h5 class='card-title'>이런! 저희가 준비한 티켓이 다 떨어졌군요!</h5>";
+					html+=                "</div>";<!-- / column -->
+					html+=            "</div>";<!-- / row -->
+					html+=        "</div>";<!-- / card-body -->
+					html+=   "</div>";<!-- / card -->
+					html+="</div>";<!-- / column -->
+					$("#ticketListDiv").html(html);
+					return;
+    			};
+    			if(result.length !== 0){
+    				var html="<div class='row grid' data-isotope='{ 'layoutMode': 'masonry' }'>";
+    					result.forEach(function(ticket) {
+    						
+    					let monthTx = monthChainger(ticket.ticketMonth);
+    					html+="<div class='col-md-6 col-lg-4 grid-item netfilx "+monthTx+"'>";
+    					html+=	"<div class='card raised'>";
+    					html+=		"<div class='card-body text-center p-y-30'>";
+    					html+=			"<img class='img-responsive' src='<c:url value="'+ticket.ottkindDTO.ottImage+'"/>'alt=''>";
+    					html+=			"<p class='card-title product-title fs-20 fw-bold'> <a href='#x' class='title-link primary-hover fs-20'>"+ticket.ottkindDTO.ottName+" "+ticket.ticketMonth+" 개월 티켓</a></p>";
+    					html+=			"<p class='price-block fw-bold mb-20'>"+ticket.ticketPrice+"원</p>";
+    					html+=			"<div class='product-card-footer'>";
+    					html+=				"<a href='#x' class='btn btn-primary pill mt-15 p-x-45'><i class='fas fa-shopping-cart mr-5'></i> <span>당장 구매하기!</span></a>";
+    					html+=			"</div>";<!-- / product-card-footer -->
+   						html+=		"</div>";<!-- / card-body -->
+						html+=	"</div>";<!-- / card -->
+						html+="</div>";<!-- / column -->
+						})
+					html+="</div>";<!-- / row -->
+					$("#ticketListDiv").html(html);
+    			};
+    		},
+    		error:function(xhr) {
+				alert("에러코드(티켓 리스트 불러오기 오류) = "+xhr.status);
+			}
+    	});
+    };
+    
+    function monthList(){
+    	$.ajax({
+    		type:"get",
+    		url:"<c:url value="/ticketBooth/ticket_month"/>",
+    		dataType:"json",
+    		success: function(result){
+    			
+    			var html="<div>";
+    			
+    			if(result.length === 0){
+    				
+    				html+="<button class='btn filter-btn'>준비중</button>";
+    			};	
+				
+    			if(result.length !== 0){
+    				
+    				result.forEach(function(monthNo){
+	    				let monthTx = monthChainger(monthNo);
+	  			  		html+="<button class='btn filter-btn' data-filter='."+monthTx+"'>"+monthNo+"개월</button>";
+    				})
+    			};
+    			
+                html+="</div>";
+                
+                $("#monthListDiv").html(html);
+                
+    		},
+    		error:function(xhr) {
+				alert("에러코드(개월 수 리스트 불러오기 오류) = "+xhr.status);
+			}
+    	})
+    	
+    };
+    
+    function monthChainger(monthNo) {
+        switch (monthNo) {
+            case 1:
+                return "onem";
+            case 3:
+                return "threem";
+            case 6:
+                return "sixm";
+            case 9:
+                return "ninem";
+            case 12:
+                return "twelvem";
+            default:
+                return ""; // 기본값
+        }
+    };
+    
+    function ottChainger(ottCd) {
+        switch (ottCd) {
+            case :
+                return "onem";
+            case 3:
+                return "threem";
+            case 6:
+                return "sixm";
+            case 9:
+                return "ninem";
+            case 12:
+                return "twelvem";
+            default:
+                return ""; // 기본값
+        }
+    };
+
+    
+    /*
+    function ottList(){
+    	
+    	$.ajax({
+    		type:"get",
+    		url:"<c:url value="/ticketBooth/ott_list"/>",
+    		dataType:"json",
+    		success: function(result){
+    			
+    		
+    			
+    			
+    			
+    			
+    			
+    		},
+    		error:function(xhr) {
+				alert("에러코드(플랫폼 리스트 불러오기 오류) = "+xhr.status);
+			}
+    		
+    		
+    	});
+    };
+    */
+    </script>
     <!-- Core JavaScript -->
     <script src='<c:url value ="/js/bootstrap.bundle.min.js"/>'></script>
     <script src='<c:url value ="/js/theme.js"/>'></script>
@@ -542,50 +712,6 @@
     </script>
     <!-- / GLightbox -->
     
-    <script>
-    
-    //selectButtonList();
-
-    ticketList();
-    
-    function ticketList(){
-    	$ajax({
-    		type:"get",
-    		url:"<c:url value="/ticketBooth/ticket_list"/>",
-    		dataType:"json",
-    		success: function(result){
-    			//if(result.ticketList.length==0){
-    				
-    				var html ="<div class="col-xl-100">"
-					html+=    "<div class="card w-raised-icon lg-icon">"
-					html+=        "<div class="card-body text-center p-y-30">"
-					html+=            "<div class="row">"
-					html+=                "<div class="col-md-6">"
-					html+=                    "<h5 class="card-title ">이런! 저희가 준비한 티켓이 다 떨어졌군요!</h5>"
-					html+=                "</div>"<!-- / column -->
-					html+=            "</div>"<!-- / row -->
-					html+=        "</div>"<!-- / card-body -->
-					html+=   "</div>"<!-- / card -->
-					html+="</div>"<!-- / column -->
-					$("#ticketListDiv").html(html);
-					return;
-					
-    			//}
-    		},
-    		error:function(xhr) {
-				alert("에러코드(리스트 불러오기 오류) = "+xhr.status);
-			}
-    			
-    		
-    	});
-    	
-    	
-    }
-    
-    	
-    
-    
-    </script>
 
 </body>
 </html>

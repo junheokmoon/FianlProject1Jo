@@ -32,28 +32,47 @@
 	
 	<select id="selectTicket" resultType="TicketDTO">
 		select ticket_code, ticket_price, ticket_image1, ticket_image2, ticket_ott_no
-		, ticket_month, ticket_status from ticket where ticke_code = ${ticketCode}
+		, ticket_month, ticket_status, ticket_no from ticket where ticke_code = ${ticketCode}
 	</select>
 	
 	<select id="selectTicketCount"  resultType="int">
 		select count(*) from ticket
 	</select>
 	
-	<select id="selectTicketList" resultType="TicketDTO">
 	
+	<resultMap type="TicketDTO" id="ticketListResultMap">
+		<id property="ticketCode" column="ticket_code"/>
+		<result property="ticketPrice" column="ticket_price"/>
+		<result property="ticketImage1" column="ticket_image1"/>
+		<result property="ticketImage2" column="ticket_image2"/>
+		<result property="ticketOttNo" column="ticket_ott_no"/>
+		<result property="ticketMonth" column="ticket_month"/>
+		<result property="ticketStatus" column="ticket_status"/>
+		<result property="ticketNo" column="ticket_no"/>
+		
+		<association property="ottkindDTO" javaType="OttkindDTO">
+			<result property="ottName" column="ott_name"/>
+			<result property="ottImage" column="ott_image"/>
+			<result property="ottCd" column="ott_cd"/>
+		</association>
+	</resultMap>
 	
-	
-		select ticket_code, ticket_price, ticket_image1, ticket_image2, ticket_ott_no
-		, ticket_month, ticket_status from ticket order by ticket_no desc
+	<select id="selectTicketList" resultMap="ticketListResultMap">
+
+	 select t.ticket_code, t.ticket_price, t.ticket_image1, t.ticket_image2, t.ticket_ott_no, t.ticket_month, t.ticket_status, t.ticket_no, o.ott_name, o.ott_image, o.ott_cd
+		from ticket t left join ottkind o on t.ticket_ott_no = o.ott_no order by t.ticket_no desc
+	 
 	</select>
 	
 	<select id="selectTicketPageList" resultType="TicketDTO">
 		select * from (rownum rn ticket.* (select ticket_code, ticket_price, ticket_image1, ticket_image2, ticket_ott_no
-		, ticket_month, ticket_status from ticket order by ticket_no desc)ticket) where rn between #{startRow} and #{endRow}
+		, ticket_month, ticket_status ,ticket_no from ticket order by ticket_no desc)ticket) where rn between #{startRow} and #{endRow}
 	</select>
 	
 
-
+	<select id="selectTicketMonthList" resultType="int">
+		select distinct ticket_month from ticket order by ticket_month asc
+	</select>
 
 
 </mapper>

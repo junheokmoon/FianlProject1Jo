@@ -20,9 +20,21 @@ public class TicketRestController {
 	
 	@GetMapping("/ticket_list")
 	public List<TicketDTO> ticketList() {
-		
+		System.out.println("티켓 리스토!!");
 		
 		return ticketService.getTicketList();
+	}
+	@GetMapping("/ott_list")
+	public List<TicketDTO> ottList() {
+		System.out.println("플랫폼리스토!!");
+		
+		return ticketService.getTicketList();
+	}
+	@GetMapping("/ticket_month")
+	public List<TicketDTO> monthList() {
+		System.out.println("플랫폼리스토!!");
+		
+		return ticketService.getTicketMonthList();
 	}
 
 }

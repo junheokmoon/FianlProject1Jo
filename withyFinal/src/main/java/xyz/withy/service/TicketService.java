@@ -15,4 +15,6 @@ public interface TicketService {
 	int getTicketCount(); 						// 티켓의 전체 갯수
 	List<TicketDTO> getTicketList(); 			// 전체 목록 보기
 	Map<String, Object> getTicketPageList(int pageNum); // 페이징 처리된 리스트
+	List<TicketDTO> getTicketMonthList();                   // 티켓의 개월 수 리스트
+	
 }

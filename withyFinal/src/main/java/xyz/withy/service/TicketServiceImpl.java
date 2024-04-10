@@ -53,9 +53,6 @@ public class TicketServiceImpl implements TicketService{
 
 	@Override
 	public List<TicketDTO> getTicketList() {
-		
-		
-		
 		return ticketDAO.selectTicketList();
 	}
 
@@ -80,6 +77,11 @@ public class TicketServiceImpl implements TicketService{
 		return resultMap;
 		
 		
+	}
+
+	@Override
+	public int getTicketMonthList() {
+		return ticketDAO.selectTicketMonthList();
 	}
 
 }
