@@ -102,7 +102,7 @@
 			style="position: relative; padding-bottom: 33.75%; width: 70%; overflow: hidden;">
 			<iframe
 				style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
-				src="https://www.youtube.com/embed/1q2fe127Azc" frameborder="0"
+				src="${program.programVideo}" frameborder="0"
 				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 				allowfullscreen></iframe>
 		</div>
