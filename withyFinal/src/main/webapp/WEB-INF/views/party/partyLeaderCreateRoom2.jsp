@@ -113,7 +113,7 @@ h5{
 
 	<h2 style="text-align: center; margin-top: ">생성할 방의 조건을 선택해주세요</h2>
 	<!-- 내용삽입될 곳 -->
-	<form action=""></form>
+	<form action="<c:url value="/partyLeader3"/>">
 		<div id= "contentArea" style=" padding: 50px; height: 700px; border: 5px solid white; 
 		margin-top: 10%;">
 			
@@ -126,10 +126,10 @@ h5{
 			<label for="inputPassword5" class="form-label" style="font-weight: bold; ">파티 진행기간</label><br>
 			<select class="form-select" aria-label="Default select example" style="width: 250px;">
 			  <option selected>파티원 모집일부터</option>
-			  <option value="1">1개월</option>
-			  <option value="2">3개월</option>
-			  <option value="3">6개월</option>
-			  <option value="4">12개월</option>
+			  <option value="1">1개월(30일)</option>
+			  <option value="2">3개월(90일)</option>
+			  <option value="3">6개월(180일)</option>
+			  <option value="4">12개월(365일)</option>
 			</select>
 			</div>
 			
@@ -165,12 +165,13 @@ h5{
 			</div>
 	
 			<div style="text-align: center;">		
-				<button style=" background-color: #3191f9; color: white; width: 300px;
-					padding: 10px; border-radius: 8px; margin-top: 25px;"  id="goshop" onclick="location.href='<c:url value="partyLeader3"/>';">
+				<button type="submit" style=" background-color: #3191f9; color: white; width: 300px;
+					padding: 10px; border-radius: 8px; margin-top: 25px;"  id="goshop";">
 						파티방 생성!
 				</button>
 			</div>
 		</div>
+		</form>
 </div>
 		
 
