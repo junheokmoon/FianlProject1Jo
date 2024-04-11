@@ -70,4 +70,9 @@ public class ProgramServiceImpl implements ProgramService {
 		return programDAO.selectProgramJoinList();
 	}
 
+	@Override
+	public List<ProgramDTO> getProgramFilterByOtt(Integer programOttNo, Integer programCategoryNo) {
+		 return programDAO.selectProgramFilterByOtt(programOttNo, programCategoryNo);
+	}
+
 }

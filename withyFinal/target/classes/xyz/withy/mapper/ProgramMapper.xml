@@ -37,6 +37,23 @@
 	<select id="selectProgramJoinList" resultType="ProgramDTO">
 		select program_no, program_ott_no, program_name, program_image, program_detail
 			,program_video, program_category_no from program join ottkind on program_ott_no = ott_no order by program_no desc
-	</select> 
+	</select>
+	
+	
+	<select id="selectProgramFilterByOtt" resultType="ProgramDTO">
+    SELECT * FROM program
+    <where>
+        <if test="programOttNo != null">
+            AND program_ott_no = #{programOttNo}
+        </if>
+        <if test="programCategoryNo != null">
+            AND program_category_no = #{programCategoryNo}
+        </if>
+    </where>
+    ORDER BY program_no DESC
+</select>
+
+	
+	
 	
 </mapper>

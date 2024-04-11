@@ -123,17 +123,14 @@
 								<!-- 상단 패딩 추가 -->
 =
 								<ul class="navbar-nav ml-auto">
-									<li class="nav-item"><a class="nav-link" href="#landings">넷플릭스</a>
-									</li>
-									<li class="nav-item"><a class="nav-link" href="#pages">웨이브</a>
-									</li>
-									<li class="nav-item"><a class="nav-link" href="#features">왓챠</a>
-									</li>
-									<li class="nav-item"><a class="nav-link last-menu-item"
-										href="components.html">티빙</a></li>
-									<li class="nav-item"><a class="nav-link last-menu-item"
-										href="components.html">디즈니 플러스</a></li>
+								    <%--<li class="nav-item ottButton" data-ott-no="25" id="ottButton"><a class="nav-link">넷플릭스</a></li> --%>
+								    <li class="nav-item ottButton" data-ott-no="25" id="ottButton"><button onclick="" class="nav-link">넷플릭스</button></li>
+								    <li class="nav-item ottButton" data-ott-no="24" id="ottButton"><button class="nav-link">왓챠</button></li>
+								    <li class="nav-item ottButton" data-ott-no="23" id="ottButton"><button class="nav-link">디즈니플러스</button></li>
+								    <li class="nav-item ottButton" data-ott-no="21" id="ottButton"><button class="nav-link">웨이브</button></li>
+								    <li class="nav-item ottButton" data-ott-no="22" id="ottButton"><button class="nav-link">티빙</button></li>
 								</ul>
+
 							</div>
 							<ul class="navbar-button p-0 m-0 ml-30">
 								<li class="nav-item"></li>
@@ -318,6 +315,57 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
+
+
+	//정렬기능코드
+$(document).ready(function() {
+    // OTT 버튼과 카테고리 버튼에 대한 이벤트 바인딩
+    $("#ottButton, #categoryButton").click(function() {
+        // 현재 선택된 OTT 번호와 카테고리 가져오기
+        var ottNo = $("#ottButton.active").data("ott-no");
+        var category = $("#categoryButton.active").data("category");
+
+        // 필터링 요청 함수 호출
+        filterPrograms(ottNo, category);
+    });
+
+    function filterPrograms(ottNo, category) {
+        $.ajax({
+            url: '/filterPrograms',
+            type: 'GET',
+            data: {
+                'programOttNo': ottNo,
+                'programCategory': category
+            },
+            success: function(programs) {
+                // 서버로부터 받은 프로그램 데이터로 HTML 구성
+                var itemsHtml = '';
+                $.each(programs, function(index, program) {
+                    itemsHtml += '<div class="col-md-6 col-lg-4">' + 
+                                  '<div class="card">' + 
+                                  '<img src="' + program.programImage + '" alt="' + program.programName + '">' +
+                                  '<div class="card-body text-center">' +
+                                  '<h4 class="card-title fs-20 mb-5">' + program.programName + '</h4>' +
+                                  '<p class="fs-14 fw-medium text-secondary-dark mb-0">' + program.programDetail + '</p>' +
+                                  '</div>' +
+                                  '</div>' +
+                                  '</div>';
+                });
+                // #itemContainer 내용을 새로운 HTML로 업데이트
+                $('#itemContainer').html(itemsHtml);
+            },
+            error: function(xhr, status, error) {
+                console.error(error);
+            }
+        });
+    }
+});
+
+
+
+
+
+
 </script>
 
 

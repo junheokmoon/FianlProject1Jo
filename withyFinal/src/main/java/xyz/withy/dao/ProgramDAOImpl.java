@@ -49,4 +49,9 @@ public class ProgramDAOImpl implements ProgramDAO{
 	public List<ProgramDTO> selectProgramJoinList() {
 		return sqlSession.getMapper(ProgramMapper.class).selectProgramJoinList();
 	}
+
+	@Override
+	public List<ProgramDTO> selectProgramFilterByOtt(Integer programOttNo, Integer programCategoryNo) {
+		return sqlSession.getMapper(ProgramMapper.class).selectProgramFilterByOtt(programOttNo, programCategoryNo);
+	}
 }
