@@ -5,28 +5,8 @@
 <html lang="ko">
 
 <head>
-
-    <!-- Meta -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="MiOne - Minimal Landing Page Theme">
-    <meta name="author" content="kingstudio.ro">
-    <!-- Favicon -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    
-    <link rel="icon" href='<c:url value ="images/favicon.png"/>'>
-    <!-- Site Title -->
-    <title>MiOne - Minimal Landing Page Theme</title>
-    <!-- Bootstrap 5 Core CSS -->
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom Styles -->
-    <link rel="stylesheet" href='<c:url value ="/css/animate.min.css"/>'>
-    <link rel="stylesheet" href='<c:url value ="/css/aos.css"/>'>
-    <link rel="stylesheet" href='<c:url value ="/css/glightbox.min.css"/>'>
-    <link rel="stylesheet" href='<c:url value ="/css/style.css"/>'>
-    <!-- Fonts -->
-    <link rel="stylesheet" href='<c:url value ="/css/fontawesome-all.min.css"/>' type="text/css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"></script>
 </head>
 
 <body>
@@ -55,7 +35,7 @@
 
     <header class="page-header w-absolute-nav bg-white text-left">
         <div class="container">
-            <h1 class="page-title mb-10">매123123표소</h1>
+            <h1 class="page-title mb-10">매표소</h1>
             <nav class="breadcrumb p-y-0 p-x-0 mb-0">
                 <a class="breadcrumb-item" href="/withyFinal">Home</a>
                 <span class="breadcrumb-item active">매표소</span>
@@ -72,25 +52,17 @@
             	<div class="button-group filters-button-group">
                    <div id = "ottListDiv"></div>
                    <div id = "monthListDiv"></div>
-                   <%--
-                   <div>
-                    <button class="btn filter-btn is-checked" data-filter="*">All</button>
-                    <button class="btn filter-btn" data-filter=".netfilx">넷플릭스</button>
-                    <button class="btn filter-btn" data-filter=".tving">티빙</button>
-                    <button class="btn filter-btn" data-filter=".disney">디즈니+</button>
-                    <button class="btn filter-btn" data-filter=".watcha">왓챠</button>
-                    <button class="btn filter-btn" data-filter=".wavve">웨이브</button>
-                   </div>
-                   
-                    --%>
-               </div><!-- /  filters-button-group -->
+                </div><!-- /  filters-button-group -->
 
-			                
+                	 
+               <div id="ticketListDiv"></div>
+               <%-- 
                 <div class="row grid" data-isotope='{ "layoutMode": "masonry" }'>
-                	
-                	<div id="ticketListDiv"></div>
-                    <div class="col-md-6 col-lg-4 grid-item netfilx onem">
-
+               --%> 
+                	 <%--
+                <div class="row grid" data-isotope='{ "layoutMode": "masonry" }'>
+                	 
+                  	  <div class="col-md-6 col-lg-4 grid-item netflix onem">
                         	<div class="card raised">
                             	<div class="card-body text-center p-y-30">
                                     <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
@@ -103,6 +75,13 @@
                         	</div><!-- / card -->
                     </div><!-- / column -->
                     
+                    <!-- 추가적인 카드 클래스 -->
+                </div>
+                
+                	 --%>
+                
+                
+                    <%--
                     <div class="col-md-6 col-lg-4 grid-item tving ninem">
                        	<div class="card raised">
                            	<div class="card-body text-center p-y-30">
@@ -142,7 +121,7 @@
                         	</div><!-- / card -->
                     </div><!-- / column -->
                 </div><!-- / row -->
-                  
+                	  --%>
             </div><!-- / container -->
         </section><!-- / portfolio -->
         <section class="lg bg-white">
@@ -228,65 +207,76 @@
 
     <script type="text/javascript">
     
-	var html = "";
-    
-    ottList();
-    monthList();
-    
-    
+    $(document).ready(function() {
+        ottList();
+        monthList();
+        ticketList();
+        isotopeReset();
+    });
     
     function ticketList(){
-    	
-    	$.ajax({
-    		type:"get",
-    		url:"<c:url value="/ticketBooth/ticket_list"/>",
-    		dataType:"json",
-    		success: function(result){
-    			
-    			if(result.length === 0){
-    				html+="<div class='col-xl-100'>";
-					html+=    "<div class='card w-raised-icon lg-icon'>";
-					html+=        "<div class='card-body text-center p-y-30'>";
-					html+=            "<div class='row'>";
-					html+=                "<div class='col-md-12'>";
-					html+=                    "<h5 class='card-title'>이런! 저희가 준비한 티켓이 다 떨어졌군요!</h5>";
-					html+=                "</div>";<!-- / column -->
-					html+=            "</div>";<!-- / row -->
-					html+=        "</div>";<!-- / card-body -->
-					html+=   "</div>";<!-- / card -->
-					html+="</div>";<!-- / column -->
-					$("#ticketListDiv").html(html);
-    			};
-    			if(result.length !== 0){
-    				
-    					result.forEach(function(ticket) {
-    						
-	    				let ottCode = ottChainger(ticket.ottkindDTO.ottCd);
-    					let monthTx = monthChainger(ticket.ticketMonth);
-                        
-    					html+= "<div class='col-md-6 col-lg-4 grid-item "+ottCode+" "+monthTx+">";
-    					html+= "	<div class='card raised'>";
-    					html+= "		<div class='card-body text-center p-y-30'>";
-    					html+= "     		<img class='img-responsive' src='<c:url value= "/images/ph.jpg" />'alt=''>";
-    					html+= "    		<p class='card-title product-title fs-20 fw-bold'> <a href='#x' class='title-link primary-hover fs-20'>넷플릭스 1개월 티켓</a></p>";
-    					html+= "        	<p class='price-block fw-bold mb-20'>$199.99</p>";
-    					html+= "        	<div class='product-card-footer'>";
-    					html+= "         		<a href='#x' class='btn btn-primary pill mt-15 p-x-45'><i class='fas fa-shopping-cart mr-5'></i> <span>구매하기</span></a>";
-    					html+= "        	</div>";<!-- / product-card-footer -->
-    					html+= "		</div>";<!-- / card-body -->
-    					html+= "	</div>";<!-- / card -->
-    					html+= "</div>";<!-- / column -->
-                
-						})
-					$("#ticketListDiv").html(html);
-    			};
-    		},
-    		error:function(xhr) {
-				alert("에러코드(티켓 리스트 불러오기 오류) = "+xhr.status);
-			}
-    	});
-    };
+        $.ajax({
+            type:"get",
+            url:"<c:url value="/ticketBooth/ticket_list"/>",
+            dataType:"json",
+            success: function(result){
+                let html = "";
+                if(result.length === 0){
+                    html+="<div class='col-xl-100'>";
+                    html+=    "<div class='card w-raised-icon lg-icon'>";
+                    html+=        "<div class='card-body text-center p-y-30'>";
+                    html+=            "<div class='row'>";
+                    html+=                "<div class='col-md-12'>";
+                    html+=                    "<h5 class='card-title'>이런! 저희가 준비한 티켓이 다 떨어졌군요!</h5>";
+                    html+=                "</div>";<!-- / column -->
+                    html+=            "</div>";<!-- / row -->
+                    html+=        "</div>";<!-- / card-body -->
+                    html+=   "</div>";<!-- / card -->
+                    html+="</div>";<!-- / column -->
+                    $("#ticketListDiv").html(html);
+                } else {
+                	 html += "<div class='row grid' data-isotope='{ \"layoutMode\": \"masonry\" }'>";
+                    result.forEach(function(ticket) {
+                        let ottEnName = ottChainger(ticket.ottkindDTO.ottName);
+                        let monthTx = monthChainger(ticket.ticketMonth);
+                        html+= "<div class='col-md-6 col-lg-4 grid-item "+ottEnName+" "+monthTx+"'>";
+                        html+= "    <div class='card raised'>";
+                        html+= "        <div class='card-body text-center p-y-30'>";
+                        html+= "            <img class='img-responsive' src='/withyFinal/image/"+ottEnName+".png' alt=''>";
+                        html+= "            <p class='card-title product-title fs-20 fw-bold'> <a href='#x' class='title-link primary-hover fs-20'>넷플릭스 1개월 티켓</a></p>";
+                        html+= "            <p class='price-block fw-bold mb-20'>$199.99</p>";
+                        html+= "            <div class='product-card-footer'>";
+                        html+= "                <a href='#x' class='btn btn-primary pill mt-15 p-x-45'><i class='fas fa-shopping-cart mr-5'></i> <span>구매하기</span></a>";
+                        html+= "            </div>";<!-- / product-card-footer -->
+                        html+= "        </div>";<!-- / card-body -->
+                        html+= "    </div>";<!-- / card -->
+                        html+= "</div>";<!-- / column -->
+                    });
+                    html+="</div>";
+                    $("#ticketListDiv").html(html);
+
+                    $('.grid').isotope({
+                        layoutMode: 'masonry',
+                        itemSelector: '.grid-item'
+                    });
+                }
+            },
+            error: function(xhr) {
+                alert("에러코드(티켓 리스트 불러오기 오류) = " + xhr.status);
+            }
+        });
+    }
+
     
+    function isotopeReset(){
+    	
+                     // Isotope를 초기화합니다.
+    $('.grid').isotope({
+        layoutMode: 'masonry',
+        itemSelector: '.grid-item'
+    });
+    
+    }
     function ottList(html){
     	
     	if(html===null||html===""){
@@ -312,6 +302,15 @@
     				})
     			};
                 $("#ottListDiv").html(html);
+                
+                /*
+                $('.filters-button-group button').on('click', function() {
+                	  var filterValue = $(this).attr('data-filter');
+                	  // 필터링된 요소를 보여주거나 숨깁니다.
+                	  $('.grid-item').hide();
+                	  $(filterValue).show();
+                	});
+                */
     		},
     		error:function(xhr) {
 				alert("에러코드(개월 수 리스트 불러오기 오류) = "+xhr.status);
@@ -346,6 +345,11 @@
     				
     			};
                 $("#monthListDiv").html(html);
+                
+                $('.grid').isotope({
+                    layoutMode: 'masonry',
+                    itemSelector: '.grid-item'
+                });
     		},
     		error:function(xhr) {
 				alert("에러코드(개월 수 리스트 불러오기 오류) = "+xhr.status);
@@ -373,7 +377,7 @@
     function ottChainger(ottName) { //이거 ottkind mapper 만드는 사람한테 select Distinct 해달라구 하기 그 값 가져와서 만들기 
         switch (ottName) {
             case "넷플릭스":
-                return "netfilx";
+                return "netflix";
             case "디즈니플러스":
                 return "disney";
             case "왓챠":
@@ -406,10 +410,10 @@
     <script src='<c:url value ="/js/scroll-top.js"/>'></script>
     <!-- / Nav-Scroll -->
 
-    <!-- Isotope -->
-    <script src='<c:url value ="/js/isotope.min.js"/>'></script>
-    <script src='<c:url value ="/js/isotope-filter.js"/>'></script>
-    <!-- / Isotope -->
+	<!-- Isotope -->
+	<script src="<c:url value='/js/isotope.min.js'/>"></script>
+	<script src="<c:url value='/js/isotope-filter.js'/>"></script>
+	<!-- / Isotope -->
 
     <!-- GLightbox -->
     <script src='<c:url value ="/js/glightbox.min.js"/>'></script>

@@ -68,10 +68,11 @@
 
         <section id="portfolio" class="lg">
             <div class="container">
-                 <div class="button-group filters-button-group">
-                   <!-- 
+            
+            	<div class="button-group filters-button-group">
                    <div id = "ottListDiv"></div>
-                    -->
+                   <div id = "monthListDiv"></div>
+                   <%--
                    <div>
                     <button class="btn filter-btn is-checked" data-filter="*">All</button>
                     <button class="btn filter-btn" data-filter=".netfilx">넷플릭스</button>
@@ -80,23 +81,16 @@
                     <button class="btn filter-btn" data-filter=".watcha">왓챠</button>
                     <button class="btn filter-btn" data-filter=".wavve">웨이브</button>
                    </div>
-                   <div id = "monthListDiv"></div>
-                   <!-- 
-                   <div>
-                    <button class="btn filter-btn" data-filter=".onem">1개월</button>
-                    <button class="btn filter-btn" data-filter=".threem">3개월</button>
-                    <button class="btn filter-btn" data-filter=".sixm">6개월</button>
-                    <button class="btn filter-btn" data-filter=".ninem">9개월</button>
-                    <button class="btn filter-btn" data-filter=".twelvem">12개월</button>
-                   </div>
-                    -->
-                </div><!-- /  filters-button-group -->
+                   
+                    --%>
+               </div><!-- /  filters-button-group -->
 
 			                
-                <div id ="ticketListDiv" class="row grid" data-isotope='{ "layoutMode": "masonry" }'>
+                <div class="row grid" data-isotope='{ "layoutMode": "masonry" }'>
                 	
-                
+                	<div id="ticketListDiv"></div>
                     <div class="col-md-6 col-lg-4 grid-item netfilx onem">
+
                         	<div class="card raised">
                             	<div class="card-body text-center p-y-30">
                                     <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
@@ -129,288 +123,12 @@
                                 <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">티빙 12개월 티켓</a></p>
                                 <p class="price-block fw-bold mb-20">$199.99</p>
                                 <div class="product-card-footer">
-                                    <a href="#x" class="btn btn-primary pill mt-15 p-x-45"><i class="fas fa-shopping-cart mr-5"></i> <span>Buy Now</span></a>
+	                                    <a href="#x" class="btn btn-primary pill mt-15 p-x-45"><i class="fas fa-shopping-cart mr-5"></i> <span>Buy Now</span></a>
                                 </div><!-- / product-card-footer -->
                            	</div><!-- / card-body -->
                        	</div><!-- / card -->
                     </div><!-- / column -->
-                
-                    
-                <%--
-                
-                    <div class="col-md-6 col-lg-4 grid-item netfilx onem">
-                        	<div class="card raised">
-                            	<div class="card-body text-center p-y-30">
-                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
-	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">넷플릭스 1개월 티켓</a></p>
-	                                <p class="price-block fw-bold mb-20">$199.99</p>
-	                                <div class="product-card-footer">
-	                                    <a href="#x" class="btn btn-primary pill mt-15 p-x-45"><i class="fas fa-shopping-cart mr-5"></i> <span>구매하기</span></a>
-	                                </div><!-- / product-card-footer -->
-                            	</div><!-- / card-body -->
-                        	</div><!-- / card -->
-                    </div><!-- / column -->
-                
-                    <div class="col-md-6 col-lg-4 grid-item netfilx threem">
-                        	<div class="card raised">
-                            	<div class="card-body text-center p-y-30">
-                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
-	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">넷플릭스 3개월 티켓</a></p>
-	                                <p class="price-block fw-bold mb-20">$199.99</p>
-	                                <div class="product-card-footer">
-	                                    <a href="#x" class="btn btn-primary pill mt-15 p-x-45"><i class="fas fa-shopping-cart mr-5"></i> <span>Buy Now</span></a>
-	                                </div><!-- / product-card-footer -->
-                            	</div><!-- / card-body -->
-                        	</div><!-- / card -->
-                    </div><!-- / column -->
-                
-                    <div class="col-md-6 col-lg-4 grid-item netfilx sixm">
-                        	<div class="card raised">
-                            	<div class="card-body text-center p-y-30">
-                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
-	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">넷플릭스 6개월 티켓</a></p>
-	                                <p class="price-block fw-bold mb-20">$199.99</p>
-	                                <div class="product-card-footer">
-	                                    <a href="#x" class="btn btn-primary pill mt-15 p-x-45"><i class="fas fa-shopping-cart mr-5"></i> <span>Buy Now</span></a>
-	                                </div><!-- / product-card-footer -->
-                            	</div><!-- / card-body -->
-                        	</div><!-- / card -->
-                    </div><!-- / column -->
-                
-                    <div class="col-md-6 col-lg-4 grid-item netfilx ninem">
-                        	<div class="card raised">
-                            	<div class="card-body text-center p-y-30">
-                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
-	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">넷플릭스 9개월 티켓</a></p>
-	                                <p class="price-block fw-bold mb-20">$199.99</p>
-	                                <div class="product-card-footer">
-	                                    <a href="#x" class="btn btn-primary pill mt-15 p-x-45"><i class="fas fa-shopping-cart mr-5"></i> <span>Buy Now</span></a>
-	                                </div><!-- / product-card-footer -->
-                            	</div><!-- / card-body -->
-                        	</div><!-- / card -->
-                    </div><!-- / column -->
-                
-                    <div class="col-md-6 col-lg-4 grid-item netfilx twelvem">
-                        	<div class="card raised">
-                            	<div class="card-body text-center p-y-30">
-                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
-	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">넷플릭스 12개월 티켓</a></p>
-	                                <p class="price-block fw-bold mb-20">$199.99</p>
-	                                <div class="product-card-footer">
-	                                    <a href="#x" class="btn btn-primary pill mt-15 p-x-45"><i class="fas fa-shopping-cart mr-5"></i> <span>Buy Now</span></a>
-	                                </div><!-- / product-card-footer -->
-                            	</div><!-- / card-body -->
-                        	</div><!-- / card -->
-                    </div><!-- / column -->
-                
-                    <div class="col-md-6 col-lg-4 grid-item tving onem">
-                        	<div class="card raised">
-                            	<div class="card-body text-center p-y-30">
-                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
-	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">티빙 1개월 티켓</a></p>
-	                                <p class="price-block fw-bold mb-20">$199.99</p>
-	                                <div class="product-card-footer">
-	                                    <a href="#x" class="btn btn-primary pill mt-15 p-x-45"><i class="fas fa-shopping-cart mr-5"></i> <span>구매하기</span></a>
-	                                </div><!-- / product-card-footer -->
-                            	</div><!-- / card-body -->
-                        	</div><!-- / card -->
-                    </div><!-- / column -->
-                
-                    <div class="col-md-6 col-lg-4 grid-item tving threem">
-                        	<div class="card raised">
-                            	<div class="card-body text-center p-y-30">
-                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
-	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">티빙 3개월 티켓</a></p>
-	                                <p class="price-block fw-bold mb-20">$199.99</p>
-	                                <div class="product-card-footer">
-	                                    <a href="#x" class="btn btn-primary pill mt-15 p-x-45"><i class="fas fa-shopping-cart mr-5"></i> <span>Buy Now</span></a>
-	                                </div><!-- / product-card-footer -->
-                            	</div><!-- / card-body -->
-                        	</div><!-- / card -->
-                    </div><!-- / column -->
-                
-                    <div class="col-md-6 col-lg-4 grid-item tving sixm">
-                        	<div class="card raised">
-                            	<div class="card-body text-center p-y-30">
-                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
-	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">티빙 6개월 티켓</a></p>
-	                                <p class="price-block fw-bold mb-20">$199.99</p>
-	                                <div class="product-card-footer">
-	                                    <a href="#x" class="btn btn-primary pill mt-15 p-x-45"><i class="fas fa-shopping-cart mr-5"></i> <span>Buy Now</span></a>
-	                                </div><!-- / product-card-footer -->
-                            	</div><!-- / card-body -->
-                        	</div><!-- / card -->
-                    </div><!-- / column -->
-                
-                    <div class="col-md-6 col-lg-4 grid-item tving ninem">
-                        	<div class="card raised">
-                            	<div class="card-body text-center p-y-30">
-                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
-	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">티빙 9개월 티켓</a></p>
-	                                <p class="price-block fw-bold mb-20">$199.99</p>
-	                                <div class="product-card-footer">
-	                                    <a href="#x" class="btn btn-primary pill mt-15 p-x-45"><i class="fas fa-shopping-cart mr-5"></i> <span>Buy Now</span></a>
-	                                </div><!-- / product-card-footer -->
-                            	</div><!-- / card-body -->
-                        	</div><!-- / card -->
-                    </div><!-- / column -->
-                
-                    <div class="col-md-6 col-lg-4 grid-item tving twelvem">
-                        	<div class="card raised">
-                            	<div class="card-body text-center p-y-30">
-                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
-	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">티빙 12개월 티켓</a></p>
-	                                <p class="price-block fw-bold mb-20">$199.99</p>
-	                                <div class="product-card-footer">
-	                                    <a href="#x" class="btn btn-primary pill mt-15 p-x-45"><i class="fas fa-shopping-cart mr-5"></i> <span>Buy Now</span></a>
-	                                </div><!-- / product-card-footer -->
-                            	</div><!-- / card-body -->
-                        	</div><!-- / card -->
-                    </div><!-- / column -->
-                
-                    <div class="col-md-6 col-lg-4 grid-item disney onem">
-                        	<div class="card raised">
-                            	<div class="card-body text-center p-y-30">
-                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
-	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">디즈니 + 1개월 티켓</a></p>
-	                                <p class="price-block fw-bold mb-20">$199.99</p>
-	                                <div class="product-card-footer">
-	                                    <a href="#x" class="btn btn-primary pill mt-15 p-x-45"><i class="fas fa-shopping-cart mr-5"></i> <span>구매하기</span></a>
-	                                </div><!-- / product-card-footer -->
-                            	</div><!-- / card-body -->
-                        	</div><!-- / card -->
-                    </div><!-- / column -->
-                
-                    <div class="col-md-6 col-lg-4 grid-item disney threem">
-                        	<div class="card raised">
-                            	<div class="card-body text-center p-y-30">
-                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
-	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">디즈니 + 3개월 티켓</a></p>
-	                                <p class="price-block fw-bold mb-20">$199.99</p>
-	                                <div class="product-card-footer">
-	                                    <a href="#x" class="btn btn-primary pill mt-15 p-x-45"><i class="fas fa-shopping-cart mr-5"></i> <span>Buy Now</span></a>
-	                                </div><!-- / product-card-footer -->
-                            	</div><!-- / card-body -->
-                        	</div><!-- / card -->
-                    </div><!-- / column -->
-                
-                    <div class="col-md-6 col-lg-4 grid-item disney sixm">
-                        	<div class="card raised">
-                            	<div class="card-body text-center p-y-30">
-                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
-	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">디즈니 + 6개월 티켓</a></p>
-	                                <p class="price-block fw-bold mb-20">$199.99</p>
-	                                <div class="product-card-footer">
-	                                    <a href="#x" class="btn btn-primary pill mt-15 p-x-45"><i class="fas fa-shopping-cart mr-5"></i> <span>Buy Now</span></a>
-	                                </div><!-- / product-card-footer -->
-                            	</div><!-- / card-body -->
-                        	</div><!-- / card -->
-                    </div><!-- / column -->
-                
-                    <div class="col-md-6 col-lg-4 grid-item disney ninem">
-                        	<div class="card raised">
-                            	<div class="card-body text-center p-y-30">
-                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
-	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">디즈니 + 9개월 티켓</a></p>
-	                                <p class="price-block fw-bold mb-20">$199.99</p>
-	                                <div class="product-card-footer">
-	                                    <a href="#x" class="btn btn-primary pill mt-15 p-x-45"><i class="fas fa-shopping-cart mr-5"></i> <span>Buy Now</span></a>
-	                                </div><!-- / product-card-footer -->
-                            	</div><!-- / card-body -->
-                        	</div><!-- / card -->
-                    </div><!-- / column -->
-                
-                    <div class="col-md-6 col-lg-4 grid-item disney twelvem">
-                        	<div class="card raised">
-                            	<div class="card-body text-center p-y-30">
-                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
-	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">디즈니 + 12개월 티켓</a></p>
-	                                <p class="price-block fw-bold mb-20">$199.99</p>
-	                                <div class="product-card-footer">
-	                                    <a href="#x" class="btn btn-primary pill mt-15 p-x-45"><i class="fas fa-shopping-cart mr-5"></i> <span>Buy Now</span></a>
-	                                </div><!-- / product-card-footer -->
-                            	</div><!-- / card-body -->
-                        	</div><!-- / card -->
-                    </div><!-- / column -->
-                
-                    <div class="col-md-6 col-lg-4 grid-item watcha onem">
-                        	<div class="card raised">
-                            	<div class="card-body text-center p-y-30">
-                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
-	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">왓챠 1개월 티켓</a></p>
-	                                <p class="price-block fw-bold mb-20">$199.99</p>
-	                                <div class="product-card-footer">
-	                                    <a href="#x" class="btn btn-primary pill mt-15 p-x-45"><i class="fas fa-shopping-cart mr-5"></i> <span>구매하기</span></a>
-	                                </div><!-- / product-card-footer -->
-                            	</div><!-- / card-body -->
-                        	</div><!-- / card -->
-                    </div><!-- / column -->
-                
-                    <div class="col-md-6 col-lg-4 grid-item watcha threem">
-                        	<div class="card raised">
-                            	<div class="card-body text-center p-y-30">
-                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
-	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">왓챠 3개월 티켓</a></p>
-	                                <p class="price-block fw-bold mb-20">$199.99</p>
-	                                <div class="product-card-footer">
-	                                    <a href="#x" class="btn btn-primary pill mt-15 p-x-45"><i class="fas fa-shopping-cart mr-5"></i> <span>Buy Now</span></a>
-	                                </div><!-- / product-card-footer -->
-                            	</div><!-- / card-body -->
-                        	</div><!-- / card -->
-                    </div><!-- / column -->
-                
-                    <div class="col-md-6 col-lg-4 grid-item watcha sixm">
-                        	<div class="card raised">
-                            	<div class="card-body text-center p-y-30">
-                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
-	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">왓챠 6개월 티켓</a></p>
-	                                <p class="price-block fw-bold mb-20">$199.99</p>
-	                                <div class="product-card-footer">
-	                                    <a href="#x" class="btn btn-primary pill mt-15 p-x-45"><i class="fas fa-shopping-cart mr-5"></i> <span>Buy Now</span></a>
-	                                </div><!-- / product-card-footer -->
-                            	</div><!-- / card-body -->
-                        	</div><!-- / card -->
-                    </div><!-- / column -->
-                
-                    <div class="col-md-6 col-lg-4 grid-item watcha ninem">
-                        	<div class="card raised">
-                            	<div class="card-body text-center p-y-30">
-                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
-	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">왓챠 9개월 티켓</a></p>
-	                                <p class="price-block fw-bold mb-20">$199.99</p>
-	                                <div class="product-card-footer">
-	                                    <a href="#x" class="btn btn-primary pill mt-15 p-x-45"><i class="fas fa-shopping-cart mr-5"></i> <span>Buy Now</span></a>
-	                                </div><!-- / product-card-footer -->
-                            	</div><!-- / card-body -->
-                        	</div><!-- / card -->
-                    </div><!-- / column -->
-                
-                    <div class="col-md-6 col-lg-4 grid-item watcha twelvem">
-                        	<div class="card raised">
-                            	<div class="card-body text-center p-y-30">
-                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
-	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">왓챠 12개월 티켓</a></p>
-	                                <p class="price-block fw-bold mb-20">$199.99</p>
-	                                <div class="product-card-footer">
-	                                    <a href="#x" class="btn btn-primary pill mt-15 p-x-45"><i class="fas fa-shopping-cart mr-5"></i> <span>Buy Now</span></a>
-	                                </div><!-- / product-card-footer -->
-                            	</div><!-- / card-body -->
-                        	</div><!-- / card -->
-                    </div><!-- / column -->
-                
-                    <div class="col-md-6 col-lg-4 grid-item wavve onem">
-                        	<div class="card raised">
-                            	<div class="card-body text-center p-y-30">
-                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
-	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">웨이브 1개월 티켓</a></p>
-	                                <p class="price-block fw-bold mb-20">$199.99</p>
-	                                <div class="product-card-footer">
-	                                    <a href="#x" class="btn btn-primary pill mt-15 p-x-45"><i class="fas fa-shopping-cart mr-5"></i> <span>구매하기</span></a>
-	                                </div><!-- / product-card-footer -->
-                            	</div><!-- / card-body -->
-                        	</div><!-- / card -->
-                    </div><!-- / column -->
-                
+
                     <div class="col-md-6 col-lg-4 grid-item wavve threem">
                         	<div class="card raised">
                             	<div class="card-body text-center p-y-30">
@@ -423,51 +141,10 @@
                             	</div><!-- / card-body -->
                         	</div><!-- / card -->
                     </div><!-- / column -->
-                
-                    <div class="col-md-6 col-lg-4 grid-item wavve sixm">
-                        	<div class="card raised">
-                            	<div class="card-body text-center p-y-30">
-                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
-	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">웨이브 6개월 티켓</a></p>
-	                                <p class="price-block fw-bold mb-20">$199.99</p>
-	                                <div class="product-card-footer">
-	                                    <a href="#x" class="btn btn-primary pill mt-15 p-x-45"><i class="fas fa-shopping-cart mr-5"></i> <span>Buy Now</span></a>
-	                                </div><!-- / product-card-footer -->
-                            	</div><!-- / card-body -->
-                        	</div><!-- / card -->
-                    </div><!-- / column -->
-                
-                    <div class="col-md-6 col-lg-4 grid-item wavve ninem">
-                        	<div class="card raised">
-                            	<div class="card-body text-center p-y-30">
-                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
-	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">웨이브 9개월 티켓</a></p>
-	                                <p class="price-block fw-bold mb-20">$199.99</p>
-	                                <div class="product-card-footer">
-	                                    <a href="#x" class="btn btn-primary pill mt-15 p-x-45"><i class="fas fa-shopping-cart mr-5"></i> <span>Buy Now</span></a>
-	                                </div><!-- / product-card-footer -->
-                            	</div><!-- / card-body -->
-                        	</div><!-- / card -->
-                    </div><!-- / column -->
-                
-                    <div class="col-md-6 col-lg-4 grid-item wavve twelvem">
-                        	<div class="card raised">
-                            	<div class="card-body text-center p-y-30">
-                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
-	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">웨이브 12개월 티켓</a></p>
-	                                <p class="price-block fw-bold mb-20">$199.99</p>
-	                                <div class="product-card-footer">
-	                                    <a href="#x" class="btn btn-primary pill mt-15 p-x-45"><i class="fas fa-shopping-cart mr-5"></i> <span>Buy Now</span></a>
-	                                </div><!-- / product-card-footer -->
-                            	</div><!-- / card-body -->
-                        	</div><!-- / card -->
-                    </div><!-- / column -->
-                --%>
                 </div><!-- / row -->
-                    
+                  
             </div><!-- / container -->
         </section><!-- / portfolio -->
-
         <section class="lg bg-white">
             <div class="cta p-0">
                 <div class="container">
@@ -551,15 +228,15 @@
 
     <script type="text/javascript">
     
-
+	var html = "";
     
-    alert("dkdk아아아");
-    ticketList();
-    
-    //ottList();
+    ottList();
     monthList();
     
+    
+    
     function ticketList(){
+    	
     	$.ajax({
     		type:"get",
     		url:"<c:url value="/ticketBooth/ticket_list"/>",
@@ -567,7 +244,7 @@
     		success: function(result){
     			
     			if(result.length === 0){
-    				var html="<div class='col-xl-100'>";
+    				html+="<div class='col-xl-100'>";
 					html+=    "<div class='card w-raised-icon lg-icon'>";
 					html+=        "<div class='card-body text-center p-y-30'>";
 					html+=            "<div class='row'>";
@@ -579,29 +256,28 @@
 					html+=   "</div>";<!-- / card -->
 					html+="</div>";<!-- / column -->
 					$("#ticketListDiv").html(html);
-					return;
     			};
     			if(result.length !== 0){
-    				var html="";
-    				//var html='<div class="row grid" data-isotope=\'{ "layoutMode": "masonry" }\'>';
+    				
     					result.forEach(function(ticket) {
     						
 	    				let ottCode = ottChainger(ticket.ottkindDTO.ottCd);
     					let monthTx = monthChainger(ticket.ticketMonth);
-    					html+="<div class='col-md-6 col-lg-4 grid-item netfilx "+monthTx+"'>";
-    					html+=	"<div class='card raised'>";
-    					html+=		"<div class='card-body text-center p-y-30'>";
-    					html+=			"<img class='img-responsive' src='<c:url value="'+ticket.ottkindDTO.ottImage+'"/>'alt=''>";
-    					html+=			"<p class='card-title product-title fs-20 fw-bold'> <a href='#x' class='title-link primary-hover fs-20'>"+ticket.ottkindDTO.ottName+" "+ticket.ticketMonth+" 개월 티켓</a></p>";
-    					html+=			"<p class='price-block fw-bold mb-20'>"+ticket.ticketPrice+"원</p>";
-    					html+=			"<div class='product-card-footer'>";
-    					html+=				"<a href='#x' class='btn btn-primary pill mt-15 p-x-45'><i class='fas fa-shopping-cart mr-5'></i> <span>당장 구매하기!</span></a>";
-    					html+=			"</div>";<!-- / product-card-footer -->
-   						html+=		"</div>";<!-- / card-body -->
-						html+=	"</div>";<!-- / card -->
-						html+="</div>";<!-- / column -->
+                        
+    					html+= "<div class='col-md-6 col-lg-4 grid-item "+ottCode+" "+monthTx+">";
+    					html+= "	<div class='card raised'>";
+    					html+= "		<div class='card-body text-center p-y-30'>";
+    					html+= "     		<img class='img-responsive' src='<c:url value= "/images/ph.jpg" />'alt=''>";
+    					html+= "    		<p class='card-title product-title fs-20 fw-bold'> <a href='#x' class='title-link primary-hover fs-20'>넷플릭스 1개월 티켓</a></p>";
+    					html+= "        	<p class='price-block fw-bold mb-20'>$199.99</p>";
+    					html+= "        	<div class='product-card-footer'>";
+    					html+= "         		<a href='#x' class='btn btn-primary pill mt-15 p-x-45'><i class='fas fa-shopping-cart mr-5'></i> <span>구매하기</span></a>";
+    					html+= "        	</div>";<!-- / product-card-footer -->
+    					html+= "		</div>";<!-- / card-body -->
+    					html+= "	</div>";<!-- / card -->
+    					html+= "</div>";<!-- / column -->
+                
 						})
-					//html+="</div>";<!-- / row -->
 					$("#ticketListDiv").html(html);
     			};
     		},
@@ -611,7 +287,44 @@
     	});
     };
     
-    function monthList(){
+    function ottList(html){
+    	
+    	if(html===null||html===""){
+    		
+    		html=""
+    	}
+    	$.ajax({
+    		type:"get",
+    		url:"<c:url value="/ottkind/ottName_list"/>",
+    		dataType:"json",
+    		success: function(result){
+    			var html="";
+    			if(result.length === 0){
+    				html+="<button class='btn filter-btn'>준비중</button>";
+    			};	
+    			
+    			if(result.length !== 0){
+    				html+="<button class='btn filter-btn is-checked' data-filter='*'>All</button>";
+    				
+    				result.forEach(function(ottName){
+	    				let ottEnName = ottChainger(ottName);
+	  			  		html+="<button class='btn filter-btn' data-filter='."+ottEnName+"'>"+ottName+"</button>";
+    				})
+    			};
+                $("#ottListDiv").html(html);
+    		},
+    		error:function(xhr) {
+				alert("에러코드(개월 수 리스트 불러오기 오류) = "+xhr.status);
+			}
+    	})
+    };
+    
+    function monthList(html){
+    	if(html===null||html===""){
+    		
+    		html="";
+    	}
+    	
     	$.ajax({
     		type:"get",
     		url:"<c:url value="/ticketBooth/ticket_month"/>",
@@ -621,6 +334,7 @@
     			if(result.length === 0){
     				
     				html+="<button class='btn filter-btn'>준비중</button>";
+    				
     			};	
     			
     			if(result.length !== 0){
@@ -629,6 +343,7 @@
 	    				let monthTx = monthChainger(monthNo);
 	  			  		html+="<button class='btn filter-btn' data-filter='."+monthTx+"'>"+monthNo+"개월</button>";
     				})
+    				
     			};
                 $("#monthListDiv").html(html);
     		},
@@ -638,33 +353,6 @@
     	})
     };
     
-    function ottList(){
-    	$.ajax({
-    		type:"get",
-    		url:"<c:url value="/ticketBooth/ticket_ott_list"/>",
-    		dataType:"json",
-    		success: function(result){
-    			html="";
-    			if(result.length === 0){
-    				html+="<button class='btn filter-btn'>준비중</button>";
-    			};	
-    			
-    			if(result.length !== 0){
-    				
-    				html+="<button class='btn filter-btn' data-filter='*'>All</button>";
-    				
-    				result.forEach(function(ottName){
-	    				let ottEnName = ottChainger(ottName);
-	  			  		html+="<button class='btn filter-btn' data-filter='."+ottEnName+"'>"+ottName+"</button>";
-    				})
-    			};
-                $("#monthListDiv").html(html);
-    		},
-    		error:function(xhr) {
-				alert("에러코드(개월 수 리스트 불러오기 오류) = "+xhr.status);
-			}
-    	})
-    };
     
     function monthChainger(monthNo) {
         switch (monthNo) {
