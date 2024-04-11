@@ -70,11 +70,9 @@
 										<label class="col-sm-3" for="aaaaa" style="text-indent: 5em;">종류</label>
 										<div class="col-sm-6">
 											<select class="selectpicker">
-												<option>넷플릭스</option>
-												<option>디즈니</option>
-												<option>티빙</option>
-												<option>웨이브</option>
-												<option>왓챠</option>
+									            <c:forEach var="getTicketNameList" items="${getTicketNameList}">
+									                <option>${getTicketNameList }</option>
+									            </c:forEach>
 											</select>
 										</div>
 									</div>

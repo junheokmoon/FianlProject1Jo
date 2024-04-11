@@ -64,9 +64,42 @@
 	</resultMap>
 	
 	<select id="selectTicketList" resultMap="ticketListResultMap"><!-- 전체 상품(이용권) 보기 -->
-	 select t.ticket_code, t.ticket_price, t.ticket_image1, t.ticket_image2, t.ticket_ott_no, t.ticket_month, t.ticket_status, t.ticket_no, o.ott_name, o.ott_image, o.ott_cd
-		from ticket t left join ottkind o on t.ticket_ott_no = o.ott_no order by t.ticket_no desc
-	 
+	 <!-- select t.ticket_code, t.ticket_price, t.ticket_image1, t.ticket_image2, t.ticket_ott_no, t.ticket_month, t.ticket_status, t.ticket_no, o.ott_name, o.ott_image, o.ott_cd
+		from ticket t left join ottkind o on t.ticket_ott_no = o.ott_no order by t.ticket_no desc -->
+		select 
+		    t.ticket_code, 
+		    t.ticket_price, 
+		    t.ticket_image1, 
+		    t.ticket_image2, 
+		    t.ticket_ott_no, 
+		    t.ticket_month, 
+		    t.ticket_status, 
+		    t.ticket_no,
+		    ok.ott_name,
+		    ok.ott_image,
+		    ok.ott_cd
+		from 
+		    ticket t
+		    inner join ottkind ok on t.ticket_ott_no = ok.ott_no
+		order by
+		    case 
+		        when t.ticket_ott_no = 21 then
+		            case t.ticket_month
+		                when 1 then 1
+		                when 3 then 2
+		                when 6 then 3
+		                when 9 then 4
+		                when 12 then 5
+		            end
+		        when t.ticket_ott_no = 25 then
+		            case t.ticket_month
+		                when 1 then 6
+		                when 3 then 7
+		                when 6 then 8
+		                when 9 then 9
+		                when 12 then 10
+		            end
+		    end
 	</select>
 	
 	<select id="selectTicketPageList" resultType="TicketDTO">
