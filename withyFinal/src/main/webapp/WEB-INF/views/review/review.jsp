@@ -71,7 +71,7 @@
 
 </head>
 <body>
-
+ 
 	<c:if test="${not empty program}">
 	<header class="fh p-0 v-center bg-white" style="height: 75vh;">
     <div class="container">

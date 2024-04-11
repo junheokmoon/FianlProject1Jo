@@ -7,7 +7,7 @@
 		</selectKey>
 		insert into program values(#{programNo}, #{programOttNo},
 			,#{programName}, #{programImage},#{programDtail}, #{programVideo}, #{programCategoryNo})
-	</insert>
+	</insert> 
 	
 	<update id="updateProgram">
 		update program set program_ott_no=#{programOttNo} ,program_name=#{programName}

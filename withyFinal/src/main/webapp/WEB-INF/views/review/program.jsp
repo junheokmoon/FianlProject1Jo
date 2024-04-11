@@ -197,7 +197,7 @@
 
 				<div class="proType" style="margin-top: 50px;">
 					<p>
-						<a href="id="allpro">전체</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp; 
+						<a href="id="allprogram">전체</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp; 
 						<a href="id="movie">영화</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp; 
 						<a href="id="drama">드라마</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp; 
 						<a href="id="enter">예능</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp; 
@@ -208,22 +208,26 @@
 				
 				<div class="container main-container p-0">
     <div class="row" id="itemContainer">
-        <% for (int i = 0; i <= 14; i++) { %>
-<div class="col-md-6 col-lg-4">
-    <a class="demo-item-link" target="_blank" href="<c:url value='/review' >
-        <c:param name='id' value='${i}' />
-    </c:url>">
-        <div class="card">
-            <img class="card-img-top" src="<c:url value='/images/tear.jpg'/>" alt="">
-            <div class="card-body text-center">
-                <h4 class="card-title fs-20 mb-5">눈물의 여왕</h4>
-                <p class="fs-14 fw-medium text-secondary-dark mb-0">클릭하여 리뷰 확인하기!</p>
+        
+<c:forEach var="program" items="${programList}">
+    <div class="col-md-6 col-lg-4">
+        <!-- target="_blank" 제거 -->
+        <a class="demo-item-link" href="<c:url value='/review'>
+            <c:param name='programNo' value='${program.programNo}' />
+        </c:url>">
+            <div class="card">
+            	<img  src="<c:url value="${program.programImage}"/>">
+                <%-- <img src="${pageContext.request.contextPath}/resources/programImg/${program.programImage}" alt="${program.programImage}">--%>
+                <div class="card-body text-center">
+                    <h4 class="card-title fs-20 mb-5">${program.programName}</h4>
+                    <p class="fs-14 fw-medium text-secondary-dark mb-0">${program.programDetail}</p>
+                </div>
             </div>
-        </div>
-    </a>
+        </a>
+    </div>
+</c:forEach>
 </div>
-<% } %>
-</div>
+
     <!-- "더보기" 버튼 -->
     <div class="text-center mt-4">
         <button id="loadMore" class="btn btn-primary">더보기</button>
