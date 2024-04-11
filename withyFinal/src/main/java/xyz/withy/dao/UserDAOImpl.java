@@ -57,6 +57,16 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public void userJoin(UserDTO userDTO) {
-	    sqlSession.getMapper(UserMapper.class).userJoin(userDTO);
-	   }
-	   }
+		sqlSession.getMapper(UserMapper.class).userJoin(userDTO);
+	}
+
+	@Override
+	public int selectUserCount() {
+		return sqlSession.getMapper(UserMapper.class).selectUserCount();
+	}
+
+	@Override
+	public List<UserDTO> selectUserPageList(Map<String, Object> map) {
+		return sqlSession.getMapper(UserMapper.class).selectUserPageList(map);
+	}
+}

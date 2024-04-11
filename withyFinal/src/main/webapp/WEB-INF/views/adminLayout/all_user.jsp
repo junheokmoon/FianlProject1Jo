@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"  %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -86,24 +86,24 @@
 											</tr>
 										</thead>
 										<tbody>
-											<c:forEach var="userList" items="${userList }">
+											<c:forEach var="userPageList" items="${userPageList }">
 												<tr>
 													<td>1</td>
 													<td>
-														<a href="<c:url value="detailUser"><c:param name="userId" value="${userList.userId}" /></c:url>" class="btn-link">
-															${userList.userId}
+														<a href="<c:url value="detailUser"><c:param name="userId" value="${userPageList.userId}" /></c:url>" class="btn-link">
+															${userPageList.userId}
 														</a>
 													</td>
-													<td>${userList.userName}</td>
-													<c:if test="${userList.userStatus == 1 }">
+													<td>${userPageList.userName}</td>
+													<c:if test="${userPageList.userStatus == 1 }">
 														<td>일반회원</td>
 													</c:if>
-													<c:if test="${userList.userStatus == 9 }">
+													<c:if test="${userPageList.userStatus == 9 }">
 														<td>관리자</td>
 													</c:if>
-													<td>${userList.userPoint} 포인트</td>
+													<td>${userPageList.userPoint} 포인트</td>
 													<td>3개월 넷플릭스 이용권</td>
-													<td>${fn:substring(userList.userJoindate,0,10) }</td>
+													<td>${fn:substring(userPageList.userJoindate,0,10) }</td>
 												</tr>
 											</c:forEach>
 										</tbody>
@@ -124,7 +124,7 @@
 									</div>
 									<!-- 검색하기 end -->
 									
-									<div class="panel-body text-center">
+									<!-- <div class="panel-body text-center">
 										<ul class="pagination" >
 											<li class="disabled"><a href="#" class="fa fa-angle-double-left"></a></li>
 											<li class="active"><a href="#">1</a></li>
@@ -135,7 +135,37 @@
 											<li><a href="#">20</a></li>
 											<li><a href="#" class="fa fa-angle-double-right"></a></li>
 										</ul>
-									</div>
+									</div> -->
+									
+									<%-- 페이지 번호 출력 --%>
+									<c:choose>
+										<c:when test="${pager.startPage > pager.blockSize }">
+											<a href="<c:url value="/admin/allUser"/>?pageNum=${pager.prevPage}">[이전]</a>
+										</c:when>
+										<c:otherwise>
+											[이전]
+										</c:otherwise>
+									</c:choose>
+									
+									<c:forEach var="i" begin="${pager.startPage }" end="${pager.endPage }" step="1">
+										<c:choose>
+											<c:when test="${pager.pageNum != i }">
+												<a href="<c:url value="/admin/allUser"/>?pageNum=${i}">[${i}]</a>
+											</c:when>
+											<c:otherwise>
+												[${i}]
+											</c:otherwise>
+										</c:choose>
+									</c:forEach>
+									
+									<c:choose>
+										<c:when test="${pager.endPage != pager.totalPage }">
+											<a href="<c:url value="/admin/allUser"/>?pageNum=${pager.nextPage}">[다음]</a>
+										</c:when>
+										<c:otherwise>
+											[다음]
+										</c:otherwise>
+									</c:choose>
 								</div>
 							</div>
 						</div>

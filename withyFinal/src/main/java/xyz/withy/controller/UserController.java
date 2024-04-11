@@ -1,5 +1,7 @@
 package xyz.withy.controller;
 
+import java.util.Map;
+
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -41,26 +43,40 @@ public class UserController {
 	}
 
 	/*********************** 회원관리 start ***********************/
+//	@RequestMapping("/allUser")
+//	public String allUser(Model model) {
+////	    List<UserDTO> userList = userService.getUserList();
+////        //System.out.println("userList = " + userList);
+////
+////	    for (UserDTO userDTOList : userList) {
+////	        String userId = userDTOList.getUserId();
+////	        //System.out.println("userService.getUserPoint(userId) = " + userService.getUserPoint(userId));
+////	        UserDTO userDTO = userService.getUserPoint(userId);
+////	        if (userDTO == null) {
+////	        	userDTO = new UserDTO();
+////	        	userDTO.setPointTotal(0);
+////	        }
+////	        userDTOList.setPointTotal(userDTO.getPointTotal());
+////	        //System.out.println("userDTO = " + userDTO);
+////	    }
+////	    
+////	    model.addAttribute("userList", userList);
+////	    return "admin/all_user";
+//		model.addAttribute("userList", userService.getUserList());
+//		return "admin/all_user";
+//	}
+	
 	@RequestMapping("/allUser")
-	public String allUser(Model model) {
-//	    List<UserDTO> userList = userService.getUserList();
-//        //System.out.println("userList = " + userList);
-//
-//	    for (UserDTO userDTOList : userList) {
-//	        String userId = userDTOList.getUserId();
-//	        //System.out.println("userService.getUserPoint(userId) = " + userService.getUserPoint(userId));
-//	        UserDTO userDTO = userService.getUserPoint(userId);
-//	        if (userDTO == null) {
-//	        	userDTO = new UserDTO();
-//	        	userDTO.setPointTotal(0);
-//	        }
-//	        userDTOList.setPointTotal(userDTO.getPointTotal());
-//	        //System.out.println("userDTO = " + userDTO);
-//	    }
-//	    
-//	    model.addAttribute("userList", userList);
-//	    return "admin/all_user";
-		model.addAttribute("userList", userService.getUserList());
+	public String allUser(@RequestParam(defaultValue = "1") int pageNum, Model model) {
+		//model.addAttribute("userList", userService.getUserList());
+
+		Map<String, Object> map=userService.getUserPageList(pageNum);
+		
+		model.addAttribute("pager", map.get("pager"));
+		model.addAttribute("userPageList", map.get("userPageList"));
+//		System.out.println("pager = " + map.get("pager"));
+//		System.out.println("userPageList = " + map.get("userPageList"));
+		
 		return "admin/all_user";
 	}
 

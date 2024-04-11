@@ -1,6 +1,7 @@
 package xyz.withy.service;
 
 import java.util.List;
+import java.util.Map;
 
 import xyz.withy.dto.UserDTO;
 
@@ -12,5 +13,5 @@ public interface UserService {
 	UserDTO getUserByNo(int userNo);
 	void updateUserPoint(int userNo, int userPoint);
 	int joinUser(UserDTO userDTO); //회원가입 
-	} 
-
+	Map<String, Object> getUserPageList(int pageNum);	
+}

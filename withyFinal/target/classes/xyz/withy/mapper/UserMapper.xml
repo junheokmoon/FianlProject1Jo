@@ -13,6 +13,16 @@
 		select user_no, user_id, user_password, user_name, user_email, user_phone
 			, user_status, user_birthday, user_nickname, user_joindate, user_point from usertable order by user_no desc
 	</select>
+	
+	<select id="selectUserCount" resultType="int"><!-- 전체 회원수(페이징) -->
+        select count(*) from usertable
+    </select>
+
+	<select id="selectUserPageList" resultType="UserDTO"><!-- 전체 회원 조회(페이징) -->
+		select * from (select rownum rn, userboard.* from (select user_no, user_id, user_password, user_name, user_email
+		    , user_phone, user_status, user_birthday, user_nickname, user_joindate, user_point from usertable 
+		    order by user_joindate desc) userboard) where rn between #{startRow} and #{endRow}
+	</select>
 			
 	<select id="selectUserinfo" resultType="UserDTO"><!-- 회원아이디 전달받아 회원정보 조회 -->
 		select user_no, user_id, user_password, user_name, user_email, user_phone, user_status, user_birthday
