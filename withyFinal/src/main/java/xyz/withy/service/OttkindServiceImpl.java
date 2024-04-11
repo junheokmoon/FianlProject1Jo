@@ -11,14 +11,15 @@ import xyz.withy.dto.OttkindDTO;
 @Service
 @RequiredArgsConstructor
 public class OttkindServiceImpl implements OttkindService {
-
 	private final OttkindDAO ottkindDAO;
 
 	@Override
-	public List<OttkindDTO> getTicketMonthList() {
+	public List<OttkindDTO> getTicketNameList() {
 		return ottkindDAO.selectTicketNameList();
 	}
 	
-	
-	
+	@Override
+	public List<OttkindDTO> getOttNoAndNameList() {
+		return ottkindDAO.selectOttNoAndNameList();
+	}
 }
