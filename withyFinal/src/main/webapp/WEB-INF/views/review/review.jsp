@@ -79,7 +79,7 @@
             <div class="row v-center justify-content-center" style="background-color: aliceblue; height: 70vh;">
                 <div class="col-lg-5 text-right">
                     <!-- 이미지 콘텐츠 -->
-                    <img src="<c:url value='/images/tear.jpg'/>" alt="" class="img-fluid z-index-2 relative rellax tablet-lg-hidden" data-rellax-speed="2" data-rellax-percentage="0.5">
+                    <img  src="<c:url value="${program.programImage}"/>" class="img-fluid z-index-2 relative rellax tablet-lg-hidden" data-rellax-speed="2" data-rellax-percentage="0.5">
                 </div>
                 <div class="col-lg-6 z-index-1">
                     <!-- 텍스트 콘텐츠 -->
