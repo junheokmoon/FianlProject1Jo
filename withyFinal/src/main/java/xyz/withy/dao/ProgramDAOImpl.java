@@ -31,8 +31,8 @@ public class ProgramDAOImpl implements ProgramDAO{
 	}
 
 	@Override
-	public ProgramDTO selectProgram(int programNo) {
-		return sqlSession.getMapper(ProgramMapper.class).selectProgram(programNo);
+	public ProgramDTO selectProgramByNo(int programNo) {
+		return sqlSession.getMapper(ProgramMapper.class).selectProgramByNo(programNo);
 	}
 
 	@Override
@@ -43,5 +43,10 @@ public class ProgramDAOImpl implements ProgramDAO{
 	@Override
 	public List<ProgramDTO> selectProgramList(Map<String, Object> map) {
 		return sqlSession.getMapper(ProgramMapper.class).selectProgramList(map);
+	}
+
+	@Override
+	public List<ProgramDTO> selectProgramJoinList() {
+		return sqlSession.getMapper(ProgramMapper.class).selectProgramJoinList();
 	}
 }

@@ -71,23 +71,8 @@
 
 </head>
 <body>
-	<%-- 
-	<div class="text-center" style="padding-top: 20px; margin: 0 auto;">
-		<ul class="navbar-nav ml-auto">
-			<li class="nav-item"><a class="nav-link" href="#landings">넷플릭스</a>
-			</li>
-			<li class="nav-item"><a class="nav-link" href="#pages">웨이브</a></li>
-			<li class="nav-item"><a class="nav-link" href="#features">왓챠</a>
-			</li>
-			<li class="nav-item"><a class="nav-link last-menu-item"
-				href="components.html">티빙</a></li>
-			<li class="nav-item"><a class="nav-link last-menu-item"
-				href="components.html">디즈니 플러스</a></li>
-		</ul>
-	</div>
-	--%>
 
-
+	<c:if test="${not empty program}">
 	<header class="fh p-0 v-center bg-white" style="height: 75vh;">
     <div class="container">
         <div class="header-content">
@@ -98,8 +83,8 @@
                 </div>
                 <div class="col-lg-6 z-index-1">
                     <!-- 텍스트 콘텐츠 -->
-                    <div class="page-title mb-0">눈물의 여왕(제목)</div>
-                    <p class="lead w-80 m-y-30" data-aos="fade-in" data-aos-delay="100">이런이런 내용의 드라마 입니다.(내용)</p>
+                    <div class="page-title mb-0">${program.programName}</div>
+                    <p class="lead w-80 m-y-30" data-aos="fade-in" data-aos-delay="100">${program.programDetail}</p>
                     <p>별점 평균 : ★★★★</p>
                     <p>tv프로그램</p>
                     <a href="#about-us" class="btn btn-outline-primary mr-5"><i class="fas fa-user mr-5"></i> <span>위티 참여하기</span></a>
@@ -108,6 +93,7 @@
         </div>
     </div>
 </header>
+    </c:if>
 
 
 

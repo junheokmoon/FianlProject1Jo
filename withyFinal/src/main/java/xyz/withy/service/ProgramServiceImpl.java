@@ -33,8 +33,8 @@ public class ProgramServiceImpl implements ProgramService {
 	}
 
 	@Override
-	public ProgramDTO getProgram(int programNo) {
-		ProgramDTO programDTO = programDAO.selectProgram(programNo);
+	public ProgramDTO getProgramByNo(int programNo) {
+		ProgramDTO programDTO = programDAO.selectProgramByNo(programNo);
 		if (programDTO == null) {
 			throw new RuntimeException("게시글을 찾을 수 없습니다.");
 		}
@@ -63,6 +63,11 @@ public class ProgramServiceImpl implements ProgramService {
 		resultMap.put("programList", programList);
 
 		return resultMap;
+	}
+
+	@Override
+	public List<ProgramDTO> getProgramJoinList() {
+		return programDAO.selectProgramJoinList();
 	}
 
 }

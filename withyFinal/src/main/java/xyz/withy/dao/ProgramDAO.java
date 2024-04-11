@@ -9,8 +9,9 @@ public interface ProgramDAO {
 	 int insertProgram(ProgramDTO programDTO);
 	 int updateProgram(ProgramDTO programDTO);
 	 int deleteProgram(int programNo);
-	 ProgramDTO selectProgram(int programNo);
+	 ProgramDTO selectProgramByNo(int programNo);
 	 int selectProgramCount();
 	 List<ProgramDTO> selectProgramList(Map<String, Object> map);
-	//List<programDTO> selectProgramList();
+	 List<ProgramDTO> selectProgramJoinList();
+
 }

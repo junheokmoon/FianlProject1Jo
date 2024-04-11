@@ -17,6 +17,7 @@
 	<resources mapping="/css/**" location="/resources/css/" />
 	<resources mapping="/data/**" location="/resources/data/" />
 	<resources mapping="/images/**" location="/resources/images/" />
+	<resources mapping="/programImg/**" location="/resources/programImg/" />
 	<resources mapping="/js/**" location="/resources/js/" />
 	<resources mapping="/less/**" location="/resources/less/" />
 	<resources mapping="/plugins/**" location="/resources/plugins/" />
