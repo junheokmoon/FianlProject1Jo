@@ -31,7 +31,6 @@
 
 <body>
 
-
     <div id="loader-wrapper">
         <div id="loader"></div>
         <div class="loader-section section-left"></div>
@@ -42,7 +41,7 @@
 
     <nav id="nav-scroll" class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="../index.html"><img src="../assets/images/logo.png" alt=""></a>
+            <a class="navbar-brand" href="../index.html"><img src='<c:url value ="/images/logo.png"/>' alt=""></a>
 
             <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-toggle-nav-center" aria-controls="navbar-toggle-nav-center" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="icon-bar top-bar"></span>
@@ -56,9 +55,9 @@
 
     <header class="page-header w-absolute-nav bg-white text-left">
         <div class="container">
-            <h1 class="page-title mb-10">매표소</h1>
+            <h1 class="page-title mb-10">매123123표소</h1>
             <nav class="breadcrumb p-y-0 p-x-0 mb-0">
-                <a class="breadcrumb-item" href="../index.html">Home</a>
+                <a class="breadcrumb-item" href="/withyFinal">Home</a>
                 <span class="breadcrumb-item active">매표소</span>
             </nav><!-- / breadcrumb -->
             <p class="lead w-50 mt-15" data-aos="fade-in" data-aos-delay="100">파티 매칭을 하기 위해 필요한 티켓을 판매하는 매표소입니다!</p>
@@ -70,6 +69,9 @@
         <section id="portfolio" class="lg">
             <div class="container">
                  <div class="button-group filters-button-group">
+                   <!-- 
+                   <div id = "ottListDiv"></div>
+                    -->
                    <div>
                     <button class="btn filter-btn is-checked" data-filter="*">All</button>
                     <button class="btn filter-btn" data-filter=".netfilx">넷플릭스</button>
@@ -78,7 +80,8 @@
                     <button class="btn filter-btn" data-filter=".watcha">왓챠</button>
                     <button class="btn filter-btn" data-filter=".wavve">웨이브</button>
                    </div>
-                   
+                   <div id = "monthListDiv"></div>
+                   <!-- 
                    <div>
                     <button class="btn filter-btn" data-filter=".onem">1개월</button>
                     <button class="btn filter-btn" data-filter=".threem">3개월</button>
@@ -86,14 +89,59 @@
                     <button class="btn filter-btn" data-filter=".ninem">9개월</button>
                     <button class="btn filter-btn" data-filter=".twelvem">12개월</button>
                    </div>
+                    -->
                 </div><!-- /  filters-button-group -->
 
-                <div class="row grid" data-isotope='{ "layoutMode": "masonry" }'>
+			                
+                <div id ="ticketListDiv" class="row grid" data-isotope='{ "layoutMode": "masonry" }'>
+                	
                 
                     <div class="col-md-6 col-lg-4 grid-item netfilx onem">
                         	<div class="card raised">
                             	<div class="card-body text-center p-y-30">
-                                    <img class="img-responsive" src="../assets/images/ph.jpg" alt="">
+                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
+	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">넷플릭스 1개월 티켓</a></p>
+	                                <p class="price-block fw-bold mb-20">$199.99</p>
+	                                <div class="product-card-footer">
+	                                    <a href="#x" class="btn btn-primary pill mt-15 p-x-45"><i class="fas fa-shopping-cart mr-5"></i> <span>구매하기</span></a>
+	                                </div><!-- / product-card-footer -->
+                            	</div><!-- / card-body -->
+                        	</div><!-- / card -->
+                    </div><!-- / column -->
+                    
+                    <div class="col-md-6 col-lg-4 grid-item tving ninem">
+                       	<div class="card raised">
+                           	<div class="card-body text-center p-y-30">
+                                   <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
+                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">티빙 9개월 티켓</a></p>
+                                <p class="price-block fw-bold mb-20">$199.99</p>
+                                <div class="product-card-footer">
+                                    <a href="#x" class="btn btn-primary pill mt-15 p-x-45"><i class="fas fa-shopping-cart mr-5"></i> <span>Buy Now</span></a>
+                                </div><!-- / product-card-footer -->
+                           	</div><!-- / card-body -->
+                       	</div><!-- / card -->
+                    </div><!-- / column -->
+                
+                    <div class="col-md-6 col-lg-4 grid-item tving twelvem">
+                       	<div class="card raised">
+                           	<div class="card-body text-center p-y-30">
+                                   <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
+                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">티빙 12개월 티켓</a></p>
+                                <p class="price-block fw-bold mb-20">$199.99</p>
+                                <div class="product-card-footer">
+                                    <a href="#x" class="btn btn-primary pill mt-15 p-x-45"><i class="fas fa-shopping-cart mr-5"></i> <span>Buy Now</span></a>
+                                </div><!-- / product-card-footer -->
+                           	</div><!-- / card-body -->
+                       	</div><!-- / card -->
+                    </div><!-- / column -->
+                
+                    
+                <%--
+                
+                    <div class="col-md-6 col-lg-4 grid-item netfilx onem">
+                        	<div class="card raised">
+                            	<div class="card-body text-center p-y-30">
+                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
 	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">넷플릭스 1개월 티켓</a></p>
 	                                <p class="price-block fw-bold mb-20">$199.99</p>
 	                                <div class="product-card-footer">
@@ -106,7 +154,7 @@
                     <div class="col-md-6 col-lg-4 grid-item netfilx threem">
                         	<div class="card raised">
                             	<div class="card-body text-center p-y-30">
-                                    <img class="img-responsive" src="../assets/images/ph.jpg" alt="">
+                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
 	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">넷플릭스 3개월 티켓</a></p>
 	                                <p class="price-block fw-bold mb-20">$199.99</p>
 	                                <div class="product-card-footer">
@@ -119,7 +167,7 @@
                     <div class="col-md-6 col-lg-4 grid-item netfilx sixm">
                         	<div class="card raised">
                             	<div class="card-body text-center p-y-30">
-                                    <img class="img-responsive" src="../assets/images/ph.jpg" alt="">
+                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
 	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">넷플릭스 6개월 티켓</a></p>
 	                                <p class="price-block fw-bold mb-20">$199.99</p>
 	                                <div class="product-card-footer">
@@ -132,7 +180,7 @@
                     <div class="col-md-6 col-lg-4 grid-item netfilx ninem">
                         	<div class="card raised">
                             	<div class="card-body text-center p-y-30">
-                                    <img class="img-responsive" src="../assets/images/ph.jpg" alt="">
+                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
 	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">넷플릭스 9개월 티켓</a></p>
 	                                <p class="price-block fw-bold mb-20">$199.99</p>
 	                                <div class="product-card-footer">
@@ -145,7 +193,7 @@
                     <div class="col-md-6 col-lg-4 grid-item netfilx twelvem">
                         	<div class="card raised">
                             	<div class="card-body text-center p-y-30">
-                                    <img class="img-responsive" src="../assets/images/ph.jpg" alt="">
+                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
 	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">넷플릭스 12개월 티켓</a></p>
 	                                <p class="price-block fw-bold mb-20">$199.99</p>
 	                                <div class="product-card-footer">
@@ -158,7 +206,7 @@
                     <div class="col-md-6 col-lg-4 grid-item tving onem">
                         	<div class="card raised">
                             	<div class="card-body text-center p-y-30">
-                                    <img class="img-responsive" src="../assets/images/ph.jpg" alt="">
+                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
 	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">티빙 1개월 티켓</a></p>
 	                                <p class="price-block fw-bold mb-20">$199.99</p>
 	                                <div class="product-card-footer">
@@ -171,7 +219,7 @@
                     <div class="col-md-6 col-lg-4 grid-item tving threem">
                         	<div class="card raised">
                             	<div class="card-body text-center p-y-30">
-                                    <img class="img-responsive" src="../assets/images/ph.jpg" alt="">
+                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
 	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">티빙 3개월 티켓</a></p>
 	                                <p class="price-block fw-bold mb-20">$199.99</p>
 	                                <div class="product-card-footer">
@@ -184,7 +232,7 @@
                     <div class="col-md-6 col-lg-4 grid-item tving sixm">
                         	<div class="card raised">
                             	<div class="card-body text-center p-y-30">
-                                    <img class="img-responsive" src="../assets/images/ph.jpg" alt="">
+                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
 	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">티빙 6개월 티켓</a></p>
 	                                <p class="price-block fw-bold mb-20">$199.99</p>
 	                                <div class="product-card-footer">
@@ -197,7 +245,7 @@
                     <div class="col-md-6 col-lg-4 grid-item tving ninem">
                         	<div class="card raised">
                             	<div class="card-body text-center p-y-30">
-                                    <img class="img-responsive" src="../assets/images/ph.jpg" alt="">
+                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
 	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">티빙 9개월 티켓</a></p>
 	                                <p class="price-block fw-bold mb-20">$199.99</p>
 	                                <div class="product-card-footer">
@@ -210,7 +258,7 @@
                     <div class="col-md-6 col-lg-4 grid-item tving twelvem">
                         	<div class="card raised">
                             	<div class="card-body text-center p-y-30">
-                                    <img class="img-responsive" src="../assets/images/ph.jpg" alt="">
+                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
 	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">티빙 12개월 티켓</a></p>
 	                                <p class="price-block fw-bold mb-20">$199.99</p>
 	                                <div class="product-card-footer">
@@ -223,7 +271,7 @@
                     <div class="col-md-6 col-lg-4 grid-item disney onem">
                         	<div class="card raised">
                             	<div class="card-body text-center p-y-30">
-                                    <img class="img-responsive" src="../assets/images/ph.jpg" alt="">
+                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
 	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">디즈니 + 1개월 티켓</a></p>
 	                                <p class="price-block fw-bold mb-20">$199.99</p>
 	                                <div class="product-card-footer">
@@ -236,7 +284,7 @@
                     <div class="col-md-6 col-lg-4 grid-item disney threem">
                         	<div class="card raised">
                             	<div class="card-body text-center p-y-30">
-                                    <img class="img-responsive" src="../assets/images/ph.jpg" alt="">
+                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
 	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">디즈니 + 3개월 티켓</a></p>
 	                                <p class="price-block fw-bold mb-20">$199.99</p>
 	                                <div class="product-card-footer">
@@ -249,7 +297,7 @@
                     <div class="col-md-6 col-lg-4 grid-item disney sixm">
                         	<div class="card raised">
                             	<div class="card-body text-center p-y-30">
-                                    <img class="img-responsive" src="../assets/images/ph.jpg" alt="">
+                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
 	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">디즈니 + 6개월 티켓</a></p>
 	                                <p class="price-block fw-bold mb-20">$199.99</p>
 	                                <div class="product-card-footer">
@@ -262,7 +310,7 @@
                     <div class="col-md-6 col-lg-4 grid-item disney ninem">
                         	<div class="card raised">
                             	<div class="card-body text-center p-y-30">
-                                    <img class="img-responsive" src="../assets/images/ph.jpg" alt="">
+                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
 	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">디즈니 + 9개월 티켓</a></p>
 	                                <p class="price-block fw-bold mb-20">$199.99</p>
 	                                <div class="product-card-footer">
@@ -275,7 +323,7 @@
                     <div class="col-md-6 col-lg-4 grid-item disney twelvem">
                         	<div class="card raised">
                             	<div class="card-body text-center p-y-30">
-                                    <img class="img-responsive" src="../assets/images/ph.jpg" alt="">
+                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
 	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">디즈니 + 12개월 티켓</a></p>
 	                                <p class="price-block fw-bold mb-20">$199.99</p>
 	                                <div class="product-card-footer">
@@ -288,7 +336,7 @@
                     <div class="col-md-6 col-lg-4 grid-item watcha onem">
                         	<div class="card raised">
                             	<div class="card-body text-center p-y-30">
-                                    <img class="img-responsive" src="../assets/images/ph.jpg" alt="">
+                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
 	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">왓챠 1개월 티켓</a></p>
 	                                <p class="price-block fw-bold mb-20">$199.99</p>
 	                                <div class="product-card-footer">
@@ -301,7 +349,7 @@
                     <div class="col-md-6 col-lg-4 grid-item watcha threem">
                         	<div class="card raised">
                             	<div class="card-body text-center p-y-30">
-                                    <img class="img-responsive" src="../assets/images/ph.jpg" alt="">
+                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
 	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">왓챠 3개월 티켓</a></p>
 	                                <p class="price-block fw-bold mb-20">$199.99</p>
 	                                <div class="product-card-footer">
@@ -314,7 +362,7 @@
                     <div class="col-md-6 col-lg-4 grid-item watcha sixm">
                         	<div class="card raised">
                             	<div class="card-body text-center p-y-30">
-                                    <img class="img-responsive" src="../assets/images/ph.jpg" alt="">
+                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
 	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">왓챠 6개월 티켓</a></p>
 	                                <p class="price-block fw-bold mb-20">$199.99</p>
 	                                <div class="product-card-footer">
@@ -327,7 +375,7 @@
                     <div class="col-md-6 col-lg-4 grid-item watcha ninem">
                         	<div class="card raised">
                             	<div class="card-body text-center p-y-30">
-                                    <img class="img-responsive" src="../assets/images/ph.jpg" alt="">
+                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
 	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">왓챠 9개월 티켓</a></p>
 	                                <p class="price-block fw-bold mb-20">$199.99</p>
 	                                <div class="product-card-footer">
@@ -340,7 +388,7 @@
                     <div class="col-md-6 col-lg-4 grid-item watcha twelvem">
                         	<div class="card raised">
                             	<div class="card-body text-center p-y-30">
-                                    <img class="img-responsive" src="../assets/images/ph.jpg" alt="">
+                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
 	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">왓챠 12개월 티켓</a></p>
 	                                <p class="price-block fw-bold mb-20">$199.99</p>
 	                                <div class="product-card-footer">
@@ -353,7 +401,7 @@
                     <div class="col-md-6 col-lg-4 grid-item wavve onem">
                         	<div class="card raised">
                             	<div class="card-body text-center p-y-30">
-                                    <img class="img-responsive" src="../assets/images/ph.jpg" alt="">
+                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
 	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">웨이브 1개월 티켓</a></p>
 	                                <p class="price-block fw-bold mb-20">$199.99</p>
 	                                <div class="product-card-footer">
@@ -366,7 +414,7 @@
                     <div class="col-md-6 col-lg-4 grid-item wavve threem">
                         	<div class="card raised">
                             	<div class="card-body text-center p-y-30">
-                                    <img class="img-responsive" src="../assets/images/ph.jpg" alt="">
+                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
 	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">웨이브 3개월 티켓</a></p>
 	                                <p class="price-block fw-bold mb-20">$199.99</p>
 	                                <div class="product-card-footer">
@@ -379,7 +427,7 @@
                     <div class="col-md-6 col-lg-4 grid-item wavve sixm">
                         	<div class="card raised">
                             	<div class="card-body text-center p-y-30">
-                                    <img class="img-responsive" src="../assets/images/ph.jpg" alt="">
+                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
 	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">웨이브 6개월 티켓</a></p>
 	                                <p class="price-block fw-bold mb-20">$199.99</p>
 	                                <div class="product-card-footer">
@@ -392,7 +440,7 @@
                     <div class="col-md-6 col-lg-4 grid-item wavve ninem">
                         	<div class="card raised">
                             	<div class="card-body text-center p-y-30">
-                                    <img class="img-responsive" src="../assets/images/ph.jpg" alt="">
+                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
 	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">웨이브 9개월 티켓</a></p>
 	                                <p class="price-block fw-bold mb-20">$199.99</p>
 	                                <div class="product-card-footer">
@@ -405,7 +453,7 @@
                     <div class="col-md-6 col-lg-4 grid-item wavve twelvem">
                         	<div class="card raised">
                             	<div class="card-body text-center p-y-30">
-                                    <img class="img-responsive" src="../assets/images/ph.jpg" alt="">
+                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
 	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">웨이브 12개월 티켓</a></p>
 	                                <p class="price-block fw-bold mb-20">$199.99</p>
 	                                <div class="product-card-footer">
@@ -414,9 +462,9 @@
                             	</div><!-- / card-body -->
                         	</div><!-- / card -->
                     </div><!-- / column -->
-                    
-                    
+                --%>
                 </div><!-- / row -->
+                    
             </div><!-- / container -->
         </section><!-- / portfolio -->
 
@@ -443,7 +491,7 @@
                 <div class="row">
                     <div class="col-md-6 col-xl-4">
                         <div class="widget">
-                            <img src="../assets/images/logo.png" class="footer-logo mb-20" alt="">
+                            <img src='<c:url value="/assets/images/logo.png"/>' class="footer-logo mb-20" alt="">
                             <p class="fs-16 title-color">© 2021 MiOne by <a href="https://kingstudio.ro" target="_blank">KingStudio</a></p>
                             <p>
                                 <a href="#x" class="text-link mr-20"><i class="fab fa-facebook-f"></i></a>
@@ -501,6 +549,157 @@
         <i class="fas fa-chevron-up"></i>
     </button>
 
+    <script type="text/javascript">
+    
+
+    
+    alert("dkdk아아아");
+    ticketList();
+    
+    //ottList();
+    monthList();
+    
+    function ticketList(){
+    	$.ajax({
+    		type:"get",
+    		url:"<c:url value="/ticketBooth/ticket_list"/>",
+    		dataType:"json",
+    		success: function(result){
+    			
+    			if(result.length === 0){
+    				var html="<div class='col-xl-100'>";
+					html+=    "<div class='card w-raised-icon lg-icon'>";
+					html+=        "<div class='card-body text-center p-y-30'>";
+					html+=            "<div class='row'>";
+					html+=                "<div class='col-md-12'>";
+					html+=                    "<h5 class='card-title'>이런! 저희가 준비한 티켓이 다 떨어졌군요!</h5>";
+					html+=                "</div>";<!-- / column -->
+					html+=            "</div>";<!-- / row -->
+					html+=        "</div>";<!-- / card-body -->
+					html+=   "</div>";<!-- / card -->
+					html+="</div>";<!-- / column -->
+					$("#ticketListDiv").html(html);
+					return;
+    			};
+    			if(result.length !== 0){
+    				var html="";
+    				//var html='<div class="row grid" data-isotope=\'{ "layoutMode": "masonry" }\'>';
+    					result.forEach(function(ticket) {
+    						
+	    				let ottCode = ottChainger(ticket.ottkindDTO.ottCd);
+    					let monthTx = monthChainger(ticket.ticketMonth);
+    					html+="<div class='col-md-6 col-lg-4 grid-item netfilx "+monthTx+"'>";
+    					html+=	"<div class='card raised'>";
+    					html+=		"<div class='card-body text-center p-y-30'>";
+    					html+=			"<img class='img-responsive' src='<c:url value="'+ticket.ottkindDTO.ottImage+'"/>'alt=''>";
+    					html+=			"<p class='card-title product-title fs-20 fw-bold'> <a href='#x' class='title-link primary-hover fs-20'>"+ticket.ottkindDTO.ottName+" "+ticket.ticketMonth+" 개월 티켓</a></p>";
+    					html+=			"<p class='price-block fw-bold mb-20'>"+ticket.ticketPrice+"원</p>";
+    					html+=			"<div class='product-card-footer'>";
+    					html+=				"<a href='#x' class='btn btn-primary pill mt-15 p-x-45'><i class='fas fa-shopping-cart mr-5'></i> <span>당장 구매하기!</span></a>";
+    					html+=			"</div>";<!-- / product-card-footer -->
+   						html+=		"</div>";<!-- / card-body -->
+						html+=	"</div>";<!-- / card -->
+						html+="</div>";<!-- / column -->
+						})
+					//html+="</div>";<!-- / row -->
+					$("#ticketListDiv").html(html);
+    			};
+    		},
+    		error:function(xhr) {
+				alert("에러코드(티켓 리스트 불러오기 오류) = "+xhr.status);
+			}
+    	});
+    };
+    
+    function monthList(){
+    	$.ajax({
+    		type:"get",
+    		url:"<c:url value="/ticketBooth/ticket_month"/>",
+    		dataType:"json",
+    		success: function(result){
+    			var html="";
+    			if(result.length === 0){
+    				
+    				html+="<button class='btn filter-btn'>준비중</button>";
+    			};	
+    			
+    			if(result.length !== 0){
+    				
+    				result.forEach(function(monthNo){
+	    				let monthTx = monthChainger(monthNo);
+	  			  		html+="<button class='btn filter-btn' data-filter='."+monthTx+"'>"+monthNo+"개월</button>";
+    				})
+    			};
+                $("#monthListDiv").html(html);
+    		},
+    		error:function(xhr) {
+				alert("에러코드(개월 수 리스트 불러오기 오류) = "+xhr.status);
+			}
+    	})
+    };
+    
+    function ottList(){
+    	$.ajax({
+    		type:"get",
+    		url:"<c:url value="/ticketBooth/ticket_ott_list"/>",
+    		dataType:"json",
+    		success: function(result){
+    			html="";
+    			if(result.length === 0){
+    				html+="<button class='btn filter-btn'>준비중</button>";
+    			};	
+    			
+    			if(result.length !== 0){
+    				
+    				html+="<button class='btn filter-btn' data-filter='*'>All</button>";
+    				
+    				result.forEach(function(ottName){
+	    				let ottEnName = ottChainger(ottName);
+	  			  		html+="<button class='btn filter-btn' data-filter='."+ottEnName+"'>"+ottName+"</button>";
+    				})
+    			};
+                $("#monthListDiv").html(html);
+    		},
+    		error:function(xhr) {
+				alert("에러코드(개월 수 리스트 불러오기 오류) = "+xhr.status);
+			}
+    	})
+    };
+    
+    function monthChainger(monthNo) {
+        switch (monthNo) {
+            case 1:
+                return "onem";
+            case 3:
+                return "threem";
+            case 6:
+                return "sixm";
+            case 9:
+                return "ninem";
+            case 12:
+                return "twelvem";
+            default:
+                return ""; // 기본값
+        }
+    };
+    function ottChainger(ottName) { //이거 ottkind mapper 만드는 사람한테 select Distinct 해달라구 하기 그 값 가져와서 만들기 
+        switch (ottName) {
+            case "넷플릭스":
+                return "netfilx";
+            case "디즈니플러스":
+                return "disney";
+            case "왓챠":
+                return "watcha";
+            case "웨이브":
+                return "wavve";
+            case "티빙":
+                return "tving";
+            default:
+                return ""; 
+        }
+    };
+
+    </script>
     <!-- Core JavaScript -->
     <script src='<c:url value ="/js/bootstrap.bundle.min.js"/>'></script>
     <script src='<c:url value ="/js/theme.js"/>'></script>

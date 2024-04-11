@@ -69,23 +69,26 @@
         <section id="portfolio" class="lg">
             <div class="container">
             
+            <div id="buttonListDiv"></div>
             	<div class="button-group filters-button-group">
             	
-                   <div id = "monthListDiv"></div>
+                    <div id = "monthListDiv"></div>
             	
+            	</div>
             
+                 <!--  <div class="button-group filters-button-group">-->
                    <!--<div id = "ottListDiv"></div>-->
                    
-                   <div>
+                   <!--<div>
                     <button class="btn filter-btn is-checked" data-filter="*">All</button>
                     <button class="btn filter-btn" data-filter=".netfilx">넷플릭스</button>
                     <button class="btn filter-btn" data-filter=".tving">티빙</button>
                     <button class="btn filter-btn" data-filter=".disney">디즈니+</button>
                     <button class="btn filter-btn" data-filter=".watcha">왓챠</button>
                     <button class="btn filter-btn" data-filter=".wavve">웨이브</button>
-                   </div>
+                   </div>-->
                    
-               </div><!-- /  filters-button-group -->
+                <!-- </div>--><!-- /  filters-button-group -->
 
 			                
                 <div class="row grid" data-isotope='{ "layoutMode": "masonry" }'>
@@ -124,23 +127,9 @@
                                 <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">티빙 12개월 티켓</a></p>
                                 <p class="price-block fw-bold mb-20">$199.99</p>
                                 <div class="product-card-footer">
-	                                    <a href="#x" class="btn btn-primary pill mt-15 p-x-45"><i class="fas fa-shopping-cart mr-5"></i> <span>Buy Now</span></a>
                                 </div><!-- / product-card-footer -->
                            	</div><!-- / card-body -->
                        	</div><!-- / card -->
-                    </div><!-- / column -->
-
-                    <div class="col-md-6 col-lg-4 grid-item wavve threem">
-                        	<div class="card raised">
-                            	<div class="card-body text-center p-y-30">
-                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
-	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">웨이브 3개월 티켓</a></p>
-	                                <p class="price-block fw-bold mb-20">$199.99</p>
-	                                <div class="product-card-footer">
-	                                    <a href="#x" class="btn btn-primary pill mt-15 p-x-45"><i class="fas fa-shopping-cart mr-5"></i> <span>Buy Now</span></a>
-	                                </div><!-- / product-card-footer -->
-                            	</div><!-- / card-body -->
-                        	</div><!-- / card -->
                     </div><!-- / column -->
 
                 </div><!-- / row -->
@@ -323,7 +312,7 @@
     				
     				html+="<button class='btn filter-btn'>준비중</button>";
     				
-    				return html;;
+    				return html;
     			};	
     			
     			if(result.length !== 0){
