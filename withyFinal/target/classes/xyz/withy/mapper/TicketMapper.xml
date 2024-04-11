@@ -8,31 +8,37 @@
 		<selectKey resultType="int" keyProperty="ticketNo" order="BEFORE"> 
 		select ticket_seq.nextval from dual
 		</selectKey>
-		insert into ticket values(${ticketCode}, ${ticketPrice}, ${ticketImage1}
-		, ${ticketImage2}, ${ticketOttNo}, ${ticketMonth} , 1 , ${ticketNo})
+		insert into ticket values(#{ticketCode}, #{ticketPrice}, #{ticketImage1}
+		, #{ticketImage2}, #{ticketOttNo}, #{ticketMonth} , 1 , #{ticketNo})
 	</insert>
 	
 	<update id="updateTicket">
-		update ticket set ticket_code = ${ticketCode}, ticket_price =${ticketPrice}, ticket_image1=${ticketImage1}
-		, ticket_image2=${ticketImage2}, ticket_ott_no=${ticketOttNo}, ticket_month=${ticketMonth}
-		where ticket_code = ${ticketCode}
+		update ticket set ticket_code = #{ticketCode}, ticket_price =#{ticketPrice}, ticket_image1=#{ticketImage1}
+		, ticket_image2=#{ticketImage2}, ticket_ott_no=#{ticketOttNo}, ticket_month=#{ticketMonth}
+		where ticket_code = #{ticketCode}
 	</update>
 
 	<update id="deleteTicket">
-		update ticket set ticket_status = 2 where ticket_code = ${ticketCode}
+		update ticket set ticket_status = 2 where ticket_code = #{ticketCode}
 	</update>
 	
 	<delete id="realDeleteTicket">
-		delect from ticket where ticket_code = ${ticketCode}
+		delect from ticket where ticket_code = #{ticketCode}
 	</delete>
 	
 	<update id="recoverTicket">
-		update ticket set ticket_status = 1 where ticket_code = ${ticketCode}
+		update ticket set ticket_status = 1 where ticket_code = #{ticketCode}
 	</update>
 	
 	<select id="selectTicket" resultType="TicketDTO">
 		select ticket_code, ticket_price, ticket_image1, ticket_image2, ticket_ott_no
-		, ticket_month, ticket_status, ticket_no from ticket where ticke_code = ${ticketCode}
+		, ticket_month, ticket_status, ticket_no from ticket where ticket_code = #{ticketCode}
+	</select>
+
+	<select id="selectTicketInfo" resultType="TicketDTO">
+		select ticket_code, ticket_price, ticket_image1, ticket_image2, ticket_ott_no
+		    , ticket_month, ticket_status, ticket_no, ott_name, ott_image, ott_cd
+		    from ticket left join ottkind on ticket_ott_no = ott_no where ticket_code=#{ticketCode} order by ticket_no desc
 	</select>
 	
 	<select id="selectTicketCount"  resultType="int">
@@ -57,8 +63,7 @@
 		</association>
 	</resultMap>
 	
-	<select id="selectTicketList" resultMap="ticketListResultMap">
-
+	<select id="selectTicketList" resultMap="ticketListResultMap"><!-- 전체 상품(이용권) 보기 -->
 	 select t.ticket_code, t.ticket_price, t.ticket_image1, t.ticket_image2, t.ticket_ott_no, t.ticket_month, t.ticket_status, t.ticket_no, o.ott_name, o.ott_image, o.ott_cd
 		from ticket t left join ottkind o on t.ticket_ott_no = o.ott_no order by t.ticket_no desc
 	 

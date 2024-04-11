@@ -55,40 +55,38 @@
 							<form class="form-horizontal" style="font-size: 15px">
 								<div class="panel-body">
 									<div class="form-group">
+										<label class="col-sm-3" for="ccccc" style="text-indent: 5em;">티켓코드</label>
+										<div class="col-sm-6">
+											<input type="text" class="form-control input-lg" id="ccccc" value="${ticketInfo.ticketCode }">
+										</div>
+									</div>
+									<div class="form-group">
 										<label class="col-sm-3" for="ccccc" style="text-indent: 5em;">종류</label>
 										<div class="col-sm-6">
-											<input type="text" class="form-control input-lg" id="ccccc" value="넷플릭스">
+											<input type="text" class="form-control input-lg" id="ccccc" value="${ticketInfo.ottName }">
 										</div>
 									</div>
 									<div class="form-group">
-										<label class="col-sm-3" for="ccccc" style="text-indent: 5em;">기간</label>
+										<label class="col-sm-3" for="ccccc" style="text-indent: 5em;">기간(개월)</label>
 										<div class="col-sm-6">
-											<input type="text" class="form-control input-lg" id="ccccc" value="3개월">
+											<input type="text" class="form-control input-lg" id="ccccc" value="${ticketInfo.ticketMonth }">
 										</div>
 									</div>
 									<div class="form-group">
-										<label class="col-sm-3" for="ccccc" style="text-indent: 5em;">요금</label>
+										<label class="col-sm-3" for="ccccc" style="text-indent: 5em;">요금(원)</label>
 										<div class="col-sm-6">
-											<input type="text" class="form-control input-lg" id="ccccc" value="12,000원">
+											<input type="text" class="form-control input-lg" id="ccccc" value="${ticketInfo.ticketPrice }">
 										</div>
 									</div>
 									<div class="form-group">
-										<label class="col-md-3" style="text-indent: 5em;">이미지1</label>
+										<label class="col-md-3" style="text-indent: 5em;">이미지</label>
 										<div class="col-md-9">
 											<span class="pull-left btn btn-default btn-file">
 												파일 선택<input type="file">
 											</span>
 										</div>
 										<div style="padding-left: 26%;">
-											<img src="img/N3.png" width="100px" style=" padding-top: 10px;">
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="col-md-3" style="text-indent: 5em;">이미지2</label>
-										<div class="col-md-9">
-											<span class="pull-left btn btn-default btn-file">
-												파일 선택<input type="file">
-											</span>
+											<img src="<c:url value="${ticketInfo.ticketImage1}"/>" width="100px" style=" padding-top: 10px;">
 										</div>
 									</div>
 								</div>

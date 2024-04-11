@@ -29,4 +29,6 @@ public class TicketDTO {
 	private int ticketNo;
 
 	private OttkindDTO ottkindDTO;
+	private String ottName;
+	
 }

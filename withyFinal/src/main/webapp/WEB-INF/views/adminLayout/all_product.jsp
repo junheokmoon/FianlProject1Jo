@@ -61,132 +61,29 @@
 												<th width="20%" style="text-align: center;">종류</th>
 												<th width="10%" style="text-align: center;">기간</th>
 												<th width="20%" style="text-align: center;">요금</th>
-												<th width="10%" style="text-align: center;">이미지1</th>
-												<th width="10%" style="text-align: center;">이미지2</th>
+												<!-- <th width="10%" style="text-align: center;">OTT이미지</th> -->
+												<th width="10%" style="text-align: center;">티켓이미지</th>
 												<th width="10%" style="text-align: center;">수정</th>
 											</tr>
 										</thead>
 										<tbody>
+										<c:forEach var="ticketList" items="${ticketList }">
 											<tr>
 												<td>1</td>
-												<td>N3</td>
-												<td>넷플릭스</td>
-												<td>3개월</td>
-												<td>12,000원</td>
-												<td style="padding: 1px;"><img src="img/N3.png" width="30%"></td>
-												<td>넷플이미지</td>
+												<td>${ticketList.ticketCode }</td>
+												<td>${ticketList.ottkindDTO.ottName }</td>
+												<td>${ticketList.ticketMonth } 개월</td>
+												<td>${ticketList.ticketPrice } 원</td>
+												<%-- <td style="padding: 1px;"><img src="<c:url value="${ticketList.ottkindDTO.ottImage}"/>" width="30%"></td> --%>
+												<td style="padding: 1px;"><img src="<c:url value="${ticketList.ticketImage1}"/>" width="30%"></td>
 												<td>
-													<a class="btn btn-xs btn-default add-tooltip" data-toggle="tooltip" href="<c:url value="/admin/updateProduct"/>" data-original-title="Edit" data-container="body"><i class="fa fa-pencil"></i></a>
+													<a href="<c:url value="updateProduct"><c:param name="ticketCode" value="${ticketList.ticketCode}" /></c:url>" 
+														class="btn btn-xs btn-default add-tooltip" data-toggle="tooltip" data-original-title="Edit" data-container="body">
+														<i class="fa fa-pencil"></i>
+													</a>
 												</td>
 											</tr>
-											<tr>
-												<td>1</td>
-												<td>N3</td>
-												<td>넷플릭스</td>
-												<td>3개월</td>
-												<td>12,000원</td>
-												<td style="padding: 1px;"><img src="img/N3.png" width="30%"></td>
-												<td>넷플이미지</td>
-												<td>
-													<a class="btn btn-xs btn-default add-tooltip" data-toggle="tooltip" href="update_product.jsp" data-original-title="Edit" data-container="body"><i class="fa fa-pencil"></i></a>
-												</td>
-											</tr>
-											<tr>
-												<td>1</td>
-												<td>N3</td>
-												<td>넷플릭스</td>
-												<td>3개월</td>
-												<td>12,000원</td>
-												<td style="padding: 1px;"><img src="img/N3.png" width="30%"></td>
-												<td>넷플이미지</td>
-												<td>
-													<a class="btn btn-xs btn-default add-tooltip" data-toggle="tooltip" href="update_product.jsp" data-original-title="Edit" data-container="body"><i class="fa fa-pencil"></i></a>
-												</td>
-											</tr>
-											<tr>
-												<td>1</td>
-												<td>N3</td>
-												<td>넷플릭스</td>
-												<td>3개월</td>
-												<td>12,000원</td>
-												<td style="padding: 1px;"><img src="img/N3.png" width="30%"></td>
-												<td>넷플이미지</td>
-												<td>
-													<a class="btn btn-xs btn-default add-tooltip" data-toggle="tooltip" href="update_product.jsp" data-original-title="Edit" data-container="body"><i class="fa fa-pencil"></i></a>
-												</td>
-											</tr>
-											<tr>
-												<td>1</td>
-												<td>N3</td>
-												<td>넷플릭스</td>
-												<td>3개월</td>
-												<td>12,000원</td>
-												<td style="padding: 1px;"><img src="img/N3.png" width="30%"></td>
-												<td>넷플이미지</td>
-												<td>
-													<a class="btn btn-xs btn-default add-tooltip" data-toggle="tooltip" href="update_product.jsp" data-original-title="Edit" data-container="body"><i class="fa fa-pencil"></i></a>
-												</td>
-											</tr>
-											<tr>
-												<td>6</td>
-												<td>D12</td>
-												<td>디즈니</td>
-												<td>12개월</td>
-												<td>48,000원</td>
-												<td style="padding: 1px;"><img src="img/D12.png" width="30%"></td>
-												<td>디즈니이미지</td>
-												<td>
-													<a class="btn btn-xs btn-default add-tooltip" data-toggle="tooltip" href="#" data-original-title="Edit" data-container="body"><i class="fa fa-pencil"></i></a>
-												</td>
-											</tr>
-											<tr>
-												<td>6</td>
-												<td>D12</td>
-												<td>디즈니</td>
-												<td>12개월</td>
-												<td>48,000원</td>
-												<td style="padding: 1px;"><img src="img/D12.png" width="30%"></td>
-												<td>디즈니이미지</td>
-												<td>
-													<a class="btn btn-xs btn-default add-tooltip" data-toggle="tooltip" href="#" data-original-title="Edit" data-container="body"><i class="fa fa-pencil"></i></a>
-												</td>
-											</tr>
-											<tr>
-												<td>6</td>
-												<td>D12</td>
-												<td>디즈니</td>
-												<td>12개월</td>
-												<td>48,000원</td>
-												<td style="padding: 1px;"><img src="img/D12.png" width="30%"></td>
-												<td>디즈니이미지</td>
-												<td>
-													<a class="btn btn-xs btn-default add-tooltip" data-toggle="tooltip" href="#" data-original-title="Edit" data-container="body"><i class="fa fa-pencil"></i></a>
-												</td>
-											</tr>
-											<tr>
-												<td>6</td>
-												<td>D12</td>
-												<td>디즈니</td>
-												<td>12개월</td>
-												<td>48,000원</td>
-												<td style="padding: 1px;"><img src="img/D12.png" width="30%"></td>
-												<td>디즈니이미지</td>
-												<td>
-													<a class="btn btn-xs btn-default add-tooltip" data-toggle="tooltip" href="#" data-original-title="Edit" data-container="body"><i class="fa fa-pencil"></i></a>
-												</td>
-											</tr>
-											<tr>
-												<td>6</td>
-												<td>D12</td>
-												<td>디즈니</td>
-												<td>12개월</td>
-												<td>48,000원</td>
-												<td style="padding: 1px;"><img src="img/D12.png" width="30%"></td>
-												<td>디즈니이미지</td>
-												<td>
-													<a class="btn btn-xs btn-default add-tooltip" data-toggle="tooltip" href="#" data-original-title="Edit" data-container="body"><i class="fa fa-pencil"></i></a>
-												</td>
-											</tr>
+										</c:forEach>
 										</tbody>
 									</table>
 									<div class="panel-body text-center">

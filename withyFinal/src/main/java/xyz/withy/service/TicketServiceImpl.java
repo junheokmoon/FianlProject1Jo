@@ -51,6 +51,7 @@ public class TicketServiceImpl implements TicketService{
 		return ticketDAO.selectTicketCount();
 	}
 
+	//전체 상품(이용권) 보기
 	@Override
 	public List<TicketDTO> getTicketList() {
 		return ticketDAO.selectTicketList();
@@ -82,6 +83,11 @@ public class TicketServiceImpl implements TicketService{
 	@Override
 	public List<TicketDTO> getTicketMonthList() {
 		return ticketDAO.selectTicketMonthList();
+	}
+
+	@Override
+	public TicketDTO getTicketInfo(String ticketCode) {
+		return ticketDAO.selectTicketInfo(ticketCode);
 	}
 
 }

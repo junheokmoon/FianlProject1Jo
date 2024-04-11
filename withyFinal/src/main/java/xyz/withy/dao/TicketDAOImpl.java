@@ -64,5 +64,10 @@ public class TicketDAOImpl implements TicketDAO {
 	public List<TicketDTO> selectTicketMonthList() {
 		return sqlSession.getMapper(TicketMapper.class).selectTicketMonthList();
 	}
+
+	@Override
+	public TicketDTO selectTicketInfo(String ticketCode) {
+		return sqlSession.getMapper(TicketMapper.class).selectTicketInfo(ticketCode);
+	}
 }
 

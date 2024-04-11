@@ -17,6 +17,7 @@ import lombok.RequiredArgsConstructor;
 import xyz.withy.dto.PointDTO;
 import xyz.withy.dto.UserDTO;
 import xyz.withy.service.PointService;
+import xyz.withy.service.TicketService;
 import xyz.withy.service.UserService;
 
 @Controller
@@ -26,6 +27,7 @@ public class UserController {
 	@Autowired
 	private final UserService userService;
 	private final PointService pointService;
+	private final TicketService ticketService; 
 	
 	@RequestMapping("/")
 	public String admin(Model model) {
@@ -103,12 +105,17 @@ public class UserController {
 	
 	/*********************** OTT(이용권) 관리 start ***********************/
 	@RequestMapping("/allProduct")
-	public String allProduct() {
+	public String allProduct(Model model) {
+		model.addAttribute("ticketList", ticketService.getTicketList());
+		System.out.println("ticketService.getTicketList() = " + ticketService.getTicketList());
+		
 		return "admin/all_product";
 	}
 	
 	@RequestMapping("/updateProduct")
-	public String updateProduct() {
+	public String updateProduct(@RequestParam String ticketCode, Model model, HttpSession session) {
+		model.addAttribute("ticketInfo", ticketService.getTicketInfo(ticketCode));
+		System.out.println("ticketService.getTicketInfo(ticketCode) = " + ticketService.getTicketInfo(ticketCode));
 		return "admin/update_product";
 	}
 
