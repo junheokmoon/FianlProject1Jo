@@ -21,6 +21,6 @@ public class OttkindRestController {
 	public List<OttkindDTO> ottkindNameList(){
 		System.out.println("ottkindNameList 정상 실행중");
 		
-		return ottkindService.getTicketNameList();
+		return ottkindService.getTicketMonthList();
 	};
 }
