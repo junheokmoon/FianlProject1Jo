@@ -152,7 +152,7 @@
 						<span class="notice-no">${notice.noticeNo}</span>
 					</td>
 					<td>
-						<a href="javascript:void(0);" onclick="doDetailCheck('9716', 'Y')">${notice.noticeTitle}</a>
+						<a href="<c:url value="/notice/detail"/>?noticeNo=${notice.noticeNo}">${notice.noticeTitle}</a>
 					</td>
 					<td class="ac mobileHide">
 						${notice.noticeDate}
