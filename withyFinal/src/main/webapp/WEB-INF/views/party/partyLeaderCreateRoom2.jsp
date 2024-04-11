@@ -113,7 +113,8 @@ h5{
 
 	<h2 style="text-align: center; margin-top: ">생성할 방의 조건을 선택해주세요</h2>
 	<!-- 내용삽입될 곳 -->
-		<div id= "contentArea" style=" padding: 50px; height: 600px; border: 5px solid white; 
+	<form action=""></form>
+		<div id= "contentArea" style=" padding: 50px; height: 700px; border: 5px solid white; 
 		margin-top: 10%;">
 			
 			<div style="margin-bottom: 30px;">
@@ -132,6 +133,20 @@ h5{
 			</select>
 			</div>
 			
+			<div>정산받을 계좌</div>
+			<div style="margin-bottom: 20px;">
+				<select id="bank" >
+					<option selected>은행선택</option>
+					<option value="sin">신한은행</option>
+					<option value="uri">우리은행</option>
+					<option value="kmin">국민은행</option>
+					<option value="kakao">카카오뱅크</option>
+				</select>
+				<br>
+			<input type="text" id="payaccount" name="payaccount" width="250px;">
+			</div>
+			
+			<!-- 
 			<div style="margin-bottom: 30px;">
 				<label for="inputPassword5" class="form-label" style="font-weight: bold;">나이제한</label><br>
 				<div >
@@ -139,7 +154,7 @@ h5{
 				  <label class="form-check-label" for="flexCheckChecked">19세 이상</label>
 				</div>
 			</div>
-			
+			 -->
 			
 			<div style="margin-bottom: 30px;">
 			<div class="mb-3">
