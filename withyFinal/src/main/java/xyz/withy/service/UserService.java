@@ -11,6 +11,6 @@ public interface UserService {
 	//UserDTO getUserPoint(String userId);
 	UserDTO getUserByNo(int userNo);
 	void updateUserPoint(int userNo, int userPoint);
-	int joinUser(UserDTO userDTO); //회원가입
+	int joinUser(UserDTO userDTO); //회원가입 
 	} 
 

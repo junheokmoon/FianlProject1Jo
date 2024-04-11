@@ -53,6 +53,6 @@ public class UserServiceImpl implements UserService {
 	      catch (Exception e) {
 	      return 0; // 실패
 	 }
-	 }
+	 } 
 	 }
 

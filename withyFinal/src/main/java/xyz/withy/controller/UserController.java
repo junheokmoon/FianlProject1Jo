@@ -196,7 +196,7 @@ public class UserController {
 	/************************* 고객지원 end *************************/
 	/***********************회원가입제발요 ***************************/
 	   
-	   @PostMapping("/login/join")
+	  @PostMapping("/login/join")
 	   public String userJoin(@ModelAttribute("user") @Valid UserDTO userDTO, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
 	       if (bindingResult.hasErrors()) {
 	           // 유효성 검사 실패 시 처리
