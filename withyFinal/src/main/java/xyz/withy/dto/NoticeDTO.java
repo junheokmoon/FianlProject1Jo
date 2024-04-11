@@ -17,7 +17,6 @@ NOTICE_USER_NO          NUMBER(5)       회원번호
 */
 
 @Data
-@Builder
 public class NoticeDTO {
 	private int noticeNo;
 	private String noticeTitle;

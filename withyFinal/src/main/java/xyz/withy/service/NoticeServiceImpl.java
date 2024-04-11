@@ -45,7 +45,7 @@ public class NoticeServiceImpl implements NoticeService {
 	@Override
 	public NoticeDTO getNotice(int noticeNo) {
 		NoticeDTO notice=noticeDAO.selectNotice(noticeNo);
-		if(notice ==null ) {
+		if(notice == null ) {
 			throw new RuntimeException("게시글을 찾을 수 없습니다.");
 	}
 	return notice;

@@ -67,7 +67,7 @@
 				<div class="panel-body">
 					<div class="row">
 						<div class="regdate">
-						ㆍ 작성날짜 : 2023.10.19
+						ㆍ 작성날짜 : 2023.05.05
 						</div><br>
 						<div class="noticeCount">
 						ㆍ 조회수 : 15550000000

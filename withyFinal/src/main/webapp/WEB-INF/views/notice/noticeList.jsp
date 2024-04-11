@@ -129,13 +129,14 @@
 	</form>
    
    <div class="table-list list-wrap">
+   		<!-- 공지사항 리스트 테이블  -->
    	   <table class="table-normal">
    	   		<colgroup>
-			<col width="8%" class="mobileHide">
-			<col width="*">
-			<col width="16%" class="mobileHide">
-			<col width="8%" class="mobileHide">
-		</colgroup>
+				<col width="8%" class="mobileHide">
+				<col width="*">
+				<col width="16%" class="mobileHide">
+				<col width="8%" class="mobileHide">
+			</colgroup>
 		<thead>
 			<tr>
 				<th scope="col" class="line0 mobileHide">번호</th>
@@ -144,24 +145,58 @@
 				<th scope="col" class="mobileHide">조회수</th>
 			</tr>
 		</thead>
-		<tbody>
+		 <tbody>
+			<c:forEach var="notice" items="${noticeList}">
 			<tr class="bgcol01">
 					<td class="line0 ac mobileHide">
-						<span class="notice-no">111</span>
+						<span class="notice-no">${notice.noticeNo}</span>
 					</td>
 					<td>
-						<a href="javascript:void(0);" onclick="doDetailCheck('9716', 'Y')">공지사항 제목입니다.</a>
+						<a href="javascript:void(0);" onclick="doDetailCheck('9716', 'Y')">${notice.noticeTitle}</a>
 					</td>
 					<td class="ac mobileHide">
-						2024.03.14
+						${notice.noticeDate}
 					</td>
 					<td class="ac mobileHide">
-						393
+						${notice.noticeCount}
 					</td>
 				</tr>
-			</tbody>
+				</c:forEach>
+		  </tbody>		
    	   </table>
+   	   
+   	   <!-- 페이징 처리 -->
+   	    <div style="text-align: center;">
+				<%-- 페이지 번호 출력 --%>
+				<c:choose>
+					<c:when test="${pager.startPage > pager.blockSize }">
+						<a href="<c:url value="/notice/list"/>?pageNum=${pager.prevPage}">[이전]</a>
+					</c:when>
+					<c:otherwise>
+						[이전]
+					</c:otherwise>
+				</c:choose>
+				
+				<c:forEach var="i" begin="${pager.startPage }" end="${pager.endPage }" step="1">
+					<c:choose>
+						<c:when test="${pager.pageNum != i }">
+							<a href="<c:url value="/notice/list"/>?pageNum=${i}">[${i}]</a>
+						</c:when>
+						<c:otherwise>
+							[${i}]
+						</c:otherwise>
+					</c:choose>
+				</c:forEach>
+				<c:choose>
+					<c:when test="${pager.endPage != pager.totalPage }">
+						<a href="<c:url value="/notice/list"/>?pageNum=${pager.nextPage}">[다음]</a>
+					</c:when>
+					<c:otherwise> 
+						[다음]
+					</c:otherwise>
+				</c:choose>
+		</div>
+ 	 </div>
    </div>
-  </div> 	
 </body>
 </html>
