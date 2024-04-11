@@ -1,14 +1,16 @@
+
 package xyz.withy.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/inquiry")
-
 public class InquiryController {
-	@RequestMapping("/inquiryWrite")
+	
+	@PostMapping("/write")
 	public String inquiryWrite() {
+		//문의글 입력받기 위한 JSP 문서의 뷰이름을 반환하는 요청 처리 메소드
 		return "/inquiry/inquiryWrite";
 	}
 	

@@ -1,6 +1,5 @@
 package xyz.withy.dto;
 
-import lombok.Builder;
 import lombok.Data;
 
 /*

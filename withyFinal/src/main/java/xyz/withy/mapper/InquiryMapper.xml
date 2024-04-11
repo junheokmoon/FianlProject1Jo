@@ -5,13 +5,13 @@
 		<selectKey resultType="int" keyProperty="inquiryNo" order="BEFORE">
 			select inquiry_seq.nextval from dual
 		</selectKey>
-		insert into inquiry values(#{inquiryNo}, #{inquiryTitle}, #{inquiryContent}, sysdate, null, null, 1, 1, 
+		insert into inquiry values(#{inquiryNo}, #{inquiryTitle}, #{inquiryContent}, to_date(sysdate, 'RR/MM/DD'), null, null, 1, 1, 
 			#{inquiryImage}, #{inquiry_user_no})			
 	</insert>
 	
-	<!-- 이미지파일 변경하는 경우와 미변경 경우 구분해서 동적쿼리 -->
+	<!-- 이미지파일 변경하는 경우와 미변경 경우 구분해서 동적쿼리  -->
 	<update id="updateInquiry">
-		update notice 
+		update inquiry
 		<set>
 			<if test="inquiryImage != null and inquiryImage != ''">
 				inquiry_title=#{inquiryTitle}, inquiry_content=#{inquiryContent}, inquiry_image=#{inquiryImage}
@@ -25,11 +25,13 @@
 		 where inquiry_no=#{inquiryNo}		
 	</update>
 	
-	<!-- 글 삭제 -->
+	
+	
 	<delete id="deleteInquiry">
 		delete from inquiry where inquiry_no=#{inquiryNo} 
 	</delete>
 	
+	 
 	<!-- 글번호 전달받아 단일행 검색 -->
 	<select id="selectInquiry" resultType="InquiryDTO">
 		select inquiry_no, inquiry_title, inquiry_content, inquiry_image, inquiry_date, inquiry_update, inquiry_answer 
@@ -43,7 +45,7 @@
 	
 	<!-- 페이징 처리 -->
 	<select id="selectInquiryList" resultType="InquiryDTO">
-		select * from (select rownum rn, notice.* from (select inquiry_no, inquiry_title
+		select * from (select rownum rn, inquiry.* from (select inquiry_no, inquiry_title
 			, inquiry_content, inquiry_image, inquiry_date, inquiry_update, inquiry_answer, inquiry_type
 			, inquiry_status, inquiry_user_no from inquiry order by inquiry_no desc) inquiry) where rn between #{startRow} and #{endRow}
 	</select>
