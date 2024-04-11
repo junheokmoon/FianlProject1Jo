@@ -70,12 +70,9 @@
             <div class="container">
             
             	<div class="button-group filters-button-group">
-            	
+                   <div id = "ottListDiv"></div>
                    <div id = "monthListDiv"></div>
-            	
-            
-                   <!--<div id = "ottListDiv"></div>-->
-                   
+                   <%--
                    <div>
                     <button class="btn filter-btn is-checked" data-filter="*">All</button>
                     <button class="btn filter-btn" data-filter=".netfilx">넷플릭스</button>
@@ -85,13 +82,15 @@
                     <button class="btn filter-btn" data-filter=".wavve">웨이브</button>
                    </div>
                    
+                    --%>
                </div><!-- /  filters-button-group -->
 
 			                
                 <div class="row grid" data-isotope='{ "layoutMode": "masonry" }'>
                 	
-                
+                	<div id="ticketListDiv"></div>
                     <div class="col-md-6 col-lg-4 grid-item netfilx onem">
+
                         	<div class="card raised">
                             	<div class="card-body text-center p-y-30">
                                     <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
@@ -142,7 +141,6 @@
                             	</div><!-- / card-body -->
                         	</div><!-- / card -->
                     </div><!-- / column -->
-
                 </div><!-- / row -->
                   
             </div><!-- / container -->
@@ -232,26 +230,8 @@
     
 	var html = "";
     
-    buttonListT();
+    ottList();
     monthList();
-    
-    function buttonListT(){
-    	
-    	
-    	alert("dkdk아아아");
-    	html+="<div class='button-group filters-button-group'>"
-    	monthList(html);
-	    	
-    	alert("dkdk아2222아아");
-	    //ottList();
-    	
-    	html+="</div>"
-    		$("#buttonListDiv").html(html);
-    	alert("dkdk아12312312아아");
-    };
-    
-    
-    
     
     
     
@@ -279,25 +259,25 @@
     			};
     			if(result.length !== 0){
     				
-    				//var html='<div class="row grid" data-isotope=\'{ "layoutMode": "masonry" }\'>';
     					result.forEach(function(ticket) {
     						
 	    				let ottCode = ottChainger(ticket.ottkindDTO.ottCd);
     					let monthTx = monthChainger(ticket.ticketMonth);
-    					html+="<div class='col-md-6 col-lg-4 grid-item netfilx "+monthTx+"'>";
-    					html+=	"<div class='card raised'>";
-    					html+=		"<div class='card-body text-center p-y-30'>";
-    					html+=			"<img class='img-responsive' src='<c:url value="'+ticket.ottkindDTO.ottImage+'"/>'alt=''>";
-    					html+=			"<p class='card-title product-title fs-20 fw-bold'> <a href='#x' class='title-link primary-hover fs-20'>"+ticket.ottkindDTO.ottName+" "+ticket.ticketMonth+" 개월 티켓</a></p>";
-    					html+=			"<p class='price-block fw-bold mb-20'>"+ticket.ticketPrice+"원</p>";
-    					html+=			"<div class='product-card-footer'>";
-    					html+=				"<a href='#x' class='btn btn-primary pill mt-15 p-x-45'><i class='fas fa-shopping-cart mr-5'></i> <span>당장 구매하기!</span></a>";
-    					html+=			"</div>";<!-- / product-card-footer -->
-   						html+=		"</div>";<!-- / card-body -->
-						html+=	"</div>";<!-- / card -->
-						html+="</div>";<!-- / column -->
+                        
+    					html+= "<div class='col-md-6 col-lg-4 grid-item "+ottCode+" "+monthTx+">";
+    					html+= "	<div class='card raised'>";
+    					html+= "		<div class='card-body text-center p-y-30'>";
+    					html+= "     		<img class='img-responsive' src='<c:url value= "/images/ph.jpg" />'alt=''>";
+    					html+= "    		<p class='card-title product-title fs-20 fw-bold'> <a href='#x' class='title-link primary-hover fs-20'>넷플릭스 1개월 티켓</a></p>";
+    					html+= "        	<p class='price-block fw-bold mb-20'>$199.99</p>";
+    					html+= "        	<div class='product-card-footer'>";
+    					html+= "         		<a href='#x' class='btn btn-primary pill mt-15 p-x-45'><i class='fas fa-shopping-cart mr-5'></i> <span>구매하기</span></a>";
+    					html+= "        	</div>";<!-- / product-card-footer -->
+    					html+= "		</div>";<!-- / card-body -->
+    					html+= "	</div>";<!-- / card -->
+    					html+= "</div>";<!-- / column -->
+                
 						})
-					//html+="</div>";<!-- / row -->
 					$("#ticketListDiv").html(html);
     			};
     		},
@@ -305,6 +285,38 @@
 				alert("에러코드(티켓 리스트 불러오기 오류) = "+xhr.status);
 			}
     	});
+    };
+    
+    function ottList(html){
+    	
+    	if(html===null||html===""){
+    		
+    		html=""
+    	}
+    	$.ajax({
+    		type:"get",
+    		url:"<c:url value="/ottkind/ottName_list"/>",
+    		dataType:"json",
+    		success: function(result){
+    			var html="";
+    			if(result.length === 0){
+    				html+="<button class='btn filter-btn'>준비중</button>";
+    			};	
+    			
+    			if(result.length !== 0){
+    				html+="<button class='btn filter-btn is-checked' data-filter='*'>All</button>";
+    				
+    				result.forEach(function(ottName){
+	    				let ottEnName = ottChainger(ottName);
+	  			  		html+="<button class='btn filter-btn' data-filter='."+ottEnName+"'>"+ottName+"</button>";
+    				})
+    			};
+                $("#ottListDiv").html(html);
+    		},
+    		error:function(xhr) {
+				alert("에러코드(개월 수 리스트 불러오기 오류) = "+xhr.status);
+			}
+    	})
     };
     
     function monthList(html){
@@ -323,7 +335,6 @@
     				
     				html+="<button class='btn filter-btn'>준비중</button>";
     				
-    				return html;;
     			};	
     			
     			if(result.length !== 0){
@@ -332,6 +343,7 @@
 	    				let monthTx = monthChainger(monthNo);
 	  			  		html+="<button class='btn filter-btn' data-filter='."+monthTx+"'>"+monthNo+"개월</button>";
     				})
+    				
     			};
                 $("#monthListDiv").html(html);
     		},
@@ -341,33 +353,6 @@
     	})
     };
     
-    function ottList(){
-    	$.ajax({
-    		type:"get",
-    		url:"<c:url value="/ticketBooth/ticket_ott_list"/>",
-    		dataType:"json",
-    		success: function(result){
-    			html="";
-    			if(result.length === 0){
-    				html+="<button class='btn filter-btn'>준비중</button>";
-    			};	
-    			
-    			if(result.length !== 0){
-    				
-    				html+="<button class='btn filter-btn' data-filter='*'>All</button>";
-    				
-    				result.forEach(function(ottName){
-	    				let ottEnName = ottChainger(ottName);
-	  			  		html+="<button class='btn filter-btn' data-filter='."+ottEnName+"'>"+ottName+"</button>";
-    				})
-    			};
-                $("#monthListDiv").html(html);
-    		},
-    		error:function(xhr) {
-				alert("에러코드(개월 수 리스트 불러오기 오류) = "+xhr.status);
-			}
-    	})
-    };
     
     function monthChainger(monthNo) {
         switch (monthNo) {

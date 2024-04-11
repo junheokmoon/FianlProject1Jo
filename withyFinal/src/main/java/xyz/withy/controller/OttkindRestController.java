@@ -17,7 +17,7 @@ public class OttkindRestController {
 
 	private final OttkindService ottkindService;
 	
-	@GetMapping
+	@GetMapping("/ottName_list")
 	public List<OttkindDTO> ottkindNameList(){
 		System.out.println("ottkindNameList 정상 실행중");
 		
