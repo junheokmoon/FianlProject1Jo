@@ -20,7 +20,7 @@ public class TicketRestController {
 	
 	@GetMapping("/ticket_list")
 	public List<TicketDTO> ticketList() {
-		System.out.println("티켓 리스토!!");
+		System.out.println("티켓 리스토!!"); 
 		
 		return ticketService.getTicketList();
 	}
