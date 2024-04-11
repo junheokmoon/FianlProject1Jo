@@ -195,7 +195,7 @@
 				<div class="text-group">
 					<p id="contact-message6" class="form-control" name="inputMessage6"
 						rows="5" placeholder="&#xf4ad; Message" required=""
-						style="font-family: 'Font Awesome 5 Free', sans-serif !important; font-weight: 400; min-height: 115px; max-height: 150px;">재밌어요!</p>
+						style="font-family: 'Font Awesome 5 Free', sans-serif !important; font-weight: 400; min-height: 115px; max-height: 150px;">${review.reviewComment}</p>
 				</div>
 				<button>리뷰 삭제</button>
 				&nbsp;
