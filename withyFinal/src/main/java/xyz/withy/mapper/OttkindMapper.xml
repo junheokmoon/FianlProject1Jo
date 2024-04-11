@@ -2,8 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="xyz.withy.mapper.OttkindMapper">
 
-<select id="selectTicketNameList" resultType="String">
-	select distinct ott_name from ottkind order by ott_name asc
-</select>
+	<select id="selectTicketNameList" resultType="String">
+		select distinct ott_name from ottkind order by ott_name asc
+	</select>
+
+	<select id="selectOttNoAndNameList" resultType="String">
+		select distinct ott_no, ott_name from ottkind order by ott_no desc
+	</select>
 
 </mapper>

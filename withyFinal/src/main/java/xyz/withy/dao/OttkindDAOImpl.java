@@ -12,15 +12,15 @@ import xyz.withy.mapper.OttkindMapper;
 @Repository
 @RequiredArgsConstructor
 public class OttkindDAOImpl implements OttkindDAO{
-
 	private final SqlSession sqlSession;
-
 
 	@Override
 	public List<OttkindDTO> selectTicketNameList() {
 		return sqlSession.getMapper(OttkindMapper.class).selectTicketNameList();
 	}
-	
-	
 
+	@Override
+	public List<OttkindDTO> selectOttNoAndNameList() {
+		return sqlSession.getMapper(OttkindMapper.class).selectOttNoAndNameList();
+	}
 }
