@@ -106,12 +106,14 @@ h5{
 }
 
 
+
 </style>
 </head>
 <body>
+
 <div id="Area" style="width: 50%; margin: 0 auto; padding: 20px;">
 
-	<h2 style="text-align: center; margin-top: ">넷플릭스의 아이디를 확인해 주세요!</h2>
+	<h2 style="text-align: center; margin-top: ">${ott }의 아이디를 확인해 주세요!</h2>
 	<!-- 내용삽입될 곳 -->
 		<div id= "contentArea" style=" padding: 50px; height: 550px; border: 5px solid white; 
 		margin-top: 10%;">
@@ -119,7 +121,7 @@ h5{
 			<div id="payArea" style="  height: 300px;">
 				<div style="margin-bottom: 60px; margin-top: 70px; text-align: center;">				
 					<label for="inputPassword5" class="form-label" style="font-weight: bold; ">로그인 ID</label><br>
-					<input class="form-control form-control-lg" type="text" placeholder="넷플릭스 아이디를 입력해주세요"  style="width: 400px;">
+					<input class="form-control form-control-lg" type="text" placeholder="${ott} 아이디를 입력해주세요"  style="width: 400px;">
 				</div>
 				
 				<div style="text-align: center;"">
@@ -129,9 +131,10 @@ h5{
 			</div>
 					<div style="text-align: center;">		
 						<button style=" background-color: #3191f9; color: white; width: 300px;
-							padding: 10px; border-radius: 8px; margin-top: 25px;"  id="goshop" onclick="location.href='<c:url value="partyLeader3"/>';">
+							padding: 10px; border-radius: 8px; margin-top: 25px;"  id="goshop" onclick="nextRoom()" id="">
 								다음
 						</button>
+						<input type="hidden" id="otts" value="${ott }">
 					</div>
 		</div>
 </div>
@@ -141,61 +144,12 @@ h5{
 
 	
 <script type="text/javascript">
-	
-	function Llist() {
-	    const element = document.getElementById('mainbodyL').innerHTML; // mainbodyL 태그의 내용을 가져옴
-		document.getElementById("mainbodyM").style.visibility ='hidden';
-	    document.getElementById("display").innerHTML = element; // display 태그에 mainbodyL 태그의 내용을 넣음
 
-	}
-	
-	
- 	function Mlist(){
- 	    const element = document.getElementById('mainbodyM').innerHTML; // mainbodyL 태그의 내용을 가져옴
-		document.getElementById("mainbodyL").style.visibility ='hidden';
-	    document.getElementById("display").innerHTML = element; // display 태그에 mainbodyL 태그의 내용을 넣음
-	}
-
-
-document.addEventListener('DOMContentLoaded', function() {
-
-    const buttons = document.querySelectorAll('.button');
-    const choiceTitles = document.querySelectorAll('.choiceTitle'); 
-    
-    buttons.forEach(function(button, index) {
-      button.addEventListener('click', function() {
-        // 모든 버튼에서 active 클래스 제거
-        buttons.forEach(function(btn) {
-          btn.classList.remove('active');
-        });
-        // 클릭된 버튼에만 active 클래스 추가
-        button.classList.add('active');
-
-        
-        // 선택된 버튼에 따라 choiceTitle의 배경색 변경
-        if (button.classList.contains('button-a')) {
-          choiceTitles[1].style.opacity = '0.5'; // 버튼 B의 choiceTitle의 투명도 설정
-          choiceTitles[0].style.opacity = '1'; // 버튼 A의 choiceTitle의 투명도 설정
-
-        } else {
-          choiceTitles[0].style.opacity = '0.5'; // 버튼 A의 choiceTitle의 투명도 설정
-          choiceTitles[1].style.opacity = '1'; // 버튼 B의 choiceTitle의 투명도 설정
-        }
-      });
-    });
-  });
-
-
-// 페이지가 로딩될 때 실행될 함수
-window.onload = function() {
-	document.getElementById("mainbodyM").style.visibility ='hidden';
-	document.getElementById("mainbodyL").style.visibility ='visible';
-
-    // 버튼을 가져옴
-    var button = document.getElementById('BtnB');
-    // 버튼을 클릭
-    button.click();
-};
+function nextRoom() {
+    var OTTSValue = document.getElementById("otts").value; // OTTS의 값 가져오기
+    var url = '<c:url value="partyLeader2"/>' + '?kind=' + OTTSValue; // URL 생성
+    window.location.href = url; // 새로운 페이지로 이동
+}
 
 
 
