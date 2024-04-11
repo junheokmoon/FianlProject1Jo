@@ -54,12 +54,10 @@
                    <div id = "monthListDiv"></div>
                 </div><!-- /  filters-button-group -->
 
-                	 
                <div id="ticketListDiv"></div>
-               <%-- 
+                	 
                 <div class="row grid" data-isotope='{ "layoutMode": "masonry" }'>
-               --%> 
-                	 <%--
+               <%-- 
                 <div class="row grid" data-isotope='{ "layoutMode": "masonry" }'>
                 	 
                   	  <div class="col-md-6 col-lg-4 grid-item netflix onem">
@@ -77,7 +75,9 @@
                     
                     <!-- 추가적인 카드 클래스 -->
                 </div>
+               --%> 
                 
+                	 <%--
                 	 --%>
                 
                 
