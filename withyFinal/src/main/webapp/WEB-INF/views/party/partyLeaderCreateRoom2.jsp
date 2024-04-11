@@ -118,7 +118,7 @@ h5{
 			
 			<div style="margin-bottom: 30px;">
 				<label for="inputPassword5" class="form-label" style="font-weight: bold;">이용 서비스</label><br>
-				<input class="form-control" type="text" placeholder="넷플릭스" style="width: 250px;"aria-label="Disabled input example" disabled >
+				<input class="form-control" type="text" placeholder="${kind }" style="width: 250px;"aria-label="Disabled input example" disabled >
 			</div>
 			
 			<div style="margin-bottom: 30px;">

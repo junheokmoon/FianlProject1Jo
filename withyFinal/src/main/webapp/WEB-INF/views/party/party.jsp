@@ -63,7 +63,7 @@ h5{
     animation: fadeInUp 1s;
 }
 
-#BtnArea{
+.BtnArea{
 	padding: 20px;
 	margin-top: 248px;
 	text-align: center;
@@ -71,7 +71,7 @@ h5{
 	background: linear-gradient(0deg, rgba(255,255,255,1) 81%, rgba(210,231,253,1) 92%, rgba(149,198,250,1) 100%);
 }
 
-#startBtn{
+.startBtn{
 	margin: 0 auto;
 	padding: 10px;
 	width: 300px;
@@ -103,17 +103,63 @@ h5{
 #Area{
 	height: 1070px;
 }
+
+#net{
+	display: inline-block;
+	width: 80px;
+	margin-right: 30px;
+}
+
+#dis{
+	display: inline-block;
+	width: 80px;
+	margin-right: 30px;
+}
+
+#tvg{
+	display: inline-block;
+	width: 80px;
+	margin-right: 30px;
+}
+
+#wav{
+	display: inline-block;
+	width: 80px;
+	margin-right: 30px;
+}
+
+#whc{
+	display: inline-block;
+	width: 80px;
+}
+
+.iconBtn {
+    /* 기본 이미지 스타일 */
+}
+
+.iconBtn.active {
+    /* 활성화된 이미지 스타일 */
+    transform: scale(1.1); /* 이미지 크기 증가 */
+    opacity: 1; /* 투명도 100% */
+}
+
+.iconBtn:not(.active) {
+    /* 비활성화된 이미지 스타일 */
+    opacity: 0.5; /* 투명도 50% */
+}
+
 </style>
 </head>
 <body>
 <div id="Area">
 <h2 style="text-align: center; margin-bottom: 30px;">이용하실 역할을 선택해주세요!</h2>
 <div id="selectIcon">
-        <img src="<c:url value="/images/net2.png"/>" alt="넷플릭스" style="display: inline-block; width: 80px; margin-right: 30px;">
-        <img src="<c:url value="/images/disney.png"/>" alt="디즈니플러스" style="display: inline-block; width: 80px; margin-right: 30px;">
-		<img src="<c:url value="/images/tving.png"/>" alt="티빙" style="display: inline-block; width: 80px; margin-right: 30px;">
-		<img src="<c:url value="/images/wave.png"/>" alt="웨이브" style="display: inline-block; width: 80px; margin-right: 30px;">
-		<img src="<c:url value="/images/watcha.png"/>" alt="왓챠" style="display: inline-block; width: 80px; ">
+        <input type="hidden" value="" id="otts">
+        <img src="<c:url value="/images/net2.png"/>" alt="넷플릭스" id="net" class="iconBtn">
+        <img src="<c:url value="/images/disney.png"/>" alt="디즈니플러스"  id="dis" class="iconBtn">
+		<img src="<c:url value="/images/tving.png"/>" alt="티빙"  id="tvg" class="iconBtn">
+		<img src="<c:url value="/images/wave.png"/>" alt="웨이브" id="wav" class="iconBtn">
+		<img src="<c:url value="/images/watcha.png"/>" alt="왓챠" id="whc" class="iconBtn">
 </div>
 
 <div class="button-container">
@@ -140,8 +186,6 @@ h5{
 <!-- 내용삽입될 곳 -->
 <div id="display"></div>
 
-
-
 	<div id="mainbodyL">
 		<div class="contents">
 			<h5 color="var(--gray-800)" class="sc-iwjdpV dHofiW">50% 더 저렴하게 이용할 수 있어요</h5>
@@ -166,7 +210,7 @@ h5{
 			</div>
 			<small color="var(--gray-700)" class="sc-ezbkAF dKNqlI">파티장은 기다리지 않고 바로 시청할 수 있어요.</small>
 		</div>
-			<div id="BtnArea"><button id="startBtn" onclick="location.href='<c:url value="partyLeader2"/>';">파티장으로 시작</button></div>
+			<div class="BtnArea"><button class="startBtn" onclick="rePartyLeader2()">파티장으로 시작</button></div>
 		
 	</div>
 	
@@ -197,13 +241,43 @@ h5{
 			</div>
 			<small color="var(--gray-700)" class="sc-ezbkAF dKNqlI">파티가 시작되면 중도 해지는 불가능해요</small>
 		</div>
-			<div id="BtnArea"><button id="startBtn" onclick="location.href='<c:url value="partyMember2"/>';">파티원으로 시작</button></div>
+			<div class="BtnArea"><button class="startBtn" onclick="rePartyMember2()">파티원으로 시작</button></div>
+			 
+			
 		
 </div>	
 	
 </div>
 
 <script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+    const buttons = document.querySelectorAll('.iconBtn');
+
+    
+    buttons.forEach(function(button) {
+        button.addEventListener('click', function() {
+        	document.getElementById("otts").value=this.id;
+            // 클릭된 이미지에 active 클래스 추가
+            buttons.forEach(function(btn) {
+                btn.classList.remove('active'); // 모든 이미지의 active 클래스 제거
+            });
+            button.classList.add('active'); // 클릭된 이미지에 active 클래스 추가
+        });
+    });
+});
+
+function rePartyMember2() {
+    var OTTSValue = document.getElementById("otts").value; // OTTS의 값 가져오기
+    var url = '<c:url value="partyMember2"/>' + '?param=' + OTTSValue; // URL 생성
+    window.location.href = url; // 새로운 페이지로 이동
+}
+
+function rePartyLeader2() {
+    var OTTSValue = document.getElementById("otts").value; // OTTS의 값 가져오기
+    var url = '<c:url value="partyLeader1"/>' + '?param=' + OTTSValue; // URL 생성
+    window.location.href = url; // 새로운 페이지로 이동
+    alert(url);
+}
 	
 	function Llist() {
 	    const element = document.getElementById('mainbodyL').innerHTML; // mainbodyL 태그의 내용을 가져옴
@@ -239,7 +313,6 @@ document.addEventListener('DOMContentLoaded', function() {
         if (button.classList.contains('button-a')) {
           choiceTitles[1].style.opacity = '0.5'; // 버튼 B의 choiceTitle의 투명도 설정
           choiceTitles[0].style.opacity = '1'; // 버튼 A의 choiceTitle의 투명도 설정
-
         } else {
           choiceTitles[0].style.opacity = '0.5'; // 버튼 A의 choiceTitle의 투명도 설정
           choiceTitles[1].style.opacity = '1'; // 버튼 B의 choiceTitle의 투명도 설정
@@ -247,6 +320,7 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
   });
+
 
 
 // 페이지가 로딩될 때 실행될 함수
