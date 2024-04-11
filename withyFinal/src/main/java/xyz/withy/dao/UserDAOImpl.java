@@ -1,3 +1,4 @@
+
 package xyz.withy.dao;
 
 import java.util.HashMap;
@@ -54,4 +55,8 @@ public class UserDAOImpl implements UserDAO {
         sqlSession.update("updateUserPoint", paramMap);
 	}
 
-}
+	@Override
+	public void userJoin(UserDTO userDTO) {
+	    sqlSession.getMapper(UserMapper.class).userJoin(userDTO);
+	   }
+	   }

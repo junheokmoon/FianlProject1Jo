@@ -11,4 +11,6 @@ public interface UserDAO {
 	//UserDTO selectUserPoint(String userId);
 	UserDTO selectUserByNo(int userNo);
 	void updateUserPoint(int userNo, int userPoint);
-}
+	void userJoin(UserDTO userDTO);  // 회원가입
+	
+	}

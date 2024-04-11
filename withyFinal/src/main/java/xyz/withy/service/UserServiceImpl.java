@@ -44,4 +44,15 @@ public class UserServiceImpl implements UserService {
 	}
 	
 
-}
+	 @Override
+	 public int joinUser(UserDTO userDTO) {
+	    try {
+	      userDAO.userJoin(userDTO);
+	      return 1; // 성공
+	 } 
+	      catch (Exception e) {
+	      return 0; // 실패
+	 }
+	 }
+	 }
+

@@ -1,16 +1,21 @@
 package xyz.withy.controller;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import lombok.RequiredArgsConstructor;
 import xyz.withy.dto.PointDTO;
+import xyz.withy.dto.UserDTO;
 import xyz.withy.service.PointService;
 import xyz.withy.service.UserService;
 
@@ -31,7 +36,7 @@ public class UserController {
 		return "admin";
 	}
 
-	/*********************** È¸¿ø°ü¸® start ***********************/
+	/*********************** íšŒì›ê´€ë¦¬ start ***********************/
 	@RequestMapping("/allUser")
 	public String allUser(Model model) {
 //	    List<UserDTO> userList = userService.getUserList();
@@ -81,22 +86,22 @@ public class UserController {
 		return "admin/add_point";
 	}
 	
-    // Æ÷ÀÎÆ® Áö±ŞÀ» Ã³¸®ÇÏ´Â ¸Ş¼­µå
+    // í¬ì¸íŠ¸ ì§€ê¸‰ì„ ì²˜ë¦¬í•˜ëŠ” ë©”ì„œë“œ
     @PostMapping("/grantPoint")
     public String grantPoint(int pointUserNo,int pointAdd,String pointComment) {
-        // Æ÷ÀÎÆ® Áö±ŞÀ» À§ÇÑ ÀÛ¾÷ ¼öÇà
+        // í¬ì¸íŠ¸ ì§€ê¸‰ì„ ìœ„í•œ ì‘ì—… ìˆ˜í–‰
         PointDTO pointDTO = new PointDTO();
         pointDTO.setPointUserNo(pointUserNo);
         pointDTO.setPointAdd(pointAdd);
         pointDTO.setPointComment(pointComment);
         pointService.addPoint(pointDTO);
         
-        // Æ÷ÀÎÆ® Áö±Ş ÈÄ ¸®´ÙÀÌ·ºÆ®ÇÒ °æ·Î ¼³Á¤
-        return "redirect:/admin/allPoint"; // ¿¹½Ã·Î allPoint·Î ¸®´ÙÀÌ·ºÆ®ÇÏ´Â °ÍÀ¸·Î °¡Á¤ÇÕ´Ï´Ù.
+        // í¬ì¸íŠ¸ ì§€ê¸‰ í›„ ë¦¬ë‹¤ì´ë ‰íŠ¸í•  ê²½ë¡œ ì„¤ì •
+        return "redirect:/admin/allPoint"; // ì˜ˆì‹œë¡œ allPointë¡œ ë¦¬ë‹¤ì´ë ‰íŠ¸í•˜ëŠ” ê²ƒìœ¼ë¡œ ê°€ì •í•©ë‹ˆë‹¤.
     }
-	/**************************** È¸¿ø°ü¸® end ****************************/
+	/**************************** íšŒì›ê´€ë¦¬ end ****************************/
 	
-	/*********************** OTT(ÀÌ¿ë±Ç) °ü¸® start ***********************/
+	/*********************** OTT(ì´ìš©ê¶Œ) ê´€ë¦¬ start ***********************/
 	@RequestMapping("/allProduct")
 	public String allProduct() {
 		return "admin/all_product";
@@ -116,7 +121,7 @@ public class UserController {
 	public String addOtt() {
 		return "admin/add_ott";
 	}
-	/*********************** OTT(ÀÌ¿ë±Ç) °ü¸® start ***********************/
+	/*********************** OTT(ì´ìš©ê¶Œ) ê´€ë¦¬ start ***********************/
 	
 	@RequestMapping("/allProgram")
 	public String allProgram() {
@@ -137,9 +142,9 @@ public class UserController {
 	public String addProgram() {
 		return "admin/add_program";
 	}
-	/*********************** OTT(ÀÌ¿ë±Ç) °ü¸® end ***********************/
+	/*********************** OTT(ì´ìš©ê¶Œ) ê´€ë¦¬ end ***********************/
 
-	/*********************** °øÁö»çÇ× °ü¸® start ***********************/
+	/*********************** ê³µì§€ì‚¬í•­ ê´€ë¦¬ start ***********************/
 	@RequestMapping("/allNotice")
 	public String allNotice() {
 		return "admin/all_notice";
@@ -159,9 +164,9 @@ public class UserController {
 	public String addNotice() {
 		return "admin/add_notice";
 	}
-	/*********************** °øÁö»çÇ× °ü¸® end ***********************/
+	/*********************** ê³µì§€ì‚¬í•­ ê´€ë¦¬ end ***********************/
 	
-	/************************* °í°´Áö¿ø start *************************/
+	/************************* ê³ ê°ì§€ì› start *************************/
 	@RequestMapping("/allQuestion")
 	public String allQuestion() {
 		return "admin/all_question";
@@ -181,5 +186,27 @@ public class UserController {
 	public String updateAnswer() {
 		return "admin/update_answer";
 	}
-	/************************* °í°´Áö¿ø end *************************/
-}
+	/************************* ê³ ê°ì§€ì› end *************************/
+	/***********************íšŒì›ê°€ì…ì œë°œìš” ***************************/
+	   
+	   @PostMapping("/login/join")
+	   public String userJoin(@ModelAttribute("user") @Valid UserDTO userDTO, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
+	       if (bindingResult.hasErrors()) {
+	           // ìœ íš¨ì„± ê²€ì‚¬ ì‹¤íŒ¨ ì‹œ ì²˜ë¦¬
+	           return "/join";
+	       }
+	       
+	       try {
+	           userService.joinUser(userDTO);
+	       } catch (Exception e) {
+	           // íšŒì›ê°€ì… ì‹¤íŒ¨ ì‹œ ì²˜ë¦¬
+	           redirectAttributes.addFlashAttribute("joinError", true);
+	           redirectAttributes.addFlashAttribute("errorMessage", "íšŒì›ê°€ì…ì— ì‹¤íŒ¨í•˜ì˜€ìŠµë‹ˆë‹¤.");
+	           return "redirect:/join";
+	       }
+	       
+	       // íšŒì›ê°€ì… ì„±ê³µ ì‹œ ì²˜ë¦¬
+	       redirectAttributes.addFlashAttribute("registerSuccess", true);
+	       return "redirect:/login";
+	   }
+	   } 
