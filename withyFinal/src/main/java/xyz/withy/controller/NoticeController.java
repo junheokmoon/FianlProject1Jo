@@ -20,8 +20,10 @@ public class NoticeController {
 	private final NoticeService noticeService;
 	
 	
-	@RequestMapping("/noticeDetail")
-	public String noticeDetail() {
+	@RequestMapping("/detail")
+	public String noticeDetail(@RequestParam int noticeNo, Model model) {
+		NoticeDTO noticedetail=noticeService.getNotice(noticeNo);
+		model.addAttribute("noticedetail", noticedetail);
 		return "notice/noticeDetail";
 	}
 	

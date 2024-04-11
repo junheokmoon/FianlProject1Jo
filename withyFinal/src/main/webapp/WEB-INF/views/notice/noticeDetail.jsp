@@ -9,6 +9,70 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WITTY</title>
+    <style>
+     body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 20px;
+    }
+    .container10 {
+        max-width: 800px;
+        margin: 0 auto;
+        margin-top: 100px;
+        padding: 20px;
+        border: 1px solid black;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+        position: relative;
+    }
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #333;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+        border: 1px solid #333; /* 테이블 테두리 색상 및 두께 지정 */
+    }
+    th, td {
+        padding: 10px;
+        border: 1px solid #333; /* 테이블 셀 테두리 색상 및 두께 지정 */
+        text-align: left;
+    }
+    th {
+        background-color: #f7f7f7;
+        font-weight: bold;
+    }
+    textarea {
+        width: 100%;
+        height: 200px;
+        padding: 10px;
+        border: 1px solid #333; /* 텍스트 영역 테두리 색상 및 두께 지정 */
+        resize: none;
+        font-size: 16px;
+        line-height: 1.5;
+        pointer-events: none; /* 읽기 전용 */
+    }
+    .back-button {
+        position: absolute;
+        bottom: 10px; /* 목록 버튼이 더 아래로 내려오도록 변경 */
+        right: 20px;
+    }
+    .back-button a {
+        padding: 10px 20px;
+        background-color: #579ddb;
+        color: #fff;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: background-color 0.2s;
+    }
+    .back-button a:hover {
+        background-color: #417ac1;
+    }
+    </style>
 
 
      <!--STYLESHEET-->
@@ -55,41 +119,36 @@
 
 
 <body>
-	<div class="col-lg-6">
-		<div class="panel">
-			<div class="panel-heading">
-				<h3 class="panel-title">공지사항</h3>
-			</div>
+	<div class="container10">
+        <h2>공지사항</h2>
+        
+        <!-- 공지사항 세부 정보 테이블 -->
+        <table>
+            <tr>
+                <th>제목</th>
+                <td>${noticedetail.noticeTitle }</td>
+            </tr>
+            <tr>
+                <th>작성일</th>
+                <td>${noticedetail.noticeDate}</td>
+            </tr>
+            <tr>
+                <th>조회수</th>
+                <td>${noticedetail.noticeCount}</td>
+            </tr>
+            <tr>
+                <th>내용</th>
+                <td>
+                    <textarea readonly>${noticedetail.noticeContent}</textarea>
+                </td>
+            </tr>
+        </table>
 
-			<!--No Label Form-->
-			<!--===================================================-->
-			<form class="form-horizontal">
-				<div class="panel-body">
-					<div class="row">
-						<div class="regdate">
-						ㆍ 작성날짜 : 2023.05.05
-						</div><br>
-						<div class="noticeCount">
-						ㆍ 조회수 : 15550000000
-						</div><br>
-						<div class="subject">
-						ㆍ 제목 : 공지사항 제목 ~~~~~~~~~~~~~~~~~~~~~
-						</div><br>
-					</div>
-					<br>
-					<textarea placeholder="Message" rows="13" class="form-control">내용</textarea>
-				</div>
-				<div class="panel-footer text-right">
-					<button class="btn btn-primary">수정</button>
-					<button class="btn btn-primary">삭제</button>
-					<button class="btn btn-primary">목록</button>	
-				</div>
-			</form>
-			<!--===================================================-->
-			<!--End No Label Form-->
-
-		</div>
-	</div>
+        <!-- 목록 버튼 -->
+        <div class="back-button">
+            <a href="<c:url value="/notice/list"/>">목록</a>
+        </div>
+    </div>
 					
 <!--JAVASCRIPT-->
 	<!--=================================================-->
