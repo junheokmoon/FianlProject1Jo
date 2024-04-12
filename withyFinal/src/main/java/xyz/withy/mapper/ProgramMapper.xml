@@ -44,10 +44,10 @@
     	select program_no, program_ott_no, program_name, program_image, program_detail,program_video, program_category_no 
     		from program join ottkind ON program_ott_no = ott_no
     <where>
-        <if test="programOttNo != null">
+        <if test="programOttNo != 0">
             and program_ott_no = #{programOttNo}
         </if>
-        <if test="programCategoryNo != null">
+        <if test="programCategoryNo != 0">
             and program_category_no = #{programCategoryNo}
         </if>
     </where>

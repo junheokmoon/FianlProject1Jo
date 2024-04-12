@@ -38,19 +38,18 @@ public class ProgramController {
    */
     
     @RequestMapping("/program")
-    public String program(@RequestParam(value = "programOttNo", required = false) Integer programOttNo, Model model) {
-        List<ProgramDTO> programs;
+    public String program(
+        @RequestParam(value = "programOttNo", defaultValue = "0") Integer programOttNo,
+        @RequestParam(value = "programCategoryNo", defaultValue = "0") Integer programCategoryNo,
+        Model model) {
 
-        if (programOttNo != null) {
-            // 특정 OTT에 대한 프로그램만 조회
-            programs = programService.getProgramFilterByOtt(programOttNo, null);
-        } else {
-            // 모든 프로그램 조회
-            programs = programService.getProgramJoinList();
-        }
+        // 조건에 따라 필터링된 프로그램 목록을 조회
+        List<ProgramDTO> programs = programService.getProgramFilterByOtt(programOttNo, programCategoryNo);
 
         model.addAttribute("programList", programs);
-        return "review/program"; // JSP 파일 경로
+        model.addAttribute("programOttNo", programOttNo);
+        return "review/program"; 
     }
+
     
 }
