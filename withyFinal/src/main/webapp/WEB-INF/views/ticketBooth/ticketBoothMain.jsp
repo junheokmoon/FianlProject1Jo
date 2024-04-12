@@ -56,72 +56,6 @@
 
                <div id="ticketListDiv"></div>
                 	 
-                <div class="row grid" data-isotope='{ "layoutMode": "masonry" }'>
-               <%-- 
-                <div class="row grid" data-isotope='{ "layoutMode": "masonry" }'>
-                	 
-                  	  <div class="col-md-6 col-lg-4 grid-item netflix onem">
-                        	<div class="card raised">
-                            	<div class="card-body text-center p-y-30">
-                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
-	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">넷플릭스 1개월 티켓</a></p>
-	                                <p class="price-block fw-bold mb-20">$199.99</p>
-	                                <div class="product-card-footer">
-	                                    <a href="#x" class="btn btn-primary pill mt-15 p-x-45"><i class="fas fa-shopping-cart mr-5"></i> <span>구매하기</span></a>
-	                                </div><!-- / product-card-footer -->
-                            	</div><!-- / card-body -->
-                        	</div><!-- / card -->
-                    </div><!-- / column -->
-                    
-                    <!-- 추가적인 카드 클래스 -->
-                </div>
-               --%> 
-                
-                	 <%--
-                	 --%>
-                
-                
-                    <%--
-                    <div class="col-md-6 col-lg-4 grid-item tving ninem">
-                       	<div class="card raised">
-                           	<div class="card-body text-center p-y-30">
-                                   <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
-                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">티빙 9개월 티켓</a></p>
-                                <p class="price-block fw-bold mb-20">$199.99</p>
-                                <div class="product-card-footer">
-                                    <a href="#x" class="btn btn-primary pill mt-15 p-x-45"><i class="fas fa-shopping-cart mr-5"></i> <span>Buy Now</span></a>
-                                </div><!-- / product-card-footer -->
-                           	</div><!-- / card-body -->
-                       	</div><!-- / card -->
-                    </div><!-- / column -->
-                
-                    <div class="col-md-6 col-lg-4 grid-item tving twelvem">
-                       	<div class="card raised">
-                           	<div class="card-body text-center p-y-30">
-                                   <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
-                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">티빙 12개월 티켓</a></p>
-                                <p class="price-block fw-bold mb-20">$199.99</p>
-                                <div class="product-card-footer">
-	                                    <a href="#x" class="btn btn-primary pill mt-15 p-x-45"><i class="fas fa-shopping-cart mr-5"></i> <span>Buy Now</span></a>
-                                </div><!-- / product-card-footer -->
-                           	</div><!-- / card-body -->
-                       	</div><!-- / card -->
-                    </div><!-- / column -->
-
-                    <div class="col-md-6 col-lg-4 grid-item wavve threem">
-                        	<div class="card raised">
-                            	<div class="card-body text-center p-y-30">
-                                    <img class="img-responsive" src='<c:url value= "/images/ph.jpg" />'alt="">
-	                                <p class="card-title product-title fs-20 fw-bold"> <a href="#x" class="title-link primary-hover fs-20">웨이브 3개월 티켓</a></p>
-	                                <p class="price-block fw-bold mb-20">$199.99</p>
-	                                <div class="product-card-footer">
-	                                    <a href="#x" class="btn btn-primary pill mt-15 p-x-45"><i class="fas fa-shopping-cart mr-5"></i> <span>Buy Now</span></a>
-	                                </div><!-- / product-card-footer -->
-                            	</div><!-- / card-body -->
-                        	</div><!-- / card -->
-                    </div><!-- / column -->
-                </div><!-- / row -->
-                	  --%>
             </div><!-- / container -->
         </section><!-- / portfolio -->
         <section class="lg bg-white">
@@ -239,14 +173,14 @@
                     result.forEach(function(ticket) {
                         let ottEnName = ottChainger(ticket.ottkindDTO.ottName);
                         let monthTx = monthChainger(ticket.ticketMonth);
-                        html+= "<div class='col-md-6 col-lg-4 grid-item "+ottEnName+" "+monthTx+"'>";
+                        html+= "<div class='col-md-6 col-lg-3 grid-item "+ottEnName+" "+monthTx+"'>";
                         html+= "    <div class='card raised'>";
                         html+= "        <div class='card-body text-center p-y-30'>";
-                        html+= "            <img class='img-responsive' src='/withyFinal/image/"+ottEnName+".png' alt=''>";
-                        html+= "            <p class='card-title product-title fs-20 fw-bold'> <a href='#x' class='title-link primary-hover fs-20'>넷플릭스 1개월 티켓</a></p>";
-                        html+= "            <p class='price-block fw-bold mb-20'>$199.99</p>";
+                        html+= "            <img class='img-responsive' src='"+ticket.ticketImage1+"' alt=''>";
+                        html+= "            <p class='card-title product-title fs-20 fw-bold'> <a href='#x' class='title-link primary-hover fs-20'>"+ticket.ottkindDTO.ottName+" "+ticket.ticketMonth+"개월 티켓</a></p>";
+                        html+= "            <p class='price-block fw-bold mb-20'>"+ticket.ticketPrice+"원</p>";
                         html+= "            <div class='product-card-footer'>";
-                        html+= "                <a href='#x' class='btn btn-primary pill mt-15 p-x-45'><i class='fas fa-shopping-cart mr-5'></i> <span>구매하기</span></a>";
+                        html+= "                <a href='/withyFianl/payment' class='btn btn-primary pill mt-15 p-x-45'><i class='fas fa-shopping-cart mr-5'></i> <span>구매하기</span></a>";
                         html+= "            </div>";<!-- / product-card-footer -->
                         html+= "        </div>";<!-- / card-body -->
                         html+= "    </div>";<!-- / card -->

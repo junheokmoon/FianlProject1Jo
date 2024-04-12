@@ -82,12 +82,12 @@ public class MainController {
 	public String login() {
 		return "/login/login";
 	}
-	
+	/*
 	@RequestMapping("/payment")
 	public String payment() {
 		return "/payment/paymentMain";
 	}
-	
+	*/
 	@RequestMapping("/ticketBooth")
 	public String product() {
 		return "/ticketBooth/ticketBoothMain";
