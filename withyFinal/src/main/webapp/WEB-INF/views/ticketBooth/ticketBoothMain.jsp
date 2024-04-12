@@ -180,7 +180,7 @@
                         html+= "            <p class='card-title product-title fs-20 fw-bold'> <a href='#x' class='title-link primary-hover fs-20'>"+ticket.ottkindDTO.ottName+" "+ticket.ticketMonth+"개월 티켓</a></p>";
                         html+= "            <p class='price-block fw-bold mb-20'>"+ticket.ticketPrice+"원</p>";
                         html+= "            <div class='product-card-footer'>";
-                        html+= "                <a href='/withyFianl/payment' class='btn btn-primary pill mt-15 p-x-45'><i class='fas fa-shopping-cart mr-5'></i> <span>구매하기</span></a>";
+                        html+= "                <a href='/withyFianl/payment/' class='btn btn-primary pill mt-15 p-x-45'><i class='fas fa-shopping-cart mr-5'></i> <span>구매하기</span></a>";
                         html+= "            </div>";<!-- / product-card-footer -->
                         html+= "        </div>";<!-- / card-body -->
                         html+= "    </div>";<!-- / card -->
