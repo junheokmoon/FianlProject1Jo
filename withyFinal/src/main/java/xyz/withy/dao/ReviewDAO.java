@@ -14,5 +14,7 @@ public interface ReviewDAO {
 	 List<ReviewDTO> selectReviewList(Map<String, Object> map);
 	//List<programDTO> selectProgramList();
 	 List<ReviewDTO> selectReveiwJoinList();
+	 List<ReviewDTO> selectReviewsByProgramNo(Integer programNo);
+
 
 }

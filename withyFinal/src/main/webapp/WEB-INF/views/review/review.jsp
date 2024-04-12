@@ -190,15 +190,9 @@
 		</div>
 	</section>
 	</c:forEach>
-	
-	
-	
-	<%--
-	}
-	--%>
+
 	<button id="loadMore" style="display: block; margin: 20px auto;">더보기</button>
 
-	
 	<!-- Core JavaScript -->
 	<script src="<c:url value="/js/bootstrap.bundle.min.js"/>"></script>
 	<script src="<c:url value="/js/theme.js"/>"></script>
@@ -268,7 +262,6 @@
 	});
 
 	</script>
-	<!-- / GLightbox -->
 
 </body>
 </html>

@@ -36,6 +36,11 @@ public class ReviewServiceImpl implements ReviewService {
 		return reviewDAO.selectReveiwJoinList();
 	}
 
+	@Override
+	public List<ReviewDTO> getReviewsByProgramNo(Integer programNo) {
+		return reviewDAO.selectReviewsByProgramNo(programNo);
+	}
+
 
 }
 	

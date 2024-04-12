@@ -38,6 +38,13 @@
 		select review_no, review_star,review_comment, review_user_no
 			,review_date ,review_program_no from review join usertable on review_user_no = user_no 
 				join program on review_program_no=program_no order by review_date desc
-	</select> 
+	</select>
+	
+	<select id="selectReviewsByProgramNo" resultType="ReviewDTO">
+    	select review_no, review_star,review_comment, review_user_no
+			,review_date ,review_program_no from review
+    			 reviewProgramNo = #{programNo}
+	</select>
+	
 	
 </mapper>

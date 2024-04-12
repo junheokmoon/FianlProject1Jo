@@ -10,5 +10,6 @@ public interface ReviewService {
 	void modifyReview(ReviewDTO reviewDTO);
 	void removeReview(int reviewNo);
 	List<ReviewDTO> getReviewJoinList();
+	List<ReviewDTO> getReviewsByProgramNo(Integer programNo);
 
 }
