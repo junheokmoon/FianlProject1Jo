@@ -180,60 +180,6 @@ h5{
 	
 <script type="text/javascript">
 	
-	function Llist() {
-	    const element = document.getElementById('mainbodyL').innerHTML; // mainbodyL 태그의 내용을 가져옴
-		document.getElementById("mainbodyM").style.visibility ='hidden';
-	    document.getElementById("display").innerHTML = element; // display 태그에 mainbodyL 태그의 내용을 넣음
-
-	}
-	
-	
- 	function Mlist(){
- 	    const element = document.getElementById('mainbodyM').innerHTML; // mainbodyL 태그의 내용을 가져옴
-		document.getElementById("mainbodyL").style.visibility ='hidden';
-	    document.getElementById("display").innerHTML = element; // display 태그에 mainbodyL 태그의 내용을 넣음
-	}  
-
- 
-document.addEventListener('DOMContentLoaded', function() {
-
-    const buttons = document.querySelectorAll('.button');
-    const choiceTitles = document.querySelectorAll('.choiceTitle'); 
-    
-    buttons.forEach(function(button, index) {
-      button.addEventListener('click', function() {
-        // 모든 버튼에서 active 클래스 제거
-        buttons.forEach(function(btn) {
-          btn.classList.remove('active');
-        });
-        // 클릭된 버튼에만 active 클래스 추가
-        button.classList.add('active');
-
-        
-        // 선택된 버튼에 따라 choiceTitle의 배경색 변경
-        if (button.classList.contains('button-a')) {
-          choiceTitles[1].style.opacity = '0.5'; // 버튼 B의 choiceTitle의 투명도 설정
-          choiceTitles[0].style.opacity = '1'; // 버튼 A의 choiceTitle의 투명도 설정
-
-        } else {
-          choiceTitles[0].style.opacity = '0.5'; // 버튼 A의 choiceTitle의 투명도 설정
-          choiceTitles[1].style.opacity = '1'; // 버튼 B의 choiceTitle의 투명도 설정
-        }
-      });
-    });
-  });
-
-
-// 페이지가 로딩될 때 실행될 함수
-window.onload = function() {
-	document.getElementById("mainbodyM").style.visibility ='hidden';
-	document.getElementById("mainbodyL").style.visibility ='visible';
-
-    // 버튼을 가져옴
-    var button = document.getElementById('BtnB');
-    // 버튼을 클릭
-    button.click();
-};
 
 
 

@@ -131,7 +131,7 @@ h5{
 			</div>
 					<div style="text-align: center;">		
 						<button style=" background-color: #3191f9; color: white; width: 300px;
-							padding: 10px; border-radius: 8px; margin-top: 25px;"  id="goshop" onclick="nextRoom()" id="">
+							padding: 10px; border-radius: 8px; margin-top: 25px;" onclick="nextRoom()">
 								다음
 						</button>
 						<input type="hidden" id="otts" value="${ott }">
