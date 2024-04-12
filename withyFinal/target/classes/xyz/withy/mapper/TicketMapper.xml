@@ -3,13 +3,11 @@
 <mapper namespace="xyz.withy.mapper.TicketMapper">
 
 	<insert id="insertTicket">
-	<!-- 생각해보니 티켓은 시퀀스 않쓰는구나 ㅋㅋㅋ 
-	 -->
 		<selectKey resultType="int" keyProperty="ticketNo" order="BEFORE"> 
-		select ticket_seq.nextval from dual
+			select ticket_seq.nextval from dual
 		</selectKey>
-		insert into ticket values(#{ticketCode}, #{ticketPrice}, #{ticketImage1}
-		, #{ticketImage2}, #{ticketOttNo}, #{ticketMonth} , 1 , #{ticketNo})
+		insert into ticket values(#{ticketCode}, #{ticketPrice}, #{ticketImage1}, #{ticketImage2}
+		, #{ticketOttNo}, #{ticketMonth} , 1 , #{ticketNo})
 	</insert>
 	
 	<update id="updateTicket">
@@ -35,7 +33,7 @@
 		, ticket_month, ticket_status, ticket_no from ticket where ticket_code = #{ticketCode}
 	</select>
 
-	<select id="selectTicketInfo" resultType="TicketDTO">
+	<select id="selectTicketInfo" resultMap="ticketListResultMap">
 		select ticket_code, ticket_price, ticket_image1, ticket_image2, ticket_ott_no
 		    , ticket_month, ticket_status, ticket_no, ott_name, ott_image, ott_cd
 		    from ticket left join ottkind on ticket_ott_no = ott_no where ticket_code=#{ticketCode} order by ticket_no desc
@@ -58,7 +56,7 @@
 		</association>
 	</resultMap>
 
-	<select id="selectTicketMonthList" resultType="int">
+	<select id="selectTicketMonthList" resultType="TicketDTO">
 		select distinct ticket_month from ticket order by ticket_month asc
 	</select>
 	

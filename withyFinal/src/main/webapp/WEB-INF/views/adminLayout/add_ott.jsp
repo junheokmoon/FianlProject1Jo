@@ -55,20 +55,18 @@
 								<h3 class="panel-title">NEW</h3>
 							</div>
 				
-							<form class="form-horizontal" style="font-size: 15px">
+							<form action="<c:url value="/admin/addOtt"/>" method="post" enctype="multipart/form-data" class="form-horizontal" style="font-size: 15px">
 								<div class="panel-body">
 									<div class="form-group">
 										<label class="col-sm-3" for="ccccc" style="text-indent: 5em;">종류</label>
 										<div class="col-sm-6">
-											<input type="text" class="form-control input-lg" id="ccccc">
+											<input type="text" class="form-control input-lg" id="ccccc" name="ottName" value="${ottkindDTO.ottName }">
 										</div>
 									</div>
 									<div class="form-group">
 										<label class="col-md-3" style="text-indent: 5em;">이미지</label>
 										<div class="col-md-9">
-											<span class="pull-left btn btn-default btn-file">
-											파일 선택<input type="file">
-											</span>
+											<input type="file" name="multipartFile">
 										</div>
 									</div>
 								</div>

@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
 import xyz.withy.dao.TicketDAO;
-import xyz.withy.dto.PointDTO;
 import xyz.withy.dto.TicketDTO;
 import xyz.withy.util.Pager;
 
@@ -18,8 +17,8 @@ public class TicketServiceImpl implements TicketService{
 	private final TicketDAO ticketDAO;
 	
 	@Override
-	public void addTicket(TicketDTO ticket) {
-		ticketDAO.insertTicket(ticket);
+	public int addTicket(TicketDTO ticket) {
+		return ticketDAO.insertTicket(ticket);
 	}
 
 	@Override

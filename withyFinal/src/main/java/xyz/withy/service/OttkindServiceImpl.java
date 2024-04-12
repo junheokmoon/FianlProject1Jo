@@ -3,6 +3,7 @@ package xyz.withy.service;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import lombok.RequiredArgsConstructor;
 import xyz.withy.dao.OttkindDAO;
@@ -21,5 +22,11 @@ public class OttkindServiceImpl implements OttkindService {
 	@Override
 	public List<OttkindDTO> getOttNoAndNameList() {
 		return ottkindDAO.selectOttNoAndNameList();
+	}
+
+	@Transactional(rollbackFor = Exception.class)
+	@Override
+	public void addOttkind(OttkindDTO ottkindDTO) {
+		ottkindDAO.insertOttkind(ottkindDTO);
 	}
 }

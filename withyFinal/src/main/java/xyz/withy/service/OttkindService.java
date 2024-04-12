@@ -7,4 +7,5 @@ import xyz.withy.dto.OttkindDTO;
 public interface OttkindService {
 	List<OttkindDTO> getTicketNameList();
 	List<OttkindDTO> getOttNoAndNameList();
+	void addOttkind(OttkindDTO ottkindDTO);
 }

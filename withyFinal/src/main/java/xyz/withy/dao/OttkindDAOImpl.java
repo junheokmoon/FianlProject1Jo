@@ -23,4 +23,9 @@ public class OttkindDAOImpl implements OttkindDAO{
 	public List<OttkindDTO> selectOttNoAndNameList() {
 		return sqlSession.getMapper(OttkindMapper.class).selectOttNoAndNameList();
 	}
+
+	@Override
+	public int insertOttkind(OttkindDTO ottkindDTO) {
+		return sqlSession.getMapper(OttkindMapper.class).insertOttkind(ottkindDTO);
+	}
 }

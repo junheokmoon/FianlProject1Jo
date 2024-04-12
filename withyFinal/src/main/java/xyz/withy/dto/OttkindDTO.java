@@ -1,7 +1,9 @@
 package xyz.withy.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /*
 이름        널?       유형      원래 이름
@@ -13,6 +15,9 @@ OTT_CD             VARCHAR2(100) OTT 코드
 */
 
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class OttkindDTO {
 
 	private int ottNo;

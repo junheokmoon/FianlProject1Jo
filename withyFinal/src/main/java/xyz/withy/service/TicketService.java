@@ -6,7 +6,7 @@ import java.util.Map;
 import xyz.withy.dto.TicketDTO;
 
 public interface TicketService {
-	void addTicket(TicketDTO ticket); 			// 추가
+	int addTicket(TicketDTO ticket); 			// 추가
 	void modifyTicket(TicketDTO ticket); 		// 업데이트
 	void removeTicket(String ticketCode); 		// 사실상 status 2번으로 변경
 	void realRemoveTicket(String ticketCode); 	// 진짜 순도 100% delete

@@ -57,7 +57,7 @@
 										<thead>
 											<tr>
 												<th width="10%" style="text-align: center;">NO</th>
-												<th width="10%" style="text-align: center;">코드</th>
+												<!-- <th width="10%" style="text-align: center;">코드</th> -->
 												<th width="20%" style="text-align: center;">종류</th>
 												<th width="10%" style="text-align: center;">기간</th>
 												<th width="20%" style="text-align: center;">요금</th>
@@ -70,7 +70,7 @@
 										<c:forEach var="ticketPageList" items="${ticketPageList }">
 											<tr>
 												<td>${ticketPageList.rn }</td>
-												<td>${ticketPageList.ticketCode }</td>
+												<%-- <td>${ticketPageList.ticketCode }</td> --%>
 												<td>${ticketPageList.ottName }</td>
 												<td>${ticketPageList.ticketMonth } 개월</td>
 												<td>${ticketPageList.ticketPrice } 원</td>
