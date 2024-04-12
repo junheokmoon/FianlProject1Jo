@@ -6,32 +6,13 @@
 
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"></script>
 </head>
 
 <body>
 
-    <div id="loader-wrapper">
-        <div id="loader"></div>
-        <div class="loader-section section-left"></div>
-        <div class="loader-section section-right"></div>
-    </div>
 
     <div id="home"></div>
 
-    <nav id="nav-scroll" class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="../index.html"><img src='<c:url value ="/images/logo.png"/>' alt=""></a>
-
-            <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-toggle-nav-center" aria-controls="navbar-toggle-nav-center" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="icon-bar top-bar"></span>
-                <span class="icon-bar middle-bar"></span>
-                <span class="icon-bar bottom-bar"></span>
-                <span class="sr-only">Toggle navigation</span>
-            </button><!-- / navbar-toggler -->
-
-        </div><!-- / container -->
-    </nav>
 
     <header class="page-header w-absolute-nav bg-white text-left">
         <div class="container">
@@ -177,7 +158,7 @@
                         html+= "            <p class='card-title product-title fs-20 fw-bold'> <a href='#x' class='title-link primary-hover fs-20'>"+ticket.ottkindDTO.ottName+" "+ticket.ticketMonth+"개월 티켓</a></p>";
                         html+= "            <p class='price-block fw-bold mb-20'>"+ticket.ticketPrice+"원</p>";
                         html+= "            <div class='product-card-footer'>";
-                        html+= "                <a href='/withyFianl/payment/' class='btn btn-primary pill mt-15 p-x-45'><i class='fas fa-shopping-cart mr-5'></i> <span>구매하기</span></a>";
+                        html+= "                <a href='/withyFinal/payment/?ticketCode="+ticket.ticketCode+"' class='btn btn-primary pill mt-15 p-x-45'><i class='fas fa-shopping-cart mr-5'></i> <span>구매하기</span></a>";
                         html+= "            </div>";<!-- / product-card-footer -->
                         html+= "        </div>";<!-- / card-body -->
                         html+= "    </div>";<!-- / card -->
@@ -197,10 +178,7 @@
             }
         });
     }
-
     
-    
-    }
     function ottList(html){
     	
     	if(html===null||html===""){
