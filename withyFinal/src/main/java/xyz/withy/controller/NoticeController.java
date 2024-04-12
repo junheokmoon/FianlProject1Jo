@@ -19,7 +19,6 @@ import xyz.withy.service.NoticeService;
 public class NoticeController {
 	private final NoticeService noticeService;
 	
-	
 	@RequestMapping("/detail")
 	public String noticeDetail(@RequestParam int noticeNo, Model model) {
 		NoticeDTO noticedetail=noticeService.getNotice(noticeNo);

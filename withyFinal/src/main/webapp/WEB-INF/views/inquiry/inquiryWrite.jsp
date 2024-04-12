@@ -95,62 +95,35 @@
     <div class="container1">
         <h6>1:1 문의하기</h6>
         <br>
-        <form id="inquiry-form" action="/submit-inquiry" method="post">
+        <form id="inquiry-form" action="<c:url value="/inquiry/inquiryWrite"/>" method="post">
+        	  <input type="hidden" id="inquiryUserNo" name="inquiryUserNo" value="4">
     		<div class="form-group">
 		        <label for="inquiry-type">문의 유형:</label>
-		        <select id="inquiry-type" name="inquiry-type" onchange="updateInquiryType()">
-		            <option value="${inquiry.status == 1 }">신고문의</option>
-		            <option value="${inquiry.status == 2 }">환불문의</option>
-		            <option value="${inquiry.status == 3 }">결제문의</option>
-		            <option value="${inquiry.status == 4 }">이용문의</option>
+		        <select id="inquiry-type" name="inquiryType" onchange="updateInquiryType()">
+			            <option value="1">신고문의</option>
+					    <option value="2">환불문의</option>
+					    <option value="3">결제문의</option>
+					    <option value="4">이용문의</option>
 		        </select>
 		    </div>
 		    <!-- hidden input to hold the numerical value -->
 		    <input type="hidden" id="inquiry-type-number" name="inquiry-type-number">
 		    <div class="form-group">
 		        <label for="title">제목:</label>
-		        <input type="text" id="title" name="title" value="${inquiry.title }">
+		        <input type="text" id="title" name="inquiryTitle" value="${inquiry.inquiryTitle}">
 		    </div>
 		    <div class="form-group">
 		        <label for="message">내용:</label>
-		        <textarea id="message" name="message" rows="5" >${inquiry.content}</textarea>
-		    </div>
-		    <button type="submit" class="btn btn-info btn-rounded">등록</button>
+		        <textarea id="message" name="inquiryContent" rows="5" >${inquiry.inquiryContent}</textarea>
+		    </div>	  
+		    <button type="submit" class="btn btn-info btn-rounded" onclick="location.href='<c:url value="/mypage/mypageInquiry"/>';">등록</button>
 	  </form>
+	 <button class="btn btn-info btn-rounded" onclick="window.history.back();">취소</button>
 </div>
 <!--JAVASCRIPT-->
 	<!--=================================================-->
 	 
-	 <script type="text/javascript">
-	 	function updateInquiryType() {
-		    // 선택된 옵션의 값을 가져옵니다.
-		    const inquiryTypeSelect = document.getElementById("inquiry-type");
-		    const selectedType = inquiryTypeSelect.value;
-
-		    // 선택된 옵션에 따라 숫자 값을 결정합니다.
-		    let inquiryTypeNumber;
-		    switch (selectedType) {
-		        case "신고문의":
-		            inquiryTypeNumber = 1;
-		            break;
-		        case "환불문의":
-		            inquiryTypeNumber = 2;
-		            break;
-		        case "결제문의":
-		            inquiryTypeNumber = 3;
-		            break;
-		        case "이용문의":
-		            inquiryTypeNumber = 4;
-		            break;
-		        default:
-		            inquiryTypeNumber = 0; // 또는 적절한 기본값
-		    }
-
-		    // hidden input 필드에 숫자 값을 설정합니다.
-		    const inquiryTypeNumberInput = document.getElementById("inquiry-type-number");
-		    inquiryTypeNumberInput.value = inquiryTypeNumber;
-		}
-	 </script>
+	 
 	 
 	<!--jQuery [ REQUIRED ]-->
 	<script src="<c:url value="/js/jquery-2.1.1.min.js"/>"></script>
@@ -177,7 +150,7 @@
 
 
 	<!--Demo script [ DEMONSTRATION ]-->
-		<script src="<c:url value="/js/demo/nifty-demo.min.js"/>"></script>
+	<script src="<c:url value="/js/demo/nifty-demo.min.js"/>"></script>
 
 </body>
 </html>
