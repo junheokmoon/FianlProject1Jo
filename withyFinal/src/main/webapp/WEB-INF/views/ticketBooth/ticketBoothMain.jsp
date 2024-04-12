@@ -141,12 +141,9 @@
 
     <script type="text/javascript">
     
-    $(document).ready(function() {
         ottList();
         monthList();
         ticketList();
-        isotopeReset();
-    });
     
     function ticketList(){
         $.ajax({
@@ -202,13 +199,6 @@
     }
 
     
-    function isotopeReset(){
-    	
-                     // Isotope를 초기화합니다.
-    $('.grid').isotope({
-        layoutMode: 'masonry',
-        itemSelector: '.grid-item'
-    });
     
     }
     function ottList(html){

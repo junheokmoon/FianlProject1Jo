@@ -24,3 +24,5 @@ public class OttkindRestController {
 		return ottkindService.getTicketNameList();
 	};
 }
+
+

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import lombok.RequiredArgsConstructor;
 import xyz.withy.dto.TicketDTO;
+import xyz.withy.service.OttkindService;
 import xyz.withy.service.TicketService;
 
 
@@ -24,13 +25,7 @@ public class TicketRestController {
 		
 		return ticketService.getTicketList();
 	}
-	@GetMapping("/ticket_ott_list")
-	public List<TicketDTO> ottList() {
-		System.out.println("플랫폼리스토!!");
-		
-		return ticketService.getTicketList();
-		//return ottkindService.getOttkindNameList();
-	}
+	
 	@GetMapping("/ticket_month")
 	public List<TicketDTO> monthList() {
 		System.out.println("개월 수 리스토!!");

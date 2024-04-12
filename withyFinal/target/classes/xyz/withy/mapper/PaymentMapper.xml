@@ -34,11 +34,18 @@
 </select>
 
 <select id="selectPaymentList" resultType="paymentDTO">
-	select payment_no, payment_user_no, payment_ticket_code, payment_date, payment_status from payment
+	select payment_no, payment_user_no, payment_ticket_code, payment_date, payment_status from payment 
 </select>
 
 <select id="selectPaymentPageList" resultType="paymentDTO">
-	select payment_no, payment_user_no, payment_ticket_code, payment_date, payment_status from payment
+		    <!-- 보류
+	select payment_no, payment_user_no, payment_ticket_code, payment_date, payment_status from payment where
+	
+	
+		select * from (select rownum rn, pointboard.* from 
+			(select payment_no, payment_user_no, payment_ticket_code, payment_date, payment_status from payment
+		    order by ticket_ott_no desc, ticket_month asc) pointboard) where rn between #{startRow} and #{endRow}
+		     -->
 </select>
 
 
