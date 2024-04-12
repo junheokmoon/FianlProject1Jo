@@ -88,7 +88,7 @@
 										<tbody>
 											<c:forEach var="userPageList" items="${userPageList }">
 												<tr>
-													<td>1</td>
+													<td>${userPageList.rn}</td>
 													<td>
 														<a href="<c:url value="detailUser"><c:param name="userId" value="${userPageList.userId}" /></c:url>" class="btn-link">
 															${userPageList.userId}
@@ -124,48 +124,37 @@
 									</div>
 									<!-- 검색하기 end -->
 									
-									<!-- <div class="panel-body text-center">
-										<ul class="pagination" >
-											<li class="disabled"><a href="#" class="fa fa-angle-double-left"></a></li>
-											<li class="active"><a href="#">1</a></li>
-											<li><a href="#">2</a></li>
-											<li><a href="#">3</a></li>
-											<li><a href="#">4</a></li>
-											<li><span>...</span></li>
-											<li><a href="#">20</a></li>
-											<li><a href="#" class="fa fa-angle-double-right"></a></li>
-										</ul>
-									</div> -->
-									
-									<%-- 페이지 번호 출력 --%>
-									<c:choose>
-										<c:when test="${pager.startPage > pager.blockSize }">
-											<a href="<c:url value="/admin/allUser"/>?pageNum=${pager.prevPage}">[이전]</a>
-										</c:when>
-										<c:otherwise>
-											[이전]
-										</c:otherwise>
-									</c:choose>
-									
-									<c:forEach var="i" begin="${pager.startPage }" end="${pager.endPage }" step="1">
+										<%-- 페이지 번호 출력 --%>
+									<div id="hello" style="text-align: center; padding-top: 40px; padding-bottom: 20px; font-size: 18px;">
 										<c:choose>
-											<c:when test="${pager.pageNum != i }">
-												<a href="<c:url value="/admin/allUser"/>?pageNum=${i}">[${i}]</a>
+											<c:when test="${pager.startPage > pager.blockSize }">
+												<a href="<c:url value="/admin/allUser"/>?pageNum=${pager.prevPage}">[이전]</a>
 											</c:when>
 											<c:otherwise>
-												[${i}]
+												[이전]
 											</c:otherwise>
 										</c:choose>
-									</c:forEach>
-									
-									<c:choose>
-										<c:when test="${pager.endPage != pager.totalPage }">
-											<a href="<c:url value="/admin/allUser"/>?pageNum=${pager.nextPage}">[다음]</a>
-										</c:when>
-										<c:otherwise>
-											[다음]
-										</c:otherwise>
-									</c:choose>
+										
+										<c:forEach var="i" begin="${pager.startPage }" end="${pager.endPage }" step="1">
+											<c:choose>
+												<c:when test="${pager.pageNum != i }">
+													<a href="<c:url value="/admin/allUser"/>?pageNum=${i}">[${i}]</a>
+												</c:when>
+												<c:otherwise>
+													[${i}]
+												</c:otherwise>
+											</c:choose>
+										</c:forEach>
+										
+										<c:choose>
+											<c:when test="${pager.endPage != pager.totalPage }">
+												<a href="<c:url value="/admin/allUser"/>?pageNum=${pager.nextPage}">[다음]</a>
+											</c:when>
+											<c:otherwise>
+												[다음]
+											</c:otherwise>
+										</c:choose>
+									</div>
 								</div>
 							</div>
 						</div>

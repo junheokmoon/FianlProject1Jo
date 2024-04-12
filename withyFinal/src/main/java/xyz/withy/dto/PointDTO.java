@@ -24,6 +24,8 @@ public class PointDTO {
 	private int pointAdd;
 	private String pointDate;
 
+	private int rn;	// NO
+	
 	// USER 테이블과 조인
 	private String userId;
 	private String userName;

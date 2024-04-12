@@ -80,6 +80,7 @@ public class UserServiceImpl implements UserService {
 		Map<String, Object> resultMap=new HashMap<String, Object>();
 		resultMap.put("pager", pager);
 		resultMap.put("userPageList", userPageList);
+		System.out.println("pager = " + pager);
 		
 		return resultMap;
 	}

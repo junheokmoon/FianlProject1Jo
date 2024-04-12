@@ -8,9 +8,13 @@
 		]]>
 	</select>
 	
- 	<select id="selectPointList" resultType="PointDTO"><!-- 회원T와 조인해서 회원 정보 포함된 전체 포인트 지급 내역 조회 -->
-		select point_user_no, user_id, user_name, point_comment, point_add, point_date from point 
-		     join usertable on point_user_no=user_no order by point_date desc
+	<select id="selectPointCount" resultType="int"><!-- 전체 포인트 지급 내역 수(페이징) -->
+        select count(*) from point
+    </select>
+	
+ 	<select id="selectPointPageList" resultType="PointDTO"><!-- 회원T와 조인 / 전체 포인트 지급 내역 조회(페이징) -->
+		select * from (select rownum rn, pointboard.* from (select point_user_no, user_id, user_name, point_comment, point_add, point_date from point 
+		     join usertable on point_user_no=user_no order by point_date desc) pointboard) where rn between #{startRow} and #{endRow}
 	</select>
 	
 <!--삭제 	<select id="selectPointByPointUserNo" resultType="PointDTO">회원번호 전달받아 포인트T에 insert 내역 있는지 확인

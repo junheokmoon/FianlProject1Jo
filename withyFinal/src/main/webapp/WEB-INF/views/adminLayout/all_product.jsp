@@ -67,17 +67,17 @@
 											</tr>
 										</thead>
 										<tbody>
-										<c:forEach var="ticketList" items="${ticketList }">
+										<c:forEach var="ticketPageList" items="${ticketPageList }">
 											<tr>
-												<td>1</td>
-												<td>${ticketList.ticketCode }</td>
-												<td>${ticketList.ottkindDTO.ottName }</td>
-												<td>${ticketList.ticketMonth } 개월</td>
-												<td>${ticketList.ticketPrice } 원</td>
+												<td>${ticketPageList.rn }</td>
+												<td>${ticketPageList.ticketCode }</td>
+												<td>${ticketPageList.ottName }</td>
+												<td>${ticketPageList.ticketMonth } 개월</td>
+												<td>${ticketPageList.ticketPrice } 원</td>
 												<%-- <td style="padding: 1px;"><img src="<c:url value="${ticketList.ottkindDTO.ottImage}"/>" width="30%"></td> --%>
-												<td style="padding: 1px;"><img src="<c:url value="${ticketList.ticketImage1}"/>" width="30%"></td>
+												<td style="padding: 1px;"><img src="<c:url value="${ticketPageList.ticketImage1}"/>" width="30%"></td>
 												<td>
-													<a href="<c:url value="updateProduct"><c:param name="ticketCode" value="${ticketList.ticketCode}" /></c:url>" 
+													<a href="<c:url value="updateProduct"><c:param name="ticketCode" value="${ticketPageList.ticketCode}" /></c:url>" 
 														class="btn btn-xs btn-default add-tooltip" data-toggle="tooltip" data-original-title="Edit" data-container="body">
 														<i class="fa fa-pencil"></i>
 													</a>
@@ -86,18 +86,38 @@
 										</c:forEach>
 										</tbody>
 									</table>
-									<div class="panel-body text-center">
-										<ul class="pagination" >
-											<li class="disabled"><a href="#" class="fa fa-angle-double-left"></a></li>
-											<li class="active"><a href="#">1</a></li>
-											<li><a href="#">2</a></li>
-											<li><a href="#">3</a></li>
-											<li><a href="#">4</a></li>
-											<li><span>...</span></li>
-											<li><a href="#">20</a></li>
-											<li><a href="#" class="fa fa-angle-double-right"></a></li>
-										</ul>
-									</div>
+									
+									<%-- 페이지 번호 출력 --%>
+									<div id="hello" style="text-align: center; padding-top: 40px; padding-bottom: 20px; font-size: 18px;">
+										<c:choose>
+											<c:when test="${pager.startPage > pager.blockSize }">
+												<a href="<c:url value="/admin/allProduct"/>?pageNum=${pager.prevPage}">[이전]</a>
+											</c:when>
+											<c:otherwise>
+												[이전]
+											</c:otherwise>
+										</c:choose>
+										
+										<c:forEach var="i" begin="${pager.startPage }" end="${pager.endPage }" step="1">
+											<c:choose>
+												<c:when test="${pager.pageNum != i }">
+													<a href="<c:url value="/admin/allProduct"/>?pageNum=${i}">[${i}]</a>
+												</c:when>
+												<c:otherwise>
+													[${i}]
+												</c:otherwise>
+											</c:choose>
+										</c:forEach>
+										
+										<c:choose>
+											<c:when test="${pager.endPage != pager.totalPage }">
+												<a href="<c:url value="/admin/allProduct"/>?pageNum=${pager.nextPage}">[다음]</a>
+											</c:when>
+											<c:otherwise>
+												[다음]
+											</c:otherwise>
+										</c:choose>		
+									</div>	
 								</div>
 							</div>
 						</div>

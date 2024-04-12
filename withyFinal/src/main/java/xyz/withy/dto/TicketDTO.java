@@ -1,7 +1,9 @@
 package xyz.withy.dto;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /*
 이름            널?       유형       원래 이름
@@ -17,6 +19,9 @@ TICKET_NO     NOT NULL NUMBER		 티켓 생성 순서
 */
 
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class TicketDTO { 
 	
 	private String ticketCode;
@@ -27,6 +32,8 @@ public class TicketDTO {
 	private int ticketMonth;
 	private int ticketStatus;
 	private int ticketNo;
+	
+	private int rn;	// NO
 
 	private OttkindDTO ottkindDTO;
 	private String ottName;

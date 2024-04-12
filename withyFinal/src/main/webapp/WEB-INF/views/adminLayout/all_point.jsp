@@ -68,16 +68,16 @@
 											</tr>
 										</thead>
 										<tbody>
-											<c:forEach var="pointList" items="${pointList }">
+											<c:forEach var="pointPageList" items="${pointPageList }">
 												<tr>
-													<td>1</td>
-													<td>${pointList.userId}</td>
-													<td>${pointList.userName}</td>
-													<td id="reason">${pointList.pointComment}</td>
-													<td>${pointList.pointAdd} 포인트</td>
-													<td>${fn:substring(pointList.pointDate,0,10) }</td>
-											</c:forEach>
+													<td>${pointPageList.rn}</td>
+													<td>${pointPageList.userId}</td>
+													<td>${pointPageList.userName}</td>
+													<td id="reason">${pointPageList.pointComment}</td>
+													<td>${pointPageList.pointAdd} 포인트</td>
+													<td>${fn:substring(pointPageList.pointDate,0,10) }</td>
 												</tr>
+											</c:forEach>
 										</tbody>
 									</table>
 									
@@ -95,18 +95,37 @@
 									</div>
 									<!-- 검색하기 end -->
 									
-									<div class="text-center" style="padding-top:20px;">
-										<ul class="pagination" >
-											<li class="disabled"><a href="#" class="fa fa-angle-double-left"></a></li>
-											<li class="active"><a href="#">1</a></li>
-											<li><a href="#">2</a></li>
-											<li><a href="#">3</a></li>
-											<li><a href="#">4</a></li>
-											<li><span>...</span></li>
-											<li><a href="#">20</a></li>
-											<li><a href="#" class="fa fa-angle-double-right"></a></li>
-										</ul>
-									</div>
+									<%-- 페이지 번호 출력 --%>
+									<div id="hello" style="text-align: center; padding-top: 40px; padding-bottom: 20px; font-size: 18px;">
+										<c:choose>
+											<c:when test="${pager.startPage > pager.blockSize }">
+												<a href="<c:url value="/admin/allPoint"/>?pageNum=${pager.prevPage}">[이전]</a>
+											</c:when>
+											<c:otherwise>
+												[이전]
+											</c:otherwise>
+										</c:choose>
+										
+										<c:forEach var="i" begin="${pager.startPage }" end="${pager.endPage }" step="1">
+											<c:choose>
+												<c:when test="${pager.pageNum != i }">
+													<a href="<c:url value="/admin/allPoint"/>?pageNum=${i}">[${i}]</a>
+												</c:when>
+												<c:otherwise>
+													[${i}]
+												</c:otherwise>
+											</c:choose>
+										</c:forEach>
+										
+										<c:choose>
+											<c:when test="${pager.endPage != pager.totalPage }">
+												<a href="<c:url value="/admin/allPoint"/>?pageNum=${pager.nextPage}">[다음]</a>
+											</c:when>
+											<c:otherwise>
+												[다음]
+											</c:otherwise>
+										</c:choose>		
+									</div>						
 								</div>
 							</div>
 						</div>

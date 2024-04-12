@@ -80,11 +80,9 @@
 										<label class="col-sm-3" for="bbbbb" style="text-indent: 5em;">기간</label>
 										<div class="col-sm-6">
 											<select class="selectpicker">
-												<option>1개월</option>
-												<option>3개월</option>
-												<option>6개월</option>
-												<option>9개월</option>
-												<option>12개월</option>
+									            <c:forEach var="getTicketMonthList" items="${getTicketMonthList}">
+									                <option>${getTicketMonthList }</option>
+									            </c:forEach>
 											</select>
 										</div>
 									</div>

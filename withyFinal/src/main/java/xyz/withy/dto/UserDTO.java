@@ -39,6 +39,8 @@ public class UserDTO {
 	private String userJoindate;
 	private int userPoint;
 	
+	private int rn;	// NO
+	
 	// POINT 테이블과 조인
 //	private int pointAdd;
 //	private int pointTotal;

@@ -41,11 +41,6 @@
 		    from ticket left join ottkind on ticket_ott_no = ott_no where ticket_code=#{ticketCode} order by ticket_no desc
 	</select>
 	
-	<select id="selectTicketCount"  resultType="int">
-		select count(*) from ticket
-	</select>
-	
-	
 	<resultMap type="TicketDTO" id="ticketListResultMap">
 		<id property="ticketCode" column="ticket_code"/>
 		<result property="ticketPrice" column="ticket_price"/>
@@ -62,55 +57,24 @@
 			<result property="ottCd" column="ott_cd"/>
 		</association>
 	</resultMap>
-	
-	<select id="selectTicketList" resultMap="ticketListResultMap"><!-- 전체 상품(이용권) 보기 -->
-	 <!-- select t.ticket_code, t.ticket_price, t.ticket_image1, t.ticket_image2, t.ticket_ott_no, t.ticket_month, t.ticket_status, t.ticket_no, o.ott_name, o.ott_image, o.ott_cd
-		from ticket t left join ottkind o on t.ticket_ott_no = o.ott_no order by t.ticket_no desc -->
-		select 
-		    t.ticket_code, 
-		    t.ticket_price, 
-		    t.ticket_image1, 
-		    t.ticket_image2, 
-		    t.ticket_ott_no, 
-		    t.ticket_month, 
-		    t.ticket_status, 
-		    t.ticket_no,
-		    ok.ott_name,
-		    ok.ott_image,
-		    ok.ott_cd
-		from 
-		    ticket t
-		    inner join ottkind ok on t.ticket_ott_no = ok.ott_no
-		order by
-		    case 
-		        when t.ticket_ott_no = 21 then
-		            case t.ticket_month
-		                when 1 then 1
-		                when 3 then 2
-		                when 6 then 3
-		                when 9 then 4
-		                when 12 then 5
-		            end
-		        when t.ticket_ott_no = 25 then
-		            case t.ticket_month
-		                when 1 then 6
-		                when 3 then 7
-		                when 6 then 8
-		                when 9 then 9
-		                when 12 then 10
-		            end
-		    end
-	</select>
-	
-	<select id="selectTicketPageList" resultType="TicketDTO">
-		select * from (rownum rn ticket.* (select ticket_code, ticket_price, ticket_image1, ticket_image2, ticket_ott_no
-		, ticket_month, ticket_status ,ticket_no from ticket order by ticket_no desc)ticket) where rn between #{startRow} and #{endRow}
-	</select>
-	
 
 	<select id="selectTicketMonthList" resultType="int">
 		select distinct ticket_month from ticket order by ticket_month asc
 	</select>
+	
+	<select id="selectTicketList" resultMap="ticketListResultMap"><!-- 전체 상품(이용권) 보기 -->
+	 	select t.ticket_code, t.ticket_price, t.ticket_image1, t.ticket_image2, t.ticket_ott_no, t.ticket_month, t.ticket_status, t.ticket_no, o.ott_name, o.ott_image, o.ott_cd
+			from ticket t left join ottkind o on t.ticket_ott_no = o.ott_no order by t.ticket_no desc
+	</select>
 
+	<select id="selectTicketCount"  resultType="int"><!-- 전체 티켓 수(페이징) -->
+		select count(*) from ticket
+	</select>
+	
+	<select id="selectTicketPageList" resultType="TicketDTO"><!-- OTT종류T와 조인 / 전체 상품(이용권) 조회(페이징) -->
+		select * from (select rownum rn, pointboard.* from (select ticket_code, ticket_price, ticket_image1, ticket_image2, ticket_ott_no, 
+		    ticket_month, ticket_status, ticket_no, ott_name, ott_image, ott_cd from ticket join ottkind on ticket_ott_no = ott_no 
+		    order by ticket_ott_no desc, ticket_month asc) pointboard) where rn between #{startRow} and #{endRow}
+	</select>
 
 </mapper>

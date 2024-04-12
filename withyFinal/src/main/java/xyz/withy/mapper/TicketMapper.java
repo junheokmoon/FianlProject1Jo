@@ -13,8 +13,8 @@ public interface TicketMapper {
 	int recoverTicket(String ticketCode); 			// 사실상 status 1번으로 변경
 	TicketDTO selectTicket(String ticketCode); 		// 그냥 검색
 	TicketDTO selectTicketInfo(String ticketCode); 	// OTTKIND와 조인, ticketCode 전달받아 검색
-	int selectTicketCount(); 						// 티켓의 전체 갯수
-	List<TicketDTO> selectTicketList(); 			// 전체 상품(이용권) 보기
-	List<TicketDTO> selectTicketPageList(Map<String, Object> map); 	// 페이징 처리된 리스트
 	List<TicketDTO> selectTicketMonthList();		// 티켓의 개월 수 리스트
+	List<TicketDTO> selectTicketList(); 			// 전체 상품(이용권) 보기
+	int selectTicketCount(); 						// 전체 티켓 수(페이징)
+	List<TicketDTO> selectTicketPageList(Map<String, Object> map); 	// 전체 상품(이용권) 조회(페이징)
 }

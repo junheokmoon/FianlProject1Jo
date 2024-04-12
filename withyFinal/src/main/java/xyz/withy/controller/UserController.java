@@ -74,8 +74,6 @@ public class UserController {
 		
 		model.addAttribute("pager", map.get("pager"));
 		model.addAttribute("userPageList", map.get("userPageList"));
-//		System.out.println("pager = " + map.get("pager"));
-//		System.out.println("userPageList = " + map.get("userPageList"));
 		
 		return "admin/all_user";
 	}
@@ -95,9 +93,14 @@ public class UserController {
 	}
 	
 	@RequestMapping("/allPoint")
-	public String allPoint(Model model) {
-		model.addAttribute("pointList", pointService.getPointList());
-
+	public String allPoint(@RequestParam(defaultValue = "1") int pageNum, Model model) {
+		// model.addAttribute("pointList", pointService.getPointList());
+		
+		Map<String, Object> map=pointService.getPointPageList(pageNum);
+		
+		model.addAttribute("pager", map.get("pager"));
+		model.addAttribute("pointPageList", map.get("pointPageList"));
+		
 		return "admin/all_point";
 	}
 
@@ -123,14 +126,15 @@ public class UserController {
 	
 	/*********************** OTT(이용권) 관리 start ***********************/
 	@RequestMapping("/allProduct")
-	public String allProduct(Model model) {
-		model.addAttribute("ticketList", ticketService.getTicketList());
-		System.out.println("ticketService.getTicketList() = " + ticketService.getTicketList());
+	public String allProduct(@RequestParam(defaultValue = "1") int pageNum, Model model) {
+		Map<String, Object> map=ticketService.getTicketPageList(pageNum);
+		
+		model.addAttribute("pager", map.get("pager"));
+		model.addAttribute("ticketPageList", map.get("ticketPageList"));
 		
 		return "admin/all_product";
 	}
 	
-	@RequestMapping("/updateProduct")
 	public String updateProduct(@RequestParam String ticketCode, Model model, HttpSession session) {
 		model.addAttribute("ticketInfo", ticketService.getTicketInfo(ticketCode));
 		System.out.println("ticketService.getTicketInfo(ticketCode) = " + ticketService.getTicketInfo(ticketCode));
@@ -140,7 +144,8 @@ public class UserController {
 	@RequestMapping("/addProduct")
 	public String addProduct(Model model) {
 		model.addAttribute("getTicketNameList", ottkindService.getTicketNameList());	// ott종류 for문 돌림
-		System.out.println("ottkindService.getTicketNameList() = " + ottkindService.getTicketNameList());
+		model.addAttribute("getTicketMonthList", ticketService.getTicketMonthList());	// 티켓기간 for문 돌림
+
 		return "admin/add_product";
 	}
 	

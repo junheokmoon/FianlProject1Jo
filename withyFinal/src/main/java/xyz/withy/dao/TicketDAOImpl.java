@@ -44,20 +44,10 @@ public class TicketDAOImpl implements TicketDAO {
 	public TicketDTO selectTicket(String ticketCode) {
 		return sqlSession.getMapper(TicketMapper.class).selectTicket(ticketCode);
 	}
-
+	
 	@Override
-	public int selectTicketCount() {
-		return sqlSession.getMapper(TicketMapper.class).selectTicketCount();
-	}
-
-	@Override
-	public List<TicketDTO> selectTicketList() {
-		return sqlSession.getMapper(TicketMapper.class).selectTicketList();
-	}
-
-	@Override
-	public List<TicketDTO> selectTicketPageList(Map<String, Object> map) {
-		return sqlSession.getMapper(TicketMapper.class).selectTicketPageList(map);
+	public TicketDTO selectTicketInfo(String ticketCode) {
+		return sqlSession.getMapper(TicketMapper.class).selectTicketInfo(ticketCode);
 	}
 
 	@Override
@@ -66,8 +56,18 @@ public class TicketDAOImpl implements TicketDAO {
 	}
 
 	@Override
-	public TicketDTO selectTicketInfo(String ticketCode) {
-		return sqlSession.getMapper(TicketMapper.class).selectTicketInfo(ticketCode);
+	public List<TicketDTO> selectTicketList() {
+		return sqlSession.getMapper(TicketMapper.class).selectTicketList();
+	}
+
+	@Override
+	public int selectTicketCount() {
+		return sqlSession.getMapper(TicketMapper.class).selectTicketCount();
+	}
+	
+	@Override
+	public List<TicketDTO> selectTicketPageList(Map<String, Object> map) {
+		return sqlSession.getMapper(TicketMapper.class).selectTicketPageList(map);
 	}
 }
 
