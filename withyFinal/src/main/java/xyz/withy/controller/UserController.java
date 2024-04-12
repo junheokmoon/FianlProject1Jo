@@ -214,26 +214,5 @@ public class UserController {
 		return "admin/update_answer";
 	}
 	/************************* 고객지원 end *************************/
-	/***********************회원가입제발요 ***************************/
-	   
-	@PostMapping("/login/join")
-	public String userJoin(@ModelAttribute("user") @Valid UserDTO userDTO, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
-		if (bindingResult.hasErrors()) {
-			// 유효성 검사 실패 시 처리
-			return "/join";
-		}
-
-		try {
-			userService.joinUser(userDTO);
-		} catch (Exception e) {
-			// 회원가입 실패 시 처리
-			redirectAttributes.addFlashAttribute("joinError", true);
-			redirectAttributes.addFlashAttribute("errorMessage", "회원가입에 실패하였습니다.");
-			return "redirect:/join";
-		}
-
-		// 회원가입 성공 시 처리
-		redirectAttributes.addFlashAttribute("registerSuccess", true);
-		return "redirect:/login";
-	}
+	
 }

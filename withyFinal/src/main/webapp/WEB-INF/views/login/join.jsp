@@ -8,7 +8,7 @@
    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>General Elements | Nifty - Responsive admin template.</title>
-
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!--STYLESHEET-->
     <!--=================================================-->
 
@@ -36,74 +36,75 @@
     <!--Page Load Progress Bar [ OPTIONAL ]-->
     <link href="<c:url value="/plugins/pace/pace.min.css"/>" rel="stylesheet">
     <script src="<c:url value="/plugins/pace/pace.min.js"/>"></script>
-
+   
+   <script>
+    function submitForm() {
+    $(".user").submit(); 
+        }
+    
+    </script>
    </head>
    
-   <body>
+   <body> 
 
-    	<div class="container">
-    	<div class="card o-hidden border-0 shadow-lg my-5">
-   	 	<div class="card-body p-0">
+       <div class="container">
+       <div class="card o-hidden border-0 shadow-lg my-5">
+          <div class="card-body p-0">
    
-    	<!-- Nested Row within Card Body -->
-    	<div class="row justify-content-center"> <!-- 중앙 정렬 추가 -->
-    	<div class="col-lg-7">
-    	<div class="p-5">
-    	<div class="text-center">
-    	<h1 class="h4 text-gray-900 mb-4">회원가입</h1>
-    	</div>
-    	<form class="user">
-    	<div class="form-group">
-    
-    	<input type="text" class="form-control form-control-user" id="exampleName"
-    	placeholder="이름">
-   	 	</div>
-    
-    	<div class="form-group">
-    	<div class="input-group">
-    	<input type="text" class="form-control form-control-user" id="exampleInputId" placeholder="아이디">
-    	<div class="input-group-append">
-    	<button class="btn btn-primary" type="button">중복 확인</button>
-        </div>
-        </div>
-   	    </div>
-    
-        <div class="form-group">
-        <input type="password" class="form-control form-control-user"
-        id="exampleInputPassword" placeholder="비밀번호">
-        </div>
-    
-        <div class="form-group"/>
-        <input type="password" class="form-control form-control-user"
-        id="exampleRepeatPassword" placeholder="비밀번호 확인">
-        </div>
+       <!-- Nested Row within Card Body -->
+       <div class="row justify-content-center"> <!-- 중앙 정렬 추가 -->
+       <div class="col-lg-7">
+       <div class="p-5">
+       <div class="text-center">
+       <h1 class="h4 text-gray-900 mb-4">회원가입</h1>
+       </div>
+       <form class="user" method="post" action="<c:url value="login/join"/>">
+       <div class="form-group row">
+        <div class="col-sm-9">
         
-        <div class="form-group"/>
-        <input type="email" class="form-control form-control-user" id="exampleInputEmail"
-        placeholder="이메일">
+        <input type="text" class="form-control form-control-user" id="exampleInputId" placeholder="아이디" name="userId">
         </div>
-        
-        <div class="form-group"/>
-        <div class="input-group"/>
-        <input type="text" class="form-control form-control-user" id="exampleInputNickname"
-        placeholder="닉네임">
-        
-        <div class="input-group-append"/>
+        <div class="col-sm-3">
         <button class="btn btn-primary" type="button">중복 확인</button>
         </div>
         </div>
+
+
+        <div class="form-group">
+        <input type="password" class="form-control form-control-user"
+        id="exampleInputPassword" placeholder="비밀번호" name="userPassword">
         </div>
-        
-        <div class="form-group"/>
+
+        <div class="form-group">
+        <input type="text" class="form-control form-control-user" id="exampleName"
+        placeholder="이름" name="userName">
+        </div>
+
+        <div class="form-group">
+        <input type="email" class="form-control form-control-user" id="exampleInputEmail"
+        placeholder="이메일" name="userEmail">
+        </div>
+
+        <div class="form-group">
+        <input type="tel" class="form-control form-control-user" id="exampleInputPhoneNumber" placeholder="전화번호" name="userPhone">
+        </div>
+
+        <div class="form-group">
         <input type="text" class="form-control form-control-user"
-        id="exampleInputBirthdate" placeholder="생년월일">
+        id="exampleInputBirthdate" placeholder="생년월일" name="userBirthday">
+        </div>
+
+        <div class="input-group">
+        <input type="text" class="form-control form-control-user" id="exampleInputNickname"
+        placeholder="닉네임" name="userNickname">
+        
+        <div class="input-group-append">
+        <button class="btn btn-primary" type="button">중복 확인</button>
+        </div>
         </div>
         
-        <div class="form-group"/>
-        <input type="tel" class="form-control form-control-user"
-        id="exampleInputPhoneNumber" placeholder="전화번호">
-        </div>
-        <a href="login.html" class="btn btn-primary btn-user btn-block">회원가입</a>
+        <a href="javascript:void(0);" class="btn btn-primary btn-user btn-block" onclick="submitForm()">회원가입</a>
+         </form>
         
         <hr>
         </form>
@@ -120,7 +121,7 @@
         </div>
         </div>
         </div>
-     	</div>
+        </div>
     
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
@@ -137,5 +138,3 @@
 </body>
 
 </html>
-
-[register]

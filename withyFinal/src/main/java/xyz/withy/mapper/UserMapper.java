@@ -14,4 +14,5 @@ public interface UserMapper {
 	void updateUserPoint(int userNo, int userPoint);
 	int selectUserCount();
 	List<UserDTO> selectUserPageList(Map<String, Object> map);
+	void userJoin(UserDTO usrDTO);//회원가입
 }
