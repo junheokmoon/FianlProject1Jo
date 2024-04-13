@@ -5,7 +5,7 @@
 		<selectKey resultType="int" keyProperty="inquiryNo" order="BEFORE">
 			select inquiry_seq.nextval from dual
 		</selectKey>
-		insert into inquiry values(#{inquiryNo}, #{inquiryTitle}, #{inquiryContent}, to_date(sysdate, 'RR/MM/DD'), null, null, #{inquiryType}, 1, 
+		insert into inquiry values(#{inquiryNo}, #{inquiryTitle}, #{inquiryContent},  to_char(trunc(sysdate), 'RR/MM/DD'), null, null, #{inquiryType}, 1, 
 			#{inquiryImage}, #{inquiryUserNo})			
 	</insert>
 	
@@ -32,10 +32,16 @@
 	</delete>
 	
 	 
-	<!-- 글번호 전달받아 단일행 검색 -->
+	<!-- 글번호 전달받아 검색 -->
 	<select id="selectInquiry" resultType="InquiryDTO">
 		select inquiry_no, inquiry_title, inquiry_content, inquiry_image, inquiry_date, inquiry_update, inquiry_answer 
 			, inquiry_type, inquiry_status, inquiry_user_no from inquiry where inquiry_no=#{inquiryNo}
+	</select>
+	
+	<!-- 회원번호를 전달받아 검색 -->
+	<select id="selectUserInquiry" resultType="InquiryDTO">
+		select inquiry_no, inquiry_title, inquiry_content, inquiry_image, inquiry_date, inquiry_update, inquiry_answer 
+			, inquiry_type, inquiry_status, inquiry_user_no from usertable join inquiry on user_no=inquiry_user_no where user_no=#{userNo} order by inquiry_no desc
 	</select>
 	
 	<!-- 전체 게시글 갯수 -->
@@ -47,7 +53,7 @@
 	<select id="selectInquiryList" resultType="InquiryDTO">
 		select * from (select rownum rn, inquiry.* from (select inquiry_no, inquiry_title
 			, inquiry_content, inquiry_image, inquiry_date, inquiry_update, inquiry_answer, inquiry_type
-			, inquiry_status, inquiry_user_no from inquiry order by inquiry_no desc) inquiry) where rn between #{startRow} and #{endRow}
+			, inquiry_status, inquiry_user_no from usertable join inquiry on user_no=inquiry_user_no where user_no=4 order by inquiry_no desc) inquiry) where rn between #{startRow} and #{endRow}
 	</select>
 	
 	<!-- 검색대상과 검색단어를 전달받아 공지사항 테이블에 저장된 게시글 중 

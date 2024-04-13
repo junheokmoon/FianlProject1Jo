@@ -103,7 +103,7 @@
                                 <div class="row">
                                 	    <p><b>회원탈퇴를 위해 비밀번호를 입력해주세요.</b></p>
 						                    	<form action="#" method="post">
-						                    	<input type="text" id="passwd">
+						                    	<input type="password" id="passwd">
 						                    	<a href="#x" class="btn btn-primary-light pill"><span>회원탈퇴</span></a>
 						                    	</form>                                                                                               								                                                                                  
                             </div><!-- / doc-info -->

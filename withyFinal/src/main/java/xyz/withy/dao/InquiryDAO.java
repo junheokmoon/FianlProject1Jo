@@ -10,6 +10,7 @@ public interface InquiryDAO {
 	int updateInquiry(InquiryDTO inquiry);
 	int deleteInquiry(int inquiryNo);
 	InquiryDTO selectInquiry(int inquiryNo);
+	InquiryDTO selectUserInquiry(int inquryUserNo);
 	int selectInquiryCount();
 	List<InquiryDTO> selectInquiryList(Map<String, Object> map);
 }

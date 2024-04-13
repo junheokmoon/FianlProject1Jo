@@ -27,8 +27,8 @@ public class InquiryController {
 	public String inquiryWrite(@ModelAttribute InquiryDTO inquiry) {
 		
 		inquiryService.addInquiry(inquiry);		
-		return "redirect:/mypage/mypageInquiry";
-	}
+		return "redirect:/mypage/mypageInquiry"; 
+	} 
 	
 	/*
 	@RequestMapping(value = "/write", method = RequestMethod.GET)

@@ -158,7 +158,7 @@
 						${notice.noticeDate}
 					</td>
 					<td class="ac mobileHide">
-						${notice.noticeCount}
+						${notice.noticeCount+1}
 					</td>
 				</tr>
 				</c:forEach>
