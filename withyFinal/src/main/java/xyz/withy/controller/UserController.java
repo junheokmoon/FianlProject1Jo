@@ -119,17 +119,78 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/updateProduct", method = RequestMethod.GET)
-	public String updateProductPage(Model model, @RequestParam("ticketCode") String ticketCode) {
+	public String updateProduct(Model model, @RequestParam("ticketCode") String ticketCode) {
 	    TicketDTO ticketInfo = ticketService.getTicketInfo(ticketCode);
 	    List<OttkindDTO> getOttNoAndNameList = ottkindService.getOttNoAndNameList();
+	    List<TicketDTO> getTicketMonthList = ticketService.getTicketMonthList();
 	    
 	    model.addAttribute("ticketInfo", ticketInfo);
 	    model.addAttribute("getOttNoAndNameList", getOttNoAndNameList);
-	    
-	    System.out.println("getOttNoAndNameList = " + getOttNoAndNameList);
+	    model.addAttribute("getTicketMonthList", getTicketMonthList);
 	    
 	    return "admin/update_product";
 	}
+	
+	@RequestMapping(value = "/updateProduct", method = RequestMethod.POST)
+	public String updateProduct(@ModelAttribute TicketDTO ticket, @RequestParam("ticketOttNo") int ticketOttNo
+			, @RequestParam("ticketMonth") int ticketMonth, @RequestParam("originalTicketCode") String originalTicketCode
+			, @RequestParam("ticketPrice") int ticketPrice, @RequestParam MultipartFile multipartFile) throws IOException {
+		
+	    // ottCode에 ottNo와 ticketMonth 결합해서 저장
+	    String ottCode = ticketOttNo + "_" + ticketMonth;
+	    ticket.setTicketCode(ottCode);
+
+	    String uploadDirectory = context.getServletContext().getRealPath("/resources/images");
+	    String fileName = multipartFile.getOriginalFilename();
+	    System.out.println("fileName1 = " +  fileName);
+
+	    // 파일이 첨부되지 않은 경우에 대한 처리
+	    if (!multipartFile.isEmpty()) {
+	        String uuid = UUID.randomUUID().toString();
+	        String newFileName = uuid + "_/images/ticketImg/" + fileName;
+	        String newFilePath = new File(uploadDirectory, newFileName).getAbsolutePath();
+	        File newFile = new File(newFilePath);
+
+	        // 파일이 이미 존재하는 경우에 대한 처리
+	        if (newFile.exists()) {
+	            newFileName = uuid + "_" + fileName;
+	            newFilePath = new File(uploadDirectory, newFileName).getAbsolutePath();
+	        }
+
+	        // 파일을 업로드합니다.
+	        multipartFile.transferTo(new File(newFilePath));
+
+	        // TicketDTO에 파일 경로를 설정합니다.
+	        ticket.setTicketImage1(newFileName);
+	    } else {
+	        // 파일이 첨부되지 않은 경우에는 기존 파일 경로를 그대로 사용합니다.
+		    System.out.println("fileName2 = " +  fileName);
+	        ticket.setTicketImage1(UUID.randomUUID().toString()+"_/images/ticketImg/"+fileName);
+	    }
+
+	    System.out.println("ticket = " + ticket);
+	    
+	    // 컨트롤러에서 originalTicketCode 값을 설정하여 DTO 객체에 추가
+	    ticket.setOriginalTicketCode(originalTicketCode);
+	    ticket.setTicketPrice(ticketPrice);
+
+	    ticketService.modifyTicket(ticket);
+	    
+	    return "redirect:/admin/allProduct";
+	}
+	
+    @RequestMapping(value = "/deleteTicket", method = RequestMethod.POST)
+    public String deleteTicket(@RequestParam("ticketCode") String ticketCode) {
+    	System.out.println("티켓삭제할거야!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        ticketService.removeTicket(ticketCode);
+	    return "redirect:/admin/allProduct";
+    }
+
+    @RequestMapping(value = "/recoverTicket", method = RequestMethod.POST)
+    public String recoverTicket(@RequestParam("ticketCode") String ticketCode) {
+    	ticketService.revivalTicket(ticketCode);
+    	return "redirect:/admin/allProduct";
+    }
 	
 	@RequestMapping("/addProduct")
 	public String addProduct(Model model) {
@@ -152,9 +213,11 @@ public class UserController {
 		
 		// 파일 업로드 시작
 		String uploadDirectory=context.getServletContext().getRealPath("/resources/images");
-		ticket.setTicketImage1(UUID.randomUUID().toString()+"_/images/"+multipartFile.getOriginalFilename());
+		ticket.setTicketImage1(UUID.randomUUID().toString()+"_/images/ticketImg/"+multipartFile.getOriginalFilename());
 		multipartFile.transferTo(new File(uploadDirectory, ticket.getTicketImage1()));
 		ticketService.addTicket(ticket);
+		
+		System.out.println("ticket = " + ticket);
 		
         return "redirect:/admin/allProduct";
 	}
@@ -170,13 +233,11 @@ public class UserController {
 		if(multipartFile.isEmpty()) {
 			return "admin/add_ott";
 		}
-
-		String uploadDirectory=context.getServletContext().getRealPath("/resources/images");
-
-		ottkindDTO.setOttImage(UUID.randomUUID().toString()+"_/images/"+multipartFile.getOriginalFilename());
-
-		multipartFile.transferTo(new File(uploadDirectory, ottkindDTO.getOttImage()));
 		
+		// 파일 업로드 시작
+		String uploadDirectory=context.getServletContext().getRealPath("/resources/images");
+		ottkindDTO.setOttImage(UUID.randomUUID().toString()+"_/images/"+multipartFile.getOriginalFilename());
+		multipartFile.transferTo(new File(uploadDirectory, ottkindDTO.getOttImage()));
 		ottkindService.addOttkind(ottkindDTO);
 		
         return "redirect:/admin/allProduct";

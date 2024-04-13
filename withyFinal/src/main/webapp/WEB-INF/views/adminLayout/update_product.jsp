@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"  %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 
@@ -52,23 +53,14 @@
 					<div style="width: 95%;">
 						<div class="panel" style="padding: 50px;">
 
-							<form class="form-horizontal" style="font-size: 15px">
+							<form action="<c:url value="/admin/updateProduct"/>" method="post" enctype="multipart/form-data" class="form-horizontal" style="font-size: 15px">
 								<div class="panel-body">
 									<div class="form-group">
 										<label class="col-sm-3" for="ccccc" style="text-indent: 5em;">티켓코드</label>
 										<div class="col-sm-6">
-											<input type="text" class="form-control input-lg" id="ccccc" value="${ticketInfo.ticketCode }" readonly="readonly">
+										    <input type="text" class="form-control input-lg" id="ccccc" name="originalTicketCode" value="${ticketInfo.ticketCode}" readonly="readonly"/>
 										</div>
 									</div>
-									<%-- 
-									<div class="form-group">
-										<label class="col-sm-3" for="ccccc" style="text-indent: 5em;">종류</label>
-										<div class="col-sm-6">
-											<input type="text" class="form-control input-lg" id="ccccc" value="${ticketInfo.ottkindDTO.ottName }">
-										</div>
-									</div>
-									 --%>
-									
 									<div class="form-group">
 									    <label class="col-sm-3" for="aaaaa" style="text-indent: 5em;">종류</label>
 									    <div class="col-sm-6">
@@ -86,38 +78,71 @@
 									        </select>
 									    </div>
 									</div>
-
-									
 									<div class="form-group">
-										<label class="col-sm-3" for="ccccc" style="text-indent: 5em;">기간(개월)</label>
-										<div class="col-sm-6">
-											<input type="text" class="form-control input-lg" id="ccccc" value="${ticketInfo.ticketMonth }">
-										</div>
+									    <label class="col-sm-3" for="aaaaa" style="text-indent: 5em;">기간(개월)</label>
+									    <div class="col-sm-6">
+									        <select class="selectpicker" name="ticketMonth" >
+									            <c:forEach var="ticketMonth" items="${getTicketMonthList}">
+									                <c:choose>
+									                    <c:when test="${ticketMonth.ticketMonth eq ticketInfo.ticketMonth}">
+									                        <option value="${ticketMonth.ticketMonth}" selected>${ticketMonth.ticketMonth}</option>
+									                    </c:when>
+									                    <c:otherwise>
+									                        <option value="${ticketMonth.ticketMonth}">${ticketMonth.ticketMonth}</option>
+									                    </c:otherwise>
+									                </c:choose>
+									            </c:forEach>
+									        </select>
+									    </div>
 									</div>
 									<div class="form-group">
 										<label class="col-sm-3" for="ccccc" style="text-indent: 5em;">요금(원)</label>
 										<div class="col-sm-6">
-											<input type="text" class="form-control input-lg" id="ccccc" value="${ticketInfo.ticketPrice }">
+											<input type="text" class="form-control input-lg" name = "ticketPrice" id="ccccc" value="${ticketInfo.ticketPrice }">
 										</div>
 									</div>
+									<!-- 
+									<div class="form-group">
+										<label class="col-md-3" style="text-indent: 5em;">이미지</label>
+										<div class="col-md-9">
+											<input type="file" name="multipartFile" id="ticketImage1">
+										</div>
+									</div>
+									 -->
 									<div class="form-group">
 										<label class="col-md-3" style="text-indent: 5em;">이미지</label>
 										<div class="col-md-9">
 											<span class="pull-left btn btn-default btn-file">
-												파일 선택<input type="file">
+												파일 선택
+												<input type="file" name="multipartFile" id="ticketImage1">
 											</span>
 										</div>
 										<div style="padding-left: 26%;">
-											<img src="<c:url value="${ticketInfo.ticketImage1}"/>" width="100px" style=" padding-top: 10px;">
+											<img src="<c:url value='${fn:split(ticketInfo.ticketImage1, \"_\")[1]}'/>" width="100px" style=" padding-top: 10px;">
 										</div>
 									</div>
 								</div>
-								<div class="text-right">
-									<button class="btn btn-info btn-rounded" type="submit" style="font-size: 15px">완료</button>
-									<button class="btn btn-info btn-rounded" type="submit" style="font-size: 15px">삭제</button>
-									<button class="btn btn-info btn-rounded" type="button" onclick="location.href='${pageContext.request.contextPath}/admin/allProduct'" style="font-size: 15px">목록</button>
-								</div>
+							<div style="text-align: right;">
+								<button class="btn btn-info btn-rounded" type="submit" style="font-size: 15px">완료</button>
+								<button class="btn btn-info btn-rounded" type="button" onclick="location.href='${pageContext.request.contextPath}/admin/allProduct'" style="font-size: 15px">목록</button>
+							</div>
 							</form>
+							<c:if test="${ticketInfo.ticketStatus == 1}">
+								<div style="text-align: right; padding-top: 5px; padding-right: 30px;">
+									<form action="<c:url value="/admin/deleteTicket"/>" method="post">
+							            <input type="hidden" name="ticketCode" value="${ticketInfo.ticketCode}">
+										<button class="btn btn-info btn-rounded" type="submit" style="font-size: 15px">삭제</button>
+							        </form>
+						        </div>
+					        </c:if>
+							<c:if test="${ticketInfo.ticketStatus == 2}">
+							    <div style="text-align: right; padding-top: 5px; padding-right: 5px;">
+							        <form action="<c:url value="/admin/recoverTicket"/>" method="post">
+							            <input type="hidden" name="ticketCode" value="${ticketInfo.ticketCode}">
+							            <button class="btn btn-info btn-rounded" type="submit" style="font-size: 15px">티켓 활성화</button>
+							        </form>
+							    </div>
+							</c:if>
 						</div>
 					</div>
 				</div>
