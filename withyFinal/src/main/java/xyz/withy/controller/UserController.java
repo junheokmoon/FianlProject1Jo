@@ -2,6 +2,7 @@ package xyz.withy.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -117,41 +118,47 @@ public class UserController {
 		return "admin/all_product";
 	}
 	
-	@RequestMapping("/updateProduct")
-	public String updateProduct(@RequestParam String ticketCode, Model model, HttpSession session) {
-		model.addAttribute("ticketInfo", ticketService.getTicketInfo(ticketCode));
-		System.out.println("ticketService.getTicketInfo(ticketCode) = " + ticketService.getTicketInfo(ticketCode));
-		return "admin/update_product";
+	@RequestMapping(value = "/updateProduct", method = RequestMethod.GET)
+	public String updateProductPage(Model model, @RequestParam("ticketCode") String ticketCode) {
+	    TicketDTO ticketInfo = ticketService.getTicketInfo(ticketCode);
+	    List<OttkindDTO> getOttNoAndNameList = ottkindService.getOttNoAndNameList();
+	    
+	    model.addAttribute("ticketInfo", ticketInfo);
+	    model.addAttribute("getOttNoAndNameList", getOttNoAndNameList);
+	    
+	    System.out.println("getOttNoAndNameList = " + getOttNoAndNameList);
+	    
+	    return "admin/update_product";
 	}
-
-//	@RequestMapping("/addProduct")
-//	public String addProduct(Model model) {
-//		model.addAttribute("getOttNoAndNameList", ottkindService.getOttNoAndNameList());	// ott종류 for문 돌림
-//		model.addAttribute("getTicketMonthList", ticketService.getTicketMonthList());	// 티켓기간 for문 돌림
-//
-//		return "admin/add_product";
-//	}
 	
 	@RequestMapping("/addProduct")
 	public String addProduct(Model model) {
 	    model.addAttribute("getOttNoAndNameList", ottkindService.getOttNoAndNameList());	// ott종류 for문 돌림
-	    model.addAttribute("getTicketMonthList", ticketService.getTicketMonthList());	// 티켓기간 for문 돌림
+	    model.addAttribute("getTicketMonthList", ticketService.getTicketMonthList());		// 티켓기간 for문 돌림
 	    
 	    return "admin/add_product";
 	}
 	
-	@PostMapping("/saveProduct")
+	@RequestMapping(value = "/saveProduct", method = RequestMethod.POST)
 	public String saveProduct(@ModelAttribute TicketDTO ticket, @RequestParam("ticketOttNo") int ticketOttNo
-			, @RequestParam("ticketMonth") int ticketMonth) {
+			, @RequestParam("ticketMonth") int ticketMonth, @RequestParam MultipartFile multipartFile) throws IOException {
+		if(multipartFile.isEmpty()) {
+			return "admin/add_ott";
+		}
+		
+		// ottCode에 ticketOttNo와 ticketMonth 결합해서 저장
 	    String ottCode = ticketOttNo + "_" + ticketMonth;
-	    
 	    ticket.setTicketCode(ottCode);
-	    
-	    ticketService.addTicket(ticket);
-	    
-	    return "redirect:/admin/allProduct"; // 작업 완료 후 리다이렉트할 페이지
+		
+		// 파일 업로드 시작
+		String uploadDirectory=context.getServletContext().getRealPath("/resources/images");
+		ticket.setTicketImage1(UUID.randomUUID().toString()+"_/images/"+multipartFile.getOriginalFilename());
+		multipartFile.transferTo(new File(uploadDirectory, ticket.getTicketImage1()));
+		ticketService.addTicket(ticket);
+		
+        return "redirect:/admin/allProduct";
 	}
-
+	
 	@RequestMapping("/addOtt")
 	public String addOtt() {
 		return "admin/add_ott";
@@ -164,17 +171,12 @@ public class UserController {
 			return "admin/add_ott";
 		}
 
-		//전달파일을 저장하기 위한 서버 디렉토리의 시스템 경로를 반환받아 저장
-		// => 다운로드 프로그램에서만 파일에 접근 가능하도록 /WEB-INF 폴더에 업로드 폴더 작성
 		String uploadDirectory=context.getServletContext().getRealPath("/resources/images");
 
-		//업로드 처리될 파일명을 생성하여 FileBoard 객체의 필드값 변경
 		ottkindDTO.setOttImage(UUID.randomUUID().toString()+"_/images/"+multipartFile.getOriginalFilename());
 
-		//전달파일을 서버 디렉토리에 저장되도록 업로드 처리
 		multipartFile.transferTo(new File(uploadDirectory, ottkindDTO.getOttImage()));
 		
-		//전달값과 업로드 처리된 파일명을 FILE_BOARD 테이블의 행으로 삽입 처리
 		ottkindService.addOttkind(ottkindDTO);
 		
         return "redirect:/admin/allProduct";

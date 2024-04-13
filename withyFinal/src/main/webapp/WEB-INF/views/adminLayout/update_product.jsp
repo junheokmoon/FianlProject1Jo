@@ -57,15 +57,37 @@
 									<div class="form-group">
 										<label class="col-sm-3" for="ccccc" style="text-indent: 5em;">티켓코드</label>
 										<div class="col-sm-6">
-											<input type="text" class="form-control input-lg" id="ccccc" value="${ticketInfo.ticketCode }">
+											<input type="text" class="form-control input-lg" id="ccccc" value="${ticketInfo.ticketCode }" readonly="readonly">
 										</div>
 									</div>
+									<%-- 
 									<div class="form-group">
 										<label class="col-sm-3" for="ccccc" style="text-indent: 5em;">종류</label>
 										<div class="col-sm-6">
-											<input type="text" class="form-control input-lg" id="ccccc" value="${ticketInfo.ottName }">
+											<input type="text" class="form-control input-lg" id="ccccc" value="${ticketInfo.ottkindDTO.ottName }">
 										</div>
 									</div>
+									 --%>
+									
+									<div class="form-group">
+									    <label class="col-sm-3" for="aaaaa" style="text-indent: 5em;">종류</label>
+									    <div class="col-sm-6">
+									        <select class="selectpicker" name="ticketOttNo" >
+									            <c:forEach var="ott" items="${getOttNoAndNameList}">
+									                <c:choose>
+									                    <c:when test="${ott.ottNo eq ticketInfo.ticketOttNo}">
+									                        <option value="${ott.ottNo}" selected>${ott.ottName}</option>
+									                    </c:when>
+									                    <c:otherwise>
+									                        <option value="${ott.ottNo}">${ott.ottName}</option>
+									                    </c:otherwise>
+									                </c:choose>
+									            </c:forEach>
+									        </select>
+									    </div>
+									</div>
+
+									
 									<div class="form-group">
 										<label class="col-sm-3" for="ccccc" style="text-indent: 5em;">기간(개월)</label>
 										<div class="col-sm-6">

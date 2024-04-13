@@ -64,7 +64,7 @@
 								<h3 class="panel-title">NEW</h3>
 							</div>
 				
-							<form action="<c:url value="/admin/saveProduct"/>" method="post" class="form-horizontal" style="font-size: 15px">
+							<form action="<c:url value="/admin/saveProduct"/>" method="post" enctype="multipart/form-data" class="form-horizontal" style="font-size: 15px">
 								<div class="panel-body">
 									<div class="form-group">
 										<label class="col-sm-3" for="aaaaa" style="text-indent: 5em;">종류</label>
@@ -95,7 +95,7 @@
 									<div class="form-group">
 										<label class="col-md-3" style="text-indent: 5em;">이미지</label>
 										<div class="col-md-9">
-											<input type="file" name="multipartFile">
+											<input type="file" name="multipartFile" id="ticketImage1">
 										</div>
 									</div>
 								</div>
