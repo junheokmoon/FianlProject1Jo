@@ -56,7 +56,7 @@
 		</association>
 	</resultMap>
 
-	<select id="selectTicketMonthList" resultType="TicketDTO">
+	<select id="selectTicketMonthList" resultType="int">
 		select distinct ticket_month from ticket order by ticket_month asc
 	</select>
 	

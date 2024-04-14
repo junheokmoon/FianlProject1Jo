@@ -2,6 +2,7 @@ package xyz.withy.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.RequiredArgsConstructor;
@@ -20,15 +21,9 @@ public class PaymentRestController {
 	private final TicketService ticketService;
 	private final UserService userService;
 	
-	@GetMapping("/payment_user_data")
-	public UserDTO paymenUserData(int userNo) {
+	@GetMapping("/user_info")
+	public UserDTO userinfo(@RequestParam(defaultValue = "8")int userNo) {
 		return userService.getUserByNo(userNo);
-		
-	}
-	
-	@GetMapping("/payment_ticket_data")
-	public TicketDTO paymenticketData(String ticketCode) {
-		return ticketService.getTicket(ticketCode);
 		
 	}
 	

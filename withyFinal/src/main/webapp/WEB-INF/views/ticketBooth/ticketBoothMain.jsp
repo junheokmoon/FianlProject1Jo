@@ -18,7 +18,7 @@
         <div class="container">
             <h1 class="page-title mb-10">매표소</h1>
             <nav class="breadcrumb p-y-0 p-x-0 mb-0">
-                <a class="breadcrumb-item" href="/withyFinal">Home</a>
+                <a class="breadcrumb-item" href="/withyFinal">홈</a>
                 <span class="breadcrumb-item active">매표소</span>
             </nav><!-- / breadcrumb -->
             <p class="lead w-50 mt-15" data-aos="fade-in" data-aos-delay="100">파티 매칭을 하기 위해 필요한 티켓을 판매하는 매표소입니다!</p>
@@ -48,7 +48,7 @@
                             <p class="lead mb-0">가이드를 만들어 놨으니 이용해보세요!</p>
                         </div><!-- / column -->
                         <div class="col-lg-6 right-area right-aligned tablet-center">
-                            <a href="#x" class="btn btn-primary"><i class="fas fa-paper-plane mr-5"></i>가이드로 이동</a>
+                            <a href="/withyFinal/guide" class="btn btn-primary"><i class="fas fa-paper-plane mr-5"></i>가이드로 이동</a>
                         </div><!-- / column -->
                     </div><!-- / row -->
                 </div><!-- / container -->
