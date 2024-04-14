@@ -34,6 +34,17 @@
 		 where user_no = #{userNo}
 	</update>
 
+	<!-- 중복 검사 -->
+	
+	<select id="selectUserNickname" resultType="UserDTO">
+		select user_no, user_id, user_password, user_name, user_email, user_status, user_birthday, user_nickname, user_joindate, user_point
+		  from usertable where user_nickname=#{userNickname}
+	</select>
+	
+	<select id="selectUserEmail" resultType="UserDTO">
+		select user_no, user_id, user_password, user_name, user_email, user_status, user_birthday, user_nickname, user_joindate, user_point
+		  from usertable where user_email=#{userEmail}
+	</select>	
 	
 	
 </mapper>

@@ -94,7 +94,7 @@
     <div class="page-container">
         <div class="doc-container container-fluid">
                 <div class="col-lg-9">
-                    <h4 id="getting-started" class="doc-main-title">1:1 INQUERY</h4>
+                    <h4 id="getting-started" class="doc-main-title">1:1 문의 내역</h4>
                     <div id="introduction" class="doc-wrapper">
                                                                      
                 </div><!-- / column -->

@@ -89,67 +89,34 @@
     </nav><!-- / nav-scroll -->
     <!-- / side-nav -->
 
-
     <div class="page-container">
         <div class="doc-container container-fluid">
-            <div class="row">
                 <div class="col-lg-9">
-                    <h4 id="getting-started" class="doc-main-title">MY PROFILE</h4>
+                    <h4 id="getting-started" class="doc-main-title">회원정보변경</h4>
                     <div id="introduction" class="doc-wrapper">
                                                                      
-                	</div><!-- / column -->
+                </div><!-- / column -->
 				 	<div id="cards" class="doc-wrapper">
 
                         <div class="doc-holder">
                             <div class="doc-info bg-light">
                                 <div class="row">
-                                                                  
-                                    <div class="col-xl-3">
-                                        <div class="card">                                        	
-                                            <div class="card-body">
-                                				<img src="<c:url value="/images/user.jpg"/>">
-                                				<div class="updateProfile">
-                                				<button type="button" style="text-align: center">프로필 변경</button>
-                                            	</div>
-                                            </div><!-- / card-body -->
-                                        </div><!-- / card -->
-                                    </div><!-- / column -->   
-                                    
-                                    <div class="col-xl-9">
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <h6>나의 윗티 포인트</h6>
-                                                <div class="sc-ebawnn dYsQAv">
-												<img src="<c:url value="/images/point.png"/>" class="sc-cgizqU fsashJ">												
-												<span class="sc-bgXbfl aOeXW">${user.userPoint}P</span>         
-												</div>
-                                            </div><!-- / card-body -->
-                                        </div><!-- / card -->
-                                    </div><!-- / column -->                                                                                                                                                          
-                                   
-                                    <div class="col-xl-12">
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <h5 class="card-title">회원정보</h5><br>
-                                               ㆍ 아이디 : ${loginuser.userId }<br>
-                                               ㆍ 연락처 : ${loginuser.userPhone }<br>
-                                               ㆍ 이메일 : ${loginuser.userEmail }<br>
-                                               ㆍ 가입일 : ${loginuser.userJoindate }<br>
-                                                <a href="<c:url value="/mypage/userinfoUpdate"/>" class="btn btn-xs btn-primary">정보수정</a>
-                                            </div><!-- / card-body -->
-                                        </div><!-- / card -->
-                                    </div><!-- / column -->
-                                    								                                                                                  
+                                	    <p><b>회원정보를 변경을 위해 비밀번호를 입력해주세요.</b></p>
+						                    	<form action="#" method="post">
+						                    	<input type="password" id="passwd">
+						                    	<a href="#x" class="btn btn-primary-light pill"><span>확인하기</span></a>
+						                    	</form>                                                                                               								                                                                                  
                             </div><!-- / doc-info -->
                         </div><!-- / doc-holder -->
+                   
                     </div><!-- / doc-wrapper -->
                 </div> <!-- 페이지 content 구역 -->
               </div><!-- col 구역 -->
-            </div><!-- / row -->
         </div><!-- / doc-container -->
 </div><!-- / page-container -->
 
-    <!-- Core JavaScript -->
+
+     <!-- Core JavaScript -->
     <script src="<c:url value="/js/bootstrap.bundle.min.js"/>"></script>
     <script src="<c:url value="/js/theme.js"/>"></script>
 

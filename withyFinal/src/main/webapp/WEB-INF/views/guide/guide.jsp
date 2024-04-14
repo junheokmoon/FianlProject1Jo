@@ -138,10 +138,10 @@
 			            <div class="accordion-body">
 			            	<main class="notion">
 								<ul class="notion-list">
-									<li> 함께 볼 사람을 힘들게 구할 필요 없이 피클플러스가 <b>자동으로 매칭 </b>해줘요.</li>
+									<li> 함께 볼 사람을 힘들게 구할 필요 없이 윗티가 <b>자동으로 매칭 </b>해줘요.</li>
 								</ul>
 								<ul class="notion-list">
-									<li> 필요하다면 <b>직접 지인을 초대</b>해도 돼요.<br><b> 지인을 초대하면 피클 수수료 500원 할인 혜택</b>까지 받을 수 있어요.</li>
+									<li> 필요하다면 <b>직접 지인을 초대</b>해도 돼요.<br><b> 지인을 초대하면 윗티 수수료 500원 할인 혜택</b>까지 받을 수 있어요.</li>
 								</ul>
 							</main>
 			            </div><!-- / accordion-body -->
@@ -197,8 +197,8 @@
                      <div class="accordion-body">
                      	<main class="notion">
 							<ul class="notion-list">
-								<li> 파티원이 다 모이지 않아도 <b>파티장 정산금은 매달 피클플러스가 보장하고 입금</b>해 드려요.</li>
-								<li> 다른 곳에는 없는 <b>피클플러스만의 특별한 제도</b>에요.</li>
+								<li> 파티원이 다 모이지 않아도 <b>파티장 정산금은 매달 윗티가 보장하고 입금</b>해 드려요.</li>
+								<li> 다른 곳에는 없는 <b>윗티만의 특별한 제도</b>에요.</li>
 							</ul>
 						</main>
                      </div><!-- / accordion-body -->
@@ -282,7 +282,7 @@
 			            <div class="accordion-body">
 			            	<main class="notion">
 								<ul class="notion-list">
-									<li> 친구,가족,지인과도 피클플러스를 통해 편하게 계정을 공유할 수 있어요.</li>
+									<li> 친구,가족,지인과도 윗티를 통해 편하게 계정을 공유할 수 있어요.</li>
 								</ul>
 								<ul class="notion-list">
 									<li> 파티장:파티 생성 후 지인에게 초대 링크를 보내 직접 매칭해요.</li>
@@ -301,7 +301,7 @@
                  <h2 class="accordion-header" id="headingThree">
                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                      <div class="icon">🎁</div>
-					 <div class="subject"><span>&nbsp;&nbsp;피클 수수료 할인받는 법</span></div>	
+					 <div class="subject"><span>&nbsp;&nbsp;윗티 수수료 할인받는 법</span></div>	
 					 <i class="fas fa-chevron-down"></i></button>
                  </h2><!-- / accordion-header -->
                  <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
@@ -346,7 +346,7 @@
                      <div class="accordion-body">
                      	<main class="notion">
 							<ul class="notion-list">
-								<li> 40만 명 이상이 가입한 업계 1위 서비스로,<b>매칭 시간이 가장 짧아 빠르게 이용 </b>할 수 있어요.</li>
+								<li> 100만 명 이상이 가입한 업계 1위 서비스로,<b>매칭 시간이 가장 짧아 빠르게 이용 </b>할 수 있어요.</li>
 							</ul>
 						</main>
                      </div><!-- / accordion-body -->
@@ -395,7 +395,7 @@
 			            <div class="accordion-body">
 			            	<main class="notion">
 								<ul class="notion-list">
-									<li> 친구,가족,지인과도 피클플러스를 통해 편하게 계정을 공유할 수 있어요.</li>
+									<li> 친구,가족,지인과도 윗티를 통해 편하게 계정을 공유할 수 있어요.</li>
 								</ul>
 								<ul class="notion-list">
 									<li> 파티장:파티 생성 후 지인에게 초대 링크를 보내 직접 매칭해요.</li>
@@ -414,7 +414,7 @@
                  <h2 class="accordion-header" id="headingThree">
                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                      <div class="icon">🎁</div>
-					 <div class="subject"><span>&nbsp;&nbsp;피클 수수료 할인받는 법</span></div>	
+					 <div class="subject"><span>&nbsp;&nbsp;윗티 수수료 할인받는 법</span></div>	
 					 <i class="fas fa-chevron-down"></i></button>
                  </h2><!-- / accordion-header -->
                  <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
@@ -441,8 +441,8 @@
                      <div class="accordion-body">
                      	<main class="notion">
 							<ul class="notion-list">
-								<li> 파티원이 다 모이지 않아도 <b>파티장 정산금은 매달 피클플러스가 보장하고 입금</b>해 드려요.</li>
-								<li> 다른 곳에는 없는 <b>피클플러스만의 특별한 제도</b>에요.</li>
+								<li> 파티원이 다 모이지 않아도 <b>파티장 정산금은 매달 윗티가 보장하고 입금</b>해 드려요.</li>
+								<li> 다른 곳에는 없는 <b>윗티만의 특별한 제도</b>에요.</li>
 							</ul>
 						</main>
                      </div><!-- / accordion-body -->
@@ -474,7 +474,7 @@
 									<li> 이용 요금은 <b>프리미엄 이용권 가격을 4로 나눈 금액 + 피클 수수료 </b>로 구성돼요.</li>
 								</ul>
 								<ul class="notion-list">
-									<li> 피클 수수료는 <b>파티장 490원·파티원 990원</b>으로 역할에 따라 달라요.</li>
+									<li> 윗티 수수료는 <b>파티장 490원·파티원 990원</b>으로 역할에 따라 달라요.</li>
 								</ul>
 							</main>			            
 						</div><!-- / accordion-body -->
@@ -492,7 +492,7 @@
 			            <div class="accordion-body">
 			            	<main class="notion">
 								<ul class="notion-list">
-									<li> 피클 수수료를 제외한 <b>파티원들의 이용 금액(정산금)을 파티장 계좌로 입금해 드려요.</b></li>
+									<li> 윗티 수수료를 제외한 <b>파티원들의 이용 금액(정산금)을 파티장 계좌로 입금해 드려요.</b></li>
 								</ul>
 								<ul class="notion-list">
 									<li> 파티장 정산금은 파티를 개설할 때 <b>설정한 파티원 수에 따라 달라져요.</b></li>
@@ -518,33 +518,59 @@
          			<div class="accordion" id="accordionExample">
                                     <div class="accordion-item">
                                         <h2 class="accordion-header" id="headingOne">
-                                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Q1. ? <i class="fas fa-chevron-down"></i></button>
+                                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Q1. 파티장의 파티 요금은 어떻게 산정되나요? <i class="fas fa-chevron-down"></i></button>
                                         </h2><!-- / accordion-header -->
                                         <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                             <div class="accordion-body">
-                                                 Vivamus ut vestibulum quam. Duis at urna convallis, porta odio ac, varius ex. Cras ultrices quam eros, vitae auctor enim luctus at. Sed facilisis, ante eu malesuada consectetur, nunc dolor bibendum eros, eu suscipit nisl elit in arcu vulputate.
+                                                 파티장의 파티 요금은 <b>모집한 파티원 수에 비례하여 매달 윗티 정산일에 윗티 포인트를 통해 적립 </b>돼요.<br>
+                                                 파티원 1인 모집시 적립 금액은 파티 분담금(1인당 서비스 이용료)에서 윗티 수수료를 차감한 금액이에요.
                                             </div><!-- / accordion-body -->
                                         </div><!-- / collapse -->
                                     </div><!-- / accordion-item -->
 
                                     <div class="accordion-item">
                                         <h2 class="accordion-header" id="headingTwo">
-                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Q2. ? <i class="fas fa-chevron-down"></i></button>
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Q2. 참여한 파티의 서비스를 연장하여 사용하고 싶습니다.<i class="fas fa-chevron-down"></i></button>
                                         </h2><!-- / accordion-header -->
                                         <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                                             <div class="accordion-body">
-                                                 Vivamus ut vestibulum quam. Duis at urna convallis, porta odio ac, varius ex. Cras ultrices quam eros, vitae auctor enim luctus at. Sed facilisis, ante eu malesuada consectetur, nunc dolor bibendum eros, eu suscipit nisl elit in arcu vulputate.
+                                            	현재는 참여하신 파티에 대한 연장기능을 제공하고 있지 않습니다. <br>
+                                            	※ 파티장의 사정에 따라서 연장이 불가 할 수 있으며, 이러한 경우 메일을 전송 받아 보실 수 있습니다.
                                             </div><!-- / accordion-body -->
                                         </div><!-- / collapse -->
                                     </div><!-- / accordion-item -->
 
                                     <div class="accordion-item">
                                         <h2 class="accordion-header" id="headingThree">
-                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Q3. ? <i class="fas fa-chevron-down"></i></button>
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Q3. 참여한 파티의 서비스가 화질이 안좋거나 자주 끊깁니다. <i class="fas fa-chevron-down"></i></button>
                                         </h2><!-- / accordion-header -->
                                         <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                                             <div class="accordion-body">
-                                                 Vivamus ut vestibulum quam. Duis at urna convallis, porta odio ac, varius ex. Cras ultrices quam eros, vitae auctor enim luctus at. Sed facilisis, ante eu malesuada consectetur, nunc dolor bibendum eros, eu suscipit nisl elit in arcu vulputate.
+                                            	진행하고 있는 서비스에서 이용 중인 요금제를 확인하거나 <br>
+                                            	파티장에게 요금제 확인을 요청 하실 수 있습니다.
+                                            </div><!-- / accordion-body -->
+                                        </div><!-- / collapse -->
+                                    </div><!-- / accordion-item -->
+                                    
+                                     <div class="accordion-item">
+                                        <h2 class="accordion-header" id="headingFour">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">Q4. 회원정보(닉네임,비밀번호,연락처,이메일) 변경은 어디서 하나요? <i class="fas fa-chevron-down"></i></button>
+                                        </h2><!-- / accordion-header -->
+                                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                                            <div class="accordion-body">
+                                            	윗티 웹사이트 접속 후 [마이페이지] -> [회원정보수정] 의 경로를 통해 변경 페이지로 입장 하실 수 있습니다.
+                                            </div><!-- / accordion-body -->
+                                        </div><!-- / collapse -->
+                                    </div><!-- / accordion-item -->
+                                    
+                                     <div class="accordion-item">
+                                        <h2 class="accordion-header" id="headingFive">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">Q5. 오류로 인하여 회원가입이 진행 되지 않습니다. <i class="fas fa-chevron-down"></i></button>
+                                        </h2><!-- / accordion-header -->
+                                        <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+                                            <div class="accordion-body">
+                                            	알 수 없는 이유로 인하여 회원가입이 진행되지 않는 경우 <br>
+                                            	[가이드 페이지] -> [1:1 문의 아이콘]을 통하여 문의 주시면 회원가입 진행 도와 드리겠습니다.
                                             </div><!-- / accordion-body -->
                                         </div><!-- / collapse -->
                                     </div><!-- / accordion-item -->

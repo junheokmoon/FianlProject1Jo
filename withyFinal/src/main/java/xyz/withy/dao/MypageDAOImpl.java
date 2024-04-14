@@ -22,6 +22,16 @@ public class MypageDAOImpl implements MypageDAO{
 		return sqlSession.getMapper(MypageMapper.class).withdrawal(userNo);
 	}
 
+	@Override
+	public UserDTO selectUserNickname(String userNickname) {
+		return sqlSession.getMapper(MypageMapper.class).selectUserNickname(userNickname);
+	}
+
+	@Override
+	public UserDTO selectUserEmail(String userEmail) {
+		return sqlSession.getMapper(MypageMapper.class).selectUserEmail(userEmail);
+	}
+
 	
 
 }

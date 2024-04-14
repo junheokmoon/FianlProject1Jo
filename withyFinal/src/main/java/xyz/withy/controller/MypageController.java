@@ -7,11 +7,14 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import lombok.RequiredArgsConstructor;
 import xyz.withy.service.InquiryService;
 import xyz.withy.service.MypageService;
+import xyz.withy.service.UserService;
 
 @Controller
 @RequestMapping("/mypage")
@@ -19,6 +22,7 @@ import xyz.withy.service.MypageService;
 public class MypageController {
 	private final InquiryService inquiryService;
 	private final MypageService mypageService;
+	private final UserService userService;
 	
 	//회원정보
 	@RequestMapping("/mypageInfo")
@@ -43,6 +47,7 @@ public class MypageController {
 		return "mypage/mypageInquiry";
 	}
 
+	/*
 	// 회원탈퇴
 	@RequestMapping(value = "/withdrawal")
 	public String withdrawal(HttpSession session) {
@@ -54,10 +59,38 @@ public class MypageController {
 	    }
 		return "/";
 	}
+	*/
 	
-	// 리뷰목록...? 굳이? 없어도 될듯함
 	@RequestMapping("/mypageReply")
 	public String mypageReply() {
 		return "mypage/mypageReply";
 	}
+	
+	@RequestMapping(value = "/userinfoUpdate", method = RequestMethod.GET)
+	public String userinfoUpdate() {
+		return "mypage/userinfoUpdate";
+	}
+	
+
+	@RequestMapping(value = "/usernicknameCheck", method = RequestMethod.POST)
+	@ResponseBody
+	public String checkNickname(@RequestParam String userNickname) {
+	    if (mypageService.getUserNickname(userNickname) == null) {
+	        return "success";
+	    }
+	    return "fail";
+	}
+	
+	@RequestMapping("/userinfoUpdatePwConfirm")
+	public String userinfoUpdatePwConfirm() {
+		return "mypage/userinfoUpdatePwConfirm";
+	}
+	
+	@RequestMapping("/withdrawal")
+	public String withdrawal() {
+		return "mypage/withdrawal";
+	}
+	
+	
+		
 }

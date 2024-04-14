@@ -16,6 +16,7 @@ public class MypageServiceImpl implements MypageService{
 	private final MypageDAO mypageDAO;
 	private final UserDAO userDAO;
 	
+	//예외처리
 	@Transactional(rollbackFor = Exception.class)
 	@Override
 	public void modifyUserinfo(UserDTO user) {
@@ -38,5 +39,18 @@ public class MypageServiceImpl implements MypageService{
 	      }
 		    mypageDAO.withdrawal(userNo);  	      
 	     }
+
+	@Override
+	public UserDTO getUserEmail(String userEmail) {
+        UserDTO user=mypageDAO.selectUserEmail(userEmail);
+        return user;
 	}
+
+	@Override
+	public UserDTO getUserNickname(String userNickname) {
+        UserDTO user=mypageDAO.selectUserNickname(userNickname);
+		return user;
+	}
+	
+}
 
