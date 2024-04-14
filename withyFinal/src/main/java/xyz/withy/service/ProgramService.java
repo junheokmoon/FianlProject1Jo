@@ -13,5 +13,5 @@ public interface ProgramService {
 	Map<String, Object> getProgramList(int pageNum);
 	List<ProgramDTO> getProgramJoinList();
 	List<ProgramDTO> getProgramFilterByOtt(Integer programOttNo, Integer programCategoryNo);
-	
+	 
 }

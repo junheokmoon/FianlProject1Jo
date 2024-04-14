@@ -64,7 +64,7 @@ public class ProgramServiceImpl implements ProgramService {
 
 		return resultMap;
 	}
-
+ 
 	@Override
 	public List<ProgramDTO> getProgramJoinList() {
 		return programDAO.selectProgramJoinList();

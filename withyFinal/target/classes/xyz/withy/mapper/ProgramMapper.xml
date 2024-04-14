@@ -14,7 +14,7 @@
 			,program_image=#{programImage},program_detail=#{programDtail} ,program_video=#{programVideo}
 				, program_category_no=#{programCategoryNo} where program_no=#{programNo}
 	</update>
-	
+	 
 	<delete id="deleteProgram">
 		delete from program where program_no=#{programNo}
 	</delete>
