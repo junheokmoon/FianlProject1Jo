@@ -7,19 +7,19 @@
 			select ticket_seq.nextval from dual
 		</selectKey>
 		insert into ticket values(#{ticketCode}, #{ticketPrice}, #{ticketImage1}, #{ticketImage2}
-		, #{ticketOttNo}, #{ticketMonth} , 1 , #{ticketNo})
+		, #{ticketOttNo}, #{ticketMonth} , 1 , #{ticketNo}, #{ticketCode})
 	</insert>
-	
+
 	<update id="updateTicket">
-		update ticket set ticket_code = #{ticketCode}, ticket_price =#{ticketPrice}, ticket_image1=#{ticketImage1}
-		, ticket_image2=#{ticketImage2}, ticket_ott_no=#{ticketOttNo}, ticket_month=#{ticketMonth}
-		where ticket_code = #{ticketCode}
+	    update ticket set ticket_code = #{ticketCode}, ticket_price = #{ticketPrice}, ticket_image1 = #{ticketImage1},
+	    ticket_image2 = #{ticketImage2}, ticket_ott_no = #{ticketOttNo}, ticket_month = #{ticketMonth}, original_ticket_code = #{ticketCode}
+	    where original_ticket_code = #{originalTicketCode}
 	</update>
 
 	<update id="deleteTicket">
 		update ticket set ticket_status = 2 where ticket_code = #{ticketCode}
 	</update>
-	
+
 	<delete id="realDeleteTicket">
 		delect from ticket where ticket_code = #{ticketCode}
 	</delete>
@@ -35,7 +35,7 @@
 
 	<select id="selectTicketInfo" resultMap="ticketListResultMap">
 		select ticket_code, ticket_price, ticket_image1, ticket_image2, ticket_ott_no
-		    , ticket_month, ticket_status, ticket_no, ott_name, ott_image, ott_cd
+		    , ticket_month, ticket_status, ticket_no, original_ticket_code, ott_name, ott_image, ott_cd
 		    from ticket left join ottkind on ticket_ott_no = ott_no where ticket_code=#{ticketCode} order by ticket_no desc
 	</select>
 	
@@ -56,7 +56,7 @@
 		</association>
 	</resultMap>
 
-	<select id="selectTicketMonthList" resultType="TicketDTO">
+	<select id="selectTicketMonthList" resultType="int">
 		select distinct ticket_month from ticket order by ticket_month asc
 	</select>
 	

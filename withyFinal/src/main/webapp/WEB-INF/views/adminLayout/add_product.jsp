@@ -64,12 +64,13 @@
 								<h3 class="panel-title">NEW</h3>
 							</div>
 				
-							<form action="<c:url value="/admin/saveProduct"/>" method="post" class="form-horizontal" style="font-size: 15px">
+							<form action="<c:url value="/admin/saveProduct"/>" method="post" enctype="multipart/form-data" class="form-horizontal" style="font-size: 15px">
 								<div class="panel-body">
 									<div class="form-group">
 										<label class="col-sm-3" for="aaaaa" style="text-indent: 5em;">종류</label>
 										<div class="col-sm-6">
 											<select class="selectpicker" name="ticketOttNo" >
+											    <option>종류를 선택하세요</option>
 												<c:forEach var="getOttNoAndNameList" items="${getOttNoAndNameList}">
 												    <option value="${getOttNoAndNameList.ottNo}">${getOttNoAndNameList.ottName}</option>
 												</c:forEach>
@@ -80,6 +81,7 @@
 										<label class="col-sm-3" for="bbbbb" style="text-indent: 5em;">기간</label>
 										<div class="col-sm-6">
 											<select class="selectpicker" name="ticketMonth" >
+												<option>기간을 선택하세요</option>
 									            <c:forEach var="getTicketMonthList" items="${getTicketMonthList}">
 									                <option value="${getTicketMonthList.ticketMonth}">${getTicketMonthList.ticketMonth }</option>
 									            </c:forEach>
@@ -95,7 +97,7 @@
 									<div class="form-group">
 										<label class="col-md-3" style="text-indent: 5em;">이미지</label>
 										<div class="col-md-9">
-											<input type="file" name="multipartFile">
+											<input type="file" name="multipartFile" id="ticketImage1">
 										</div>
 									</div>
 								</div>

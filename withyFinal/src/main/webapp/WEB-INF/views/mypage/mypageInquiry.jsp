@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -92,7 +94,7 @@
     <div class="page-container">
         <div class="doc-container container-fluid">
                 <div class="col-lg-9">
-                    <h4 id="getting-started" class="doc-main-title">1:1 INQUERY</h4>
+                    <h4 id="getting-started" class="doc-main-title">1:1 문의 내역</h4>
                     <div id="introduction" class="doc-wrapper">
                                                                      
                 </div><!-- / column -->
@@ -101,45 +103,70 @@
                         <div class="doc-holder">
                             <div class="doc-info bg-light">
                                 <div class="row">
-                                	<h6>나의 문의 내역</h6>                                  
                                     <table class="table">
                                     <thead>
-                                        <tr>
-                                            <th scope="col">번호</th>
-                                            <th scope="col">제목</th>
-                                            <th scope="col">작성자</th>
-                                            <th scope="col">날짜</th>
-                                            <th scope="col">상태</th>
+                                        <tr style="text-align: center;">
+                                            <th scope="col">문의번호</th>
+                                            <th scope="col">문의제목</th>
+                                            <th scope="col">작성일</th>
+                                            <th scope="col">답변상태</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody style="text-align: center">
+                                    	<c:forEach var="inquiry" items="${inquiryList}">
                                         <tr>
-                                            <th scope="row">1</th>
-                                            <td>Mark</td>
-                                            <td>Otto</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
+                                            <th scope="row">${inquiry.inquiryNo}</th>
+                                            <td><a class="inquiryTitle" href="<c:url value="/inquiry/inquiryDetail"/>?inquiryNo=${inquiry.inquiryNo}">${inquiry.inquiryTitle}</a></td>
+                                            <td>${fn:substring(inquiry.inquiryDate,0,10) }</td>
+                                            <c:set var="result" value="${inquiry.inquiryStatus}"/> 
+                                            <c:choose>
+                                            	<c:when test="${result == 1 }">
+													<td>답변대기중</td>
+												</c:when>    
+											<c:otherwise>
+													<td>답변완료</td>
+											</c:otherwise>
+											</c:choose>	             
                                         </tr>
-                                        <tr>
-                                            <th scope="row">2</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                            <td>@fat</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">3</th>
-                                            <td>Larry</td>
-                                            <td>The Bird</td>
-                                            <td>@twitter</td>
-                                            <td>@twitter</td>
-                                        </tr>
+                                        </c:forEach>
                                     </tbody>
-                                </table><!-- / table -->                                 								                                                                                  
+                                </table><!-- / table -->  
+                                
+                     <div style="text-align: center;">
+						<%-- 페이지 번호 출력 --%>
+						<c:choose>
+							<c:when test="${pager.startPage > pager.blockSize }">
+								<a href="<c:url value="/mypage/mypageInquiry"/>?pageNum=${pager.prevPage}">[이전]</a>
+							</c:when>
+							<c:otherwise>
+								[이전]
+							</c:otherwise>
+						</c:choose>
+						
+						<c:forEach var="i" begin="${pager.startPage }" end="${pager.endPage }" step="1">
+							<c:choose>
+								<c:when test="${pager.pageNum != i }">
+									<a href="<c:url value="/mypage/mypageInquiry"/>?pageNum=${i}">[${i}]</a>
+								</c:when>
+								<c:otherwise>
+									[${i}]
+								</c:otherwise>
+							</c:choose>
+						</c:forEach>
+						<c:choose>
+							<c:when test="${pager.endPage != pager.totalPage }">
+								<a href="<c:url value="/mypage/mypageInquiry"/>?pageNum=${pager.nextPage}">[다음]</a>
+							</c:when>
+							<c:otherwise> 
+								[다음]
+							</c:otherwise>
+						</c:choose>
+					</div>
+    
                             </div><!-- / doc-info -->
                         </div><!-- / doc-holder -->
                         
-                       
+        
                         
                         
                     </div><!-- / doc-wrapper -->

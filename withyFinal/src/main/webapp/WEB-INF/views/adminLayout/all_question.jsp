@@ -152,7 +152,7 @@
 									</table>
 									
 									<!-- 검색하기 start -->
-									<div style="font-size: 14px;">
+									<!-- <div style="font-size: 14px;">
 										<form style="text-align: center; margin-top: 60px;">
 											<select style="width:130px; height:30px; border-color:lightgray; border-width: 1px; border-radius: 5px;">
 												<option value="">&nbsp;문의 번호&nbsp;</option>
@@ -162,7 +162,7 @@
 											<input type="text" name="keyword" style="width:30%; height:30px; outline: none; box-shadow: none; border:1px solid lightgray; border-radius: 5px;">
 											<button type="submit" style="width:50px; height:30px; outline: none; border:none; background-color:#54abd9; color: #fff; border-radius: 5px;">검색</button>
 										</form>
-									</div>
+									</div> -->
 									<!-- 검색하기 end -->
 									
 									<div class="panel-body text-center">

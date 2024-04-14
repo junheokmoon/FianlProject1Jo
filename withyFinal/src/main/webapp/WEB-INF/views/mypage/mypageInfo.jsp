@@ -121,7 +121,7 @@
                                                 <h6>나의 윗티 포인트</h6>
                                                 <div class="sc-ebawnn dYsQAv">
 												<img src="<c:url value="/images/point.png"/>" class="sc-cgizqU fsashJ">												
-												<span class="sc-bgXbfl aOeXW">0P</span>         
+												<span class="sc-bgXbfl aOeXW">${user.userPoint}P</span>         
 												</div>
                                             </div><!-- / card-body -->
                                         </div><!-- / card -->
@@ -131,11 +131,11 @@
                                         <div class="card">
                                             <div class="card-body">
                                                 <h5 class="card-title">회원정보</h5><br>
-                                               ㆍ 아이디 : xyz789<br>
-                                               ㆍ 연락처 : 010-5465-6659<br>
-                                               ㆍ 이메일 : xyz789@itwill.net<br>
-                                               ㆍ 가입일 : 2023.10.19<br>
-                                                <a href="#x" class="btn btn-xs btn-primary">정보수정</a>
+                                               ㆍ 아이디 : ${loginuser.userId }<br>
+                                               ㆍ 연락처 : ${loginuser.userPhone }<br>
+                                               ㆍ 이메일 : ${loginuser.userEmail }<br>
+                                               ㆍ 가입일 : ${loginuser.userJoindate }<br>
+                                                <a href="<c:url value="/mypage/userinfoUpdate"/>" class="btn btn-xs btn-primary">정보수정</a>
                                             </div><!-- / card-body -->
                                         </div><!-- / card -->
                                     </div><!-- / column -->

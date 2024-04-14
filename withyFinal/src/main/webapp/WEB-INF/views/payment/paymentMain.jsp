@@ -24,27 +24,16 @@
     border-bottom-right-radius: 6px;
 	}
     
+  .card-body {
+    height: 340px; 
+    overflow-y: hidden; 
+}
 </style>
 <head>
-    <!-- Meta -->
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="MiOne - Minimal Landing Page Theme">
-    <meta name="author" content="kingstudio.ro">
-    <!-- Favicon -->
-    <link rel="icon" href="<c:url value="/images/favicon.png"/>">
-    <!-- Site Title -->
-    <title>MiOne - Minimal Landing Page Theme</title>
-    <!-- Bootstrap 5 Core CSS -->
-    <link href="<c:url value="/css/bootstrap.min.css"/>" rel="stylesheet">
-    <!-- Custom Styles -->
-    <link rel="stylesheet" href="<c:url value="/css/animate.min.css"/>">
-    <link rel="stylesheet" href="<c:url value="/css/aos.css"/>">
-    <link rel="stylesheet" href="<c:url value="/css/swiper-bundle.min.css"/>">
-    <link rel="stylesheet" href="<c:url value="/css/style.css"/>">
-    <!-- Fonts -->
-    <link rel="stylesheet" href="<c:url value="/css/fontawesome-all.min.css"/>" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+    
 </head>
 
 <body>
@@ -72,13 +61,14 @@
 
     <header class="page-header w-absolute-nav bg-white text-left">
         <div class="container">
-            <h1 class="page-title mb-10">결제</h1>
+            <h1 class="page-title mb-10">결2제</h1>
             <nav class="breadcrumb p-y-0 p-x-0 mb-0">
                 <a class="breadcrumb-item" href="/withyFinal/">홈</a>
-                <a class="breadcrumb-item" href="/withyFinal/product">상품</a>
+                <a class="breadcrumb-item" href="/withyFinal/ticketBooth/">상품</a>
                 <span class="breadcrumb-item active">결제</span>
             </nav><!-- / breadcrumb -->
-            <p class="lead w-50 mt-15" data-aos="fade-in" data-aos-delay="100">[<strong>고객 닉네임</strong>]님! 저희 <strong>윗티</strong>를 이용해 주셔서 감사합니다!</p>
+            <div id = "titleTextDiv"></div>
+            <p class="lead w-50 mt-15" data-aos="fade-in" data-aos-delay="100">[<strong>${userInfo.userNickname }</strong>]님! 저희 <strong>윗티</strong>를 이용해 주셔서 감사합니다!</p>
         </div><!-- / container -->
     </header>
 
@@ -91,10 +81,7 @@
 			            <div class="row">
 			                <div class="col-lg-12">
 			                    <div id="cards" class="doc-wrapper">
-			                        <h4 class="doc-main-title">결제 페이지<a href="#cards"><i class="fas fa-link"></i></a></h4>
-			
-			                        <p class="pt-30">[<strong>고객 닉네임</strong>]님! 저희 <strong>윗티</strong>를 이용해 주셔서 감사합니다!</p>
-			
+			                        <h4 class="doc-main-title">결제 페이지</h4>
 			                        <div class="doc-holder">
 			                            <div class="doc-info bg-light">
 			                             <div class="row">
@@ -104,14 +91,17 @@
 			                                         <div class="raised-icon bg-white icon-lg pos-center circle raised">
 			                                             <i class="far fa-user promo-icon text-success"></i>
 			                                         </div><!-- / raised-icon -->
-				                                         <h5 class="card-title mt-40">고객 정보</h5>
-				                                         <p class="card-text">고객이름: 고길동 </p>  
-				                                         <p class="card-text">고객아이디: 드래곤볼</p>
-				                                         <p class="card-text">고객닉네임: 고길동</p>
-				                                         <p class="card-text">고객전화번호: 010-3020-4122</p>
-			                                	  	</div><!-- / card-body -->
-			                                	 </div><!-- / card -->
-			                                  </div><!-- / column -->
+			                                         <!-- 
+			                                          <div id="userInfoDiv"></div>
+			                                          -->
+			                                         <h5 class="card-title mt-40">고객 정보</h5>
+			                                         <p class="card-text">고객이름 : ${userInfo.userName } </p> 
+			                                         <p class="card-text">고객아이디: ${userInfo.userId }</p>
+			                                         <p class="card-text">고객닉네임: ${userInfo.userNickname }</p>
+			                                         <p class="card-text">고객전화번호: ${userInfo.userPhone }</p>
+		                                	  	 </div><!-- / card-body -->
+		                                	  </div><!-- / card -->
+		                                  </div><!-- / column -->
 			                              <div class="col-xl-4">
 			                        		  <div class="card w-raised-icon lg-icon">
 			                                     <div class="card-body text-center p-y-30">
@@ -119,50 +109,35 @@
 			                                             <i class="fas fa-briefcase text-primary"></i>
 			                                         </div><!-- / raised-icon -->
 			                                         <h5 class="card-title mt-40">주문 상품</h5>
-			                                         <p class="card-text">상품 코드 : N3</p>
-			                                         <p class="card-text">OTT : NETFLIX</p>
-			                                         <p class="card-text">기간 : 3개월</p>
-			                                         <p class="card-text">요금 : 20000</p>
+			                                         <p class="card-text">상품 이름 : ${ticketInfo.ottkindDTO.ottName} ${ticketInfo.ticketMonth }개월 티켓</p>
+			                                         <p class="card-text">OTT : ${ticketInfo.ottkindDTO.ottName}</p>
+			                                         <p class="card-text">기간 : ${ticketInfo.ticketMonth }개월</p>
+			                                         <p class="card-text">요금 : ${ticketInfo.ticketPrice }원</p>
 			                                     </div><!-- / card-body -->
+			                                     
 			                                  </div><!-- / card -->
-			                              </div><!-- / column -->
 			                              
+			                              </div><!-- / column -->
 			                              <div class="col-xl-4">
 			                        		  <div class="card w-raised-icon lg-icon">
 			                                     <div class="card-body text-center p-y-30">
 			                                         <div class="raised-icon bg-white icon-lg pos-center circle raised">
 			                                             <i class="fas fa-briefcase text-primary"></i>
 			                                         </div><!-- / raised-icon -->
+			                                         
+			                                         <div id ="pointInfoDiv"></div>
 			                                         <h5 class="card-title mt-40">포인트</h5>
-					                                         <p class="card-text">현제 포인트 : 2000</p>
-					                                            <div class="input-group input-w-overlap-btn mb-0">
-					                                                <input type="text" class="form-control rounded-sm" placeholder="사용금액">
-					                                                <span class="input-group-btn">
-					                                                    <button class="btn btn-sm btn-primary lh-0 overlapping-btn big-btn rounded-sm" type="button">사용</button>
-					                                                </span><!-- / input-group-btn -->
-					                                            </div><!-- / input-group -->
-					                                         <p class="card-text">사용 포인트 : 200</p>
-														<!-- modal -->
-														<div class="modal fade default-modal" tabindex="-1" role="dialog">
-														    <div class="modal-dialog modal-dialog-centered">
-														        <div class="modal-content text-center">
-														            <div class="modal-header">
-														                <h5 class="modal-title">Default Modal</h5>
-														                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-														                    <span aria-hidden="true">×</span>
-														                </button>
-														            </div><!-- / modal-header -->
-														            <div class="modal-body">
-														                <p>Modal body text goes here. Quisque a eros porta urna vulputate congue at in dui. Nulla sed sapien a velit vestibulum varius. Cras eu eros nibh commodo.</p>
-														            </div><!-- / modal-body -->
-														            <div class="modal-footer">
-														                <button type="button" class="btn btn-sm btn-danger" data-bs-dismiss="modal"><i class="fas fa-times fs-14 mr-5"></i> <span>Close</span></button>
-														                    <button type="button" class="btn btn-sm btn-success" data-bs-dismiss="modal"><i class="fas fa-check fs-14 mr-5"></i> <span>Save</span></button>
-														            </div><!-- / modal-footer -->
-														        </div><!-- / modal-content -->
-														    </div><!-- / modal-dialog -->
-														</div><!-- / modal -->
-														<!-- / default-modal -->
+			                                         <p class="card-text">현제 포인트 : ${userInfo.userPoint }</p>
+			                                         <div class="input-group input-w-overlap-btn mb-0">
+			                                             <input id = "usePointInput" type="number" step="10" class="form-control rounded-sm" placeholder="사용금액" min="0">
+			                                             <span class="input-group-btn"> 
+			                                                 <button id="pointUseButton" class="btn btn-sm btn-primary lh-0 overlapping-btn big-btn rounded-sm" type="button">사용</button>
+			                                             </span><!-- / input-group-btn -->
+			                                             <p id ="errorMessage" class="card-text" style="color : red;"></p>
+			                                         </div><!-- / input-group -->
+			                                         
+			                                         <p id ="usePoint" class="card-text">사용 포인트 : 0</p>
+			                                     </div><!-- / card-body -->
 			                                     </div><!-- / card-body -->
 			                                  </div><!-- / card -->
 			                              </div><!-- / column -->
@@ -171,16 +146,19 @@
 			                              
 												<div class="col-xl-100 ">
 												    <div class="card w-raised-icon lg-icon">
-												        <div class="card-body p-y-30">
+												        <div class="card-body p-y-30" style="height: 140px; overflow-y: hidden;">
 												            <div class="row">
 												                <div class="col-md-6">
-												                    <h5 class="card-title ">결제2금액</h5>
+												                    <h5 class="card-title ">상품 이름</h5>
+												                    <div></div>
+												                    <h5 class="card-title ">${ticketInfo.ottkindDTO.ottName} ${ticketInfo.ticketMonth }개월 티켓</h5>
+												                    
 												                </div><!-- / column -->
 												
 												                <div class="col-md-6 text-right">
 												                    
 												                    <h5 class="card-title">금액</h5>
-												                    <h5 class="card-title">20000-2000 = 18000원</h5>
+												                    <h5 id="totalPrice" class="card-title">${ticketInfo.ticketPrice }원</h5>
 												                </div><!-- / column -->
 												            </div><!-- / row -->
 												        </div><!-- / card-body -->
@@ -190,20 +168,20 @@
 			                            </div><!-- / doc-info -->
 			
 			                            <div class="doc-result-footer text-center">
-			                            <a href="#x" class="btn btn-primary pill">결제하기!</a>
-			                            <a href="#x" class="btn btn-primary pill">당신은 결제를 취소할 수 없습니다.</a>
+			                            <button id ="payButton" type="button" class="btn btn-primary pill">결제하기!</button>
+			                            <a href="/withyFinal/ticketBooth/" class="btn btn-primary pill">당신은 결제를 취소할 수 없습니다.</a>
 			                            </div><!-- / doc-result-footer -->
 			
 			                        </div><!-- / doc-holder -->
 			                    </div><!-- / doc-wrapper -->
 			                    <!-- / cards -->
 			
-			                </div><!-- / column -->
 			            </div><!-- / row -->
 			        </div><!-- / doc-container -->
 			    </div><!-- / productmain -->
             </div><!-- / container -->
         </section>
+            
         <!-- / about-me -->
     </div><!-- / main-container -->
 
@@ -270,6 +248,213 @@
     <button type="button" id="back-top" class="btn btn-icon btn-circle btn-primary btn-floating raised-sm">
         <i class="fas fa-chevron-up"></i>
     </button>
+
+	<script type="text/javascript">
+	
+	
+	
+	var totalPrice = 0;
+
+	$('#usePointInput').on('input', function(event) {
+		
+		var userPoint = parseInt(${userInfo.userPoint});
+		var selectPoint = parseInt($(this).val());
+		
+		if(selectPoint > userPoint){
+			
+			$(this).val(userPoint);
+		}
+	});
+	
+	
+	$("#pointUseButton").click(function(event){
+		var selectPoint = $("#usePointInput").val()
+		
+		let ticketPrice = parseInt(${ticketInfo.ticketPrice });
+		
+		if(selectPoint == 0 || selectPoint === ""){
+			$("#usePoint").text("사용 포인트 : 0");
+			$("#totalPrice").text(ticketPrice+"원");
+			return;
+		}
+		
+		$("#usePoint").text("사용 포인트 : " + selectPoint);
+		
+		totalPrice = ticketPrice-selectPoint;
+		
+		$("#totalPrice").text(ticketPrice + " - " + selectPoint + " = " + totalPrice + "원");
+		
+	});
+	
+	
+	$("#payButton").click(function() {
+		var pg=$(this).attr("id");
+		//alert(pg);
+		
+		var IMP=window.IMP;
+		//IMP 객체 초기화 - 가맹점 식별코드
+		IMP.init("imp37020058");
+		
+		//주문번호 - 주문테이블에서 제공된 값 사용
+		var merchantUid="merchant_"+new Date().getTime();
+		//결제금액 - 주문테이블에서 제공된 값 사용
+		var amount=10;
+		
+		//결제 전 주문번호와 결제금액을 세션에 저장하기 위한 페이지 요청
+		// => 결제 후 결제정보와 비교하여 검증하기 위해 세션에 저장 
+		$.ajax({
+			type: "post",
+			url: "<c:url value="/pay/payment"/>",
+			contentType: "application/json",
+			data: JSON.stringify({"merchantUid":merchantUid, "amount":amount}),
+			dataType: "text",
+			success: function(result) {
+				if(result=="ok") {
+					//결제를 요청하는 메소드 호출
+					IMP.request_pay({
+						// 결제 대행사 : kakaopay, html5_inicis, nice, jtnet, uplus, danal, payco 등
+						pg : pg,
+						// 결제 방식 : card(카드), samsung(삼성페이), trans(실시간계좌이체), vbank(가상계좌), phone(휴대폰소액결제)
+						pay_method : "card",
+						//주문번호
+						merchant_uid : merchantUid,
+						//결제금액
+						amount : amount,
+						//결제창에 보여질 제품명
+						name: "컴퓨터",
+						//결제 사용자의 이메일 주소 
+			            buyer_email: "ocj1778@hanmail.net",
+			            buyer_name: "홍길동",//결제 사용자 이름
+			            buyer_tel: "010-1234-5678",//결제 사용자 전화번호
+			            buyer_postcode: "123-456",//결제 사용자 우편번호
+			            buyer_addr: "서울시 강남구 역삼동 내빌딩 4층 3강의실",//결제 사용자 주소
+						//m_redirect_url: "http://localhost:8000:auth/payment/pay",//모바일의 리다이렉트 URL 주소
+					}, function(response) {//결제 관련 응답 결과를 제공받아 처리하는 함수
+						//response : 응답결과를 저장한 Object 객체
+						if (response.success) {//결제한 경우
+							//결제금액을 검증하기 위한 페이지를 요청
+							$.ajax({
+								type: "post",
+								url: "<c:url value="/pay/complate"/>",
+								contentType: "application/json",
+								data: JSON.stringify({"impUid": response.imp_uid, "merchantUid": response.merchant_uid}),
+								dataType: "text",
+								success: function(result) {
+									if(result == "success") {
+										//결제 성공 페이지로 이동
+										alert("결제 성공");
+									} else {
+										//결제 실패 페이지로 이동
+										alert("결제 취소");
+									}
+								}, 
+								error: function(xhr) {
+									alert("에러 = "+xhr.status);
+								}
+							});
+						}
+					});
+				}
+			}, 
+			error: function(xhr) {
+				alert("에러 = "+xhr.status);
+			}
+		});
+		
+	});
+	
+	
+	/*
+	titleTextDiv()
+	userInfo(userNo);
+	ticketInfo(ticketCode);
+	pointInfo();
+	totalPrice();
+    
+    
+	function userInfo(userNo) {
+
+	$.ajax({
+		type:"get",
+		contentType: "application/json",
+		url: "<c:url value="/payment/payment_user_data"/>",
+		data: {"userNo": userNo},
+		dataType: "json",
+		success: function(user) { 
+			
+			userPoint = user.userPoint;
+			
+			var html = "<h5 class='card-title mt-40'>고객 정보</h5>";
+				html +="<p class='card-text'>고객이름: "+user.userName+" </p>";
+				html +="<p class='card-text'>고객아이디: "+user.userId+"</p>";
+				html +="<p class='card-text'>고객닉네임: "+user.userName+"</p>";
+				html +="<p class='card-text'>고객전화번호: "+user.userPhone+"</p>";
+				
+			$("#userInfoDiv").html(html);
+			
+		},
+		error: function(xhr) {
+			alert("에러코드(게시글 목록 검색) = "+xhr.status);
+		}
+	});
+}
+	function ticketInfo(ticketCode) {
+		
+		$.ajax({	
+			type:"get",
+			contentType: "application/json",
+			url: "<c:url value="/ticketBooth/ticket_info"/>",
+			data: {"ticketCode":ticketCode},
+			dataType: "json",
+			success: function(ticket) { 
+				
+				ticketPrice = ticket.ticketPrice;
+				
+				var html = "<h5 class='card-title mt-40'>주문 상품</h5>";
+					html +="<p class='card-text'>티켓 이름 : "+ticket.ottkindDTO.ottName+" "+ticket.ticketMonth+"개월 티켓</p>";
+					html +="<p class='card-text'>OTT : "+ticket.ottkindDTO.ottName+"</p>";
+					html +="<p class='card-text'>기간 : "+ticket.ticketMonth+"개월</p>";
+					html +="<p class='card-text'>요금 : "+ticketPrice+"</p>";
+				
+				$("#ticketInfoDiv").html(html);
+				
+				totalPrice();
+			},
+			error: function(xhr) {
+				alert("에러코드(게시글 목록 검색) = "+xhr.status);
+			}
+		});
+	}
+	
+	function pointInfo(){
+		 
+        var html = "<h5 class='card-title mt-40'>포인트</h5>";
+        	html +="<p class='card-text'>현제 포인트 : 2000</p>";
+        	html +="<div class='input-group input-w-overlap-btn mb-0'>";
+        	html +="<input type='text' class='form-control rounded-sm' placeholder='사용금액'>";
+        	html +="<span class='input-group-btn'>";
+        	html +="<button class='btn btn-sm btn-primary lh-0 overlapping-btn big-btn rounded-sm' type='button'>사용</button>";
+        	html +="</span>";<!-- / input-group-btn -->
+        	html +="</div>";<!-- / input-group -->
+        	html +="<p class='card-text'>사용 포인트 : 200</p>";
+        $("#pointInfoDiv").html(html);
+	}
+	
+	
+	
+	
+	
+	function totalPrice(){
+		
+		var html = "<h5 class='card-title'>"+ticketPrice+"-2000 = 18000원</h5>"
+		
+		$("#totalPriceDiv").html(html);
+	}
+*/	
+	
+	</script>
+
+
 
     <!-- Core JavaScript -->
     <script src="<c:url value="/js/bootstrap.bundle.min.js"/>"></script>

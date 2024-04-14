@@ -45,4 +45,9 @@ public class InquiryDAOImpl implements InquiryDAO {
 		return sqlSession.getMapper(InquiryMapper.class).selectInquiryList(map);
 	}
 
+	@Override
+	public InquiryDTO selectUserInquiry(int inquryUserNo) {
+		return sqlSession.getMapper(InquiryMapper.class).selectUserInquiry(inquryUserNo);
+	}
+
 }

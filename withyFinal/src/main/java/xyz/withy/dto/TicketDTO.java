@@ -34,7 +34,8 @@ public class TicketDTO {
 	private int ticketNo;
 	
 	private int rn;	// NO
-
+	private String originalTicketCode;	// 변경 전 티켓코드
+	
 	private OttkindDTO ottkindDTO;
 	private String ottName;
 	

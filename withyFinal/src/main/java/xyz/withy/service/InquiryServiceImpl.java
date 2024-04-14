@@ -71,5 +71,14 @@ public class InquiryServiceImpl implements InquiryService{
 			return resultMap;
 		}
 
+		@Override
+		public InquiryDTO getUserInquiry(int inquiryUserNo) {
+			InquiryDTO inquiry=inquiryDAO.selectInquiry(inquiryUserNo);
+			if(inquiry == null ) {
+				throw new RuntimeException("문의글을 찾을 수 없습니다.");
+		}
+			return inquiry;
+		}
+
 
 }

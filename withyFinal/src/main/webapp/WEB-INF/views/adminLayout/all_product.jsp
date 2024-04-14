@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"  %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html> 
 
@@ -59,9 +60,9 @@
 												<th width="10%" style="text-align: center;">NO</th>
 												<!-- <th width="10%" style="text-align: center;">코드</th> -->
 												<th width="20%" style="text-align: center;">종류</th>
-												<th width="10%" style="text-align: center;">기간</th>
+												<th width="15%" style="text-align: center;">기간</th>
 												<th width="20%" style="text-align: center;">요금</th>
-												<!-- <th width="10%" style="text-align: center;">OTT이미지</th> -->
+												<th width="15%" style="text-align: center;">상태</th>
 												<th width="10%" style="text-align: center;">티켓이미지</th>
 												<th width="10%" style="text-align: center;">수정</th>
 											</tr>
@@ -74,8 +75,13 @@
 												<td>${ticketPageList.ottName }</td>
 												<td>${ticketPageList.ticketMonth } 개월</td>
 												<td>${ticketPageList.ticketPrice } 원</td>
-												<%-- <td style="padding: 1px;"><img src="<c:url value="${ticketList.ottkindDTO.ottImage}"/>" width="30%"></td> --%>
-												<td style="padding: 1px;"><img src="<c:url value="${ticketPageList.ticketImage1}"/>" width="30%"></td>
+												<c:if test="${ticketPageList.ticketStatus == 1 }">
+													<td>판매중</td>
+												</c:if>
+												<c:if test="${ticketPageList.ticketStatus == 2 }">
+													<td style="color: red;">판매중지</td>
+												</c:if>
+												<td style="padding: 1px;"><img src="<c:url value='${fn:split(ticketPageList.ticketImage1, \"_\")[1]}'/>" width="30%"></td>
 												<td>
 													<a href="<c:url value="updateProduct"><c:param name="ticketCode" value="${ticketPageList.ticketCode}" /></c:url>" 
 														class="btn btn-xs btn-default add-tooltip" data-toggle="tooltip" data-original-title="Edit" data-container="body">

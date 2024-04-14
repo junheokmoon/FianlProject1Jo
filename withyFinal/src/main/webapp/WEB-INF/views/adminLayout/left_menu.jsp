@@ -130,8 +130,8 @@
 										<!--Submenu-->
 										<ul class="collapse">
 											<li><a href="<c:url value="/admin/allProduct"/>">전체 상품(이용권) 관리</a></li>
-											<li><a href="<c:url value="/admin/addProduct"/>">상품(이용권) 신규 등록</a></li>
 											<li><a href="<c:url value="/admin/addOtt"/>">OTT 신규 등록</a></li>
+											<li><a href="<c:url value="/admin/addProduct"/>">상품(이용권) 신규 등록</a></li>
 										</ul>
 									</li>
 									

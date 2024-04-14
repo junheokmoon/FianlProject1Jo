@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -155,10 +157,10 @@
 						<a href="<c:url value="/notice/detail"/>?noticeNo=${notice.noticeNo}">${notice.noticeTitle}</a>
 					</td>
 					<td class="ac mobileHide">
-						${notice.noticeDate}
+						${fn:substring(notice.noticeDate,0,10) }
 					</td>
 					<td class="ac mobileHide">
-						${notice.noticeCount}
+						${notice.noticeCount+1}
 					</td>
 				</tr>
 				</c:forEach>
