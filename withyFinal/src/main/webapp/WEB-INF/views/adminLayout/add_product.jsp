@@ -70,6 +70,7 @@
 										<label class="col-sm-3" for="aaaaa" style="text-indent: 5em;">종류</label>
 										<div class="col-sm-6">
 											<select class="selectpicker" name="ticketOttNo" >
+											    <option>종류를 선택하세요</option>
 												<c:forEach var="getOttNoAndNameList" items="${getOttNoAndNameList}">
 												    <option value="${getOttNoAndNameList.ottNo}">${getOttNoAndNameList.ottName}</option>
 												</c:forEach>
@@ -80,6 +81,7 @@
 										<label class="col-sm-3" for="bbbbb" style="text-indent: 5em;">기간</label>
 										<div class="col-sm-6">
 											<select class="selectpicker" name="ticketMonth" >
+												<option>기간을 선택하세요</option>
 									            <c:forEach var="getTicketMonthList" items="${getTicketMonthList}">
 									                <option value="${getTicketMonthList.ticketMonth}">${getTicketMonthList.ticketMonth }</option>
 									            </c:forEach>
