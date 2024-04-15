@@ -38,30 +38,11 @@
 
 <body>
 
-    <div id="loader-wrapper">
-        <div id="loader"></div>
-        <div class="loader-section section-left"></div>
-        <div class="loader-section section-right"></div>
-    </div>
-
     <div id="home"></div>
 
-    <nav id="nav-scroll" class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+    <header class="w-absolute-nav bg-white text-left">
         <div class="container">
-            <a class="navbar-brand" href="/index.html"><img src="<c:url value="/images/logo.png"/>" alt=""></a>
-
-            <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-toggle-nav-center" aria-controls="navbar-toggle-nav-center" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="icon-bar top-bar"></span>
-                <span class="icon-bar middle-bar"></span>
-                <span class="icon-bar bottom-bar"></span>
-                <span class="sr-only">Toggle navigation</span>
-            </button><!-- / navbar-toggler -->
-        </div><!-- / container -->
-    </nav>
-
-    <header class="page-header w-absolute-nav bg-white text-left">
-        <div class="container">
-            <h1 class="page-title mb-10">결2제</h1>
+            <h1 class="page-title mb-10">결제</h1>
             <nav class="breadcrumb p-y-0 p-x-0 mb-0">
                 <a class="breadcrumb-item" href="/withyFinal/">홈</a>
                 <a class="breadcrumb-item" href="/withyFinal/ticketBooth/">상품</a>
@@ -185,66 +166,6 @@
         <!-- / about-me -->
     </div><!-- / main-container -->
 
-    <div class="footer-wrapper bg-light">
-        <div class="footer-widget-area bg-transparent">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 col-xl-4">
-                        <div class="widget">
-                            <img src="/resources/images/logo.png" class="footer-logo mb-20" alt="">
-                            <p class="fs-16 title-color">© 2021 MiOne by <a href="https://kingstudio.ro" target="_blank">KingStudio</a></p>
-                            <p>
-                                <a href="#x" class="text-link mr-20"><i class="fab fa-facebook-f"></i></a>
-                                <a href="#x" class="text-link mr-20"><i class="fab fa-twitter"></i></a>
-                                <a href="#x" class="text-link mr-20"><i class="fab fa-dribbble"></i></a>
-                                <a href="#x" class="text-link"><i class="fab fa-instagram"></i></a>
-                            </p>
-                        </div><!-- / widget -->
-                    </div><!-- / column -->
-
-                    <div class="col-xl-4">
-                        <div class="widget">
-                            <div class="row">
-                                <div class="col-6 tablet-xl-top">
-                                    <ul class="list-unstyled list-has-link menu-list mb-0">
-                                        <li class="mb-20 fs-14 title-color fw-medium">COMPANY</li>
-                                        <li><a href="#x">About Us</a></li>
-                                        <li><a href="#x">Contact Us</a></li>
-                                        <li><a href="#x">Privacy Policy</a></li>
-                                        <li class="mb-0"><a href="#x">Terms & Conditions</a></li>
-                                    </ul><!-- / list-unstyled -->
-                                </div><!-- / column -->
-
-                                <div class="col-6">
-                                    <ul class="list-unstyled list-has-link menu-list mb-0">
-                                        <li class="mb-20 fs-14 title-color fw-medium">USEFUL LINKS</li>
-                                        <li><a href="#x">FAQ</a></li>
-                                        <li><a href="#x">Support</a></li>
-                                        <li><a href="#x">Documentation</a></li>
-                                        <li class="mb-0"><a href="#x">Knowledge Base</a></li>
-                                    </ul><!-- / list-unstyled -->
-                                </div><!-- / column -->
-                            </div><!-- / row -->
-                        </div><!-- / widget -->
-                    </div><!-- / column -->
-
-                    <div class="col-md-9 col-xl-4">
-                        <div class="widget">
-                            <h6 class="widget-title">Subscribe to Newsletter</h6>
-                            <p class="mb-10">Quisque aliquet lorem nec dui posuere des:</p>
-                            <div class="input-group input-w-overlap-btn mb-15">
-                                <input type="text" class="form-control rounded-sm" placeholder="Email">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-sm btn-dark lh-0 overlapping-btn big-btn btn-subscribe rounded-sm" type="button"><i class="fas fa-paper-plane mr-5"></i> Subscribe</button>
-                                </span><!-- / input-group-btn -->
-                            </div><!-- / input-group -->
-                        </div><!-- / widget -->
-                    </div><!-- / column -->
-                </div><!-- / row -->
-            </div><!-- / container -->
-        </div><!-- / footer-widget-area -->
-    </div><!-- / footer-wrapper -->
-
     <button type="button" id="back-top" class="btn btn-icon btn-circle btn-primary btn-floating raised-sm">
         <i class="fas fa-chevron-up"></i>
     </button>
@@ -257,22 +178,49 @@
 
 	$('#usePointInput').on('input', function(event) {
 		
-		var userPoint = parseInt(${userInfo.userPoint});
-		var selectPoint = parseInt($(this).val());
+		let userPoint = parseInt(${userInfo.userPoint});
+		let selectPoint = parseInt($(this).val());
+		let ticketPrice = parseInt(${ticketInfo.ticketPrice });
+		
+		
+		
 		
 		if(selectPoint > userPoint){
 			
 			$(this).val(userPoint);
 		}
+		
+		if(ticketPrice < selectPoint){
+			
+			$(this).val(ticketPrice);
+		}
+		
 	});
 	
 	
 	$("#pointUseButton").click(function(event){
-		var selectPoint = $("#usePointInput").val()
-		
+		let selectPoint = $("#usePointInput").val()
+		let userPoint = parseInt(${userInfo.userPoint});
 		let ticketPrice = parseInt(${ticketInfo.ticketPrice });
 		
-		if(selectPoint == 0 || selectPoint === ""){
+		if(selectPoint%10 != 0){
+			selectPoint = Math.round(selectPoint/10)*10;
+			$("#usePoint").text("사용 포인트 : " + selectPoint);
+			$("#usePointInput").text(selectPoint);
+			
+		}
+		
+		if(selectPoint > userPoint){
+			
+			$(this).val(userPoint);
+		}
+		
+		if(ticketPrice < selectPoint){
+			
+			$(this).val(ticketPrice);
+		}
+		
+		if(selectPoint == 0 || selectPoint == ""){
 			$("#usePoint").text("사용 포인트 : 0");
 			$("#totalPrice").text(ticketPrice+"원");
 			return;
@@ -281,13 +229,16 @@
 		$("#usePoint").text("사용 포인트 : " + selectPoint);
 		
 		totalPrice = ticketPrice-selectPoint;
-		
 		$("#totalPrice").text(ticketPrice + " - " + selectPoint + " = " + totalPrice + "원");
 		
 	});
 	
 	
 	$("#payButton").click(function() {
+		
+		if(totalPrice == 0);
+		
+		
 		var pg=$(this).attr("id");
 		//alert(pg);
 		

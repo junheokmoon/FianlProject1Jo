@@ -17,10 +17,8 @@ public class OttkindRestController {
 
 	private final OttkindService ottkindService;
 	
-	@GetMapping("/ottName_list")
+	@GetMapping("/ottName_list") //OTT 종류를 가져오는 메소드
 	public List<OttkindDTO> ottkindNameList(){
-		System.out.println("ottkindNameList 정상 실행중");
-		
 		return ottkindService.getTicketNameList();
 	};
 }

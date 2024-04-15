@@ -60,9 +60,15 @@
 		select distinct ticket_month from ticket order by ticket_month asc
 	</select>
 	
-	<select id="selectTicketList" resultMap="ticketListResultMap"><!-- 전체 상품(이용권) 보기 -->
-	 	select t.ticket_code, t.ticket_price, t.ticket_image1, t.ticket_image2, t.ticket_ott_no, t.ticket_month, t.ticket_status, t.ticket_no, o.ott_name, o.ott_image, o.ott_cd
-			from ticket t left join ottkind o on t.ticket_ott_no = o.ott_no order by t.ticket_no desc
+	<!-- 전체 상품(이용권) 보기 -->
+	<select id="selectTicketList" resultMap="ticketListResultMap">
+	 	select t.ticket_code, t.ticket_price, t.ticket_image1
+	 		, t.ticket_image2, t.ticket_ott_no, t.ticket_month
+	 		, t.ticket_status, t.ticket_no, o.ott_name
+	 		, o.ott_image, o.ott_cd
+			from ticket t left 
+			join ottkind o on t.ticket_ott_no = o.ott_no 
+			order by t.ticket_no desc
 	</select>
 
 	<select id="selectTicketCount"  resultType="int"><!-- 전체 티켓 수(페이징) -->

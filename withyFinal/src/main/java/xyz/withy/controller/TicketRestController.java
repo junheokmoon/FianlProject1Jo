@@ -20,21 +20,19 @@ public class TicketRestController {
 	
 	private final TicketService ticketService;
 	
-	@GetMapping("/ticket_list")
+	@GetMapping("/ticket_list") //티켓의 리스트를 불러오는 메소드
 	public List<TicketDTO> ticketList() {
-		System.out.println("티켓 리스토!!"); 
 		
 		return ticketService.getTicketList();
 	}
 	
-	@GetMapping("/ticket_month")
+	@GetMapping("/ticket_month") //티켓의 개월수의 종류를 불러오는 메소드
 	public List<TicketDTO> monthList() {
-		System.out.println("개월 수 리스토!!");
 		
 		return ticketService.getTicketMonthList();
 	}
 
-	@GetMapping("/ticket_info")
+	@GetMapping("/ticket_info") // 티켓의 정보를 불러오는 메소드
 	public TicketDTO ticketInfo(@RequestParam(defaultValue = "24_6")String ticketCode) {
 		
 		System.out.println("ticketCode =" +ticketCode);

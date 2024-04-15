@@ -14,7 +14,7 @@
     <div id="home"></div>
 
 
-    <header class="page-header w-absolute-nav bg-white text-left">
+    <header class="w-absolute-nav bg-white text-left">
         <div class="container">
             <h1 class="page-title mb-10">매표소</h1>
             <nav class="breadcrumb p-y-0 p-x-0 mb-0">
@@ -56,75 +56,15 @@
         </section>
     </div><!-- / main-container -->
 
-    <div class="footer-wrapper bg-light">
-        <div class="footer-widget-area bg-transparent">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 col-xl-4">
-                        <div class="widget">
-                            <img src='<c:url value="/assets/images/logo.png"/>' class="footer-logo mb-20" alt="">
-                            <p class="fs-16 title-color">© 2021 MiOne by <a href="https://kingstudio.ro" target="_blank">KingStudio</a></p>
-                            <p>
-                                <a href="#x" class="text-link mr-20"><i class="fab fa-facebook-f"></i></a>
-                                <a href="#x" class="text-link mr-20"><i class="fab fa-twitter"></i></a>
-                                <a href="#x" class="text-link mr-20"><i class="fab fa-dribbble"></i></a>
-                                <a href="#x" class="text-link"><i class="fab fa-instagram"></i></a>
-                            </p>
-                        </div><!-- / widget -->
-                    </div><!-- / column -->
-
-                    <div class="col-xl-4">
-                        <div class="widget">
-                            <div class="row">
-                                <div class="col-6 tablet-xl-top">
-                                    <ul class="list-unstyled list-has-link menu-list mb-0">
-                                        <li class="mb-20 fs-14 title-color fw-medium">COMPANY</li>
-                                        <li><a href="#x">About Us</a></li>
-                                        <li><a href="#x">Contact Us</a></li>
-                                        <li><a href="#x">Privacy Policy</a></li>
-                                        <li class="mb-0"><a href="#x">Terms & Conditions</a></li>
-                                    </ul><!-- / list-unstyled -->
-                                </div><!-- / column -->
-
-                                <div class="col-6">
-                                    <ul class="list-unstyled list-has-link menu-list mb-0">
-                                        <li class="mb-20 fs-14 title-color fw-medium">USEFUL LINKS</li>
-                                        <li><a href="#x">FAQ</a></li>
-                                        <li><a href="#x">Support</a></li>
-                                        <li><a href="#x">Documentation</a></li>
-                                        <li class="mb-0"><a href="#x">Knowledge Base</a></li>
-                                    </ul><!-- / list-unstyled -->
-                                </div><!-- / column -->
-                            </div><!-- / row -->
-                        </div><!-- / widget -->
-                    </div><!-- / column -->
-
-                    <div class="col-md-9 col-xl-4">
-                        <div class="widget">
-                            <h6 class="widget-title">Subscribe to Newsletter</h6>
-                            <p class="mb-10">Quisque aliquet lorem nec dui posuere des:</p>
-                            <div class="input-group input-w-overlap-btn mb-15">
-                                <input type="text" class="form-control rounded-sm" placeholder="Email">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-sm btn-dark lh-0 overlapping-btn big-btn btn-subscribe rounded-sm" type="button"><i class="fas fa-paper-plane mr-5"></i> Subscribe</button>
-                                </span><!-- / input-group-btn -->
-                            </div><!-- / input-group -->
-                        </div><!-- / widget -->
-                    </div><!-- / column -->
-                </div><!-- / row -->
-            </div><!-- / container -->
-        </div><!-- / footer-widget-area -->
-    </div><!-- / footer-wrapper -->
-
     <button type="button" id="back-top" class="btn btn-icon btn-circle btn-primary btn-floating raised-sm">
         <i class="fas fa-chevron-up"></i>
     </button>
 
     <script type="text/javascript">
     
-        ottList();
-        monthList();
-        ticketList();
+    ottList();
+    monthList();
+    ticketList();
     
     function ticketList(){
         $.ajax({
@@ -194,7 +134,6 @@
     			if(result.length === 0){
     				html+="<button class='btn filter-btn'>준비중</button>";
     			};	
-    			
     			if(result.length !== 0){
     				html+="<button class='btn filter-btn is-checked' data-filter='*'>All</button>";
     				
@@ -204,15 +143,6 @@
     				})
     			};
                 $("#ottListDiv").html(html);
-                
-                /*
-                $('.filters-button-group button').on('click', function() {
-                	  var filterValue = $(this).attr('data-filter');
-                	  // 필터링된 요소를 보여주거나 숨깁니다.
-                	  $('.grid-item').hide();
-                	  $(filterValue).show();
-                	});
-                */
     		},
     		error:function(xhr) {
 				alert("에러코드(개월 수 리스트 불러오기 오류) = "+xhr.status);
@@ -222,10 +152,8 @@
     
     function monthList(html){
     	if(html===null||html===""){
-    		
     		html="";
     	}
-    	
     	$.ajax({
     		type:"get",
     		url:"<c:url value="/ticketBooth/ticket_month"/>",
@@ -233,21 +161,15 @@
     		success: function(result){
     			var html="";
     			if(result.length === 0){
-    				
     				html+="<button class='btn filter-btn'>준비중</button>";
-    				
     			};	
-    			
     			if(result.length !== 0){
-    				
     				result.forEach(function(monthNo){
 	    				let monthTx = monthChainger(monthNo);
 	  			  		html+="<button class='btn filter-btn' data-filter='."+monthTx+"'>"+monthNo+"개월</button>";
     				})
-    				
     			};
                 $("#monthListDiv").html(html);
-                
                 $('.grid').isotope({
                     layoutMode: 'masonry',
                     itemSelector: '.grid-item'
