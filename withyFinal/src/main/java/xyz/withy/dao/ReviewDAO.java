@@ -15,6 +15,7 @@ public interface ReviewDAO {
 	//List<programDTO> selectProgramList();
 	 List<ReviewDTO> selectReveiwJoinList();
 	 List<ReviewDTO> selectReviewsByProgramNo(Integer programNo);
+	 double selectAverageStar(Integer programNo);
 
 
 }

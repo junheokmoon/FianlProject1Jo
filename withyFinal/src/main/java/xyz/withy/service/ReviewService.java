@@ -11,5 +11,6 @@ public interface ReviewService {
 	void removeReview(int reviewNo);
 	List<ReviewDTO> getReviewJoinList();
 	List<ReviewDTO> getReviewsByProgramNo(Integer programNo);
+	double getAverageStar(Integer programNo);
 
 }

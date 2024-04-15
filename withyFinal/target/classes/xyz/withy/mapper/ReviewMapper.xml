@@ -40,10 +40,21 @@
 				join program on review_program_no=program_no order by review_date desc
 	</select>
 	
+	<!-- 
 	<select id="selectReviewsByProgramNo" resultType="ReviewDTO">
     	select review_no, review_star,review_comment, review_user_no
 			,review_date ,review_program_no from review
     			 reviewProgramNo = #{programNo}
+	</select>
+	 -->
+	
+	<select id="selectReviewsByProgramNo" resultType="ReviewDTO">
+    	select review_no, review_star, review_comment, review_user_no, review_date, review_program_no
+    		from review where review_program_no = #{programNo}
+	</select>
+	
+	<select id="selectAverageStar" parameterType="int" resultType="double">
+    	select avg(review_star) as averageStar from review where review_program_no = #{programNo}
 	</select>
 	
 	

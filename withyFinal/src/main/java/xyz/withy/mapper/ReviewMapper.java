@@ -14,5 +14,5 @@ public interface ReviewMapper {
 	 List<ReviewDTO> selectReviewList(Map<String, Object> map);
 	 List<ReviewDTO> selectReveiwJoinList();
 	 List<ReviewDTO> selectReviewsByProgramNo(Integer programNo);
-	 
+	 double selectAverageStar(Integer programNo);
 }

@@ -54,6 +54,11 @@ public class ReviewDAOImpl implements ReviewDAO{
 	public List<ReviewDTO> selectReviewsByProgramNo(Integer programNo) {
 		return sqlSession.getMapper(ReviewMapper.class).selectReviewsByProgramNo(programNo);
 	}
+
+	@Override
+	public double selectAverageStar(Integer programNo) {
+		return sqlSession.getMapper(ReviewMapper.class).selectAverageStar(programNo);
+	}
 	
 }
 

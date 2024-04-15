@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -47,6 +48,34 @@
 	width: 100%; /* 부모 요소의 100% 너비를 차지하도록 설정 */
 }
 
+.review-rating {
+     color: orange; 
+     margin-right: 10px;
+}
+    
+.review-writeStar {
+	color: orange; 
+    margin-right: 10px;
+}
+
+.star-rating {
+    font-size: 30px;
+    color: black;
+    cursor: pointer;
+}
+
+#review_subject {
+    text-align: center;
+}
+
+#starmessage {
+	font-size: 1em;
+}
+.checked {
+	color: orange;
+}
+
+
 
 </style>
 <meta charset="utf-8">
@@ -85,9 +114,24 @@
                     <!-- 텍스트 콘텐츠 -->
                     <div class="page-title mb-0">${program.programName}</div>
                     <p class="lead w-80 m-y-30" data-aos="fade-in" data-aos-delay="100">${program.programDetail}</p>
-                    <p>별점 평균 : ★★★★</p>
-                    <p>tv프로그램</p>
-                    <a href="#about-us" class="btn btn-outline-primary mr-5"><i class="fas fa-user mr-5"></i> <span>위티 참여하기</span></a>
+                    <p>별점 평균 :
+					    <c:forEach begin="1" end="${averageStar}" var="i">
+					        <span style="color: orange;">★</span>
+					    </c:forEach>
+					    <c:forEach begin="${averageStar + 1}" end="5" var="i">
+					        <span style="color: orange;">☆</span>
+					    </c:forEach>
+					</p>
+				    <p>프로그램 장르 : 
+				        <c:choose>
+				            <c:when test="${program.programCategoryNo == 1}">영화</c:when>
+				            <c:when test="${program.programCategoryNo == 2}">드라마</c:when>
+				            <c:when test="${program.programCategoryNo == 3}">예능</c:when>
+				            <c:when test="${program.programCategoryNo == 4}">다큐</c:when>
+				        </c:choose>
+				     </p>
+                    <a href="<c:url value="/party"/>" class="btn btn-dark pill mr-5"><i
+								class="fas fa-cog mr-5" ></i> <span>당장 위티 참여!</span></a>
                 </div>
             </div>
         </div>
@@ -120,15 +164,21 @@
 			<div class="col-lg-6">
 				<div id="reviewWriteBox" class="promo-box p-y-80 p-x-50"
 					data-aos="fade-up" data-aos-delay="300">
-					<form class="needs-validation" id="form-validation5"
-						novalidate="novalidate">
+					<form name="reveiwForm" method="post" class="needs-validation" id="form-validation5" novalidate="novalidate">
 						<div class="row">
 							<div class="col-md-6">
 								<div class="form-group">
-									<p>평점 5개 만점!</p>
-									<h5>★★★★★</h5>
-
+								    <%--<span class="text-bold">5개 만점! 별점을 선택해주세요!</span>&nbsp;&nbsp; --%>
+									    <div class="star-rating">
+									        <span class="star" onclick="setRating(1)">☆</span>
+									        <span class="star" onclick="setRating(2)">☆</span>
+									        <span class="star" onclick="setRating(3)">☆</span>
+									        <span class="star" onclick="setRating(4)">☆</span>
+									        <span class="star" onclick="setRating(5)">☆</span>
+									    </div>
+								    <h5 id="starmessage" style="color: red;">별 다섯개 만점! 선택 후 리뷰등록이 가능합니다.</h5>
 								</div>
+								<input type="hidden" id="ratingValue" name="ratingValue">
 							</div>
 							<div class="col-md-6">
 								<div class="form-group"></div>
@@ -148,13 +198,7 @@
 		</div>
 	</section>
 
-	<tbody>
-							
 
-
-	<%--
-	for (int i = 0; i <= 10; i++) {
-	--%>
 	<c:forEach var="review" items="${reviewList}">
 	<section class="reviewWriteBox"
 		style="display: flex; justify-content: center;">
@@ -167,9 +211,10 @@
 
 						<div style="display: flex; align-items: center;">
 							<p>
-								${review.reviewUserNo}<br>
+								${review.reviewUserNo}<br>&nbsp;&nbsp;
 							</p>
-							<h5 style="color: orange; margin-right: 10px;">${review.reviewStar}</h5>
+							<h5 class="review-rating" data-rating="${review.reviewStar}"></h5>&nbsp;&nbsp;
+							<%--h5 style="color: orange; margin-right: 10px;">${review.reviewStar}</h5> --%>
 							<h7>${review.reviewDate}</h7>
 						</div>
 					</div>
@@ -190,6 +235,7 @@
 		</div>
 	</section>
 	</c:forEach>
+	</tbody>
 
 	<button id="loadMore" style="display: block; margin: 20px auto;">더보기</button>
 
@@ -240,11 +286,16 @@
 	document.addEventListener("DOMContentLoaded", function() {
 	    let reviews = document.querySelectorAll(".reviewWriteBox");
 	    let loadMoreBtn = document.getElementById("loadMore");
-	    let currentItem = 5; // 초기에 보여줄 리뷰의 수
 
-	    // 초기 설정: 초과하는 항목 숨기기
+	    // 초기 5개 리뷰만 보여주기
+	    let currentItem = 5;
 	    for (let i = currentItem; i < reviews.length; i++) {
 	        reviews[i].style.display = 'none';
+	    }
+
+	    // 리뷰 개개수 5개 이하 버튼 안보이게
+	    if (reviews.length <= 5) {
+	        loadMoreBtn.style.display = 'none';
 	    }
 
 	    // 더보기 버튼 클릭 이벤트
@@ -260,6 +311,47 @@
 	        }
 	    });
 	});
+	
+	
+	 //별점작성
+	function setRating(rating) {
+    const stars = document.querySelectorAll('.star');
+    document.getElementById('ratingValue').value = rating;  // 숫자 평점을 저장
+
+    stars.forEach((star, index) => {
+        if (index < rating) {
+            star.textContent = '★';
+            star.classList.add('checked');
+        } else {
+            star.textContent = '☆';
+            star.classList.remove('checked');
+        }
+    });
+
+    // 별점 선택 시 메시지 숨기기 및 버튼 활성화
+    const saveBtn = document.getElementById('saveBtn');
+    if (rating > 0) {
+        saveBtn.disabled = false;
+        document.getElementById('starmessage').style.display = 'none';
+    } else {
+        saveBtn.disabled = true;
+        document.getElementById('starmessage').style.display = 'block';
+    }
+}
+
+	
+	//별점불러오기 구현 
+	document.addEventListener("DOMContentLoaded", function() {
+    let ratings = document.querySelectorAll('.review-rating');
+
+    ratings.forEach(function(rating) {
+        let score = parseInt(rating.getAttribute('data-rating'));
+        let starsFull = '★'.repeat(score);
+        let starsEmpty = '☆'.repeat(5 - score);
+        rating.textContent = starsFull + starsEmpty; // 별점 표시를 위해 textContent 사용
+    });
+});
+
 
 	</script>
 

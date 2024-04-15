@@ -41,6 +41,11 @@ public class ReviewServiceImpl implements ReviewService {
 		return reviewDAO.selectReviewsByProgramNo(programNo);
 	}
 
+	@Override
+	public double getAverageStar(Integer programNo) {
+		return reviewDAO.selectAverageStar(programNo);
+	}
+
 
 }
 	

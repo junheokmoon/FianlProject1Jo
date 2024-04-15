@@ -148,8 +148,8 @@
 							<p class="header-text fw-regular fs-16">무엇을 봐야할지 망설여지신다구요? 
 								<br>지금'위티'들의 리뷰를 확인하세요!!
 							</p>
-							<a href="#features" class="btn btn-dark pill mr-5"><i
-								class="fas fa-cog mr-5"></i> <span>당장 위티 참여!</span></a>
+							<a href="<c:url value="/party"/>" class="btn btn-dark pill mr-5"><i
+								class="fas fa-cog mr-5" ></i> <span>당장 위티 참여!</span></a>
 						</div>
 					</div>
 				</div>
