@@ -39,7 +39,7 @@ public class PaymentRestController {
 	public String pay(@RequestBody PaymentDTO payment) {
 		paymentService.addPayment(payment);
 		
-		userService.
+		//userService.
 		
 		return "success";
 	}
