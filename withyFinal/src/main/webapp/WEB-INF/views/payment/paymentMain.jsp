@@ -247,7 +247,7 @@
 				url: "<c:url value='/payment/pointComplete'/>",
 				//headers : 리퀘스트 메세지 머릿부(Header)에 저장된 정보를 변경하기 위한 속성
 				// => 리퀘스트 메세지 몸체부에 저장된 전달될 값의 파일형식(MimeType)을 변경
-				//headers:{"contentType":"applicaion/json"},
+				//headers:{"contentType":"applicaion/json"}, 
 				//contentType : 리퀘스트 메세지 몸체부에 저장된 전달될 값의 파일형식(MimeType)을
 				//변경하기 위한 속성
 				// => 리퀘스트 메세지 몸체부에 JSON 형식의 문자열로 값 전달
