@@ -54,8 +54,7 @@
 	</select>
 	
 	<select id="selectAverageStar" parameterType="int" resultType="double">
-    	select avg(review_star) as averageStar from review where review_program_no = #{programNo}
+    	select coalesce(AVG(review_star), 0.0) as averageStar from review where review_program_no = #{programNo}
 	</select>
-	
 	
 </mapper>
