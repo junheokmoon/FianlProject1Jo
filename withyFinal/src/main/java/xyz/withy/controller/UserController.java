@@ -22,9 +22,11 @@ import org.springframework.web.multipart.MultipartFile;
 import lombok.RequiredArgsConstructor;
 import xyz.withy.dto.OttkindDTO;
 import xyz.withy.dto.PointDTO;
+import xyz.withy.dto.ProgramDTO;
 import xyz.withy.dto.TicketDTO;
 import xyz.withy.service.OttkindService;
 import xyz.withy.service.PointService;
+import xyz.withy.service.ProgramService;
 import xyz.withy.service.TicketService;
 import xyz.withy.service.UserService;
 
@@ -37,6 +39,7 @@ public class UserController {
 	private final PointService pointService;
 	private final TicketService ticketService; 
 	private final OttkindService ottkindService; 
+	private final ProgramService programService;
 	private final WebApplicationContext context;
 	
 	@RequestMapping("/")
@@ -44,7 +47,6 @@ public class UserController {
 		model.addAttribute("userJoindateList", userService.getUserJoindateList());
 		model.addAttribute("addPointList", pointService.getAddPointList());
 
-		System.out.println("pointService.getAddPointList() = " + pointService.getAddPointList());
 		return "admin";
 	}
 
@@ -64,13 +66,6 @@ public class UserController {
 	@RequestMapping("/detailUser")
 	public String detailUser(@RequestParam String userId, Model model, HttpSession session) {
 		model.addAttribute("userinfo", userService.getUserinfo(userId));
-
-//        UserDTO userDTO = userService.getUserPoint(userId);
-//        if (userDTO == null) {
-//        	userDTO = new UserDTO();
-//        	userDTO.setPointTotal(0);
-//        }
-//        model.addAttribute("userDTO", userDTO);
         
         return "admin/detail_user";
 	}
@@ -142,7 +137,6 @@ public class UserController {
 
 	    String uploadDirectory = context.getServletContext().getRealPath("/resources/images");
 	    String fileName = multipartFile.getOriginalFilename();
-	    System.out.println("fileName1 = " +  fileName);
 
 	    // 파일이 첨부되지 않은 경우에 대한 처리
 	    if (!multipartFile.isEmpty()) {
@@ -163,13 +157,10 @@ public class UserController {
 	        // TicketDTO에 파일 경로를 설정합니다.
 	        ticket.setTicketImage1(newFileName);
 	    } else {
-	        // 파일이 첨부되지 않은 경우에는 기존 파일 경로를 그대로 사용합니다.
-		    System.out.println("fileName2 = " +  fileName);
+	        // 파일이 첨부되지 않은 경우에는 기존 파일 경로를 그대로 사용
 	        ticket.setTicketImage1(UUID.randomUUID().toString()+"_/images/ticketImg/"+fileName);
 	    }
 
-	    System.out.println("ticket = " + ticket);
-	    
 	    // 컨트롤러에서 originalTicketCode 값을 설정하여 DTO 객체에 추가
 	    ticket.setOriginalTicketCode(originalTicketCode);
 	    ticket.setTicketPrice(ticketPrice);
@@ -181,7 +172,6 @@ public class UserController {
 	
     @RequestMapping(value = "/deleteTicket", method = RequestMethod.POST)
     public String deleteTicket(@RequestParam("ticketCode") String ticketCode) {
-    	System.out.println("티켓삭제할거야!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         ticketService.removeTicket(ticketCode);
 	    return "redirect:/admin/allProduct";
     }
@@ -196,7 +186,6 @@ public class UserController {
 	public String addProduct(Model model) {
 	    model.addAttribute("getOttNoAndNameList", ottkindService.getOttNoAndNameList());	// ott종류 for문 돌림
 	    model.addAttribute("getTicketMonthList", ticketService.getTicketMonthList());		// 티켓기간 for문 돌림
-	    System.out.println("ticketService.getTicketMonthList() = " + ticketService.getTicketMonthList());
 	    
 	    return "admin/add_product";
 	}
@@ -217,8 +206,6 @@ public class UserController {
 		ticket.setTicketImage1(UUID.randomUUID().toString()+"_/images/ticketImg/"+multipartFile.getOriginalFilename());
 		multipartFile.transferTo(new File(uploadDirectory, ticket.getTicketImage1()));
 		ticketService.addTicket(ticket);
-		
-		System.out.println("ticket = " + ticket);
 		
         return "redirect:/admin/allProduct";
 	}
@@ -247,13 +234,22 @@ public class UserController {
 	/*********************** OTT(이용권) 관리 start ***********************/
 	
 	@RequestMapping("/allProgram")
-	public String allProgram() {
+	public String allProgram(@RequestParam(defaultValue = "1") int pageNum, Model model) {
+		
+		Map<String, Object> map=programService.getProgramList(pageNum);
+		
+		model.addAttribute("pager", map.get("pager"));
+		model.addAttribute("programList", map.get("programList"));
+		System.out.println("programList = " + map.get("programList"));
+		
 		return "admin/all_program";
 	}
 	
 	@RequestMapping("/detailProgram")
-	public String detailProgram() {
-		return "admin/detail_program";
+	public String detailProgram(@RequestParam int programNo, Model model, HttpSession session) {
+		model.addAttribute("programByNo", programService.getProgramByNo(programNo));
+        
+        return "admin/detail_program";
 	}
 	
 	@RequestMapping("/updateProgram")
@@ -262,9 +258,25 @@ public class UserController {
 	}
 	
 	@RequestMapping("/addProgram")
-	public String addProgram() {
+	public String addProgram(Model model) {
+		model.addAttribute("getOttNoAndNameList", ottkindService.getOttNoAndNameList());	// ott종류 for문 돌림
+	    
 		return "admin/add_program";
 	}
+	
+	@RequestMapping(value = "/saveProgram", method = RequestMethod.POST)
+	public String saveProduct(@ModelAttribute ProgramDTO programDTO, @RequestParam("programOttNo") int programOttNo
+			, @RequestParam("programCategoryNo") int programCategoryNo, @RequestParam("programVideo") String programVideo
+			, @RequestParam MultipartFile multipartFile) throws IOException {
+		// 파일 업로드 시작
+		String uploadDirectory=context.getServletContext().getRealPath("/resources/images");
+		programDTO.setProgramImage(UUID.randomUUID().toString()+"_/images/programImg/"+multipartFile.getOriginalFilename());
+		multipartFile.transferTo(new File(uploadDirectory, programDTO.getProgramImage()));
+		programService.addProgram(programDTO);
+		
+        return "redirect:/admin/allProgram";
+	}
+	
 	/*********************** OTT(이용권) 관리 end ***********************/
 
 	/*********************** 공지사항 관리 start ***********************/

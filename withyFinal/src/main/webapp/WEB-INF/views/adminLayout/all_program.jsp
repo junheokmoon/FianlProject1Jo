@@ -59,118 +59,59 @@
 												<th width="10%" style="text-align: center;">NO</th>
 												<th width="40%" style="text-align: center;">제목</th>
 												<th width="20%" style="text-align: center;">OTT</th>
-												<th width="10%" style="text-align: center;">타입</th>
-												<th width="10%" style="text-align: center;">연령</th>
+												<th width="20%" style="text-align: center;">타입</th>
 												<th width="10%" style="text-align: center;">수정</th>
 											</tr>
 										</thead>
 										<tbody>
-											<tr>
-												<td style="text-align: center;">1</td>
-												<td><a href="<c:url value="/admin/detailProgram"/>" class="btn-link">무빙</a></td>
-												<td>디즈니플러스</td>
-												<td>드라마</td>
-												<td>19세이상</td>
-												<td>
-													<a class="btn btn-xs btn-default add-tooltip" data-toggle="tooltip" href="<c:url value="/admin/updateProgram"/>" data-original-title="Edit" data-container="body"><i class="fa fa-pencil"></i></a>
-												</td>
-											</tr>
-											
-											<tr>
-												<td style="text-align: center;">1</td>
-												<td><a href="detail_program.jsp" class="btn-link">무빙</a></td>
-												<td>디즈니플러스</td>
-												<td>드라마</td>
-												<td>19세이상</td>
-												<td>
-													<a class="btn btn-xs btn-default add-tooltip" data-toggle="tooltip" href="update_program.jsp" data-original-title="Edit" data-container="body"><i class="fa fa-pencil"></i></a>
-												</td>
-											</tr>
-											<tr>
-												<td style="text-align: center;">1</td>
-												<td><a href="detail_program.jsp" class="btn-link">무빙</a></td>
-												<td>디즈니플러스</td>
-												<td>드라마</td>
-												<td>19세이상</td>
-												<td>
-													<a class="btn btn-xs btn-default add-tooltip" data-toggle="tooltip" href="update_program.jsp" data-original-title="Edit" data-container="body"><i class="fa fa-pencil"></i></a>
-												</td>
-											</tr>
-											<tr>
-												<td style="text-align: center;">1</td>
-												<td><a href="detail_program.jsp" class="btn-link">무빙</a></td>
-												<td>디즈니플러스</td>
-												<td>드라마</td>
-												<td>19세이상</td>
-												<td>
-													<a class="btn btn-xs btn-default add-tooltip" data-toggle="tooltip" href="update_program.jsp" data-original-title="Edit" data-container="body"><i class="fa fa-pencil"></i></a>
-												</td>
-											</tr>
-											<tr>
-												<td style="text-align: center;">1</td>
-												<td><a href="detail_program.jsp" class="btn-link">무빙</a></td>
-												<td>디즈니플러스</td>
-												<td>드라마</td>
-												<td>19세이상</td>
-												<td>
-													<a class="btn btn-xs btn-default add-tooltip" data-toggle="tooltip" href="update_program.jsp" data-original-title="Edit" data-container="body"><i class="fa fa-pencil"></i></a>
-												</td>
-											</tr>
-											<tr>
-												<td style="text-align: center;">1</td>
-												<td><a href="detail_program.jsp" class="btn-link">무빙</a></td>
-												<td>디즈니플러스</td>
-												<td>드라마</td>
-												<td>19세이상</td>
-												<td>
-													<a class="btn btn-xs btn-default add-tooltip" data-toggle="tooltip" href="update_program.jsp" data-original-title="Edit" data-container="body"><i class="fa fa-pencil"></i></a>
-												</td>
-											</tr>
-											<tr>
-												<td style="text-align: center;">1</td>
-												<td><a href="detail_program.jsp" class="btn-link">무빙</a></td>
-												<td>디즈니플러스</td>
-												<td>드라마</td>
-												<td>19세이상</td>
-												<td>
-													<a class="btn btn-xs btn-default add-tooltip" data-toggle="tooltip" href="update_program.jsp" data-original-title="Edit" data-container="body"><i class="fa fa-pencil"></i></a>
-												</td>
-											</tr>
-											<tr>
-												<td style="text-align: center;">1</td>
-												<td><a href="detail_program.jsp" class="btn-link">무빙</a></td>
-												<td>디즈니플러스</td>
-												<td>드라마</td>
-												<td>19세이상</td>
-												<td>
-													<a class="btn btn-xs btn-default add-tooltip" data-toggle="tooltip" href="update_program.jsp" data-original-title="Edit" data-container="body"><i class="fa fa-pencil"></i></a>
-												</td>
-											</tr>
-											<tr>
-												<td style="text-align: center;">1</td>
-												<td><a href="detail_program.jsp" class="btn-link">무빙</a></td>
-												<td>디즈니플러스</td>
-												<td>드라마</td>
-												<td>19세이상</td>
-												<td>
-													<a class="btn btn-xs btn-default add-tooltip" data-toggle="tooltip" href="update_program.jsp" data-original-title="Edit" data-container="body"><i class="fa fa-pencil"></i></a>
-												</td>
-											</tr>
-											<tr>
-												<td style="text-align: center;">1</td>
-												<td><a href="detail_program.jsp" class="btn-link">무빙</a></td>
-												<td>디즈니플러스</td>
-												<td>드라마</td>
-												<td>19세이상</td>
-												<td>
-													<a class="btn btn-xs btn-default add-tooltip" data-toggle="tooltip" href="update_program.jsp" data-original-title="Edit" data-container="body"><i class="fa fa-pencil"></i></a>
-												</td>
-											</tr>
+											<c:forEach var="programList" items="${programList }">
+												<tr>
+													<td style="text-align: center;">${programList.rn}</td>
+													<td>
+														<a href="<c:url value="detailProgram"><c:param name="programNo" value="${programList.programNo}" /></c:url>" class="btn-link" >
+															${programList.programName}
+														</a>
+													</td>
+													<c:if test="${programList.programOttNo == 21}">
+														<td>웨이브</td>
+													</c:if>
+													<c:if test="${programList.programOttNo == 22}">
+														<td>티빙</td>
+													</c:if>
+													<c:if test="${programList.programOttNo == 23}">
+														<td>디즈니플러스</td>
+													</c:if>
+													<c:if test="${programList.programOttNo == 24}">
+														<td>왓챠</td>
+													</c:if>
+													<c:if test="${programList.programOttNo == 25}">
+														<td>넷플릭스</td>
+													</c:if>
+													<c:if test="${programList.programCategoryNo == 1}">
+														<td>영화</td>
+													</c:if>
+													<c:if test="${programList.programCategoryNo == 2}">
+														<td>드라마</td>
+													</c:if>
+													<c:if test="${programList.programCategoryNo == 3}">
+														<td>예능</td>
+													</c:if>
+													<c:if test="${programList.programCategoryNo == 4}">
+														<td>다큐</td>
+													</c:if>
+													<td>
+														<a href="<c:url value="updateProgram"><c:param name="programNo" value="${programList.programNo}" /></c:url>" 
+															class="btn btn-xs btn-default add-tooltip" data-toggle="tooltip" data-original-title="Edit" data-container="body">
+															<i class="fa fa-pencil"></i>
+														</a>
+													</td>
+												</tr>
+											</c:forEach>
 										</tbody>
 									</table>
 									
 									<!-- 검색하기 start -->
-									<div style="font-size: 14px;">
+									<!-- <div style="font-size: 14px;">
 										<form style="text-align: center; margin-top: 60px;">
 											<select style="width:130px; height:30px; border-color:lightgray; border-width: 1px; border-radius: 5px;">
 												<option value="">&nbsp;프로그램 번호&nbsp;</option>
@@ -179,21 +120,40 @@
 											<input type="text" name="keyword" style="width:30%; height:30px; outline: none; box-shadow: none; border:1px solid lightgray; border-radius: 5px;">
 											<button type="submit" style="width:50px; height:30px; outline: none; border:none; background-color:#54abd9; color: #fff; border-radius: 5px;">검색</button>
 										</form>
-									</div>
+									</div> -->
 									<!-- 검색하기 end -->
 									
-									<div class="panel-body text-center">
-										<ul class="pagination" >
-											<li class="disabled"><a href="#" class="fa fa-angle-double-left"></a></li>
-											<li class="active"><a href="#">1</a></li>
-											<li><a href="#">2</a></li>
-											<li><a href="#">3</a></li>
-											<li><a href="#">4</a></li>
-											<li><span>...</span></li>
-											<li><a href="#">20</a></li>
-											<li><a href="#" class="fa fa-angle-double-right"></a></li>
-										</ul>
-									</div>
+									<%-- 페이지 번호 출력 --%>
+									<div id="hello" style="text-align: center; padding-top: 40px; padding-bottom: 20px; font-size: 18px;">
+										<c:choose>
+											<c:when test="${pager.startPage > pager.blockSize }">
+												<a href="<c:url value="/admin/allProgram"/>?pageNum=${pager.prevPage}">[이전]</a>
+											</c:when>
+											<c:otherwise>
+												[이전]
+											</c:otherwise>
+										</c:choose>
+										
+										<c:forEach var="i" begin="${pager.startPage }" end="${pager.endPage }" step="1">
+											<c:choose>
+												<c:when test="${pager.pageNum != i }">
+													<a href="<c:url value="/admin/allProgram"/>?pageNum=${i}">[${i}]</a>
+												</c:when>
+												<c:otherwise>
+													[${i}]
+												</c:otherwise>
+											</c:choose>
+										</c:forEach>
+										
+										<c:choose>
+											<c:when test="${pager.endPage != pager.totalPage }">
+												<a href="<c:url value="/admin/allProgram"/>?pageNum=${pager.nextPage}">[다음]</a>
+											</c:when>
+											<c:otherwise>
+												[다음]
+											</c:otherwise>
+										</c:choose>		
+									</div>	
 								</div>
 							</div>
 						</div>

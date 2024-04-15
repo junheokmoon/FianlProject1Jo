@@ -15,9 +15,9 @@ public interface ProgramMapper {
 	 ProgramDTO selectProgramByNo(int programNo);
 	 int selectProgramCount();
 	 List<ProgramDTO> selectProgramList(Map<String, Object> map);
-	List<ProgramDTO> selectProgramJoinList();
-	//List<ProgramDTO> selectProgramFilterByOtt(Integer programOttNo, Integer programCategoryNo);
-	List<ProgramDTO> selectProgramFilterByOtt
+	 List<ProgramDTO> selectProgramJoinList();
+	 //List<ProgramDTO> selectProgramFilterByOtt(Integer programOttNo, Integer programCategoryNo);
+	 List<ProgramDTO> selectProgramFilterByOtt
 		(@Param("programOttNo") Integer programOttNo, @Param("programCategoryNo") Integer programCategoryNo);
 	  
 }

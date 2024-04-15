@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="xyz.withy.mapper.ProgramMapper">
-<insert id="insertProgram">
+	<insert id="insertProgram">
 		<selectKey resultType="int" keyProperty="programNo" order="BEFORE">
-			select program_no_seq.nextval from program
+			select program_no_seq.nextval from dual
 		</selectKey>
-		insert into program values(#{programNo}, #{programOttNo},
-			,#{programName}, #{programImage},#{programDtail}, #{programVideo}, #{programCategoryNo})
+		insert into program values(#{programNo}, #{programOttNo}
+			,#{programName}, #{programImage},#{programDetail}, #{programVideo}, #{programCategoryNo})
 	</insert> 
 	 
 	<update id="updateProgram">
 		update program set program_ott_no=#{programOttNo} ,program_name=#{programName}
-			,program_image=#{programImage},program_detail=#{programDtail} ,program_video=#{programVideo}
+			,program_image=#{programImage},program_detail=#{programDetail} ,program_video=#{programVideo}
 				, program_category_no=#{programCategoryNo} where program_no=#{programNo}
 	</update>
 	 
@@ -29,7 +29,7 @@
 	</select>
 
 	<select id="selectProgramList" resultType="ProgramDTO">
-		select * from (select rownum rn, program.* from (select program_ott_no
+		select * from (select rownum rn, program.* from (select program_ott_no, program_no
 			,program_name ,program_image ,program_detail ,program_video ,program_category_no
 			from program order by program_no desc) program) where rn between #{startRow} and #{endRow}
 	</select>

@@ -55,73 +55,55 @@
 								<h3 class="panel-title">NEW</h3>
 							</div>
 				
-							<form class="form-horizontal" style="font-size: 15px">
+							<form action="<c:url value="/admin/saveProgram"/>" method="post" enctype="multipart/form-data" class="form-horizontal" style="font-size: 15px">
 								<div class="panel-body">
 									<div class="form-group">
 										<label class="col-sm-3" for="ccccc" style="text-indent: 5em;">제목</label>
 										<div class="col-sm-6">
-											<input type="text" class="form-control input-lg" id="ccccc">
+											<input type="text" class="form-control input-lg" id="ccccc" name="programName">
 										</div>
 									</div>
 									<div class="form-group">
 										<label class="col-sm-3" for="aaaaa" style="text-indent: 5em;">OTT종류</label>
 										<div class="col-sm-6">
-											<select class="selectpicker">
-												<option>넷플릭스</option>
-												<option>디즈니</option>
-												<option>티빙</option>
-												<option>웨이브</option>
-												<option>왓챠</option>
+											<select class="selectpicker" name="programOttNo" >
+											    <option>종류를 선택하세요</option>
+												<c:forEach var="getOttNoAndNameList" items="${getOttNoAndNameList}">
+												    <option value="${getOttNoAndNameList.ottNo}">${getOttNoAndNameList.ottName}</option>
+												</c:forEach>
 											</select>
 										</div>
 									</div>
 									<div class="form-group">
-										<label class="col-sm-3" for="bbbbb" style="text-indent: 5em;">프로그램 장르</label>
+										<label class="col-sm-3" for="bbbbb" style="text-indent: 5em;">프로그램 타입</label>
 										<div class="col-sm-6">
-											<select class="selectpicker">
-												<option>드라마</option>
-												<option>영화</option>
-												<option>다큐</option>
-												<option>예능</option>
+											<select class="selectpicker" name="programCategoryNo">
+												<option>타입을 선택하세요</option>
+												<option value=1>영화</option>
+												<option value=2>드라마</option>
+												<option value=3>다큐</option>
+												<option value=4>예능</option>
 											</select>
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="col-sm-3" for="ccccc" style="text-indent: 5em;">연령</label>
-										<div class="col-sm-6">
-											<input type="text" class="form-control input-lg" id="ccccc">
 										</div>
 									</div>
 									<div class="form-group">
 										<label class="col-sm-3" for="ccccc" style="text-indent: 5em;">내용설명</label>
 										<div class="col-sm-6">
-											<input type="text" class="form-control input-lg" id="ccccc">
+											<textarea rows="5" class="form-control" name="programDetail"></textarea>
 										</div>
 									</div>
 									<div class="form-group">
-										<label class="col-md-3" style="text-indent: 5em;">이미지1</label>
+										<label class="col-md-3" style="text-indent: 5em;">이미지</label>
 										<div class="col-md-9">
-											<span class="pull-left btn btn-default btn-file">
-											파일 선택<input type="file">
-											</span>
+											<input type="file" name="multipartFile" id="programImage">
 										</div>
 									</div>
-									<div class="form-group">
-										<label class="col-md-3" style="text-indent: 5em;">이미지2</label>
-										<div class="col-md-9">
-											<span class="pull-left btn btn-default btn-file">
-											파일 선택<input type="file">
-											</span>
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="col-md-3" style="text-indent: 5em;">동영상</label>
-										<div class="col-md-9">
-											<span class="pull-left btn btn-default btn-file">
-											파일 선택<input type="file">
-											</span>
-										</div>
-									</div>
+								    <div class="form-group">
+								        <label class="col-md-3" style="text-indent: 5em;">동영상</label>
+								        <div class="col-md-9">
+								           <input type="text" class="form-control input-lg" id="ccccc" placeholder="링크를 넣어주세요." name="programVideo">
+								        </div>
+								    </div>
 								</div>
 								<div class="text-right">
 									<button class="btn btn-info btn-rounded" type="submit" style="font-size: 15px">등록</button>

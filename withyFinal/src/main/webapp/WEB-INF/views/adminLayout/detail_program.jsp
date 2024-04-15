@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"  %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 
@@ -56,47 +57,73 @@
 								<div class="panel-body">
 									<div class="form-group">
 										<label class="col-sm-3" for="ccccc" style="text-indent: 5em;">프로그램 번호</label>
-										<div class="col-sm-6" style="text-align:left;">100</div>
+										<div class="col-sm-6" style="text-align:left;">${programByNo.programNo }</div>
 									</div>
 									<div class="form-group">
 										<label class="col-sm-3" for="ccccc" style="text-indent: 5em;">제목</label>
-										<%-- <div class="col-sm-6" style="text-align:left;"><%=product.getProductCom()%></div> --%>
-										<div class="col-sm-6" style="text-align:left;">무빙</div>
+										<div class="col-sm-6" style="text-align:left;">${programByNo.programName }</div>
 									</div>
 									<div class="form-group">
 										<label class="col-sm-3" for="aaaaa" style="text-indent: 5em;">OTT종류</label>
-										<div class="col-sm-6" style="text-align:left;">디즈니 플러스</div>
+										<c:if test="${programByNo.programOttNo == 21}">
+											<div class="col-sm-6" style="text-align:left;">웨이브</div>
+										</c:if>
+										<c:if test="${programByNo.programOttNo == 22}">
+											<div class="col-sm-6" style="text-align:left;">티빙</div>
+										</c:if>
+										<c:if test="${programByNo.programOttNo == 23}">
+											<div class="col-sm-6" style="text-align:left;">디즈니플러스</div>
+										</c:if>
+										<c:if test="${programByNo.programOttNo == 24}">
+											<div class="col-sm-6" style="text-align:left;">왓챠</div>
+										</c:if>
+										<c:if test="${programByNo.programOttNo == 25}">
+											<div class="col-sm-6" style="text-align:left;">넷플릭스</div>
+										</c:if>
 									</div>
 									<div class="form-group">
 										<label class="col-sm-3" for="bbbbb" style="text-indent: 5em;">프로그램 타입</label>
-										<div class="col-sm-6" style="text-align:left;">드라마</div>
-									</div>
-									<div class="form-group">
-										<label class="col-sm-3" for="ccccc" style="text-indent: 5em;">연령</label>
-										<div class="col-sm-6" style="text-align:left;">19세이상</div>
+										<c:if test="${programByNo.programCategoryNo == 1}">
+											<div class="col-sm-6" style="text-align:left;">영화</div>
+										</c:if>
+										<c:if test="${programByNo.programCategoryNo == 2}">
+											<div class="col-sm-6" style="text-align:left;">드라마</div>
+										</c:if>
+										<c:if test="${programByNo.programCategoryNo == 3}">
+											<div class="col-sm-6" style="text-align:left;">예능</div>
+										</c:if>
+										<c:if test="${programByNo.programCategoryNo == 4}">
+											<div class="col-sm-6" style="text-align:left;">다큐</div>
+										</c:if>
 									</div>
 									<div class="form-group">
 										<label class="col-sm-3" for="ccccc" style="text-indent: 5em;">내용설명</label>
 										<div class="col-sm-6">
 											<textarea rows="5" class="form-control"
-												readonly placeholder="초능력을 숨긴 채 현재를 살아가는 아이들과, 과거의 아픈 비밀을 숨긴 채 살아온 부모들이 시대와 세대를 넘어 닥치는 거대한 위험에 함께 맞서는 초능력 액션 히어로물"></textarea>
+												readonly placeholder="${programByNo.programDetail }"></textarea>
 										</div>
 									</div>
 									<div class="form-group">
-										<label class="col-md-3" style="text-indent: 5em;">이미지1</label>
+										<label class="col-md-3" style="text-indent: 5em;">이미지</label>
 										<div style="padding-left: 26%;">
-											<img src="img/Moving.png" width="300px" style=" padding-top: 10px;">
+											<img src="<c:url value='${fn:split(programByNo.programImage, \"_\")[1]}'/>" width="100px" style=" padding-top: 10px;">
+											<%-- <img src="<c:url value='${programByNo.programImage}'/>" width="100px" style=" padding-top: 10px;"> --%>
 										</div>
-									</div>
-									<div class="form-group">
-										<label class="col-md-3" style="text-indent: 5em;">이미지2</label>
 									</div>
 									<div class="form-group">
 										<label class="col-md-3" style="text-indent: 5em;">동영상</label>
+										<div style="padding-left: 26%;">
+											<iframe
+												style="height: 10%;"
+												src="${programByNo.programVideo}" frameborder="0"
+												allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+											</iframe>
+										</div>
 									</div>
 								</div>
 								<div class="text-right" style="padding: 10px;">									
 									<button class="btn btn-info btn-rounded" type="button" onclick="location.href='${pageContext.request.contextPath}/admin/updateProgram'" style="font-size: 15px">수정</button>
+									
 									<button class="btn btn-info btn-rounded" type="submit" style="font-size: 15px">삭제</button>
 									<button class="btn btn-info btn-rounded" type="button" onclick="location.href='${pageContext.request.contextPath}/admin/allProgram'" style="font-size: 15px">목록</button>
 								</div>

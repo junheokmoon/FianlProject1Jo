@@ -45,7 +45,7 @@ public class ProgramServiceImpl implements ProgramService {
 	public Map<String, Object> getProgramList(int pageNum) {
 		// FILE_BOARD 테이블에 저장된 모든 행(게시글)의 갯수를 반환받아 저장
 		int totalSize = programDAO.selectProgramCount();
-		int pageSize = 5;// 하나의 페이지에 출력될 게시글의 갯수를 저장
+		int pageSize = 10;// 하나의 페이지에 출력될 게시글의 갯수를 저장
 		int blockSize = 5;// 하나의 블럭에 출력될 페이지 번호의 갯수를 저장
 
 		Pager pager = new Pager(pageNum, totalSize, pageSize, blockSize);

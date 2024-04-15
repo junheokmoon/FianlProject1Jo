@@ -1,7 +1,9 @@
 package xyz.withy.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /*
 이름                  널?       유형
@@ -18,6 +20,8 @@ PROGRAM_CATEGORY_NO          NUMBER(5)     프로그램 세부 카테고리
 
 @Data
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class ProgramDTO {
 	private int programNo;
 	private int programOttNo;
@@ -26,5 +30,7 @@ public class ProgramDTO {
 	private String programDetail;
 	private String programVideo;
 	private String programCategoryNo;
+
+	private int rn;	// NO
 
 }
