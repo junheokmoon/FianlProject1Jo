@@ -232,7 +232,7 @@
 		$("#totalPrice").text(ticketPrice + " - " + selectPoint + " = " + totalPrice + "원");
 		
 	});
-	
+	/*
 	
 	$("#payButton").click(function() {
 		
@@ -272,7 +272,7 @@
 			});
 		}
 	
-	
+	*/
 	/*
 	titleTextDiv()
 	userInfo(userNo);
