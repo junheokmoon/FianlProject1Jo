@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import lombok.RequiredArgsConstructor;
 import xyz.withy.dto.ProgramDTO;
 import xyz.withy.mapper.ProgramMapper;
+import xyz.withy.mapper.TicketMapper;
 
 @Repository
 @RequiredArgsConstructor
@@ -53,5 +54,10 @@ public class ProgramDAOImpl implements ProgramDAO{
 	@Override
 	public List<ProgramDTO> selectProgramFilterByOtt(Integer programOttNo, Integer programCategoryNo) {
 		return sqlSession.getMapper(ProgramMapper.class).selectProgramFilterByOtt(programOttNo, programCategoryNo);
+	}
+
+	@Override
+	public List<ProgramDTO> selectProgramCategoryNoList() {
+		return sqlSession.getMapper(ProgramMapper.class).selectProgramCategoryNoList();
 	}
 }

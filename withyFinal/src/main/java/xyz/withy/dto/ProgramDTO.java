@@ -6,17 +6,17 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /*
-ÀÌ¸§                  ³Î?       À¯Çü
+ï¿½Ì¸ï¿½                  ï¿½ï¿½?       ï¿½ï¿½ï¿½ï¿½
 ------------------- -------- -------------
-PROGRAM_NO          NOT NULL NUMBER        ÇÁ·Î±×·¥¹øÈ£
-PROGRAM_OTT_NO      NOT NULL NUMBER(38)    ÇÁ·Î±×·¥OTT ¹øÈ£(FK)
-PROGRAM_NAME        NOT NULL VARCHAR2(30)  ÇÁ·Î±×·¥ ÀÌ¸§
-PROGRAM_IMAGE                VARCHAR2(500) ÇÁ·Î±×·¥ ÀÌ¹ÌÁö
-PROGRAM_DETAIL      NOT NULL VARCHAR2(200) ÇÁ·Î±×·¥ ¼³¸í
-PROGRAM_VIDEO                VARCHAR2(200) ÇÁ·Î±×·¥ ºñµð¿À ¸µÅ©
-PROGRAM_CATEGORY_NO          NUMBER(5)     ÇÁ·Î±×·¥ ¼¼ºÎ Ä«Å×°í¸®
+PROGRAM_NO          NOT NULL NUMBER        ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½È£
+PROGRAM_OTT_NO      NOT NULL NUMBER(38)    ï¿½ï¿½ï¿½Î±×·ï¿½OTT ï¿½ï¿½È£(FK)
+PROGRAM_NAME        NOT NULL VARCHAR2(30)  ï¿½ï¿½ï¿½Î±×·ï¿½ ï¿½Ì¸ï¿½
+PROGRAM_IMAGE                VARCHAR2(500) ï¿½ï¿½ï¿½Î±×·ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½
+PROGRAM_DETAIL      NOT NULL VARCHAR2(200) ï¿½ï¿½ï¿½Î±×·ï¿½ ï¿½ï¿½ï¿½ï¿½
+PROGRAM_VIDEO                VARCHAR2(200) ï¿½ï¿½ï¿½Î±×·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å©
+PROGRAM_CATEGORY_NO          NUMBER(5)     ï¿½ï¿½ï¿½Î±×·ï¿½ ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½×°ï¿½
 */
-
+  
 
 @Data
 @Builder
@@ -30,7 +30,9 @@ public class ProgramDTO {
 	private String programDetail;
 	private String programVideo;
 	private String programCategoryNo;
-
+	
+	private String keyword; //ê²€ìƒ‰í‚¤ì›Œë“œ
+	private String type; //ê²€ìƒ‰íƒ€ìž…
 	private int rn;	// NO
 
 }
