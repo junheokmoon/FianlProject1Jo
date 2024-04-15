@@ -31,10 +31,10 @@ public class MypageController {
 		return "mypage/mypageInfo";
 	}
 	
-	//나의 파티 
-	@RequestMapping("/mypageParty")
-	public String mypageParty() {
-		return "mypage/mypageParty";
+	//나의 매칭 파티 목록
+	@RequestMapping("/mypagePartyList")
+	public String mypagePartyList() {
+		return "mypage/mypagePartyList";
 	}
 	
 	//나의 1:1 문의 목록

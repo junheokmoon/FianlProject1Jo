@@ -74,7 +74,7 @@
                        <a class="nav-link" href="#">참여중인파티</a>
                    </li><!-- / nav-item -->
                    <li class="nav-item">
-                       <a class="nav-link" href="mypageParty">나의파티내역</a>
+                       <a class="nav-link" href="mypagePartyList">나의파티목록</a>
                    </li><!-- / nav-item -->
                    <li class="nav-item">
                        <a class="nav-link" href="mypageInquiry">나의 1:1 문의</a>
