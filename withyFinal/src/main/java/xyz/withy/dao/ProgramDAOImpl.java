@@ -18,7 +18,7 @@ public class ProgramDAOImpl implements ProgramDAO{
 	@Override
 	public int insertProgram(ProgramDTO programDTO) {
 		return sqlSession.getMapper(ProgramMapper.class).insertProgram(programDTO);
-	} 
+	}  
 
 	@Override
 	public int updateProgram(ProgramDTO programDTO) {

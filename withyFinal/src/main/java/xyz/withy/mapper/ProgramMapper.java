@@ -19,5 +19,5 @@ public interface ProgramMapper {
 	//List<ProgramDTO> selectProgramFilterByOtt(Integer programOttNo, Integer programCategoryNo);
 	List<ProgramDTO> selectProgramFilterByOtt
 		(@Param("programOttNo") Integer programOttNo, @Param("programCategoryNo") Integer programCategoryNo);
-	 
+	  
 }

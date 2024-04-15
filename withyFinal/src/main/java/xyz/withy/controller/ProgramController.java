@@ -23,7 +23,7 @@ public class ProgramController {
         model.addAttribute("programList", programService.getProgramJoinList());
         return "/review/program";
     }
- 
+  
     // 새로 추가된 메서드: 필터링 기능
     @GetMapping("/filterPrograms")
     @ResponseBody

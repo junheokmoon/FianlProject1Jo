@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     
 </head>
-<style>
+<style> 
 .nav-link {
 	color: black; /* 글씨 색을 검정색으로 변경 */
 	font-weight: bold; /* 글씨를 진하게 */
@@ -115,31 +115,23 @@
 			<header class="fh p-0 v-center bg-im g jarallax" data-jarallax
 				data-speed="0.8" style="background-image: url();">
 				<div class="container">
-					<nav id="ottBar"
+					<nav id="ottBar" 
 						class="navbar navbar-expand-lg navbar-light mobile-white-nav absolute top-0 left-0 right-0">
 						<div class="container">
 							<div class="text-center"
 								style="padding-top: 20px; margin: 0 auto;">
-								<!-- 상단 패딩 추가 -->
-=
-								<ul class="navbar-nav ml-auto">
-								    <%--<li class="nav-item ottButton" data-ott-no="25" id="ottButton"><a class="nav-link">넷플릭스</a></li> --%>
-								    <li class="nav-item ottButton" data-ott-no="25" id="ottButton"><button onclick="" class="nav-link">넷플릭스</button></li>
-								    <li class="nav-item ottButton" data-ott-no="24" id="ottButton"><button class="nav-link">왓챠</button></li>
-								    <li class="nav-item ottButton" data-ott-no="23" id="ottButton"><button class="nav-link">디즈니플러스</button></li>
-								    <li class="nav-item ottButton" data-ott-no="21" id="ottButton"><button class="nav-link">웨이브</button></li>
-								    <li class="nav-item ottButton" data-ott-no="22" id="ottButton"><button class="nav-link">티빙</button></li>
-								</ul>
-
+								<button class="ottBtn" onclick="updateFilters('25','0');">넷플릭스</button>
+								<button class="ottBtn" onclick="updateFilters('24','0');">왓챠</button>
+								<button class="ottBtn" onclick="updateFilters('23','0');">디즈니플러스</button>
+								<button class="ottBtn" onclick="updateFilters('22','0');">티빙</button>
+								<button class="ottBtn" onclick="updateFilters('21','0');">웨이브</button>
 							</div>
+							
 							<ul class="navbar-button p-0 m-0 ml-30">
 								<li class="nav-item"></li>
 							</ul>
 						</div>
 					</nav>
-
-					
-					
 
 					<div class="row v-center">
 						<div class="col-lg-7 tablet-lg-top-45">
@@ -153,8 +145,8 @@
 							<h6 class="fs-18 text-primary">어떤걸 볼까?</h6>
 							<h2 class="page-title" style="font-size: 2.2em">위티들의 생생한
 								후기!!</h2>
-							<p class="header-text fw-regular fs-16">
-								무엇을 봐야할지 망설여지신다구요? <br>지금'위티'들의 리뷰를 확인하세요!!
+							<p class="header-text fw-regular fs-16">무엇을 봐야할지 망설여지신다구요? 
+								<br>지금'위티'들의 리뷰를 확인하세요!!
 							</p>
 							<a href="#features" class="btn btn-dark pill mr-5"><i
 								class="fas fa-cog mr-5"></i> <span>당장 위티 참여!</span></a>
@@ -173,7 +165,7 @@
 			data-slide="next"> <span class="carousel-control-next-icon"
 			aria-hidden="true"></span> <span class="sr-only">Next</span>
 		</a>
-	</div>
+
 
 
 
@@ -192,44 +184,43 @@
 					</div>
 				</div>
 
-				<div class="proType" style="margin-top: 50px;">
+				<div id="categoryButtons" class="proType" style="margin-top: 50px;">
 					<p>
-						<a href="id="allprogram">전체</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp; 
-						<a href="id="movie">영화</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp; 
-						<a href="id="drama">드라마</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp; 
-						<a href="id="enter">예능</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp; 
-						<a href="id="docu">다큐</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;
+						<button class="categoryBtn" onclick="updateFilters('${programOttNo}','0');">전체</button>
+						<button class="categoryBtn" onclick="updateFilters('${programOttNo}','1');">영화</button>
+						<button class="categoryBtn" onclick="updateFilters('${programOttNo}','2');">드라마</button>
+						<button class="categoryBtn" onclick="updateFilters('${programOttNo}','3');">예능</button>
+						<button class="categoryBtn" onclick="updateFilters('${programOttNo}','4');">다큐</button>
 					</p>
 				</div>
-				
 				
 				<div class="container main-container p-0">
     <div class="row" id="itemContainer">
         
-<c:forEach var="program" items="${programList}">
-    <div class="col-md-6 col-lg-4">
-        <!-- target="_blank" 제거 -->
-        <a class="demo-item-link" href="<c:url value='/review'>
-            <c:param name='programNo' value='${program.programNo}' />
-        </c:url>">
-            <div class="card">
-            	<img  src="<c:url value="${program.programImage}"/>">
-                <%-- <img src="${pageContext.request.contextPath}/resources/programImg/${program.programImage}" alt="${program.programImage}">--%>
-                <div class="card-body text-center">
-                    <h4 class="card-title fs-20 mb-5">${program.programName}</h4>
-                    <p class="fs-14 fw-medium text-secondary-dark mb-0">${program.programDetail}</p>
-                </div>
-            </div>
-        </a>
-    </div>
-</c:forEach>
-</div>
+	<c:forEach var="program" items="${programList}">
+	    <div class="col-md-6 col-lg-4">
+	        <!-- target="_blank" 제거 -->
+	        <a class="demo-item-link" href="<c:url value='/review'>
+	            <c:param name='programNo' value='${program.programNo}' />
+	        </c:url>">
+	            <div class="card">
+	            	<img  src="<c:url value="${program.programImage}"/>">
+	                <div class="card-body text-center">
+	                    <h4 class="card-title fs-20 mb-5">${program.programName}</h4>
+	                    <p class="fs-14 fw-medium text-secondary-dark mb-0">${program.programDetail}</p>
+	                </div>
+	            </div>
+	         </a>
+	   	 		</div>
+			</c:forEach>
+		</div>
+	</div>
 
-    <!-- "더보기" 버튼 -->
-    <div class="text-center mt-4">
-        <button id="loadMore" class="btn btn-primary">더보기</button>
-    </div>
-</div>
+    		<!-- "더보기" 버튼 -->
+    		<div class="text-center mt-4">
+       	 		<button id="loadMore" class="btn btn-primary">더보기</button>
+    		</div>
+		</div>
 		</section>
 
 
@@ -291,10 +282,10 @@
     
     
     <script>
-document.addEventListener("DOMContentLoaded", function() {
-    let items = document.querySelectorAll("#itemContainer .col-md-6.col-lg-4");
-    let loadMoreBtn = document.getElementById("loadMore");
-    let currentItem = 9; // 초기에 표시할 아이템 수
+	document.addEventListener("DOMContentLoaded", function() {
+   		let items = document.querySelectorAll("#itemContainer .col-md-6.col-lg-4");
+    	let loadMoreBtn = document.getElementById("loadMore");
+    	let currentItem = 9; // 초기에 표시할 아이템 수
 
     // 초반에 9개만 보이게 설정
     for (let i = currentItem; i < items.length; i++) {
@@ -312,65 +303,21 @@ document.addEventListener("DOMContentLoaded", function() {
         // 모든 아이템이 보이게 되면 더보기 버튼 숨기기
         if (Array.from(items).filter(item => item.style.display === 'none').length === 0) {
             loadMoreBtn.style.display = 'none';
-        }
-    });
-});
+        	}
+    	});
+	});
 
-
-	//정렬기능코드
-$(document).ready(function() {
-    // OTT 버튼과 카테고리 버튼에 대한 이벤트 바인딩
-    $("#ottButton, #categoryButton").click(function() {
-        // 현재 선택된 OTT 번호와 카테고리 가져오기
-        var ottNo = $("#ottButton.active").data("ott-no");
-        var category = $("#categoryButton.active").data("category");
-
-        // 필터링 요청 함수 호출
-        filterPrograms(ottNo, category);
-    });
-
-    function filterPrograms(ottNo, category) {
-        $.ajax({
-            url: '/filterPrograms',
-            type: 'GET',
-            data: {
-                'programOttNo': ottNo,
-                'programCategory': category
-            },
-            success: function(programs) {
-                // 서버로부터 받은 프로그램 데이터로 HTML 구성
-                var itemsHtml = '';
-                $.each(programs, function(index, program) {
-                    itemsHtml += '<div class="col-md-6 col-lg-4">' + 
-                                  '<div class="card">' + 
-                                  '<img src="' + program.programImage + '" alt="' + program.programName + '">' +
-                                  '<div class="card-body text-center">' +
-                                  '<h4 class="card-title fs-20 mb-5">' + program.programName + '</h4>' +
-                                  '<p class="fs-14 fw-medium text-secondary-dark mb-0">' + program.programDetail + '</p>' +
-                                  '</div>' +
-                                  '</div>' +
-                                  '</div>';
-                });
-                // #itemContainer 내용을 새로운 HTML로 업데이트
-                $('#itemContainer').html(itemsHtml);
-            },
-            error: function(xhr, status, error) {
-                console.error(error);
-            }
-        });
-    }
-});
-
-
-
-
-
+	//필터링기능 
+	function updateFilters(ottNo, categoryNo) {
+	    var baseUrl = "/withyFinal/program"; 
+	    var newUrl = baseUrl + "?programOttNo=" + ottNo + "&programCategoryNo=" + categoryNo;
+	    window.location.href = newUrl;
+	}
 
 </script>
 
-
-	<!-- css 동적페이지를 위한 코드 -->
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<!-- css 동적페이지를 위한 코드 -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 	

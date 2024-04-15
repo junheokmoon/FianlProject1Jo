@@ -39,7 +39,7 @@ public class ProgramServiceImpl implements ProgramService {
 			throw new RuntimeException("게시글을 찾을 수 없습니다.");
 		}
 		return programDTO;
-	}
+	} 
 
 	@Override
 	public Map<String, Object> getProgramList(int pageNum) {
