@@ -74,7 +74,7 @@
                        <a class="nav-link" href="#">참여중인파티</a>
                    </li><!-- / nav-item -->
                    <li class="nav-item">
-                       <a class="nav-link" href="mypageParty">나의파티내역</a>
+                       <a class="nav-link" href="mypagePartyList">나의파티목록</a>
                    </li><!-- / nav-item -->
                    <li class="nav-item">
                        <a class="nav-link" href="mypageInquiry">나의 1:1 문의</a>
@@ -105,29 +105,17 @@
                                     <table class="table">
                                     <thead>
                                         <tr>
-                                            <th scope="col">#</th>
-                                            <th scope="col">First</th>
-                                             <th scope="col">Handle</th>
+                                            <th scope="col">리뷰 번호</th>
+                                            <th scope="col">리뷰 내용</th>
+                                             <th scope="col">별점</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                             <th scope="row">1</th>
-                                            <td>Mark</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">2</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">3</th>
-                                            <td>Larry</td>
-                                            <td>@twitter</td>
-                                            <td>@twitter</td>
+                                            <td>제이미</td>
+                                            <td>운도</td>
+                                            <td>5</td>
                                         </tr>
                                     </tbody>
                                 </table><!-- / table -->                                 								                                                                                  
