@@ -237,8 +237,12 @@
 		</div>
 	</section>
 	</c:forEach>
-	</tbody>
-
+	
+	<div id="noReviewsMessage" style="display: none;">
+    <p>작성된 리뷰가 없습니다.</p>
+	</div>
+	
+	
 	<button id="loadMore" style="display: block; margin: 20px auto;">더보기</button>
 
 	<!-- Core JavaScript -->
@@ -288,6 +292,7 @@
 	document.addEventListener("DOMContentLoaded", function() {
 	    let reviews = document.querySelectorAll(".reviewWriteBox");
 	    let loadMoreBtn = document.getElementById("loadMore");
+	    let noReviewsMessage = document.getElementById("noReviewsMessage"); // 메시지 요소 선택
 
 	    // 초기 5개 리뷰만 보여주기
 	    let currentItem = 5;
@@ -298,6 +303,10 @@
 	    // 리뷰 개개수 5개 이하 버튼 안보이게
 	    if (reviews.length <= 5) {
 	        loadMoreBtn.style.display = 'none';
+	    }
+	    
+	    if (reviews.length === 0) {
+	    	noReviewsMessage.style.display = 'block';
 	    }
 
 	    // 더보기 버튼 클릭 이벤트

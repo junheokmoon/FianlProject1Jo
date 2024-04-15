@@ -60,31 +60,34 @@
 @media ( max-width : 768px) { /* 필요에 따라 max-width 조정 */
 	
 .navbar-nav.ml-auto {
-		flex-direction: row !important; /* 항목들을 가로로 유지 */
-		background-color: transparent !important; /* 원하는 색상으로 설정 */
-	}
-	.navbar-nav .nav-item {
-		display: inline-block; /* 항목들을 인라인으로 표시 */
-	}
-	.search-container {
-		display: flex; /* 플렉스박스 컨테이너로 지정 */
-		justify-content: center; /* 항목들을 가운데 정렬 */
-		align-items: center; /* 항목들을 수직 방향으로 가운데 정렬 */
-		width: 100%; /* 컨테이너 너비를 100%로 설정 */
-		max-width: 600px; /* 최대 너비 설정 */
-		margin: 0 auto; /* 컨테이너를 페이지 중앙에 위치시킴 */
-	}
-	.searchBar {
-		flex-grow: 1; /* 입력 필드가 남은 공간을 모두 차지하도록 설정 */
-		margin-right: 10px; /* 버튼과의 간격 */
-	}
-	button {
-		flex-shrink: 0; /* 버튼 크기가 줄어들지 않도록 설정 */
-	}
+	flex-direction: row !important; /* 항목들을 가로로 유지 */
+	background-color: transparent !important; /* 원하는 색상으로 설정 */
+}
+.navbar-nav .nav-item {
+	display: inline-block; /* 항목들을 인라인으로 표시 */
+}
+.search-container {
+	display: flex; /* 플렉스박스 컨테이너로 지정 */
+	justify-content: center; /* 항목들을 가운데 정렬 */
+	align-items: center; /* 항목들을 수직 방향으로 가운데 정렬 */
+	width: 100%; /* 컨테이너 너비를 100%로 설정 */
+	max-width: 600px; /* 최대 너비 설정 */
+	margin: 0 auto; /* 컨테이너를 페이지 중앙에 위치시킴 */
+}
+.searchBar {
+	flex-grow: 1; /* 입력 필드가 남은 공간을 모두 차지하도록 설정 */
+	margin-right: 10px; /* 버튼과의 간격 */
+}
+button {
+	flex-shrink: 0; /* 버튼 크기가 줄어들지 않도록 설정 */
+}
 	/* 슬라이드 컨테이너의 높이 조정 */
-	.carousel-inner {
-		height: 200px; /* 원하는 높이로 설정 */
-	}
+.carousel-inner {
+	height: 200px; /* 원하는 높이로 설정 */
+}
+
+
+/*여기서부터 새로 */
 	
 
 
@@ -177,10 +180,8 @@
 			<div class="container">
 				<div class="spacer-line border-primary mb-15">&nbsp;</div>
 				<div class="text-center" id="middleBar">
-					<h2 class="section-title mb-15" data-aos="fade-down">인기 있는 방송
-						한눈에 보기!</h2>
-					<div class="search-container" data-aos="fade-in"
-						data-aos-delay="100">
+					<h2 class="section-title mb-15" data-aos="fade-down">인기 있는 방송 한눈에 보기!</h2>
+					<div class="search-container" data-aos="fade-in" data-aos-delay="100">
 						<input type="text" class="searchBar" placeholder="프로그램 검색">
 						<button type="button">검색</button>
 					</div>
@@ -293,7 +294,11 @@
     for (let i = currentItem; i < items.length; i++) {
         items[i].style.display = 'none';
     }
-
+    	
+    if (items.length <= 9) {
+    	loadMoreBtn.style.display= 'none';
+    }
+    
     // 더보기 버튼 클릭 이벤트
     loadMoreBtn.addEventListener("click", function() {
         // 현재 숨겨진 아이템을 찾아 최대 currentItem 개수만큼 표시
