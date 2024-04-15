@@ -122,7 +122,9 @@
 									</div>
 								</div>
 								<div class="text-right" style="padding: 10px;">									
-									<button class="btn btn-info btn-rounded" type="button" onclick="location.href='${pageContext.request.contextPath}/admin/updateProgram'" style="font-size: 15px">수정</button>
+									<%-- <button class="btn btn-info btn-rounded" type="button" onclick="location.href='${pageContext.request.contextPath}/admin/updateProgram'" style="font-size: 15px">수정</button> --%>
+									<button class="btn btn-info btn-rounded" type="button" onclick="location.href='<c:url value="updateProgram">
+										<c:param name="programNo" value="${programByNo.programNo}" /></c:url>'" style="font-size: 15px">수정</button>
 									
 									<button class="btn btn-info btn-rounded" type="submit" style="font-size: 15px">삭제</button>
 									<button class="btn btn-info btn-rounded" type="button" onclick="location.href='${pageContext.request.contextPath}/admin/allProgram'" style="font-size: 15px">목록</button>

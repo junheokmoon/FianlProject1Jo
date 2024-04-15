@@ -253,7 +253,12 @@ public class UserController {
 	}
 	
 	@RequestMapping("/updateProgram")
-	public String updateProgram() {
+	public String updateProgram(@RequestParam int programNo, Model model, HttpSession session) {
+		List<OttkindDTO> getOttNoAndNameList = ottkindService.getOttNoAndNameList();
+
+		model.addAttribute("programByNo", programService.getProgramByNo(programNo));
+	    model.addAttribute("getOttNoAndNameList", getOttNoAndNameList);
+
 		return "admin/update_program";
 	}
 	
