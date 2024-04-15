@@ -260,7 +260,7 @@ public class UserController {
 	    model.addAttribute("getOttNoAndNameList", getOttNoAndNameList);
 
 		return "admin/update_program";
-	}
+	} 
 	
 	@RequestMapping("/addProgram")
 	public String addProgram(Model model) {
