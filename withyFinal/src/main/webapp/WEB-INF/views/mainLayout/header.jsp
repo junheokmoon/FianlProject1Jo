@@ -41,7 +41,7 @@
             <a href="<c:url value="/"/>">
             	<img src="<c:url value="/images/wtylogo.png"/>" style="width: 100px; height: 120px;"  alt="">
             </a>
-
+ 
             <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-toggle-nav-center" aria-controls="navbar-toggle-nav-center" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="icon-bar top-bar"></span>
                 <span class="icon-bar middle-bar"></span>
@@ -58,7 +58,7 @@
                         <a class="nav-link" href="<c:url value="/ticketBooth"/>">매표소</a>
                     </li>
                     <li class="nav-item">
-						<a class="nav-link" href="<c:url value="/program"/>">리뷰/평점</a>
+						<a class="nav-link" href="<c:url value="/program"/>">프로그램</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="<c:url value="/guide"/>">가이드</a>
