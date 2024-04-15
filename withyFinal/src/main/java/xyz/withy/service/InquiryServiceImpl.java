@@ -70,6 +70,8 @@ public class InquiryServiceImpl implements InquiryService{
 			
 			return resultMap;
 		}
+	
+		
 
 		@Override
 		public InquiryDTO getUserInquiry(int inquiryUserNo) {
@@ -79,6 +81,7 @@ public class InquiryServiceImpl implements InquiryService{
 		}
 			return inquiry;
 		}
+		
 
 
 }

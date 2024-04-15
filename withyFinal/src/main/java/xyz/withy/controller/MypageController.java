@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import lombok.RequiredArgsConstructor;
+import xyz.withy.dto.InquiryDTO;
 import xyz.withy.service.InquiryService;
 import xyz.withy.service.MypageService;
 import xyz.withy.service.UserService;
@@ -46,7 +47,7 @@ public class MypageController {
 		
 		return "mypage/mypageInquiry";
 	}
-
+	
 	/*
 	// 회원탈퇴
 	@RequestMapping(value = "/withdrawal")

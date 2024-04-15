@@ -23,9 +23,15 @@
 		 where notice_no=#{noticeNo}		
 	</update>
 	
-	<!-- 조회수 증가  -->	
+	<!-- 글번호 전달받아 조회수 증가  -->	
 	<update id="updateNoticeCount">
-		update notice set notice_count=#{noticeCount+1} where notice_no=#{noticeNo}
+		update notice 
+		<set>
+			<if test="noticeCount != null and noticeCount != ''">
+				notice_count=#{noticeCount+1}
+			</if>
+		</set>
+		 where notice_no=#{noticeNo}
 	</update>
 	
 	<!-- 글 삭제 -->

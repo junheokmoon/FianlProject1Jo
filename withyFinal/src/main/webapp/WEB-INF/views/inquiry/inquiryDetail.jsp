@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -78,9 +80,17 @@
         <div class="form-group">
             <p><label for="inquiry-number">문의 번호:</label> <span id="inquiry-number">${inquiry.inquiryNo}</span></p>
             <p><label for="inquiry-type">문의 유형:</label> <span id="inquiry-type">${inquiry.inquiryType}</span></p>
-            <p><label for="answer-status">답변 상태:</label> <span id="answer-status">${inquiry.inquiryAnswer}</span></p>
-            <p><label for="author">작성자:</label> <span id="author">${usertable.username}</span></p>
-            <p><label for="writing-date">작성 일자:</label> <span id="writing-date">${inquiry.inquirydate}</span></p>
+            <p><label for="answer-status">답변 상태:</label> <span id="answer-status"> <c:set var="result" value="${inquiry.inquiryStatus}"/> 
+											                                            <c:choose>
+											                                            	<c:when test="${result == 1 }">
+																								<td>답변대기중</td>
+																							</c:when>    
+																						<c:otherwise>
+																								<td>답변완료</td>
+																						</c:otherwise>
+																						</c:choose>
+																						</span></p>
+            <p><label for="writing-date">작성 일자:</label> <span id="writing-date">${fn:substring(inquiry.inquiryDate,0,10)}</span></p>
         </div>
 
         <div class="form-group">

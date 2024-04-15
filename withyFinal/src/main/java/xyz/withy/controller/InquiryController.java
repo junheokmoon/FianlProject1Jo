@@ -1,10 +1,12 @@
 package xyz.withy.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import lombok.RequiredArgsConstructor;
 import xyz.withy.dto.InquiryDTO;
@@ -46,10 +48,14 @@ public class InquiryController {
 	}
 	*/
 	
+	// 문의 세부사항 
 	@RequestMapping("/inquiryDetail")
-	public String inquiryDetail() {
+	public String inquiryDetail(@RequestParam int inquiryNo, Model model) {
+		InquiryDTO inquiry=inquiryService.getInquiry(inquiryNo);
+		model.addAttribute("inquiry", inquiry);
 		return "/inquiry/inquiryDetail";
-	}
+	}	
+	
 	
 	@RequestMapping("/inquiryUpdate")
 	public String inquiryUpdate() {

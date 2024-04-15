@@ -126,20 +126,20 @@
         <table>
             <tr>
                 <th>제목</th>
-                <td>${noticedetail.noticeTitle }</td>
+                <td>${notice.noticeTitle }</td>
             </tr>
             <tr>
                 <th>작성일</th>
-                <td>${noticedetail.noticeDate}</td>
+                <td>${notice.noticeDate}</td>
             </tr>
             <tr>
                 <th>조회수</th>
-                <td>${noticedetail.noticeCount}</td>
+                <td>${notice.noticeCount}</td>
             </tr>
             <tr>
                 <th>내용</th>
                 <td>
-                    <textarea readonly>${noticedetail.noticeContent}</textarea>
+                    <textarea readonly>${notice.noticeContent}</textarea>
                 </td>
             </tr>
         </table>

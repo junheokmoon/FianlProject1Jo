@@ -21,8 +21,9 @@ public class NoticeController {
 	
 	@RequestMapping("/detail")
 	public String noticeDetail(@RequestParam int noticeNo, Model model) {
-		NoticeDTO noticedetail=noticeService.getNotice(noticeNo);
-		model.addAttribute("noticedetail", noticedetail);
+		noticeService.modifyNoticeCount(noticeNo);
+		NoticeDTO notice=noticeService.getNotice(noticeNo);
+		model.addAttribute("notice", notice);
 		return "notice/noticeDetail";
 	}
 	
@@ -40,7 +41,6 @@ public class NoticeController {
 	
 	@RequestMapping(value = "/modify", method = RequestMethod.GET)
 	public String noticeUpdate(@RequestParam int noticeNo, Model model) {
-		
 		NoticeDTO noticemodify=noticeService.getNotice(noticeNo);
 		model.addAttribute("noticemodify", noticemodify);
 		
