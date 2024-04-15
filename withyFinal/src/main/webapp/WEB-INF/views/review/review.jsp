@@ -2,6 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -108,7 +110,7 @@
             <div class="row v-center justify-content-center" style="background-color: aliceblue; height: 70vh;">
                 <div class="col-lg-5 text-right">
                     <!-- 이미지 콘텐츠 -->
-                    <img  src="<c:url value="${program.programImage}"/>" class="img-fluid z-index-2 relative rellax tablet-lg-hidden" data-rellax-speed="2" data-rellax-percentage="0.5">
+                    <img  src="<c:url value='${fn:split(program.programImage, \"_\")[1]}'/>" class="img-fluid z-index-2 relative rellax tablet-lg-hidden" data-rellax-speed="2" data-rellax-percentage="0.5">
                 </div>
                 <div class="col-lg-6 z-index-1">
                     <!-- 텍스트 콘텐츠 -->
@@ -211,7 +213,7 @@
 
 						<div style="display: flex; align-items: center;">
 							<p>
-								${review.reviewUserNo}<br>&nbsp;&nbsp;
+								${review.reviewUserNickname}<br>&nbsp;&nbsp;
 							</p>
 							<h5 class="review-rating" data-rating="${review.reviewStar}"></h5>&nbsp;&nbsp;
 							<%--h5 style="color: orange; margin-right: 10px;">${review.reviewStar}</h5> --%>

@@ -50,7 +50,7 @@ public class ReviewController {
 	    } else {
 	        // 모든 리뷰 목록 조회 (혹은 다른 처리)
 	        model.addAttribute("reviewList", reviewService.getReviewJoinList());
-	    }
+	    } 
 	    return "/review/review";
 	}
 

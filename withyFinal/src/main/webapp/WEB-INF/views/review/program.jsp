@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"  %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
     
 <!DOCTYPE html>
 <html lang="en">
@@ -204,7 +206,7 @@
 	            <c:param name='programNo' value='${program.programNo}' />
 	        </c:url>">
 	            <div class="card">
-	            	<img  src="<c:url value="${program.programImage}"/>">
+	            	<img  src="<c:url value='${fn:split(program.programImage, \"_\")[1]}'/>" >
 	                <div class="card-body text-center">
 	                    <h4 class="card-title fs-20 mb-5">${program.programName}</h4>
 	                    <p class="fs-14 fw-medium text-secondary-dark mb-0">${program.programDetail}</p>

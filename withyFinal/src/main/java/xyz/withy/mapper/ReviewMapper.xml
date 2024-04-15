@@ -36,25 +36,30 @@
 	
 	<select id="selectReveiwJoinList" resultType="ReviewDTO">
 		select review_no, review_star,review_comment, review_user_no
-			,review_date ,review_program_no from review join usertable on review_user_no = user_no 
-				join program on review_program_no=program_no order by review_date desc
+			,review_date ,review_program_no, review_user_nickname from review join usertable on review_user_no = user_no 
+				join program on review_program_no=program_no 
+				join usertable on review_user_nickname=user_nickname
+				order by review_date desc
 	</select>
 	
-	<!-- 
 	<select id="selectReviewsByProgramNo" resultType="ReviewDTO">
-    	select review_no, review_star,review_comment, review_user_no
-			,review_date ,review_program_no from review
-    			 reviewProgramNo = #{programNo}
-	</select>
-	 -->
-	
-	<select id="selectReviewsByProgramNo" resultType="ReviewDTO">
-    	select review_no, review_star, review_comment, review_user_no, review_date, review_program_no
-    		from review where review_program_no = #{programNo}
-	</select>
+    select 
+        review.review_no, 
+        review.review_star, 
+        review.review_comment, 
+        review.review_user_no, 
+        review.review_date, 
+        review.review_program_no,
+        usertable.user_nickname as reviewUserNickname
+    from review
+    join usertable on review.review_user_no = usertable.user_no
+    where review.review_program_no = #{programNo}
+</select>
+
 	
 	<select id="selectAverageStar" parameterType="int" resultType="double">
-    	select coalesce(AVG(review_star), 0.0) as averageStar from review where review_program_no = #{programNo}
+    	select coalesce(avg(review_star), 0.0) as averageStar from review where review_program_no = #{programNo}
 	</select>
+	
 	
 </mapper>
