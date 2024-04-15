@@ -278,7 +278,7 @@
 	<script src="<c:url value="/js/isotope.min.js"/>"></script>
 	<script src="<c:url value="/js/isotope-filter.js"/>"></script>
 	<!-- / Isotope -->
- 
+  
 	<!-- GLightbox -->
 	<script src="<c:url value="/js/glightbox.min.js"/>"></script>
 	<script>

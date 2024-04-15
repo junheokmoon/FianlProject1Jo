@@ -16,7 +16,7 @@ PROGRAM_DETAIL      NOT NULL VARCHAR2(200) ���α׷� ����
 PROGRAM_VIDEO                VARCHAR2(200) ���α׷� ���� ��ũ
 PROGRAM_CATEGORY_NO          NUMBER(5)     ���α׷� ���� ī�װ�
 */
- 
+  
 
 @Data
 @Builder

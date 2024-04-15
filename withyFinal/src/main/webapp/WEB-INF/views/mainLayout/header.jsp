@@ -41,7 +41,7 @@
             <a href="<c:url value="/"/>">
             	<img src="<c:url value="/images/wtylogo.png"/>" style="width: 100px; height: 120px;"  alt="">
             </a>
- 
+  
             <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-toggle-nav-center" aria-controls="navbar-toggle-nav-center" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="icon-bar top-bar"></span>
                 <span class="icon-bar middle-bar"></span>
