@@ -75,4 +75,9 @@ public class ProgramServiceImpl implements ProgramService {
 		 return programDAO.selectProgramFilterByOtt(programOttNo, programCategoryNo);
 	}
 
+	@Override
+	public List<ProgramDTO> getProgramCategoryNoList() {
+		return programDAO.selectProgramCategoryNoList();
+	}
+
 }

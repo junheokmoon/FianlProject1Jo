@@ -6,7 +6,6 @@ import java.util.Map;
 import org.apache.ibatis.annotations.Param;
 
 import xyz.withy.dto.ProgramDTO;
-import xyz.withy.dto.ReviewDTO;
 
 public interface ProgramMapper {
 	 int insertProgram(ProgramDTO programDTO);
@@ -19,5 +18,5 @@ public interface ProgramMapper {
 	 //List<ProgramDTO> selectProgramFilterByOtt(Integer programOttNo, Integer programCategoryNo);
 	 List<ProgramDTO> selectProgramFilterByOtt
 		(@Param("programOttNo") Integer programOttNo, @Param("programCategoryNo") Integer programCategoryNo);
-	  
+	 List<ProgramDTO> selectProgramCategoryNoList();		// 프로그램 장르 리스트
 }

@@ -14,6 +14,5 @@ public interface ProgramDAO {
 	 List<ProgramDTO> selectProgramList(Map<String, Object> map);
 	 List<ProgramDTO> selectProgramJoinList();
 	 List<ProgramDTO> selectProgramFilterByOtt(Integer programOttNo, Integer programCategoryNo);
-	 
-  
+	 List<ProgramDTO> selectProgramCategoryNoList();		// 프로그램 장르 리스트
 }

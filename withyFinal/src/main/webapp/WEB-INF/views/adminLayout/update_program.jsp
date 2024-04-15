@@ -53,7 +53,7 @@
 					<div style="width: 95%;">
 						<div class="panel" style="padding: 50px;">
 				
-							<form class="form-horizontal" style="font-size: 15px">
+							<form action="<c:url value="/admin/updateProgram"/>" method="post" enctype="multipart/form-data" class="form-horizontal" style="font-size: 15px">
 								<div class="panel-body">
 									<div class="form-group">
 										<label class="col-sm-3" for="ccccc" style="text-indent: 5em;">프로그램 번호</label>
@@ -64,7 +64,7 @@
 									<div class="form-group">
 										<label class="col-sm-3" for="ccccc" style="text-indent: 5em;">제목</label>
 										<div class="col-sm-6">
-											<input type="text" class="form-control input-lg" id="ccccc" value="${programByNo.programName }">
+											<input type="text" class="form-control input-lg" id="ccccc" name="programName" value="${programByNo.programName }">
 										</div>
 									</div>
 									<div class="form-group">
@@ -85,43 +85,62 @@
 										</div>
 									</div>
 									<div class="form-group">
-										<label class="col-sm-3" for="bbbbb" style="text-indent: 5em;">프로그램 장르</label>
-										<div class="col-sm-6">
-											<select class="selectpicker" name="${programByNo.programCategoryNo}">
-											    <option>타입을 선택하세요</option>
-											    <option value="1">영화</option>
-											    <option value="2">드라마</option>
-											    <option value="3">다큐</option>
-											    <option value="4">예능</option>
-											</select>
-										</div>
+									    <label class="col-sm-3" for="aaaaa" style="text-indent: 5em;">프로그램 장르</label>
+									    <div class="col-sm-6">
+									        <select class="selectpicker" name="programCategoryNo" >
+									            <c:forEach var="programCategoryNo" items="${getProgramCategoryNoList}">
+									                <%-- <c:choose>
+									                    <c:when test="${programCategoryNo eq programByNo.programCategoryNo}">
+									                        <option value="${categprogramCategoryNoory}" selected>${programCategoryNo}</option>
+									                    </c:when>
+									                    <c:otherwise>
+									                        <option value="${programCategoryNo}">${programCategoryNo}</option>
+									                    </c:otherwise>
+									                </c:choose> --%>
+									                <c:choose>
+													    <c:when test="${programCategoryNo eq programByNo.programCategoryNo}">
+													        <c:choose>
+													            <c:when test="${programCategoryNo eq 1}">
+													                <option value="${programCategoryNo}" selected>영화</option>
+													            </c:when>
+													            <c:when test="${programCategoryNo eq 2}">
+													                <option value="${programCategoryNo}" selected>드라마</option>
+													            </c:when>
+													            <c:when test="${programCategoryNo eq 3}">
+													                <option value="${programCategoryNo}" selected>예능</option>
+													            </c:when>
+													            <c:when test="${programCategoryNo eq 4}">
+													                <option value="${programCategoryNo}" selected>다큐</option>
+													            </c:when>
+													        </c:choose>
+													    </c:when>
+													    <c:otherwise>
+													        <c:choose>
+													            <c:when test="${programCategoryNo eq 1}">
+													                <option value="${programCategoryNo}">영화</option>
+													            </c:when>
+													            <c:when test="${programCategoryNo eq 2}">
+													                <option value="${programCategoryNo}">드라마</option>
+													            </c:when>
+													            <c:when test="${programCategoryNo eq 3}">
+													                <option value="${programCategoryNo}">예능</option>
+													            </c:when>
+													            <c:when test="${programCategoryNo eq 4}">
+													                <option value="${programCategoryNo}">다큐</option>
+													            </c:when>
+													        </c:choose>
+													    </c:otherwise>
+													</c:choose>
+									            </c:forEach>
+									        </select>
+									    </div>
 									</div>
-									<!-- <div class="form-group">
-										<label class="col-sm-3" for="bbbbb" style="text-indent: 5em;">프로그램 장르</label>
-										<div class="col-sm-6">
-											<select class="selectpicker">
-												<option>영화</option>
-												<option selected>드라마</option>
-												<option>예능</option>
-												<option>다큐</option>
-											</select>
-										</div>
-									</div> -->
 									<div class="form-group">
 										<label class="col-sm-3" for="ccccc" style="text-indent: 5em;">내용설명</label>
 										<div class="col-sm-6">
 											<textarea rows="5" class="form-control" name="programDetail">${programByNo.programDetail}</textarea>
 										</div>
 									</div>
-									<div class="form-group">
-										<label class="col-md-3" style="text-indent: 5em;">이미지</label>
-										<div class="col-md-9">
-											<span class="pull-left btn btn-default btn-file">
-												파일 선택<input type="file">
-											</span>
-										</div>
-									</div>
-									
 									<div class="form-group">
 										<label class="col-md-3" style="text-indent: 5em;">이미지</label>
 										<div class="col-md-9">
@@ -132,13 +151,11 @@
 										</div>
 									</div>
 									<div class="form-group">
-										<label class="col-md-3" style="text-indent: 5em;">동영상</label>
-										<div class="col-md-9">
-											<span class="pull-left btn btn-default btn-file">
-												파일 선택<input type="file">
-											</span>
-										</div>
-									</div>
+								        <label class="col-md-3" style="text-indent: 5em;">동영상</label>
+								        <div class="col-md-9">
+								           <input type="text" class="form-control input-lg" id="ccccc" name="programVideo" value="${programByNo.programVideo}">
+								        </div>
+								    </div>
 								</div>
 								<div class="text-right">
 									<button class="btn btn-info btn-rounded" type="submit" style="font-size: 15px">완료</button>

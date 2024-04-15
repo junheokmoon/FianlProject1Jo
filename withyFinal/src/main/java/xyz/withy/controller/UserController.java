@@ -252,15 +252,62 @@ public class UserController {
         return "admin/detail_program";
 	}
 	
-	@RequestMapping("/updateProgram")
-	public String updateProgram(@RequestParam int programNo, Model model, HttpSession session) {
+	@RequestMapping(value = "/updateProgram", method = RequestMethod.GET)
+	public String updateProgram(Model model, @RequestParam("programNo") int programNo, HttpSession session) {
 		List<OttkindDTO> getOttNoAndNameList = ottkindService.getOttNoAndNameList();
-
+		List<ProgramDTO> getProgramCategoryNoList = programService.getProgramCategoryNoList();
+		
 		model.addAttribute("programByNo", programService.getProgramByNo(programNo));
-	    model.addAttribute("getOttNoAndNameList", getOttNoAndNameList);
+		model.addAttribute("getOttNoAndNameList", getOttNoAndNameList);
+	    model.addAttribute("getProgramCategoryNoList", getProgramCategoryNoList);
 
 		return "admin/update_program";
-	} 
+	}
+	
+
+	@RequestMapping(value = "/updateProgram", method = RequestMethod.POST)
+	public String updateProgram(@ModelAttribute ProgramDTO program, @RequestParam("programNo") int programNo
+			, @RequestParam("programName") String programName, @RequestParam("programOttNo") String programOttNo
+			, @RequestParam("programCategoryNo") String programCategoryNo, @RequestParam("programDetail") String programDetail
+			,  @RequestParam("programVideo") String programVideo, @RequestParam MultipartFile multipartFile) throws IOException {
+
+	    String uploadDirectory = context.getServletContext().getRealPath("/resources/images");
+	    String fileName = multipartFile.getOriginalFilename();
+
+	    // 파일이 첨부되지 않은 경우에 대한 처리
+	    if (!multipartFile.isEmpty()) {
+	        String uuid = UUID.randomUUID().toString();
+	        String newFileName = uuid + "_/images/programImg/" + fileName;
+	        String newFilePath = new File(uploadDirectory, newFileName).getAbsolutePath();
+	        File newFile = new File(newFilePath);
+
+	        // 파일이 이미 존재하는 경우에 대한 처리
+	        if (newFile.exists()) {
+	            newFileName = uuid + "_" + fileName;
+	            newFilePath = new File(uploadDirectory, newFileName).getAbsolutePath();
+	        }
+
+	        // 파일을 업로드합니다.
+	        multipartFile.transferTo(new File(newFilePath));
+
+	        // TicketDTO에 파일 경로를 설정합니다.
+	        program.setProgramImage(newFilePath);
+	    } else {
+	        // 파일이 첨부되지 않은 경우에는 기존 파일 경로를 그대로 사용
+	    	program.setProgramImage(UUID.randomUUID().toString()+"_/images/programImg/"+fileName);
+	    }
+
+	    program.setProgramNo(programNo);
+	    program.setProgramName(programName);
+	    program.setProgramOttNo(programNo);
+	    program.setProgramCategoryNo(programCategoryNo);
+	    program.setProgramDetail(programDetail);
+	    program.setProgramVideo(programVideo);
+
+	    programService.modifyProgram(program);
+	    
+	    return "redirect:/admin/allPogram";
+	}
 	
 	@RequestMapping("/addProgram")
 	public String addProgram(Model model) {

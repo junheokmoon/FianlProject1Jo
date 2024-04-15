@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import xyz.withy.dto.ProgramDTO;
+import xyz.withy.dto.TicketDTO;
 
 public interface ProgramService {
 	void addProgram(ProgramDTO programDTO);
@@ -13,5 +14,6 @@ public interface ProgramService {
 	Map<String, Object> getProgramList(int pageNum);
 	List<ProgramDTO> getProgramJoinList();
 	List<ProgramDTO> getProgramFilterByOtt(Integer programOttNo, Integer programCategoryNo);
-	  
+	List<ProgramDTO> getProgramCategoryNoList();       // 프로그램 장르 리스트
+
 }
