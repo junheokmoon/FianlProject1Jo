@@ -26,8 +26,8 @@ public class NoticeDAOImpl implements NoticeDAO {
 	}
 
 	@Override
-	public int updateNoticeCount(int noticeCount) {
-		return sqlSession.getMapper(NoticeMapper.class).updateNoticeCount(noticeCount);
+	public int updateNoticeCount(int noticeNo) {
+		return sqlSession.getMapper(NoticeMapper.class).updateNoticeCount(noticeNo);
 	}
 
 	@Override

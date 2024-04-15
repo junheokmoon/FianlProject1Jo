@@ -1,8 +1,6 @@
 package xyz.withy.dto;
 
 /*
---------------- -------- --------------
-INQUIRY_NO      NOT NULL NUMBER         문의번호
 INQUIRY_TITLE   NOT NULL VARCHAR2(100)  문의제목
 INQUIRY_CONTENT NOT NULL VARCHAR2(1000) 문의내용
 INQUIRY_DATE    NOT NULL DATE           문의날짜
