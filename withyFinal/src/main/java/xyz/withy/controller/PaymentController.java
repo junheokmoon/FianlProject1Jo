@@ -40,10 +40,8 @@ public class PaymentController {
 		
 		return "/payment/paymentMain";
 	}
-	
-	@RequestMapping("/comp")
-	
-	
+	/*
+	@RequestMapping("/pointComplete")
 	public String paymentC(@RequestParam("ticketCode")String ticketCode
 			, HttpSession session, Model model ) {
 		
@@ -61,6 +59,6 @@ public class PaymentController {
 		
 		return "/payment/paymentMain";
 	}
-	
+	*/
 	
 }
