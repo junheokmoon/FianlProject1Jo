@@ -236,7 +236,17 @@
 	
 	$("#payButton").click(function() {
 		
-		if(totalPrice == 0);
+		if(totalPrice == 0){
+			
+			$.ajax({
+			
+				type: "post",
+				url : "<c:url value=""/>",
+				
+			})
+			
+			
+		};
 		
 		
 		var pg=$(this).attr("id");

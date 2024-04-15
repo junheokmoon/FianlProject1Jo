@@ -35,7 +35,7 @@ public class PaymentRestController {
 	}
 	
 	@PostMapping("/")
-	public String pay(@RequestBody PaymentDTO payment, HttpSession session) {
+	public String pay(@RequestBody PaymentDTO payment, HttpSession session, ) {
 		//결제 관련 OpenAPI를 이용하기 전에 결제 금액 검증을 위해 세션에 주문번호(이름)와 결제금액(값)을 저장
 		session.setAttribute("userNo", 8);
 		

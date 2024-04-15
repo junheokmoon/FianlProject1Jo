@@ -65,67 +65,6 @@
 			                        <div class="doc-holder">
 			                            <div class="doc-info bg-light">
 			                             <div class="row">
-			                              <div class="col-xl-4">
-			                        		  <div class="card w-raised-icon lg-icon">
-			                                     <div class="card-body text-center p-y-30">
-			                                         <div class="raised-icon bg-white icon-lg pos-center circle raised">
-			                                             <i class="far fa-user promo-icon text-success"></i>
-			                                         </div><!-- / raised-icon -->
-			                                         <!-- 
-			                                          <div id="userInfoDiv"></div>
-			                                          -->
-			                                         <h5 class="card-title mt-40">고객 정보</h5>
-			                                         <p class="card-text">고객이름 : ${userInfo.userName } </p> 
-			                                         <p class="card-text">고객아이디: ${userInfo.userId }</p>
-			                                         <p class="card-text">고객닉네임: ${userInfo.userNickname }</p>
-			                                         <p class="card-text">고객전화번호: ${userInfo.userPhone }</p>
-		                                	  	 </div><!-- / card-body -->
-		                                	  </div><!-- / card -->
-		                                  </div><!-- / column -->
-			                              <div class="col-xl-4">
-			                        		  <div class="card w-raised-icon lg-icon">
-			                                     <div class="card-body text-center p-y-30">
-			                                         <div class="raised-icon bg-white icon-lg pos-center circle raised">
-			                                             <i class="fas fa-briefcase text-primary"></i>
-			                                         </div><!-- / raised-icon -->
-			                                         
-			                                         <h5 class="card-title mt-40">주문 상품</h5>
-			                                         <p class="card-text">상품 이름 : ${ticketInfo.ottkindDTO.ottName}
-			                                          ${ticketInfo.ticketMonth }개월 티켓</p>
-			                                         <p class="card-text">OTT : ${ticketInfo.ottkindDTO.ottName}</p>
-			                                         <p class="card-text">기간 : ${ticketInfo.ticketMonth }개월</p>
-			                                         <p class="card-text">요금 : ${ticketInfo.ticketPrice }원</p>
-			                                         
-			                                     </div><!-- / card-body -->
-			                                     
-			                                  </div><!-- / card -->
-			                              
-			                              </div><!-- / column -->
-			                              <div class="col-xl-4">
-			                        		  <div class="card w-raised-icon lg-icon">
-			                                     <div class="card-body text-center p-y-30">
-			                                         <div class="raised-icon bg-white icon-lg pos-center circle raised">
-			                                             <i class="fas fa-briefcase text-primary"></i>
-			                                         </div><!-- / raised-icon -->
-			                                         <h5 class="card-title mt-40">포인트</h5>
-			                                         <p class="card-text">현제 포인트 : ${userInfo.userPoint }</p>
-			                                         <div class="input-group input-w-overlap-btn mb-0">
-			                                             <input id = "usePointInput" type="number" step="10" class="form-control rounded-sm" placeholder="사용금액" min="0">
-			                                             <span class="input-group-btn"> 
-			                                             
-			                                                 <button id="pointUseButton" class="btn btn-sm btn-primary lh-0 overlapping-btn big-btn rounded-sm" type="button">사용</button>
-			                                             </span><!-- / input-group-btn -->
-			                                             <p id ="errorMessage" class="card-text" style="color : red;"></p>
-			                                         </div><!-- / input-group -->
-			                                         
-			                                         <p id ="usePoint" class="card-text">사용 포인트 : 0</p>
-			                                     </div><!-- / card-body -->
-			                                     </div><!-- / card-body -->
-			                                  </div><!-- / card -->
-			                              </div><!-- / column -->
-			                              
-			                              <hr style="border-top: 1px solid #333333; width: 100%; margin: 20px 0;">
-			                              
 												<div class="col-xl-100 ">
 												    <div class="card w-raised-icon lg-icon">
 												        <div class="card-body p-y-30" style="height: 140px; overflow-y: hidden;">
