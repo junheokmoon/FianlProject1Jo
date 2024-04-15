@@ -84,11 +84,11 @@
 									        <select class="selectpicker" name="ticketMonth" >
 									            <c:forEach var="ticketMonth" items="${getTicketMonthList}">
 									                <c:choose>
-									                    <c:when test="${ticketMonth.ticketMonth eq ticketInfo.ticketMonth}">
-									                        <option value="${ticketMonth.ticketMonth}" selected>${ticketMonth.ticketMonth}</option>
+									                    <c:when test="${ticketMonth eq ticketInfo.ticketMonth}">
+									                        <option value="${ticketMonth}" selected>${ticketMonth}</option>
 									                    </c:when>
 									                    <c:otherwise>
-									                        <option value="${ticketMonth.ticketMonth}">${ticketMonth.ticketMonth}</option>
+									                        <option value="${ticketMonth}">${ticketMonth}</option>
 									                    </c:otherwise>
 									                </c:choose>
 									            </c:forEach>

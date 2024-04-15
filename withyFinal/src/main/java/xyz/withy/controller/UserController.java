@@ -196,6 +196,7 @@ public class UserController {
 	public String addProduct(Model model) {
 	    model.addAttribute("getOttNoAndNameList", ottkindService.getOttNoAndNameList());	// ott종류 for문 돌림
 	    model.addAttribute("getTicketMonthList", ticketService.getTicketMonthList());		// 티켓기간 for문 돌림
+	    System.out.println("ticketService.getTicketMonthList() = " + ticketService.getTicketMonthList());
 	    
 	    return "admin/add_product";
 	}

@@ -83,7 +83,7 @@
 											<select class="selectpicker" name="ticketMonth" >
 												<option>기간을 선택하세요</option>
 									            <c:forEach var="getTicketMonthList" items="${getTicketMonthList}">
-									                <option value="${getTicketMonthList.ticketMonth}">${getTicketMonthList.ticketMonth }</option>
+									                <option value="${getTicketMonthList}">${getTicketMonthList }</option>
 									            </c:forEach>
 											</select>
 										</div>
