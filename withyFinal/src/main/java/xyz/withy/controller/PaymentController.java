@@ -60,5 +60,4 @@ public class PaymentController {
 		return "/payment/paymentMain";
 	}
 	*/
-	
 }

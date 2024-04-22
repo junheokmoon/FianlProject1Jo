@@ -149,8 +149,9 @@
 			                            </div><!-- / doc-info -->
 			
 			                            <div class="doc-result-footer text-center">
-			                            <button id ="payButton" type="button" class="btn btn-primary pill">결제하기!</button>
-			                            <a href="/withyFinal/ticketBooth/" class="btn btn-primary pill">당신은 결제를 취소할 수 없습니다.</a>
+			                            <a href="/withyFinal/ticketBooth/" class="btn btn-primary pill">취소하기!</a>
+			                            <button id ="kakaopay" type="button" class="btn btn-primary pill pay">간편결제하기!</button>
+			                            <button id ="html5_inicis" type="button" class="btn btn-primary pill pay">결제하기!</button>
 			                            </div><!-- / doc-result-footer -->
 			
 			                        </div><!-- / doc-holder -->
@@ -182,9 +183,6 @@
 		let selectPoint = parseInt($(this).val());
 		let ticketPrice = parseInt(${ticketInfo.ticketPrice });
 		
-		
-		
-		
 		if(selectPoint > userPoint){
 			
 			$(this).val(userPoint);
@@ -205,14 +203,16 @@
 		
 		if(selectPoint%10 != 0){
 			selectPoint = Math.round(selectPoint/10)*10;
-			$("#usePoint").text("사용 포인트 : " + selectPoint);
-			$("#usePointInput").text(selectPoint);
 			
+			if(selectPoint > userPoint){
+				
+				selectPoint -= 10;
+			}
 		}
-		
 		if(selectPoint > userPoint){
 			
 			$(this).val(userPoint);
+			selectPoint = userPoint;
 		}
 		
 		if(ticketPrice < selectPoint){
@@ -226,6 +226,7 @@
 			return;
 		}
 		
+		$("#usePointInput").val(selectPoint);
 		$("#usePoint").text("사용 포인트 : " + selectPoint);
 		
 		totalPrice = ticketPrice-selectPoint;
@@ -233,30 +234,20 @@
 		
 	});
 	/*
-	
-	$("#payButton").click(function() {
+	$(".pay").click(function(event) {
 		
-		if(totalPrice == 0){
+			let paymentUserNo=parseInt(${userInfo.userNo});
+			let paymentTicketCode=${ticketInfo.ticketCode};
+			let paymentUsepoint = $("#usePointInput").val;
 			
-			var paymentUserNo=parseInt(${userInfo.userNo});
-			var paymentTicketCode=${ticketInfo.ticketCode};
-			
+		if(totalPrice != 0){
 			
 			$.ajax({
 				type: "post",
-				url: "<c:url value='/payment/pointComplete'/>",
-				//headers : 리퀘스트 메세지 머릿부(Header)에 저장된 정보를 변경하기 위한 속성
-				// => 리퀘스트 메세지 몸체부에 저장된 전달될 값의 파일형식(MimeType)을 변경
-				//headers:{"contentType":"applicaion/json"}, 
-				//contentType : 리퀘스트 메세지 몸체부에 저장된 전달될 값의 파일형식(MimeType)을
-				//변경하기 위한 속성
-				// => 리퀘스트 메세지 몸체부에 JSON 형식의 문자열로 값 전달
-				// => 요청 처리 메소드의 매개변수에서는 @RequestBody 어노테이션을 사용하여 JSON 
-				//형식의 문자열을 Java 객체로 제공받아 사용 - 속성명과 동일한 이름의 Java 객체의
-				//필드에 속성값 저장
+				url: "<c:url value='/payment/'/>",
 				contentType: "application/json",
-				//JSON.stringify(object) : Javascript 객체를 JSON 형식의 문자값으로 변환하여 반환하는 메소드
-				data: JSON.stringify({"paymentUserNo":paymentUserNo, "paymentTicketCode":paymentTicketCode}),
+				data: JSON.stringify({"paymentUserNo":paymentUserNo, "paymentTicketCode":paymentTicketCode}
+				, "paymentUsepoint":paymentUsepoint, "paymentPrice":totalPrice),
 				dataType: "text",
 				success: function(result) {
 					if(result == "success") {
@@ -271,8 +262,13 @@
 				}
 			});
 		}
+		
+		
+		
+	});
 	
 	*/
+	
 	/*
 	titleTextDiv()
 	userInfo(userNo);
