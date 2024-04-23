@@ -267,46 +267,48 @@ public class UserController {
 
 	@RequestMapping(value = "/updateProgram", method = RequestMethod.POST)
 	public String updateProgram(@ModelAttribute ProgramDTO program, @RequestParam("programNo") int programNo
-			, @RequestParam("programName") String programName, @RequestParam("programOttNo") String programOttNo
+			, @RequestParam("programName") String programName, @RequestParam("programOttNo") int programOttNo
 			, @RequestParam("programCategoryNo") String programCategoryNo, @RequestParam("programDetail") String programDetail
 			,  @RequestParam("programVideo") String programVideo, @RequestParam MultipartFile multipartFile) throws IOException {
 
-	    String uploadDirectory = context.getServletContext().getRealPath("/resources/images");
-	    String fileName = multipartFile.getOriginalFilename();
+		// 파일이 업로드될 실제 디렉토리 경로 설정
+		String uploadDirectory = context.getServletContext().getRealPath("/resources/images/programImg");
+		String fileName = multipartFile.getOriginalFilename();
 
-	    // 파일이 첨부되지 않은 경우에 대한 처리
-	    if (!multipartFile.isEmpty()) {
-	        String uuid = UUID.randomUUID().toString();
-	        String newFileName = uuid + "_/images/programImg/" + fileName;
-	        String newFilePath = new File(uploadDirectory, newFileName).getAbsolutePath();
-	        File newFile = new File(newFilePath);
+		// 파일이 첨부되지 않은 경우에 대한 처리
+		if (!multipartFile.isEmpty()) {
+		    String uuid = UUID.randomUUID().toString();
+		    String newFileName = uuid + "_/images/programImg/" + fileName; // 변경된 부분
+		    String newFilePath = new File(uploadDirectory, newFileName).getAbsolutePath();
+		    File newFile = new File(newFilePath);
 
-	        // 파일이 이미 존재하는 경우에 대한 처리
-	        if (newFile.exists()) {
-	            newFileName = uuid + "_" + fileName;
-	            newFilePath = new File(uploadDirectory, newFileName).getAbsolutePath();
-	        }
+		    // 파일이 이미 존재하는 경우에 대한 처리
+		    if (newFile.exists()) {
+		        newFileName = uuid + "_/images/programImg/" + fileName; // 변경된 부분
+		        newFilePath = new File(uploadDirectory, newFileName).getAbsolutePath();
+		    }
 
-	        // 파일을 업로드합니다.
-	        multipartFile.transferTo(new File(newFilePath));
+		    // 파일 업로드
+		    multipartFile.transferTo(new File(newFilePath));
 
-	        // TicketDTO에 파일 경로를 설정합니다.
-	        program.setProgramImage(newFilePath);
-	    } else {
-	        // 파일이 첨부되지 않은 경우에는 기존 파일 경로를 그대로 사용
-	    	program.setProgramImage(UUID.randomUUID().toString()+"_/images/programImg/"+fileName);
-	    }
-
+		    // ProgramDTO에 파일 경로 설정
+		    String relativeFilePath = "/resources/images/programImg/" + newFileName;
+		    program.setProgramImage(relativeFilePath);
+		} else {
+		    // 파일이 첨부되지 않은 경우에는 기존 파일 경로를 그대로 사용
+		    program.setProgramImage(UUID.randomUUID().toString() + "_/images/programImg/" + fileName);
+		}
+	    
 	    program.setProgramNo(programNo);
 	    program.setProgramName(programName);
-	    program.setProgramOttNo(programNo);
+	    program.setProgramOttNo(programOttNo);
 	    program.setProgramCategoryNo(programCategoryNo);
 	    program.setProgramDetail(programDetail);
 	    program.setProgramVideo(programVideo);
 
 	    programService.modifyProgram(program);
 	    
-	    return "redirect:/admin/allPogram";
+	    return "redirect:/admin/allProgram";
 	}
 	
 	@RequestMapping("/addProgram")
@@ -315,6 +317,12 @@ public class UserController {
 	    
 		return "admin/add_program";
 	}
+	
+    @RequestMapping(value = "/deleteProgram", method = RequestMethod.POST)
+    public String deleteProgram(@RequestParam("programNo") int programNo) {
+        programService.removeProgram(programNo);
+	    return "redirect:/admin/allProgram";
+    }
 	
 	@RequestMapping(value = "/saveProgram", method = RequestMethod.POST)
 	public String saveProduct(@ModelAttribute ProgramDTO programDTO, @RequestParam("programOttNo") int programOttNo

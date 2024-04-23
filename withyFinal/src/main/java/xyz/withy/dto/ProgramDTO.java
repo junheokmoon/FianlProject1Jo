@@ -6,7 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /*
-�̸�                  ��?       ����
+이름                  널?       유형      
 ------------------- -------- -------------
 PROGRAM_NO          NOT NULL NUMBER        ���α׷���ȣ
 PROGRAM_OTT_NO      NOT NULL NUMBER(38)    ���α׷�OTT ��ȣ(FK)

@@ -91,12 +91,13 @@
 									            <c:forEach var="programCategoryNo" items="${getProgramCategoryNoList}">
 									                <%-- <c:choose>
 									                    <c:when test="${programCategoryNo eq programByNo.programCategoryNo}">
-									                        <option value="${categprogramCategoryNoory}" selected>${programCategoryNo}</option>
+									                        <option value="${programCategoryNo}" selected>${programCategoryNo}</option>
 									                    </c:when>
 									                    <c:otherwise>
 									                        <option value="${programCategoryNo}">${programCategoryNo}</option>
 									                    </c:otherwise>
 									                </c:choose> --%>
+									                
 									                <c:choose>
 													    <c:when test="${programCategoryNo eq programByNo.programCategoryNo}">
 													        <c:choose>
@@ -129,7 +130,7 @@
 													                <option value="${programCategoryNo}">다큐</option>
 													            </c:when>
 													        </c:choose>
-													    </c:otherwise>
+													    </c:otherwise> 
 													</c:choose>
 									            </c:forEach>
 									        </select>

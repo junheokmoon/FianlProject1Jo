@@ -125,11 +125,16 @@
 									<%-- <button class="btn btn-info btn-rounded" type="button" onclick="location.href='${pageContext.request.contextPath}/admin/updateProgram'" style="font-size: 15px">수정</button> --%>
 									<button class="btn btn-info btn-rounded" type="button" onclick="location.href='<c:url value="updateProgram">
 										<c:param name="programNo" value="${programByNo.programNo}" /></c:url>'" style="font-size: 15px">수정</button>
-									
-									<button class="btn btn-info btn-rounded" type="submit" style="font-size: 15px">삭제</button>
+										<!-- <button class="btn btn-info btn-rounded" type="submit" style="font-size: 15px">삭제</button> -->
 									<button class="btn btn-info btn-rounded" type="button" onclick="location.href='${pageContext.request.contextPath}/admin/allProgram'" style="font-size: 15px">목록</button>
 								</div>
 							</form>
+							<div style="text-align: right; padding-top: 5px; padding-right: 40px;">
+								<form  id="deleteForm" action="<c:url value="/admin/deleteProgram"/>" method="post">
+						            <input type="hidden" name="programNo" value="${programByNo.programNo }">
+									<button class="btn btn-info btn-rounded" type="submit" style="font-size: 15px">삭제</button>
+						        </form>
+						    </div>
 						</div>
 					</div>
 				</div>
@@ -137,4 +142,16 @@
 		</div>
 	</div>
 </body>
+
+<script>
+    // 삭제 버튼 클릭 이벤트 리스너 추가
+    document.getElementById('deleteForm').addEventListener('submit', function(event) {
+        // 확인 대화상자 표시
+        if (!confirm('정말로 이 프로그램을 삭제하시겠습니까?')) {
+            // 확인을 누르지 않으면 폼 제출 취소
+            event.preventDefault();
+        }
+    });
+</script>
+
 </html>

@@ -10,9 +10,9 @@
 	</insert> 
 	 
 	<update id="updateProgram">
-		update program set program_ott_no=#{programOttNo} ,program_name=#{programName}
-			,program_image=#{programImage},program_detail=#{programDetail} ,program_video=#{programVideo}
-				, program_category_no=#{programCategoryNo} where program_no=#{programNo}
+		update program set program_ott_no = #{programOttNo}, program_name = #{programName}
+			, program_image = #{programImage}, program_detail = #{programDetail}, program_video = #{programVideo}
+			, program_category_no = #{programCategoryNo} where program_no = #{programNo}
 	</update>
 	 
 	<delete id="deleteProgram">
