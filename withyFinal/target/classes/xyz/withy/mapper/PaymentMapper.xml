@@ -3,11 +3,9 @@
 <mapper namespace="xyz.withy.mapper.PaymentMapper">
 
 <insert id="insertPayment"> <!-- 결제 삽입  -->
-<!-- 
 		<selectKey resultType="int" keyProperty="paymentNo" order="BEFORE"> 
 		select payment_seq.nextval from dual
 		</selectKey>
- -->
 		insert into ticket values(#{paymentNo}, #{paymentUserNo}, #{paymentTicketCode}
 		, sysdate, #{paymentStatus}, #{paymentUsepoint}, #{paymentPrice})
 	</insert>

@@ -23,7 +23,7 @@ public class PaymentRestController {
 	private final PaymentService paymentService;
 	private final TicketService ticketService;
 	private final UserService userService;
-	
+	/*
 	@PostMapping("/")
 	public String pay(@RequestBody PaymentDTO payment, HttpSession session, Model model) {
 		
@@ -32,6 +32,6 @@ public class PaymentRestController {
 		
 		return "ok";
 	}
-	
+	*/
 	
 }
