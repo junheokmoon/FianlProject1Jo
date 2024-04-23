@@ -1,6 +1,9 @@
 package xyz.withy.controller;
 
 
+import javax.servlet.http.HttpSession;
+
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,12 +25,12 @@ public class PaymentRestController {
 	private final UserService userService;
 	
 	@PostMapping("/")
-	public String pay(@RequestBody PaymentDTO payment) {
+	public String pay(@RequestBody PaymentDTO payment, HttpSession session, Model model) {
+		
+		
 		paymentService.addPayment(payment);
 		
-		//userService.
-		
-		return "success";
+		return "ok";
 	}
 	
 	

@@ -42,22 +42,17 @@ public class PaymentController {
 	}
 	/*
 	@RequestMapping("/pointComplete")
-	public String paymentC(@RequestParam("ticketCode")String ticketCode
-			, HttpSession session, Model model ) {
+	public String paymentC(HttpSession session, Model model ) {
 		
-		if(ticketCode == null || ticketCode =="") {
-			return "/ticketBooth/ticketBoothMain";
-		}
 		session.setAttribute("userNo", 8);
 		
 		int userNo =  (Integer) session.getAttribute("userNo");
-		TicketDTO ticketInfo = ticketService.getTicketInfo(ticketCode);
 		UserDTO userInfo = userService.getUserByNo(userNo);
 		
 		model.addAttribute("ticketInfo" , ticketInfo);
 		model.addAttribute("userInfo" , userInfo);
 		
-		return "/payment/paymentMain";
+		return "/payment/paymentComplete";
 	}
 	*/
 }
