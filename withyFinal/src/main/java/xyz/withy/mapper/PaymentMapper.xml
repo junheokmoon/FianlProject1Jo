@@ -9,7 +9,7 @@
 		</selectKey>
  -->
 		insert into ticket values(#{paymentNo}, #{paymentUserNo}, #{paymentTicketCode}
-		, sysdate, #{paymentStatus}, #{paymentUsePoint}, #{paymentPrice})
+		, sysdate, #{paymentStatus}, #{paymentUsepoint}, #{paymentPrice})
 	</insert>
 
 
