@@ -368,6 +368,18 @@ public class UserController {
 	public String addNotice() {
 		return "admin/add_notice";
 	}
+
+	// 공지사항 추가를 처리하는 메소드
+    @PostMapping("/insertNotice")
+    public String insertNotice(String noticeTitle,String noticeContent) {
+        NoticeDTO noticeDTO = new NoticeDTO();
+        noticeDTO.setNoticeTitle(noticeTitle);
+        noticeDTO.setNoticeContent(noticeContent);
+        noticeService.addNotice(noticeDTO);
+        
+        // 포인트 지급 후 리다이렉트할 경로
+        return "redirect:/admin/allNotice";
+    }
 	/*********************** 공지사항 관리 end ***********************/
 	
 	/************************* 고객지원 start *************************/

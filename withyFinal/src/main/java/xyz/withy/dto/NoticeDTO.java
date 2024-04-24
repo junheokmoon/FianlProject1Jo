@@ -12,7 +12,7 @@ NOTICE_IMAGE            VARCHAR2(100)   공지이미지
 NOTICE_DATE             DATE            공지날짜
 NOTICE_UPDATE           DATE            공지변경날짜
 NOTICE_COUNT            NUMBER          조회수
-NOTICE_USER_NO          NUMBER(5)       회원번호
+NOTICE_USER_NO          NUMBER(5)       회원번호 - 삭제
 */
 
 @Data
@@ -24,7 +24,7 @@ public class NoticeDTO {
 	private String noticeDate;
 	private String noticeUpdate;
 	private int noticeCount;
-	private int noticeUserNo;
+	//private int noticeUserNo;
 	
 	private int rn;	// NO
 }

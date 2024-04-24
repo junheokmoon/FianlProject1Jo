@@ -57,18 +57,18 @@
 							<div class="panel-heading">
 								<h3 class="panel-title">NEW</h3>
 							</div>
-							<form class="form-horizontal" style="font-size: 15px">
+							<form class="form-horizontal" action="${pageContext.request.contextPath}/admin/insertNotice" method="post" style="font-size: 15px">
 								<div class="panel-body">
 									<div class="form-group">
-										<label class="col-sm-3" for="ccccc" style="text-indent: 5em;">공지 제목</label>
+										<label class="col-sm-3" for="noticeTitle" style="text-indent: 5em;">공지 제목</label>
 										<div class="col-sm-6">
-											<input type="text" class="form-control input-lg" id="ccccc" value="">
+											<input type="text" class="form-control input-lg" id="noticeTitle" name="noticeTitle">
 										</div>
 									</div>
 									<div class="form-group">
-										<label class="col-sm-3" for="ccccc" style="text-indent: 5em;">공지 내용</label>
+										<label class="col-sm-3" for="noticeContent" style="text-indent: 5em;">공지 내용</label>
 										<div class="col-sm-6">
-											<textarea rows="5" class="form-control"></textarea>
+											<textarea rows="5" class="form-control" id="noticeContent" name="noticeContent"></textarea>
 										</div>
 									</div>
 								</div>
