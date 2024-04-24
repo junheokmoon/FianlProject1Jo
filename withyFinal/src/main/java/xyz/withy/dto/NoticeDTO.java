@@ -25,4 +25,6 @@ public class NoticeDTO {
 	private String noticeUpdate;
 	private int noticeCount;
 	private int noticeUserNo;
+	
+	private int rn;	// NO
 }

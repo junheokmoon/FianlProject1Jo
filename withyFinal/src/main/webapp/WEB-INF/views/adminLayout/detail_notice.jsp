@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"  %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 
@@ -55,23 +56,28 @@
 								<div class="panel-body">
 									<div class="form-group">
 										<label class="col-sm-3" for="ccccc" style="text-indent: 5em;">공지사항 제목</label>
-										<%-- <div class="col-sm-6" style="text-align:left;"><%=product.getProductCom()%></div> --%>
-										<div class="col-sm-6" style="text-align:left;">공지사항 입니다.</div>
+										<div class="col-sm-6" style="text-align:left;">${getNotice.noticeTitle }</div>
 									</div>
 									<div class="form-group">
 										<label class="col-sm-3" for="ccccc" style="text-indent: 5em;">공지 내용</label>
 										<div class="col-sm-6">
 											<textarea rows="5" class="form-control"
-												readonly placeholder="공지사항에 대한 내요오오오ㅗ오오오ㅗ오오오오ㅗㅇ옹"></textarea>
+												readonly placeholder="${getNotice.noticeContent }"></textarea>
 										</div>
 									</div>
 									<div class="form-group">
 										<label class="col-sm-3" for="ccccc" style="text-indent: 5em;">공지일</label>
-										<div class="col-sm-6" style="text-align:left;">24-03-28</div>
+										<div class="col-sm-6" style="text-align:left;">${fn:substring(getNotice.noticeDate,0,10) }</div>
 									</div>
 									<div class="form-group">
 										<label class="col-sm-3" for="ccccc" style="text-indent: 5em;">수정일</label>
-										<div class="col-sm-6" style="text-align:left;">24-04-03<!-- 수정 내역이 없으면 [-] 삽입 --></div>
+										<c:if test="${getNotice.noticeUpdate == null}">
+											<div class="col-sm-6" style="text-align:left;">-</div>
+										</c:if>
+										<c:if test="${getNotice.noticeUpdate != null}">
+											<div class="col-sm-6" style="text-align:left;">${fn:substring(getNotice.noticeUpdate,0,10) }</div>
+										</c:if>
+										
 									</div>
 								</div>
 								<div class="text-right">					

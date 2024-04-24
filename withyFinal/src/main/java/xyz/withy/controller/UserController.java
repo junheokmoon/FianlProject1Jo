@@ -2,6 +2,7 @@ package xyz.withy.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
@@ -20,10 +21,12 @@ import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.multipart.MultipartFile;
 
 import lombok.RequiredArgsConstructor;
+import xyz.withy.dto.NoticeDTO;
 import xyz.withy.dto.OttkindDTO;
 import xyz.withy.dto.PointDTO;
 import xyz.withy.dto.ProgramDTO;
 import xyz.withy.dto.TicketDTO;
+import xyz.withy.service.NoticeService;
 import xyz.withy.service.OttkindService;
 import xyz.withy.service.PointService;
 import xyz.withy.service.ProgramService;
@@ -40,6 +43,7 @@ public class UserController {
 	private final TicketService ticketService; 
 	private final OttkindService ottkindService; 
 	private final ProgramService programService;
+	private final NoticeService noticeService;
 	private final WebApplicationContext context;
 	
 	@RequestMapping("/")
@@ -235,12 +239,10 @@ public class UserController {
 	
 	@RequestMapping("/allProgram")
 	public String allProgram(@RequestParam(defaultValue = "1") int pageNum, Model model) {
-		
 		Map<String, Object> map=programService.getProgramList(pageNum);
 		
 		model.addAttribute("pager", map.get("pager"));
 		model.addAttribute("programList", map.get("programList"));
-		System.out.println("programList = " + map.get("programList"));
 		
 		return "admin/all_program";
 	}
@@ -341,12 +343,19 @@ public class UserController {
 
 	/*********************** 공지사항 관리 start ***********************/
 	@RequestMapping("/allNotice")
-	public String allNotice() {
+	public String allNotice(@RequestParam(defaultValue = "1") int pageNum, Model model) {
+		Map<String, Object> map=noticeService.getNoticeListTen(pageNum);
+		
+		model.addAttribute("pager", map.get("pager"));
+		model.addAttribute("noticeList", map.get("noticeList"));
+		
 		return "admin/all_notice";
 	}
 	
 	@RequestMapping("/detailNotice")
-	public String detailNotice() {
+	public String detailNotice(@RequestParam int noticeNo, Model model, HttpSession session) {
+		model.addAttribute("getNotice", noticeService.getNotice(noticeNo));
+
 		return "admin/detail_notice";
 	}
 	

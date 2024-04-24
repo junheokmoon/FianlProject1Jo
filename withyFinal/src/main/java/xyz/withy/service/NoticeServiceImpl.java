@@ -47,9 +47,9 @@ public class NoticeServiceImpl implements NoticeService {
 		NoticeDTO notice=noticeDAO.selectNotice(noticeNo);
 		if(notice == null ) {
 			throw new RuntimeException("게시글을 찾을 수 없습니다.");
+		}
+		return notice;
 	}
-	return notice;
-}
 
 	
 	//메소드의 매개변수로 요청 페이지 번호를 전달받아 게시글 목록을 검색하여 게시글 목록과
@@ -70,6 +70,24 @@ public class NoticeServiceImpl implements NoticeService {
 		
 		//요청 처리 메소드에게 반환될 처리결과가 저장된 Map 객체 생성
 		// => 요청 처리 메소드는 반환받은 Map 객체를 뷰에게 제공하여 출력 처리
+		Map<String, Object> resultMap=new HashMap<String, Object>();
+		resultMap.put("pager", pager);
+		resultMap.put("noticeList", noticeList);
+		
+		return resultMap;
+	}
+	
+	@Override
+	public Map<String, Object> getNoticeListTen(int pageNum) {
+		int totalSize=noticeDAO.selectNoticeCount();
+		
+		Pager pager=new Pager(pageNum, totalSize, 10, 5); //한 페이지에 10개 게시글 갯수 저장, 한 블럭에 출력될 페이지 번호를 5개 저장 
+		
+		Map<String, Object> pageMap=new HashMap<String, Object>();
+		pageMap.put("startRow", pager.getStartRow());
+		pageMap.put("endRow", pager.getEndRow());
+		List<NoticeDTO> noticeList=noticeDAO.selectNoticeList(pageMap);
+		
 		Map<String, Object> resultMap=new HashMap<String, Object>();
 		resultMap.put("pager", pager);
 		resultMap.put("noticeList", noticeList);

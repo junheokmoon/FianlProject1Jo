@@ -11,4 +11,5 @@ public interface NoticeService {
 	void removeNotice(int noticeNo); //삭제
 	NoticeDTO getNotice(int noticeNo); //단일행 검색
 	Map<String, Object> getNoticeList(int pageNum); //전체공지목록
+	Map<String, Object> getNoticeListTen(int pageNum); //전체공지목록
 }
