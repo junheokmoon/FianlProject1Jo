@@ -64,6 +64,13 @@
 	overflow: hidden; /* 넘친 텍스트 숨김 */
 	text-overflow: ellipsis; /* 넘친 텍스트 대신 ...으로 표시 */
 }
+
+#reason2 {
+	max-width: 150px; /* 원하는 최대 너비 지정 */
+	white-space: nowrap; /* 줄 바꿈 방지 */
+	overflow: hidden; /* 넘친 텍스트 숨김 */
+	text-overflow: ellipsis; /* 넘친 텍스트 대신 ...으로 표시 */
+}
 </style>
 <body>
 	<!-- ###################### 최근 회원가입 start ###################### -->
@@ -167,49 +174,33 @@
 							<table class="table table-striped table-hover" style="font-size: 15px; text-align: center;">
 								<thead>
 									<tr>
-										<th width="12%" style="text-align: center;">문의 제목</th>
-										<th width="12%" style="text-align: center;">문의 종류</th>
-										<th width="12%" style="text-align: center;">작성자</th>
-										<th width="10%" style="text-align: center;">작성일</th>
-										<th width="10%" style="text-align: center;">답변 상태</th>
+										<th width="5%" style="text-align: center;">문의제목</th>
+										<th width="10%" style="text-align: center;">문의종류</th>
+										<th width="10%" style="text-align: center;">작성자</th>
+										<th width="12%" style="text-align: center;">작성일</th>
+										<th width="12%" style="text-align: center;">답변상태</th>
 									</tr>
 								</thead>
 								<tbody>
-									<tr>
-										<td id="reason">파티장 정산문의 입니당아아ㅏ앙ㅏㅏㅏㅏㅏㅏㅏㅏ</td>
-										<td>1:1 문의</td>
-										<td>한지원</td>
-										<td>2024-03-26</td>
-										<td>미완료</td>
-									</tr>
-									<tr>
-										<td id="reason">파티장 정산문의 입니당아아ㅏ앙ㅏㅏㅏㅏㅏㅏㅏㅏ</td>
-										<td>1:1 문의</td>
-										<td>한지원</td>
-										<td>2024-03-26</td>
-										<td>미완료</td>
-									</tr>
-									<tr>
-										<td id="reason">파티장 정산문의 입니당아아ㅏ앙ㅏㅏㅏㅏㅏㅏㅏㅏ</td>
-										<td>1:1 문의</td>
-										<td>한지원</td>
-										<td>2024-03-26</td>
-										<td>미완료</td>
-									</tr>
-									<tr>
-										<td id="reason">파티장 정산문의 입니당아아ㅏ앙ㅏㅏㅏㅏㅏㅏㅏㅏ</td>
-										<td>1:1 문의</td>
-										<td>한지원</td>
-										<td>2024-03-26</td>
-										<td>미완료</td>
-									</tr>
-									<tr>
-										<td id="reason">파티장 정산문의 입니당아아ㅏ앙ㅏㅏㅏㅏㅏㅏㅏㅏ</td>
-										<td>1:1 문의</td>
-										<td>한지원</td>
-										<td>2024-03-26</td>
-										<td>미완료</td>
-									</tr>
+									<c:forEach var="inquiryList" items="${inquiryList }">
+										<tr>
+											<td id="reason2">${inquiryList.inquiryTitle}</td>
+											<c:if test="${inquiryList.inquiryType == 1}">
+												<td style="text-align: center;">1:1 문의</td>
+											</c:if>
+											<c:if test="${inquiryList.inquiryType == 2}">
+												<td style="text-align: center;">신고 문의</td>
+											</c:if>
+											<td style="text-align: center;">${inquiryList.userId}</td>
+											<td style="text-align: center;">${fn:substring(inquiryList.inquiryDate,0,10) }</td>
+											<c:if test="${inquiryList.inquiryStatus == 1 }">
+												<td style="text-align: center;">답변대기중</td>
+											</c:if>
+											<c:if test="${inquiryList.inquiryStatus == 2 }">
+												<td style="text-align: center;">답변완료</td>
+											</c:if>
+										</tr>
+									</c:forEach>
 								</tbody>
 							</table>
 						</div>

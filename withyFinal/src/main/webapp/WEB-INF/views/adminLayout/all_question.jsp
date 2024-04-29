@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"  %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 
@@ -60,94 +61,38 @@
 										<thead>
 											<tr>
 												<th width="10%" style="text-align: center;">NO</th>
-												<th width="40%" style="text-align: center;">문의 제목</th>
-												<th width="20%" style="text-align: center;">문의 종류</th>
-												<th width="10%" style="text-align: center;">작성자</th>
-												<th width="10%" style="text-align: center;">작성일</th>
-												<th width="10%" style="text-align: center;">답변 상태</th>
+												<th width="30%" style="text-align: center;">문의 제목</th>
+												<th width="15%" style="text-align: center;">문의 종류</th>
+												<th width="15%" style="text-align: center;">작성자</th>
+												<th width="15%" style="text-align: center;">작성일</th>
+												<th width="15%" style="text-align: center;">답변 상태</th>
 											</tr>
 										</thead>
 										<tbody>
-											<tr>
-												<td>1</td>
-												<td><a href="<c:url value="/admin/detailQuestion"/>" class="btn-link">파티장 정산문의</a></td>
-												<td>1:1 문의</td>
-												<td>한지원</td>
-												<td>24-03-26</td>
-												<td>완료</td>
-											</tr>
-											<tr>
-												<td>1</td>
-												<td><a href="#" class="btn-link">파티장 정산문의</a></td>
-												<td>1:1 문의</td>
-												<td>한지원</td>
-												<td>24-03-26</td>
-												<td>완료</td>
-											</tr>
-											<tr>
-												<td>1</td>
-												<td><a href="#" class="btn-link">파티장 정산문의</a></td>
-												<td>1:1 문의</td>
-												<td>한지원</td>
-												<td>24-03-26</td>
-												<td>완료</td>
-											</tr>
-											<tr>
-												<td>1</td>
-												<td><a href="#" class="btn-link">파티장 정산문의</a></td>
-												<td>1:1 문의</td>
-												<td>한지원</td>
-												<td>24-03-26</td>
-												<td>완료</td>
-											</tr>
-											<tr>
-												<td>1</td>
-												<td><a href="#" class="btn-link">파티장 정산문의</a></td>
-												<td>1:1 문의</td>
-												<td>한지원</td>
-												<td>24-03-26</td>
-												<td>완료</td>
-											</tr>
-											<tr>
-												<td>6</td>
-												<td><a href="detail_question.jsp" class="btn-link">파티장 신고합니다.</a></td>
-												<td>신고 문의</td>
-												<td>한지원</td>
-												<td>24-03-26</td>
-												<td>미완료</td>
-											</tr>
-											<tr>
-												<td>6</td>
-												<td><a href="#" class="btn-link">파티장 신고합니다.</a></td>
-												<td>신고 문의</td>
-												<td>한지원</td>
-												<td>24-03-26</td>
-												<td>미완료</td>
-											</tr>
-											<tr>
-												<td>6</td>
-												<td><a href="#" class="btn-link">파티장 신고합니다.</a></td>
-												<td>신고 문의</td>
-												<td>한지원</td>
-												<td>24-03-26</td>
-												<td>미완료</td>
-											</tr>
-											<tr>
-												<td>6</td>
-												<td><a href="#" class="btn-link">파티장 신고합니다.</a></td>
-												<td>신고 문의</td>
-												<td>한지원</td>
-												<td>24-03-26</td>
-												<td>미완료</td>
-											</tr>
-											<tr>
-												<td>6</td>
-												<td><a href="#" class="btn-link">파티장 신고합니다.</a></td>
-												<td>신고 문의</td>
-												<td>한지원</td>
-												<td>24-03-26</td>
-												<td>미완료</td>
-											</tr>
+											<c:forEach var="inquiryList" items="${inquiryList }">
+												<tr>
+													<td style="text-align: center;">${inquiryList.rn}</td>
+													<td>
+														<a href="<c:url value="detailQuestion"><c:param name="inquiryNo" value="${inquiryList.inquiryNo}"/></c:url>" class="btn-link" >
+															${inquiryList.inquiryTitle}
+														</a>
+													</td>
+													<c:if test="${inquiryList.inquiryType == 1}">
+														<td style="text-align: center;">1:1 문의</td>
+													</c:if>
+													<c:if test="${inquiryList.inquiryType == 2}">
+														<td style="text-align: center;">신고 문의</td>
+													</c:if>
+													<td style="text-align: center;">${inquiryList.userId}</td>
+													<td style="text-align: center;">${fn:substring(inquiryList.inquiryDate,0,10) }</td>
+													<c:if test="${inquiryList.inquiryStatus == 1 }">
+														<td style="text-align: center;">답변대기중</td>
+													</c:if>
+													<c:if test="${inquiryList.inquiryStatus == 2 }">
+														<td style="text-align: center;">답변완료</td>
+													</c:if>
+												</tr>
+											</c:forEach>
 										</tbody>
 									</table>
 									
@@ -165,17 +110,36 @@
 									</div> -->
 									<!-- 검색하기 end -->
 									
-									<div class="panel-body text-center">
-										<ul class="pagination" >
-											<li class="disabled"><a href="#" class="fa fa-angle-double-left"></a></li>
-											<li class="active"><a href="#">1</a></li>
-											<li><a href="#">2</a></li>
-											<li><a href="#">3</a></li>
-											<li><a href="#">4</a></li>
-											<li><span>...</span></li>
-											<li><a href="#">20</a></li>
-											<li><a href="#" class="fa fa-angle-double-right"></a></li>
-										</ul>
+									<%-- 페이지 번호 출력 --%>
+									<div id="hello" style="text-align: center; padding-top: 40px; padding-bottom: 20px; font-size: 18px;">
+										<c:choose>
+											<c:when test="${pager.startPage > pager.blockSize }">
+												<a href="<c:url value="/admin/allQuestion"/>?pageNum=${pager.prevPage}">[이전]</a>
+											</c:when>
+											<c:otherwise>
+												[이전]
+											</c:otherwise>
+										</c:choose>
+										
+										<c:forEach var="i" begin="${pager.startPage }" end="${pager.endPage }" step="1">
+											<c:choose>
+												<c:when test="${pager.pageNum != i }">
+													<a href="<c:url value="/admin/allQuestion"/>?pageNum=${i}">[${i}]</a>
+												</c:when>
+												<c:otherwise>
+													[${i}]
+												</c:otherwise>
+											</c:choose>
+										</c:forEach>
+										
+										<c:choose>
+											<c:when test="${pager.endPage != pager.totalPage }">
+												<a href="<c:url value="/admin/allQuestion"/>?pageNum=${pager.nextPage}">[다음]</a>
+											</c:when>
+											<c:otherwise>
+												[다음]
+											</c:otherwise>
+										</c:choose>		
 									</div>
 								</div>
 							</div>

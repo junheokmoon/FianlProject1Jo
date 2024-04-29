@@ -21,11 +21,13 @@ import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.multipart.MultipartFile;
 
 import lombok.RequiredArgsConstructor;
+import xyz.withy.dto.InquiryDTO;
 import xyz.withy.dto.NoticeDTO;
 import xyz.withy.dto.OttkindDTO;
 import xyz.withy.dto.PointDTO;
 import xyz.withy.dto.ProgramDTO;
 import xyz.withy.dto.TicketDTO;
+import xyz.withy.service.InquiryService;
 import xyz.withy.service.NoticeService;
 import xyz.withy.service.OttkindService;
 import xyz.withy.service.PointService;
@@ -44,12 +46,14 @@ public class UserController {
 	private final OttkindService ottkindService; 
 	private final ProgramService programService;
 	private final NoticeService noticeService;
+	private final InquiryService inquiryService;
 	private final WebApplicationContext context;
 	
 	@RequestMapping("/")
 	public String admin(Model model) {
 		model.addAttribute("userJoindateList", userService.getUserJoindateList());
 		model.addAttribute("addPointList", pointService.getAddPointList());
+		model.addAttribute("inquiryList", inquiryService.getInquiryListFive());
 
 		return "admin";
 	}
@@ -265,7 +269,6 @@ public class UserController {
 
 		return "admin/update_program";
 	}
-	
 
 	@RequestMapping(value = "/updateProgram", method = RequestMethod.POST)
 	public String updateProgram(@ModelAttribute ProgramDTO program, @RequestParam("programNo") int programNo
@@ -384,23 +387,56 @@ public class UserController {
 	
 	/************************* 고객지원 start *************************/
 	@RequestMapping("/allQuestion")
-	public String allQuestion() {
+	public String allQuestion(@RequestParam(defaultValue = "1") int pageNum, Model model) {
+		Map<String, Object> map=inquiryService.getInquiryListTen(pageNum);
+		
+		model.addAttribute("pager", map.get("pager"));
+		model.addAttribute("inquiryList", map.get("inquiryList"));
+		
 		return "admin/all_question";
 	}
 
 	@RequestMapping("/detailQuestion")
-	public String detailQuestion() {
+	public String detailQuestion(@RequestParam int inquiryNo, Model model, HttpSession session) {
+		model.addAttribute("getInquiryAndUser", inquiryService.getInquiryAndUser(inquiryNo));
+
 		return "admin/detail_question";
 	}
 
-	@RequestMapping("/addAnswer")
-	public String addAnswer() {
+	@RequestMapping(value = "/addAnswer", method = RequestMethod.GET)
+	public String addAnswer(Model model, @RequestParam("inquiryNo") int inquiryNo, HttpSession session) {
+		model.addAttribute("getInquiryAndUser", inquiryService.getInquiryAndUser(inquiryNo));
+
 		return "admin/add_answer";
 	}
+	
+	@RequestMapping(value = "/addAnswer", method = RequestMethod.POST)
+	public String addAnswer(@ModelAttribute InquiryDTO inquiry, @RequestParam("inquiryNo") int inquiryNo, 
+			@RequestParam("inquiryAnswer") String inquiryAnswer) throws IOException {
+		inquiry.setInquiryNo(inquiryNo);
+		inquiry.setInquiryAnswer(inquiryAnswer);
 
-	@RequestMapping("/updateAnswer")
-	public String updateAnswer() {
+		inquiryService.modifyInquiryAnswer(inquiry);
+		
+	    return "redirect:/admin/allQuestion";
+	}
+
+	@RequestMapping(value = "/updateAnswer", method = RequestMethod.GET)
+	public String updateAnswer(Model model, @RequestParam("inquiryNo") int inquiryNo, HttpSession session) {
+		model.addAttribute("getInquiryAndUser", inquiryService.getInquiryAndUser(inquiryNo));
+
 		return "admin/update_answer";
+	}
+	
+	@RequestMapping(value = "/updateAnswer", method = RequestMethod.POST)
+	public String updateAnswer(@ModelAttribute InquiryDTO inquiry, @RequestParam("inquiryNo") int inquiryNo, 
+			@RequestParam("inquiryAnswer") String inquiryAnswer) throws IOException {
+		inquiry.setInquiryNo(inquiryNo);
+		inquiry.setInquiryAnswer(inquiryAnswer);
+
+		inquiryService.modifyInquiryAnswer(inquiry);
+		
+	    return "redirect:/admin/allQuestion";
 	}
 	/************************* 고객지원 end *************************/
 	

@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"  %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 
@@ -56,60 +57,72 @@
 								<div class="panel-body">
 									<div class="form-group">
 										<label class="col-sm-3" for="ccccc" style="text-indent: 5em;">문의번호</label>
-										<%-- <div class="col-sm-6" style="text-align:left;"><%=product.getProductCom()%></div> --%>
-										<div class="col-sm-6" style="text-align:left;">100</div>
+										<div class="col-sm-6" style="text-align:left;">${getInquiryAndUser.inquiryNo }</div>
 									</div>
 									<div class="form-group">
 										<label class="col-sm-3" for="ccccc" style="text-indent: 5em;">문의종류</label>
-										<div class="col-sm-6" style="text-align:left;">1:1 문의</div>
+										<c:if test="${getInquiryAndUser.inquiryType == 1}">
+											<div class="col-sm-6" style="text-align:left;">1:1 문의</div>
+										</c:if>
+										<c:if test="${getInquiryAndUser.inquiryType == 2}">
+											<div class="col-sm-6" style="text-align:left;">신고 문의</div>
+										</c:if>
 									</div>
 									<div class="form-group">
 										<label class="col-sm-3" for="ccccc" style="text-indent: 5em;">답변상태</label>
-										<div class="col-sm-6" style="text-align:left;">답변완료</div>
+										<c:if test="${getInquiryAndUser.inquiryStatus == 1}">
+											<div class="col-sm-6" style="text-align:left;">답변대기중</div>
+										</c:if>
+										<c:if test="${getInquiryAndUser.inquiryStatus == 2}">
+											<div class="col-sm-6" style="text-align:left;">답변완료</div>
+										</c:if>
 									</div>
 									<div class="form-group">
-										<label class="col-md-3" style="text-indent: 5em;">회원번호</label>
-										<div class="col-sm-6" style="text-align:left;">1</div>
+										<label class="col-md-3" style="text-indent: 5em;">회원아이디</label>
+										<div class="col-sm-6" style="text-align:left;">${getInquiryAndUser.userId }</div>
 									</div>
 									<div class="form-group">
-										<label class="col-md-3" style="text-indent: 5em;">작성자</label>
-										<div class="col-sm-6" style="text-align:left;">홍길동</div>
+										<label class="col-md-3" style="text-indent: 5em;">작성자명</label>
+										<div class="col-sm-6" style="text-align:left;">${getInquiryAndUser.userName}</div>
 									</div>
 									<div class="form-group">
 										<label class="col-md-3" style="text-indent: 5em;">작성일</label>
-										<div class="col-sm-6" style="text-align:left;">24-03-28</div>
+										<div class="col-sm-6" style="text-align:left;">${fn:substring(getInquiryAndUser.inquiryDate,0,10) }</div>
 									</div>
 									<div class="form-group">
 										<label class="col-sm-3" for="aaaaa" style="text-indent: 5em;">문의제목</label>
-										<div class="col-sm-6" style="text-align:left;">파티장 정산문의</div>
+										<div class="col-sm-6" style="text-align:left;">${getInquiryAndUser.inquiryTitle}</div>
 									</div>
 									<div class="form-group">
 										<label class="col-sm-3" for="ccccc" style="text-indent: 5em;">문의내용</label>
 										<div class="col-sm-6">
 											<textarea rows="5" class="form-control"
-												readonly placeholder="파티장에게 정산금은 언제 지급되나요?"></textarea>
+												readonly placeholder="${getInquiryAndUser.inquiryContent}"></textarea>
 										</div>
 									</div>
 									<div class="form-group">
 										<label class="col-md-3" style="text-indent: 5em;">이미지</label>
 										<div style="padding-left: 26%;">
-											<img src="img/qqq.png" width="300px" style=" padding-top: 10px;">
+											<img src="<c:url value='${fn:split(getInquiryAndUser.inquiryImage, \"_\")[1]}'/>" width="300px" style=" padding-top: 10px;">
 										</div>
 									</div>
 									<div class="form-group">
 										<label class="col-md-3" style="text-indent: 5em;">답변내용</label>
 										<div class="col-sm-6">
 											<textarea rows="5" class="form-control"
-												readonly placeholder="파티원이 모두 모였을 때 정산금이 한번에 지급됩니다."></textarea>
+												readonly placeholder="${getInquiryAndUser.inquiryAnswer}"></textarea>
 										</div>
 									</div>
 								</div>
 								<div class="text-right" style="padding: 10px;">									
-									<!-- if(답변내용 == null) { -->
-										<button class="btn btn-info btn-rounded" type="button" onclick="location.href='${pageContext.request.contextPath}/admin/addAnswer'" style="font-size: 15px">답변 작성</button>
-									<!-- } else if(답변내용 != null) { -->
-										<button class="btn btn-info btn-rounded" type="button" onclick="location.href='${pageContext.request.contextPath}/admin/updateAnswer'" style="font-size: 15px">답변 수정</button>
-									<!-- } -->
+									<c:if test="${getInquiryAndUser.inquiryAnswer == null}">
+										<button class="btn btn-info btn-rounded" type="button" onclick="location.href='<c:url value="addAnswer">
+										<c:param name="inquiryNo" value="${getInquiryAndUser.inquiryNo}"/></c:url>'" style="font-size: 15px">답변작성</button>
+									</c:if>
+									<c:if test="${getInquiryAndUser.inquiryAnswer != null}">
+										<button class="btn btn-info btn-rounded" type="button" onclick="location.href='<c:url value="updateAnswer">
+										<c:param name="inquiryNo" value="${getInquiryAndUser.inquiryNo}"/></c:url>'" style="font-size: 15px">답변수정</button>
+									</c:if>
 									<button class="btn btn-info btn-rounded" type="button" onclick="location.href='${pageContext.request.contextPath}/admin/allQuestion'" style="font-size: 15px">목록</button>
 								</div>
 							</form>

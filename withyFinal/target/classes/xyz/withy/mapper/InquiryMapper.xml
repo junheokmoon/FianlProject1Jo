@@ -25,7 +25,19 @@
 		 where inquiry_no=#{inquiryNo}		
 	</update>
 	
-	
+	<!-- 문의 답변 등록/수정 -->
+	<update id="updateInquiryAnswer">
+		update inquiry
+		<set>
+			<if test="inquiryAnswer != null and inquiryAnswer != ''">
+				inquiry_answer=#{inquiryAnswer}, inquiry_status=2
+			</if>
+			<if test="inquiryAnswer == null or inquiryAnswer == ''">
+				inquiry_answer=#{inquiryAnswer}, inquiry_status=1
+			</if>
+		</set>
+		where inquiry_no=#{inquiryNo}		
+	</update>
 	
 	<delete id="deleteInquiry">
 		delete from inquiry where inquiry_no=#{inquiryNo} 
@@ -36,6 +48,13 @@
 	<select id="selectInquiry" resultType="InquiryDTO">
 		select inquiry_no, inquiry_title, inquiry_content, inquiry_image, inquiry_date, inquiry_update, inquiry_answer 
 			, inquiry_type, inquiry_status, inquiry_user_no from inquiry where inquiry_no=#{inquiryNo}
+	</select>
+	 
+	<!-- 글번호 전달받아 검색(USERTABLE 과 조인) -->
+	<select id="selectInquiryAndUser" resultType="InquiryDTO">
+		select inquiry_no, inquiry_title, inquiry_content, inquiry_image, inquiry_date
+		    , inquiry_update, inquiry_answer, inquiry_type, inquiry_status, inquiry_user_no
+		    , user_id, user_name from inquiry join usertable on inquiry_user_no=user_no where inquiry_no=#{inquiryNo}
 	</select>
 	
 	<!-- 회원번호를 전달받아 검색 -->
@@ -54,6 +73,24 @@
 		select * from (select rownum rn, inquiry.* from (select inquiry_no, inquiry_title
 			, inquiry_content, inquiry_image, inquiry_date, inquiry_update, inquiry_answer, inquiry_type
 			, inquiry_status, inquiry_user_no from usertable join inquiry on user_no=inquiry_user_no where user_no=4 order by inquiry_no desc) inquiry) where rn between #{startRow} and #{endRow}
+	</select>
+	
+	<!-- 페이징 처리 -->
+	<select id="selectInquiryListTen" resultType="InquiryDTO">
+		select * from (select rownum rn, inquiry.* from (select inquiry_no, inquiry_title
+		    , inquiry_content, inquiry_image, inquiry_date, inquiry_update, inquiry_answer, inquiry_type
+		    , inquiry_status, inquiry_user_no, user_name, user_id from usertable join inquiry on user_no=inquiry_user_no 
+		    order by inquiry_no desc) inquiry) where rn between #{startRow} and #{endRow}
+	</select>
+	
+	<!-- 신규문의 상위 5개 -->
+	<select id="selectInquiryListFive" resultType="InquiryDTO">
+		<![CDATA[
+		select * from (select inquiry_no, inquiry_title, inquiry_content, inquiry_image
+		    , inquiry_date, inquiry_update, inquiry_answer, inquiry_type, inquiry_status
+		    , inquiry_user_no, user_id from inquiry join usertable on user_no=inquiry_user_no 
+		    order by inquiry_no desc) where rownum <= 5
+		]]>
 	</select>
 	
 	<!-- 검색대상과 검색단어를 전달받아 공지사항 테이블에 저장된 게시글 중 

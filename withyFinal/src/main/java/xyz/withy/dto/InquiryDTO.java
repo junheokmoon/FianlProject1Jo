@@ -1,5 +1,8 @@
 package xyz.withy.dto;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+
 /*
 INQUIRY_TITLE   NOT NULL VARCHAR2(100)  문의제목
 INQUIRY_CONTENT NOT NULL VARCHAR2(1000) 문의내용
@@ -13,8 +16,12 @@ INQUIRY_USER_NO          NUMBER(5)      회원번호
 */
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class InquiryDTO {
 	private int inquiryNo;
 	private String inquiryTitle;
@@ -26,4 +33,10 @@ public class InquiryDTO {
 	private String inquiryStatus;
 	private String inquiryImage;
 	private int inquiryUserNo;
+
+	private int rn;	// NO
+
+	// USERTABLE 과 조인
+	private String userId;
+	private String userName;
 }
