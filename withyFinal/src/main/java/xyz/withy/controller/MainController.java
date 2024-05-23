@@ -107,4 +107,9 @@ public class MainController {
 	   public String fotgotid() {
 	      return "/login/forgotid";
 	}
+    @RequestMapping("/withyFinal/")
+    public String main() {
+        return "main"; // 실제로 보여줄 뷰 파일의 이름
+    }
 }
+

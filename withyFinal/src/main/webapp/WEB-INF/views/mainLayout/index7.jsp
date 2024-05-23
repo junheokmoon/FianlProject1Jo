@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="xyz.withy.dto.UserDTO" %>
+<%
+    UserDTO loginUser = (UserDTO) session.getAttribute("loginUser");
+%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -123,12 +127,25 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#pricing">가이드</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#testimonials">로그인</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link last-menu-item" href="#contact">마이페이지</a>
-                    </li>
+                   <% if (loginUser != null) { %>
+     			   <li class="nav-item">
+      		      <p><%=loginUser.getUserName()%>님 환영합니다!</p>
+      			  </li>
+      			  <li class="nav-item">
+      			      <a class="nav-link" href="/logout">로그아웃</a>
+      			  </li>
+      			  <li class="nav-item">
+          		  <a class="nav-link last-menu-item" href="#contact">마이페이지</a>
+       			 </li>
+   				 <% } else { %>
+   					 <li class="nav-item">
+    			    <a class="nav-link" href="/login">로그인</a>
+    				</li>
+   				 <li class="nav-item">
+      			  <a class="nav-link last-menu-item" href="#contact">회원가입</a>
+    			</li>
+				<% } %>
+				</ul>
                 </ul><!-- / navbar-nav -->
             </div><!-- / navbar-collapse -->
         </div><!-- / container -->

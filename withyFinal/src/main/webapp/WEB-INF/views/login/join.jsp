@@ -36,13 +36,7 @@
     <!--Page Load Progress Bar [ OPTIONAL ]-->
     <link href="<c:url value="/plugins/pace/pace.min.css"/>" rel="stylesheet">
     <script src="<c:url value="/plugins/pace/pace.min.js"/>"></script>
-   
-   <script>
-    function submitForm() {
-    $(".user").submit(); 
-        }
-    
-    </script>
+  
    </head>
    
    <body> 
@@ -58,17 +52,16 @@
        <div class="text-center">
        <h1 class="h4 text-gray-900 mb-4">회원가입</h1>
        </div>
-       <form class="user" method="post" action="<c:url value="login/join"/>">
-       <div class="form-group row">
-        <div class="col-sm-9">
-        
-        <input type="text" class="form-control form-control-user" id="exampleInputId" placeholder="아이디" name="userId">
-        </div>
-        <div class="col-sm-3">
-        <button class="btn btn-primary" type="button">중복 확인</button>
-        </div>
-        </div>
-
+       <form class="user" method="post" action="<c:url value="/login/join"/>">
+         <div class="form-group">
+           <div class="input-group">
+             <input type="text" class="form-control form-control-user" id="userId" placeholder="아이디" name="userId">
+             <div class="input-group-append">
+               <button class="btn btn-primary" type="button" id="checkUserId">중복 확인</button>
+             </div>
+           </div>
+           <span id="userIdMessage"></span>
+         </div>
 
         <div class="form-group">
         <input type="password" class="form-control form-control-user"
@@ -83,6 +76,7 @@
         <div class="form-group">
         <input type="email" class="form-control form-control-user" id="exampleInputEmail"
         placeholder="이메일" name="userEmail">
+        <span id="userEmailMessage"></span>
         </div>
 
         <div class="form-group">
@@ -91,50 +85,93 @@
 
         <div class="form-group">
         <input type="text" class="form-control form-control-user"
-        id="exampleInputBirthdate" placeholder="생년월일" name="userBirthday">
+        id="exampleInputBirthdate" placeholder="생년월일 (예: 19900101)" name="userBirthday">
+        <span id="userBirthdayMessage"></span>
         </div>
 
-        <div class="input-group">
+        <div class="form-group">
         <input type="text" class="form-control form-control-user" id="exampleInputNickname"
         placeholder="닉네임" name="userNickname">
-        
-        <div class="input-group-append">
-        <button class="btn btn-primary" type="button">중복 확인</button>
-        </div>
         </div>
         
-        <a href="javascript:void(0);" class="btn btn-primary btn-user btn-block" onclick="submitForm()">회원가입</a>
-         </form>
-        
-        <hr>
-        </form>
-        <hr>
-        <div class="text-center">
-        <a class="btn-link" href="<c:url value="/login/forgotpasswd"/>">비밀번호가 기억나지 않으세요?</a>
-        </div>
-        
-        <div class="text-center">
-        <a class="btn-link" href="<c:url value="/login"/>">이미 회원이신가요? 로그인하기</a>
-        </div>
-        </div>
+       <button type="submit" class="btn btn-primary btn-user btn-block">회원가입</button>
+</form>
+
+<hr>
+
+<div class="text-center">
+  <a class="btn-link" href="<c:url value="/login/forgotpasswd"/>">비밀번호가 기억나지 않으세요?</a>
+</div>
+
+<div class="text-center">
+  <a class="btn-link" href="<c:url value="/login"/>">이미 회원이신가요? 로그인하기</a>
+</div>
         </div>
         </div>
         </div>
         </div>
         </div>
-    
+        </div>
+   <%--  
     <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="<c:url value="/vendor/jquery/jquery.min.js"/>"></script>
+    <script src="<c:url value="/vendor/bootstrap/js/bootstrap.bundle.min.js"/>"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="<c:url value="/vendor/jquery-easing/jquery.easing.min.js"/>"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
+    <script src="<c:url value="/js/sb-admin-2.min.js"/>"></script>
     <script src="<c:url value="/js/bootstrap.bundle.min.js"/>"></script>
     <script src="<c:url value="/js/theme.js"/>"></script>
+--%>    
+ <script>
+    $(document).ready(function() {
+        $("#checkUserId").click(function() {
+            var userId = $("#userId").val();
+            
+            if (userId.length === 0) {
+                $("#userIdMessage").text("아이디를 입력해 주세요.").css("color", "red");
+            } else {
+                $.ajax({
+                    url: "<c:url value='/login/checkUserId'/>",
+                    type: "POST",
+                    data: { userId: userId },
+                    success: function(response) {
+                        if (response === "duplicate") {
+                            $("#userIdMessage").text("이미 사용 중인 아이디입니다.").css("color", "red");
+                        } else {
+                            $("#userIdMessage").text("사용 가능한 아이디입니다.").css("color", "green");
+                        }
+                    }
+                });
+            }
+        });
 
+        $("#exampleInputEmail").on("blur", function() {
+            var email = $(this).val();
+            var emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+
+            if (!emailRegex.test(email)) {
+                $("#userEmailMessage").text("이메일 형식이 올바르지 않습니다.").css("color", "red");
+            } else {
+                $("#userEmailMessage").text("");
+            }
+        });
+		
+        
+        $("#exampleInputBirthdate").on("blur", function() {
+            var birthday = $(this).val();
+            var birthdayRegex = /^(19[0-9]{2}|20\d{2})(0[0-9]|1[0-2])(0[1-9]|[1-2][0-9]|3[0-1])$/;
+
+            if (!birthdayRegex.test(birthday)) {
+                $("#userBirthdayMessage").text("생년월일 형식이 올바르지 않습니다. (예: 19900101)").css("color", "red");
+            } else {
+                $("#userBirthdayMessage").text("");
+            }
+        });
+    });
+</script>
 </body>
 
 </html>

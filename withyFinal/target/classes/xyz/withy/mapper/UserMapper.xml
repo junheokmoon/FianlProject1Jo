@@ -44,7 +44,7 @@
 		update usertable set user_point = #{userPoint} where user_no = #{userNo}
 	</update>
 	
-	<insert id="userJoin"><!-- 회원가입 -->
+	<insert id="insertUser"><!-- 회원가입 -->
         insert into usertable values (user_no_seq.nextval, #{userId}, #{userPassword}, #{userName}, #{userEmail}, #{userPhone}, 1, #{userBirthday}, #{userNickname}, sysdate, 0)
     </insert>
 
